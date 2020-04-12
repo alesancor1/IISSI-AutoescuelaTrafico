@@ -3,10 +3,10 @@
 
 function loadController($controller){
 	$controller = ucwords($controller).'Controller';
-	$strFileController='C:/xampp/htdocs/IISSI/AUTOESCUELA/app/controllers/'.$controller.'.php';
+	$strFileController=__DIR__.'/../app/controllers/'.$controller.'.php';
 
 	if(!is_file($strFileController)){
-		$strFileController='C:/xampp/htdocs/IISSI/AUTOESCUELA/app/controllers/'.ucwords(DEFAULT_CONTROLLER).'Controller.php';
+		$strFileController=__DIR__.'/../app/controllers/'.ucwords(DEFAULT_CONTROLLER).'Controller.php';
 	}
 
 	require_once $strFileController;

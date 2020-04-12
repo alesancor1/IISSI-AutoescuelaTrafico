@@ -1,19 +1,17 @@
 <?php
 
-require_once("C:/xampp/htdocs/IISSI/AUTOESCUELA/app/models/Persona.php");
-
 class Alumno extends Persona {
 
 	private $fechaNacimiento;
 	private $clasesPagadas;
 	private $RMedico;
 
-	public function __construct($dni, $nombre, $apellidos, $telefono, $fechaNacimiento, $clasesPagadas, $RMedico) {
-		parent::__construct($dni, $nombre, $apellidos, $telefono);
-		$this -> fechaNacimiento = $fechaNacimiento;
-		$this -> clasesPagadas = $clasesPagadas;
-		$this -> RMedico = $RMedico == "Valido" ? new RMedicoEnum(RMedicoEnum::valido) : new RMedicoEnum(RMedicoEnum::noValido);
-	}
+//	public function _construct($dni, $nombre, $apellidos, $telefono, $fechaNacimiento, $clasesPagadas, $RMedico) {
+//		parent::_construct($dni, $nombre, $apellidos, $telefono);
+//		$this -> fechaNacimiento = $fechaNacimiento;
+//		$this -> clasesPagadas = $clasesPagadas;
+//		$this -> RMedico = $RMedico == "Valido" ? new RMedicoEnum(RMedicoEnum::valido) : new RMedicoEnum(RMedicoEnum::noValido);
+//	}
 
 	public function __construct($adapter){
 		$table="Alumnos";
