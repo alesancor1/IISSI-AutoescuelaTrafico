@@ -1,9 +1,0 @@
-<?php
-class MainPageController{
-
-	public function index(){
-		$this->view("mainPage", array());
-	}
-}
-
-?>
