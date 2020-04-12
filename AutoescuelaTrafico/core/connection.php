@@ -11,7 +11,7 @@ class Connection extends PDO {
 		$db_cfg= require_once 'app/config/db.php';
 		$this->host=$db_cfg["host"];
 		$this->user=$db_cfg["user"];
-        $this->pass=$db_cfg["pass"];
+        	$this->pass=$db_cfg["pass"];
 		$this->charset=$db_cfg["charset"];
 	}
 	
