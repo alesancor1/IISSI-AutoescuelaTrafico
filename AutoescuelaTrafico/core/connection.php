@@ -19,7 +19,7 @@ class Connection extends PDO {
 		
 		try{
 			$conexion=new PDO($host.';'.$charset,$user,$pass,array(PDO::ATTR_PERSISTENT => true));
-    		$conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    			$conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			return $conexion;
 	    }catch(PDOException $e){
 			$_SESSION['exception'] = $e->GetMessage();
