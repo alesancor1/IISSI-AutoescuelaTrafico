@@ -1,5 +1,5 @@
 <?php
-class EntidadBase{
+class BaseEntity{
     private $table;
     private $db;
  
