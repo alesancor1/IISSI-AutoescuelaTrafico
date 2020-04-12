@@ -7,12 +7,12 @@ class Persona extends BaseEntity {
 	private $apellidos;
 	private $telefono;
 
-//	public function _construct($dni, $nombre, $apellidos, $telefono) {
-//		$this -> dni = $dni;
-//		$this -> nombre = $nombre;
-//		$this -> apellidos = $apellidos;
-//		$this -> telefono = $telefono;
-//	}
+	public function __construct($dni, $nombre, $apellidos, $telefono) {
+		$this -> dni = $dni;
+		$this -> nombre = $nombre;
+		$this -> apellidos = $apellidos;
+		$this -> telefono = $telefono;
+	}
 
 	public function __construct($table, $adapter){
 		parent::__construct($table, $adapter);

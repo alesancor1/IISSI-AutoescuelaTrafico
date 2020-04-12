@@ -86,4 +86,17 @@
     </form>
 </div>
 
+
+<?php if(isset($allAlumnos)) {?>
+            <h3>Alumnos</h3>
+            
+            
+             <?php foreach($datos as $alumno) {?>
+                 <?php echo $alumno->nombre; ?>
+             <?php } ?>
+<?php } ?>
+
+
+
+
 </body>

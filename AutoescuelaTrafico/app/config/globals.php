@@ -1,4 +1,4 @@
 <?php
-define("DEFAULT_CONTROLLER", "MainPage");
+define("DEFAULT_CONTROLLER", "Alumnos");
 define("DEFAULT_ACTION", "index");
 ?>

@@ -1,5 +1,7 @@
 <?php
 
+// require_once ("C:/xampp/htdocs/IISSI/AUTOESCUELA.php");
+
 class AlumnosController extends BaseController {
 
 	public $conectar;
@@ -21,10 +23,8 @@ class AlumnosController extends BaseController {
 		$allAlumnos = $alumno->getAll();
         
         //Cargamos la vista index y le pasamos valores
-        $this->view("index",array(
-            "allAlumnos"=>$allAlumnos,
-            "Hola"    =>"Soy Víctor Robles"
-        ));
+        $this->view("mainPage",$listaAlumno
+        );
     }
      
     public function crear(){

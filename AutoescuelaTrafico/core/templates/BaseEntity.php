@@ -13,11 +13,21 @@ class BaseEntity{
     }
      
     public function getAll(){
-        $query=$this->db->query("SELECT * FROM $this->table ORDER BY id DESC");
+        $query=$this->db->query("SELECT * FROM ".$this->table ." ORDER BY DNI DESC");
  
-        while ($row = $query->fetch_object()) {
-           $resultSet[]=$row;
-        }
+ 
+ 		echo $this->table;
+ 		
+		$listaUsuarios= [];
+		
+		foreach ($query->fetchAll() as $usuario) {
+			$listaUsuarios[]= new Alumno($usuario['DNI'], $usuario['Nombre'],$usuario['Apellido'],$usuario['Telefono'],
+			$usuario['FechaNacimiento'],$usuario['ClasesPagadas'], $usuario['ReconocimientoMedico']);
+		}
+		
+        // while ($row = $query->fetchObject()) {
+           // $resultSet[]=$row;
+        // }
          
         return $resultSet;
     }
