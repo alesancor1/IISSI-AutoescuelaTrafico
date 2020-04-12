@@ -51,14 +51,14 @@ class AlumnosController extends BaseController {
             $alumno=new Alumno($this->adapter);
             $alumno->deleteById($id);
         }
-        $this->redirect();
+        $this->redirect("Alumnos", "index");
     }
      
      
     public function hola(){
-        $usuarios=new UsuariosModel($this->adapter);
-        $usu=$usuarios->getUnUsuario();
-        var_dump($usu);
+        $alumno=new AlumnosModel($this->adapter);
+        $alu=$alumno->getAlumnos();
+        var_dump($alu);
     }
 
 }
