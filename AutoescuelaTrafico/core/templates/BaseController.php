@@ -23,7 +23,7 @@ class BaseController{
         require_once __DIR__.'/../helpers/ViewHelpers.php';
         
         if($vista == 'error'){
-            require __DIR__.'/../../app/view/'.$vista.'.php';
+            require_once __DIR__.'/../../app/view/'.$vista.'.php';
         }   
         else{
             require_once __DIR__.'/../../app/views/'.$vista.'View.php';

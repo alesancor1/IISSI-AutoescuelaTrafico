@@ -12,7 +12,7 @@
         	<button type="submit">Buscar<i class="fa fa-search"></i></button>
     	</form>
   	</div>
-    <a class="logo" href="/main.php"><img src="" alt="Autoescuela tráfico"/> </a>
+    <a class="logo" href="/index.php"><img src="" alt="Autoescuela tráfico"/> </a>
     <input type="button" onclick="location.href=redirect('Login','index');" value="Iniciar sesión"/>
 </div>
 
