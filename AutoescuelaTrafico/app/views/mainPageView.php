@@ -9,10 +9,10 @@
 	<div class="search-container">
     	<form action="/action_page.php">
       	<input type="text" placeholder="Search.." name="search">
-        	<button type="submit"><i class="fa fa-search"></i></button>
+        	<button type="submit">Buscar<i class="fa fa-search"></i></button>
     	</form>
   	</div>
-    <a class="logo" href="/main.php"><img src="" alt="Autoescuela tráfico"/>
+    <a class="logo" href="/main.php"><img src="" alt="Autoescuela tráfico"/> </a>
     <input type="button" onclick="location.href=redirect('Login','index');" value="Iniciar sesión"/>
 </div>
 
@@ -24,15 +24,15 @@
 <!-- Botones -->
 <div class="buttons">
 	<div class="quienes_somos">
-    	<a href="#quienes_somos"> ¿Quiénes somos?
+    	<a href="#quienes_somos"> ¿Quiénes somos?</a>
     </div>
     
     <div class="ofertas">
-    	<a href="#ofertas"> Ofertas
+    	<a href="#ofertas"> Ofertas</a>
     </div>
     
     <div class="contacto">
-    	<a href="#contacto"> Contacto
+    	<a href="#contacto"> Contacto</a>
     </div>
 </div>
 
