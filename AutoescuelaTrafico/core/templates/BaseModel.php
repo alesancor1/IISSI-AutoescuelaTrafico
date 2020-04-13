@@ -27,5 +27,16 @@ class BaseModel extends BaseEntity{
         }         
         return $resultSet;
     }
+    public function ejecutaSql($query){
+        $stmt = $this->db()->query($query);
+        $res = null;
+        if($stmt == true){
+            $res = $stmt->fetchObject()->TIPO;
+        }
+        else{
+            echo "error:" . $e->GetMessage();
+        }
+        return $res;       
+    }
 }
 ?>

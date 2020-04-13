@@ -2,6 +2,9 @@
 //Configuracion global
 require_once __DIR__.'/../app/config/globals.php';
 
+//helpers
+require_once __DIR__.'/../core/helpers/funciones.php';
+
 //Controlador base
 require_once __DIR__.'/../core/templates/BaseController.php';
 

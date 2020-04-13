@@ -13,7 +13,7 @@
     	</form>
   	</div>
     <a class="logo" href="/index.php"><img src="" alt="Autoescuela tráfico"/> </a>
-    <input type="button" onclick="location.href=redirect('Login','index');" value="Iniciar sesión"/>
+    <input type="button" onclick="location.href='../../AutoescuelaTrafico/public/index.php?controller=Login';" value="Iniciar sesión"/>
 </div>
 
 <!-- Banner -->

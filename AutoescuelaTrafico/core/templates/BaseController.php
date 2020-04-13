@@ -19,9 +19,7 @@ class BaseController{
         foreach ($datos as $id_assoc => $valor) {
             ${$id_assoc}=$valor;
         }
-         
-        require_once __DIR__.'/../helpers/ViewHelpers.php';
-        
+                 
         if($vista == 'error'){
             require_once __DIR__.'/../../app/view/'.$vista.'.php';
         }   
@@ -29,9 +27,5 @@ class BaseController{
             require_once __DIR__.'/../../app/views/'.$vista.'View.php';
         }  
     }
-     
-    public function redirect($controlador=DEFAULT_CONTROLLER,$accion=DEFAULT_ACTION){
-        header("Location:index.php?controller=".$controlador."&action=".$accion);
-    } 
 }
 ?>
