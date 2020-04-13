@@ -24,7 +24,7 @@ class Connection extends PDO {
 			return $conexion;
 		} catch(PDOException $e) {
 			$_SESSION['exception'] = $e -> GetMessage();
-			header("Location: claseErrorAlIniciarConexionBD.php");
+			view("error");
 		}
 	}
 

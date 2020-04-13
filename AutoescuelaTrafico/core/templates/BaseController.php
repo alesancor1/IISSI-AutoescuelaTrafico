@@ -15,15 +15,19 @@ class BaseController{
      
     //Funcionalidades
      
-    public function view($vista,$datos){
+    public function view($vista,$datos=array()){
         foreach ($datos as $id_assoc => $valor) {
             ${$id_assoc}=$valor;
         }
          
         require_once __DIR__.'/../helpers/ViewHelpers.php';
-        $helper=new ViewHelpers();
-     
-        require_once __DIR__.'/../../app/views/'.$vista.'View.php';
+        
+        if($vista == 'error'){
+            require __DIR__.'/../../app/view/'.$vista.'.php';
+        }   
+        else{
+            require_once __DIR__.'/../../app/views/'.$vista.'View.php';
+        }  
     }
      
     public function redirect($controlador=DEFAULT_CONTROLLER,$accion=DEFAULT_ACTION){

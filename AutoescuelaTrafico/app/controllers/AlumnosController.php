@@ -53,7 +53,6 @@ class AlumnosController extends BaseController {
         $this->redirect("Alumnos", "index");
     }
      
-     
     public function hola(){
         $alumno=new AlumnosModel($this->adapter);
         $alu=$alumno->getAlumnos();
