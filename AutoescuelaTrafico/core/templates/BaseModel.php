@@ -7,15 +7,14 @@ class BaseModel extends BaseEntity{
         parent::__construct($table, $adapter);
          
     }
-
-    public function ejecutarSql($query){
+   /* public function ejecutarSql($query){
         $query=$this->db()->query($query);
         if($query==true){
-            if($query->num_rows>1){
+            if($query->rowCount()>1){
                 while($row = $query->fetchObject()) {
                    $resultSet[]=$row;
                 }
-            }elseif($query->num_rows==1){
+            }elseif($query->rowCount()==1){
                 if($row = $query->fetchObject()) {
                     $resultSet=$row;
                 }
@@ -26,17 +25,28 @@ class BaseModel extends BaseEntity{
             $resultSet=false;
         }         
         return $resultSet;
-    }
+    }*/
     public function ejecutaSql($query){
         $stmt = $this->db()->query($query);
         $res = null;
-        if($stmt == true){
-            $res = $stmt->fetchObject()->TIPO;
-        }
-        else{
-            echo "error:" . $e->GetMessage();
-        }
+
+        if($query==true){
+            $rowNum = $this->rowNum($query);
+            if($rowNum>1){
+                for($i=0;$i<$rowNum;$i++){
+                    $res[$i]=$stmt->fetchObject();
+                }
+            }
+            elseif($rowNum==1){
+                $res = $stmt->fetchObject();
+            }
+        }            
         return $res;       
+    }
+
+    public function rowNum($query){
+        $stmt = $this->db()->query("SELECT COUNT(*) NUM FROM (".$query.")");
+        return $stmt->fetchObject()->NUM;
     }
 }
 ?>

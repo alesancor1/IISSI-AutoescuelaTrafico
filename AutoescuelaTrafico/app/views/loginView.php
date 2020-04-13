@@ -4,7 +4,7 @@
 <body>
 <?php
 if($error){?>
-	<script>alert("ERROR");</script>
+	<script>alert("Nombre de usuario o contraseña incorrectos");</script>
 <?php } ?>
 <form action="../../AutoescuelaTrafico/public/index.php?controller=Login&action=login" method="post">
 	<div class="container">

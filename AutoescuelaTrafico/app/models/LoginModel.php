@@ -11,7 +11,8 @@ class LoginModel extends BaseModel{
 	public function getBy($usuario, $password){
 		$query = "SELECT Tipo FROM Login WHERE Usuario='$usuario' AND Pass= '$password'";
 		$res = $this->ejecutaSql($query);
-		return $res;
+		if($res!=null)
+			return $res->TIPO;
 	}
 	
 	
