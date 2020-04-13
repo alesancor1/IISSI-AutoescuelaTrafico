@@ -1,5 +1,5 @@
 <?php
-
+//ESTA CLASE ES UN EJEMPLO PARA MOSTRAR LOS ALUMNOS
 class AlumnosController extends BaseController {
 
 	public $conectar;
@@ -15,7 +15,7 @@ class AlumnosController extends BaseController {
 	public function index(){
 		
 		//Creamos el objeto alumno
-		$alumno = new Alumno($this->adapter);
+		$alumno = new AlumnosModel($this->adapter);
 		
 		//Conseguimos todos los alumnos
 		$allAlumnos = $alumno->getAll();

@@ -1,21 +1,19 @@
 <?php
-
+//ESTA CLASE ES UN EJEMPLO PARA MOSTRAR LOS ALUMNOS
 class Alumno extends Persona {
 
 	private $fechaNacimiento;
 	private $clasesPagadas;
 	private $RMedico;
 
-//	public function _construct($dni, $nombre, $apellidos, $telefono, $fechaNacimiento, $clasesPagadas, $RMedico) {
-//		parent::_construct($dni, $nombre, $apellidos, $telefono);
-//		$this -> fechaNacimiento = $fechaNacimiento;
-//		$this -> clasesPagadas = $clasesPagadas;
-//		$this -> RMedico = $RMedico == "Valido" ? new RMedicoEnum(RMedicoEnum::valido) : new RMedicoEnum(RMedicoEnum::noValido);
-//	}
-
-	public function __construct($adapter){
-		$table="Alumnos";
-		parent::__construct($table, $adapter);
+	public function __construct($dni, $nombre, $apellidos, $telefono, $fechaNacimiento, $clasesPagadas, $RMedico) {
+		$this -> dni = $dni;
+		$this -> nombre = $nombre;
+		$this -> apellidos = $apellidos;
+		$this -> telefono = $telefono;
+		$this -> fechaNacimiento = $fechaNacimiento;
+		$this -> clasesPagadas = $clasesPagadas;
+		$this -> RMedico = $RMedico;// == "Valido" ? new RMedicoEnum(RMedicoEnum::valido) : new RMedicoEnum(RMedicoEnum::noValido);
 	}
 
 	public function getFechaNacimiento(){

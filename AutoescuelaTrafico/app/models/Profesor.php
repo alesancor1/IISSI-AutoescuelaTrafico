@@ -5,12 +5,15 @@ class Profesor extends Persona {
 	private $nSeguridadSocial;
 	private $fechaContrato;
 
-//	public function _construct($dni, $nombre, $apellidos, $telefono, $salario, $nSeguridadSocial, $fechaContrato) {
-//		parent::_construct($dni, $nombre, $apellidos, $telefono);
-//		$this -> salario = $salario;
-//		$this -> nSeguridadSocial = $nSeguridadSocial;
-//		$this -> fechaContrato = $fechaContrato;
-//	}
+	public function _construct($dni, $nombre, $apellidos, $telefono, $salario, $nSeguridadSocial, $fechaContrato) {
+		$this -> dni = $dni;
+		$this -> nombre = $nombre;
+		$this -> apellidos = $apellidos;
+		$this -> telefono = $telefono;		
+		$this -> salario = $salario;
+		$this -> nSeguridadSocial = $nSeguridadSocial;
+		$this -> fechaContrato = $fechaContrato;
+	}
 
 	public function getSalario() {
 		return $this -> salario;

@@ -1,4 +1,5 @@
 <?php
+//ESTE MODELO ES DE EJEMPLO
 class AlumnosModel extends BaseModel {
 
 	private $table;

@@ -1,22 +1,11 @@
 <?php
 
-class Persona extends BaseEntity {
+class Persona{
 
-	private $dni;
-	private $nombre;
-	private $apellidos;
-	private $telefono;
-
-//	public function _construct($dni, $nombre, $apellidos, $telefono) {
-//		$this -> dni = $dni;
-//		$this -> nombre = $nombre;
-//		$this -> apellidos = $apellidos;
-//		$this -> telefono = $telefono;
-//	}
-
-	public function __construct($table, $adapter){
-		parent::__construct($table, $adapter);
-	}
+	protected $dni;
+	protected $nombre;
+	protected $apellidos;
+	protected $telefono;
 
 	public function getDni() {
 		return $this -> dni;
