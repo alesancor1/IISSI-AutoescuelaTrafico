@@ -12,7 +12,7 @@ class AlumnosModel extends BaseModel {
 	// Metodos de consulta
 	public function getAlumnos() {
 		$query = "SELECT * FROM Alumnos";
-		$alumno = $this -> ejecutarSql($query);
+		$alumno = $this -> ejecutaSql($query);
 		return $alumno;
 	}
 
