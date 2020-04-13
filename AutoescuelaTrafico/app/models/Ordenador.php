@@ -1,5 +1,5 @@
 <?php
-class Ordenador extends EntidadBase {
+class Ordenador extends BaseEntity {
 	private $id;
 	private $estado;
 	private $modelo;

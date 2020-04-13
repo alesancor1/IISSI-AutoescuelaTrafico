@@ -1,5 +1,5 @@
 <?php
-class UsoPc extends EntidadBase {
+class UsoPc extends BaseEntity {
 	private $id;
 	private $fecha;
 	private $horaComienzo;
