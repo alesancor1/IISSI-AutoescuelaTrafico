@@ -1,26 +1,17 @@
 <?php
-class Ordenador extends BaseEntity {
+class Ordenador extends EntidadBase {
 	private $id;
 	private $estado;
 	private $modelo;
 	private $so;
 
-	public function __construct($adapter) {
-		$table = "ordenadores";
-		parent::__construct($table, $adapter);
+	public function __construct($id, $estado, $modelo, $so) {
+		
+		$this -> id = $id;
+		$this -> etstado = $estado;
+		$this -> modelo = $modelo;
+		$this -> so = $so;
 	}
-
-	/**public function save() {
-	*	$query = "INSERT INTO ordenadores (id,estado,modelo,so)
-    *           VALUES(NULL,
-    *				   '".$this -> estado."',      		
-    *                  '".$this -> modelo."',
-    *                  '".$this -> so."');";
-	*	$save = $this -> db() -> query($query);
-	*	//$this->db()->error;
-	*	return $save;
-	*}
-	*/
 
 	/**
 	 * Get id
