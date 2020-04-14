@@ -1,5 +1,5 @@
 <?php
-class Vehiculo extends EstadoVehiculo{
+class Vehiculo extends BaseEntity{
 	
 	protected $matricula;
 	protected $estado;

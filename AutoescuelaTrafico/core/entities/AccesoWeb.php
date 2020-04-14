@@ -1,6 +1,6 @@
 <?php
 
-class AccesoWeb extends EntidadBase {
+class AccesoWeb extends BaseEntity {
 	
 	private $usuario;
 	private $clavePorDefecto;
