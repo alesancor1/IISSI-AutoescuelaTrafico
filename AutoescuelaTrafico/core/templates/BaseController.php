@@ -26,10 +26,12 @@ class BaseController{
         }
                  
         if($vista == 'error'){
-            require_once __DIR__.'/../../app/view/'.$vista.'.php';
+            require_once __DIR__.'/../../app/views/'.$vista.'.php';
         }   
         else{
             require_once __DIR__.'/../../app/views/'.$vista.'View.php';
+            if(isset($_SESSION["cuenta"]) && $_GET["controller"]!=DEFAULT_CONTROLLER)
+                require_once __DIR__.'/../../app/views/layouts/menubar.php';
         }  
     }
 }

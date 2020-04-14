@@ -11,7 +11,7 @@
         		
             		if($_SESSION['cuenta'][2]=='Alumno'){
                 		echo "<ul style=\"list-style-type:none;\">";
-                			echo "<a href=\"#\"><li>Exámenes</li></a>";
+                			echo "<a href=\"?controller=Examenes\"><li>Exámenes</li></a>";
                     		echo "<a href=\"#\"><li>Clases</li></a>";
                     		echo "<ul style='list-style-type:none;'>";
                 	   			echo "<a href=\"#\"><li>Información</li></a>";
