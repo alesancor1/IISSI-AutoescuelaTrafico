@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
+<title>Página principal</title>
 
 <body>
-
 <!-- Top navigation menu -->
 <div class="topnav">
 	<a class="faq" href="#faq"><i></i></a>
@@ -12,8 +12,17 @@
         	<button type="submit">Buscar<i class="fa fa-search"></i></button>
     	</form>
   	</div>
-    <a class="logo" href="/index.php"><img src="" alt="Autoescuela tráfico"/> </a>
-    <input type="button" onclick="location.href='../../AutoescuelaTrafico/public/index.php?controller=Login';" value="Iniciar sesión"/>
+    <a class="logo" href="./index.php"><img src="" alt="Autoescuela tráfico"/> </a>
+    
+    <?php
+    if(isset($_SESSION["cuenta"]))
+        echo "<a class='cuenta' href='Anuncios.php'>Logeado como: ".$_SESSION["cuenta"][0]."</a>";
+    else{
+        $redirect = "location.href='../public/index.php?controller=Login';";
+        echo '<input type="button" onclick='.$redirect. ' value="Iniciar sesión"/>';
+    }
+    ?>
+    
 </div>
 
 <!-- Banner -->
