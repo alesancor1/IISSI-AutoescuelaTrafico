@@ -20,9 +20,6 @@
 
         echo "<form action='../public/index.php' method='post'>";
         echo "<input type='submit' name='cerrarSesion' value='Cerrar Sesion'></form>";
-		
-		require_once(__DIR__ . '/layouts/menubar.php');
-		
     }
     else{
         $url = "location.href='../public/index.php?controller=Login';";
