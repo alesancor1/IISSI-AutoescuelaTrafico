@@ -25,7 +25,6 @@ class LoginController extends BaseController {
 			if($tipo != 'Profesor' AND $tipo != 'Alumno' AND $tipo != 'Administrador'){
 				$this->view("login", array("error"=>TRUE));
 			} else {
-				session_start();
 				$_SESSION["cuenta"] = array($_POST["uname"], $_POST["psw"], $tipo);
 				
 				switch ($tipo) {

@@ -7,7 +7,10 @@ class BaseController{
         require_once __DIR__.'/BaseModel.php';
          
         //Incluye todos los modelos
-        require_once __DIR__.'/../../app/models/Persona.php'; //clase padre
+        require_once __DIR__.'/../entities/Persona.php'; //clase padre
+        foreach(glob(__DIR__."/../entities/*.php") as $file){
+            require_once $file;
+        }
         foreach(glob(__DIR__."/../../app/models/*.php") as $file){
             require_once $file;
         }

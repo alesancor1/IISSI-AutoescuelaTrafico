@@ -15,11 +15,16 @@
     <a class="logo" href="./index.php"><img src="" alt="Autoescuela tráfico"/> </a>
     
     <?php
-    if(isset($_SESSION["cuenta"]))
+    if(isset($_SESSION["cuenta"])){
         echo "<a class='cuenta' href='Anuncios.php'>Logeado como: ".$_SESSION["cuenta"][0]."</a>";
+        $action = '<?php unset($_SESSION["cuenta"])?>';
+        $url = "location.href='../public/index.php';";
+        echo "<form action='".$action."'>";
+        echo "<button type='submit' onclick=".$url.">Cerrar Sesion</button></form>";
+    }
     else{
-        $redirect = "location.href='../public/index.php?controller=Login';";
-        echo '<input type="button" onclick='.$redirect. ' value="Iniciar sesión"/>';
+        $url = "location.href='../public/index.php?controller=Login';";
+        echo '<input type="button" onclick='.$url. ' value="Iniciar sesión"/>';
     }
     ?>
     
