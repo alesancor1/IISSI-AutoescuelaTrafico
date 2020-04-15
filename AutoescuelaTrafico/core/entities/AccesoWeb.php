@@ -2,6 +2,11 @@
 
 class AccesoWeb extends BaseEntity {
 	
+    public function create($line){
+        $args[] = split(",", $line);
+        return new AccesoWeb($args[0],$args[1],$args[2],$args[3]);
+    }
+
 	private $usuario;
 	private $clavePorDefecto;
 	private $fechaRenovacion;

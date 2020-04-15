@@ -12,7 +12,8 @@ class ErrorHandler{
 		else{
 			$sesion = $_SESSION["cuenta"][2];
 			switch($controller){
-				case "ExamenesController": BaseController::view("error",array("tipo"=>"wrongLogin"));break;
+				case "ExamenesController": if($sesion!="Alumno")
+					BaseController::view("error",array("tipo"=>"wrongLogin"));break;
 			}
 		}
 	}

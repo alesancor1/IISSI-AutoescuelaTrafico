@@ -18,7 +18,7 @@ class BaseEntity{
     		$param = $param.$value.",";
     	}
     	$param = substr($param,0,-1);
-    	return new $child($param);
+    	return $child::create($param);
     }
 }     
 ?>

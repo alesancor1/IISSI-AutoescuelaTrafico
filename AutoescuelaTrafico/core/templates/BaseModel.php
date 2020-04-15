@@ -54,7 +54,7 @@ class BaseModel{
                 }
             }
             elseif($rowNum==1){
-                $res = $stmt->fetchObject();
+                $res[] = $stmt->fetchObject();
             }
         }            
         return $res;       
