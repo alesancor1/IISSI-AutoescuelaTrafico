@@ -9,7 +9,9 @@ class BaseController{
         //Incluye todos los modelos
         require_once __DIR__.'/Enum.php';
 		require_once __DIR__.'/../entities/Vehiculo.php';
-        require_once __DIR__.'/../entities/Persona.php'; //clase padre
+        require_once __DIR__.'/../entities/Persona.php';
+		require_once __DIR__.'/../entities/Examen.php';
+		require_once __DIR__.'/../entities/Practico.php';
         foreach(glob(__DIR__."/../entities/*.php") as $file){
             require_once $file;
         }

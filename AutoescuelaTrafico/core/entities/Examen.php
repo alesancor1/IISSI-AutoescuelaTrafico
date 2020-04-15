@@ -1,5 +1,5 @@
 <?php
-class Examen extends Calificacion{
+class Examen extends BaseEntity{
 	
 	protected $fecha;
 	protected $calificacion;

@@ -1,6 +1,6 @@
 <?php
 
-class Persona{
+class Persona extends BaseEntity{
 
 	protected $dni;
 	protected $nombre;

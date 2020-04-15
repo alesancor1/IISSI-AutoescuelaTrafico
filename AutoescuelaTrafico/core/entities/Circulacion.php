@@ -10,6 +10,6 @@ class Circulacion extends Practico{
 		$this -> faltasEliminatorias = faltasEliminatorisas;
 	}
 
-} 
+}
 
 ?>

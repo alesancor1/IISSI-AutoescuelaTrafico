@@ -1,5 +1,5 @@
 <?php
-class Practico extends Practico{
+class Pista extends Practico{
 	
 	public function __construct($fecha, $calificacion, $faltasLeves, $faltasDeficientes, $faltasEliminatorias){
 		parent::__construct("Practico");
