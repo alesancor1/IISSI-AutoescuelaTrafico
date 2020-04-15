@@ -6,6 +6,7 @@ class Profesor extends Persona {
 	private $fechaContrato;
 
 	public function _construct($dni, $nombre, $apellidos, $telefono, $salario, $nSeguridadSocial, $fechaContrato) {
+		parent::__construct("Profesor");
 		$this -> dni = $dni;
 		$this -> nombre = $nombre;
 		$this -> apellidos = $apellidos;

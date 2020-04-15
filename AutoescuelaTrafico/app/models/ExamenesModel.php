@@ -19,7 +19,8 @@
 			$query = "SELECT * FROM EXAMENESPRACTICOPISTA EPP WHERE epp.alumno='$dni'";
 			$examenesPP[] = $this->ejecutaSql($query);
 			
-			//conversion a tipo examen aqui
+			/*foreach($examenesT as $examenT)
+				$examenT = ExamenesTeoricos::__parse("ExamenesTeoricos", $examenT);*/
 			return array("teoricos"=>$examenesT, "circulacion"=>$examenesPC, "pista"=>$examenesPP);
 		}
 	}

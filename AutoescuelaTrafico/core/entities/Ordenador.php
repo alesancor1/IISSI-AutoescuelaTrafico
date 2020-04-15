@@ -6,7 +6,7 @@ class Ordenador extends BaseEntity {
 	private $so;
 
 	public function __construct($id, $estado, $modelo, $so) {
-		
+		parent::__construct("Ordenador");
 		$this -> id = $id;
 		$this -> etstado = $estado;
 		$this -> modelo = $modelo;

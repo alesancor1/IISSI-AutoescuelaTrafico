@@ -4,7 +4,7 @@ class Motocicleta extends Vehiculo{
 	private $cc;
 	
 	public function _construct($matricula, $estado, $modelo, $cc){
-		
+		parent::__construct("Motocicletas");
 		$this -> matricula = $matricula;
 		$this -> estado = $estado;
 		$this -> modelo = $modelo;

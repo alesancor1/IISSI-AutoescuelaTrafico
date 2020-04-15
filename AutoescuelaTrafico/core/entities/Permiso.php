@@ -3,14 +3,10 @@ class Permiso extends BaseEntity{
 	
 	private $tipo;
 	
-//	public function _construct($tipo){
-//		$this-> tipo = $tipo == "Permiso A2" ? new PermisoEnum(PermisoEnum::permisoA2) : new PermisoEnum(PermisoEnum::permisoB); 		
-//	}	
-
-	public function __construct($adapter){
-		$table="Permisos";
-		parent::__construct($table, $adapter);
-	}
+	public function _construct($tipo){
+		parent:__construct("Permiso");
+		$this-> tipo = $tipo == "Permiso A2" ? new PermisoEnum(PermisoEnum::permisoA2) : new PermisoEnum(PermisoEnum::permisoB); 		
+	}	
 
 	public function getTipo(){
         return $this->tipo;

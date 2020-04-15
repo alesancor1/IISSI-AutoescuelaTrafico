@@ -1,10 +1,11 @@
 <?php
-class WebTest extends EstadoWeb{
+class WebTest extends BaseEntity{
 	
 	private $estado;
 	
 	public function _construct($estado){
-		$this -> estado = $estado;
+		parent::__construct("WebTest");
+        $this -> estado = $estado;
 	}
 
 
