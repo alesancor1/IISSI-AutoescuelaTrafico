@@ -1,12 +1,12 @@
 <?php
-class UsoPc extends EntidadBase {
+class UsoPc extends BaseEntity {
 	private $id;
 	private $fecha;
 	private $horaComienzo;
 	private $horaFin;
 
 	public function __construct($id, $fecha, $horaComienzo, $horaFin) {
-		
+		parent::__construct("UsoPc");
 		$this -> id = $id;
 		$this -> fecha = $fecha;
 		$this -> horaComienzo = $horaComienzo;

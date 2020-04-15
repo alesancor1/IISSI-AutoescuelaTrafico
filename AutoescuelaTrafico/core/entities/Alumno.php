@@ -6,6 +6,7 @@ class Alumno extends Persona {
 	private $RMedico;
 
 	public function __construct($dni, $nombre, $apellidos, $telefono, $fechaNacimiento, $clasesPagadas, $RMedico) {
+		parent::__contstruct("Alumno");
 		$this -> dni = $dni;
 		$this -> nombre = $nombre;
 		$this -> apellidos = $apellidos;

@@ -20,12 +20,14 @@ class LoginController extends BaseController {
 		$loginModel = new LoginModel($this->adapter);
 		
 		if(isset($_POST["uname"]) && isset($_POST["psw"])){
-			$tipo = $loginModel->getBy($_POST["uname"], $_POST["psw"]);
+			$row = $loginModel->getBy($_POST["uname"], $_POST["psw"]);
+			$tipo = $row->TIPO;
+			$dni = $row->DNI;
 			
 			if($tipo != 'Profesor' AND $tipo != 'Alumno' AND $tipo != 'Administrador'){
 				$this->view("login", array("error"=>TRUE));
 			} else {
-				$_SESSION["cuenta"] = array($_POST["uname"], $_POST["psw"], $tipo);
+				$_SESSION["cuenta"] = array($_POST["uname"], $_POST["psw"], $tipo, $dni);
 				
 				switch ($tipo) {
 					case 'Profesor':

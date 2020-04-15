@@ -7,6 +7,10 @@ class Persona{
 	protected $apellidos;
 	protected $telefono;
 
+	public function __construct($child){
+		parent::__construct($child);
+	}
+
 	public function getDni() {
 		return $this -> dni;
 	}

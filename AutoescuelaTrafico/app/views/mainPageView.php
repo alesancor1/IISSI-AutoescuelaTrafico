@@ -17,10 +17,9 @@
     <?php
     if(isset($_SESSION["cuenta"])){
         echo "<a class='cuenta' href='Anuncios.php'>Logeado como: ".$_SESSION["cuenta"][0]."</a>";
-        $action = '<?php unset($_SESSION["cuenta"])?>';
-        $url = "location.href='../public/index.php';";
-        echo "<form action='".$action."'>";
-        echo "<button type='submit' onclick=".$url.">Cerrar Sesion</button></form>";
+
+        echo "<form action='../public/index.php' method='post'>";
+        echo "<input type='submit' name='cerrarSesion' value='Cerrar Sesion'></form>";
     }
     else{
         $url = "location.href='../public/index.php?controller=Login';";

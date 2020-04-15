@@ -1,40 +1,24 @@
 <?php
 class BaseEntity{
-    private $table;
-    private $db;
- 
-    public function __construct($table, $adapter) {
-        $this->table=(string) $table;
-        $this->db = $adapter;
+	private $child;
+
+	public function __construct($child){
+		$this->child = $child;
+	}
+    public function __toString(){
+    	$res = $this->child."(";
+    	foreach($this as $atributo){
+    		$res = $res.", ".$atributo;
+    	}
+    	return $res.")";
     }
-     
-    public function db(){
-        return $this->db;
+    public static function __parse($child, $stdObject){
+    	$param = "";
+    	foreach($stdObject as $atrib=>$value){
+    		$param = $param.$value.",";
+    	}
+    	$param = substr($param,0,-1);
+    	return new $child($param);
     }
-     
-    public function getAll(){
-        $query=$this->db->query("SELECT * FROM $this->table");
- 
-        while ($row = $query->fetchObject()) {
-           $resultSet[]=$row;
-        }
-         
-        return $resultSet;
-    }
-     
-    public function getBy($column,$value){
-        $query=$this->db->query("SELECT * FROM $this->table WHERE $column='$value'");
- 
-        while($row = $query->fetchObject()) {
-           $resultSet[]=$row;
-        }
-         
-        return $resultSet;
-    }
-    
-    public function deleteBy($column,$value){
-        $query=$this->db->query("DELETE FROM $this->table WHERE $column='$value'");
-        return $query;
-    }
-}
+}     
 ?>

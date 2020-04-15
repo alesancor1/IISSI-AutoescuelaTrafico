@@ -1,10 +1,13 @@
 <?php
-class Vehiculo extends EstadoVehiculo{
+class Vehiculo extends BaseEntity{
 	
 	protected $matricula;
 	protected $estado;
 	protected $modelo;
 
+    public function __construct($child){
+        parent::__construct($child);
+    }
 	/**
      * Get matricula
      *

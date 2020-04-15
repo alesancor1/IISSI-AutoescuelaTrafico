@@ -1,6 +1,6 @@
 <?php
 
-class AccesoWeb extends EntidadBase {
+class AccesoWeb extends BaseEntity {
 	
 	private $usuario;
 	private $clavePorDefecto;
@@ -9,7 +9,7 @@ class AccesoWeb extends EntidadBase {
 
 
 	public function _construct($usuario, $clavePorDefecto, $fechaRenovacion, $fechaCaducidad) {
-		
+		parent::__contstruct("AccesoWeb");
 		$this -> usuario = $usuario;
 		$this -> clavePorDefecto = $clavePorDefecto;
 		$this -> fechaRenovacion = $fechaRenovacion;

@@ -12,8 +12,12 @@ require_once __DIR__.'/../core/templates/BaseController.php';
 require_once __DIR__.'/../core/routes.php';
 
 //Si hay algun controlador lo cargamos, si no cargamos el por defecto
+
 if(!isset($_SESSION))
 	session_start();
+
+if(isset($_POST['cerrarSesion']))
+	unset($_SESSION["cuenta"]);
 
 if(isset($_GET["controller"])){
 	$controllerObj = loadController($_GET["controller"]);
