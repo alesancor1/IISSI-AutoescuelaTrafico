@@ -12,8 +12,14 @@ class ErrorHandler{
 		else{
 			$sesion = $_SESSION["cuenta"][2];
 			switch($controller){
-				case "ExamenesController": if($sesion!="Alumno")
-					BaseController::view("error",array("tipo"=>"wrongLogin"));break;
+				case "ExamenesController": 
+					if($sesion!="Alumno")
+						BaseController::view("error",array("tipo"=>"wrongLogin"));break;
+				case "ClasesController":
+					if($sesion!="Administrador"&&$action=="indexGestion")
+						BaseController::view("error",array("tipo"=>"wrongLogin"));
+					break;
+
 			}
 		}
 	}

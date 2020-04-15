@@ -15,7 +15,7 @@
 			//creamos el objeto 
 			$examenes = new ExamenesModel($this->adapter);
 			$allExamenes = $examenes->getAllExamenes();
-			$this->view("indexExamenes", array("allExamenes"=>$allExamenes));
+			$this->view("/examenes/indexExamenes", array("allExamenes"=>$allExamenes));
 		}
 	}
 ?>

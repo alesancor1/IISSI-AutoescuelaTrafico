@@ -35,15 +35,15 @@ class LoginController extends BaseController {
 				
 				switch ($tipo) {
 					case 'Profesor':
-						$this->view("mainPage");
+						funciones::redirect("MainPage");
 						break;
 					
 					case 'Alumno':
-						$this->view("mainPage");
+						funciones::redirect("MainPage");
 						break;
 						
 					case 'Administrador':
-						$this->view("mainPage");
+						funciones::redirect("MainPage");
 						break;
 						
 					default:

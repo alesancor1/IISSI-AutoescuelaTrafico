@@ -19,7 +19,7 @@ class ClasesController extends BaseController {
 	public function indexGestion() {
 		$clases = new ClasesModel($this -> adapter);
 		$gestionClases = $clases -> getGestionAdministrador();
-		$this -> view("indexClasesGestion", array("gestionClases"=>$gestionClases));
+		$this -> view("/clases/indexClasesGestion", array("gestionClases"=>$gestionClases));
 	}
 
 	//	PROFESORES
@@ -37,7 +37,7 @@ class ClasesController extends BaseController {
 	public function indexClasesInformacion() {
 		$clases = new ClasesModel($this -> adapter);
 		$clasesInformacion = $clases -> getInformacionAlumno();
-		$this -> view("indexClasesInformacion", array("clasesInformacion"=>$clasesInformacion));
+		$this -> view("/clases/indexClasesInformacion", array("clasesInformacion"=>$clasesInformacion));
 	}
 	
 
