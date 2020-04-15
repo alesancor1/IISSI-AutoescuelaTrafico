@@ -21,11 +21,11 @@ class LoginController extends BaseController {
 		
 		if(isset($_POST["uname"]) && isset($_POST["psw"])){
 			
-			$row = $loginModel->getBy($_POST["uname"], $_POST["psw"]);
+			$row = $loginModel->getByLogin($_POST["uname"], $_POST["psw"]);
 			$tipo = null; $dni=null;
 			if(isset($row)){
-				$tipo = $row->TIPO;
-				$dni = $row->DNI;
+				$tipo = $row[0]->TIPO;
+				$dni = $row[0]->DNI;
 			}
 			
 			if($tipo != 'Profesor' AND $tipo != 'Alumno' AND $tipo != 'Administrador'){
