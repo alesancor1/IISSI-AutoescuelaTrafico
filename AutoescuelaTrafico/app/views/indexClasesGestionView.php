@@ -12,10 +12,10 @@
     
     <?php
     	if(sizeof($gestionClases)!=0){
-        	foreach($gestionClases as $row){
+        	foreach($gestionClases as $num=>$row){
             	echo "<tr>";
             	foreach($row as $param){
-                	echo "<tr>$param</tr>";
+                	echo "<td>$param</td>";
                 }
                 echo "</tr>";
             }

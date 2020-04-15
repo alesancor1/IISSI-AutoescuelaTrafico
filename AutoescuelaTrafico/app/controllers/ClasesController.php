@@ -7,7 +7,7 @@ class ClasesController extends BaseController {
 		parent::__construct();
 
 		$this -> conectar = new Connection();
-		$this -> adapter = $this -> conectar = conexion();
+		$this -> adapter = $this -> conectar -> conexion();
 	}
 
 	//	ADMINISTRADOR
