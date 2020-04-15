@@ -6,9 +6,6 @@
 		public function __construct(){
 			parent::__construct();
 
-			if(!isset($_SESSION["cuenta"]))
-				$this->view("error",array("tipo"=>"notLoggedIn"));
-
 			$this-> conectar = new Connection();
 			$this-> adapter = $this -> conectar -> conexion();
 		}

@@ -4,6 +4,7 @@ echo "<div>";
 switch($tipo){
 	case "conexionDB": echo "ha ocurrido un error al conectarse al servidor de base de datos."; break;
 	case "notLoggedIn": echo "debes iniciar sesion para acceder a estas funciones."; break;
+	case "wrongLogin": echo "No tienes acceso a esta funcion";break;
 	default: echo "error desconocido";
 }
 echo "</div>";
