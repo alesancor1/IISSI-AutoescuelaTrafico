@@ -14,7 +14,7 @@ class AccesoWeb extends BaseEntity {
 	private $tiempoRestante;
 
 
-	public function _construct($usuario, $clavePorDefecto, $fechaRenovacion, $fechaCaducidad, $tiempoRestante) {
+	public function __construct($usuario, $clavePorDefecto, $fechaRenovacion, $fechaCaducidad, $tiempoRestante) {
 		parent::__contstruct("AccesoWeb");
 		$this -> usuario = $usuario;
 		$this -> clavePorDefecto = $clavePorDefecto;

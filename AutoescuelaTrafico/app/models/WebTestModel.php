@@ -11,7 +11,8 @@ class WebTestModel extends BaseModel{
 	
 	public function getRecursosAdministrador(){
 		// usuario clave fechaCaducidad tiempoRestante ultimaRenovacion
-		$query = "SELECT Usuario, ClavePorDefecto, FechaRenovacion, FechaCaducidad, TRUNC(FECHACADUCIDAD)-TRUNC(SYSDATE) FROM Alumnos A RIGHT JOIN AccesoWeb ON AccessoWeb = Usuario WHERE A.DNI = " . $_SESSION["cuenta"][3] . "ORDER BY Usuario";
+		$dni = $_SESSION["cuenta"][3];
+		$query = "SELECT USUARIO,CLAVEPORDEFECTO,FECHARENOVACION,FECHACADUCIDAD,TRUNC(FECHACADUCIDAD)-TRUNC(SYSDATE) FROM ALUMNOS RIGHT JOIN AccesoWeb ON Alumnos.ACCESOWEB=AccesoWeb.USUARIO WHERE Alumnos.DNI = '$dni'";
 		$tablaRecursos = $this->ejecutaSql($query);
 		
 		//parsing
@@ -20,6 +21,7 @@ class WebTestModel extends BaseModel{
 		} else {
 			foreach($tablaRecursos as $num => $accesoWeb){
 				$tablaRecursos[$num] = AccesoWeb::__parse("AccesoWeb", $accesoWeb);
+				print_r($tablaRecursos);
 			}
 		}
 		return $tablaRecursos;

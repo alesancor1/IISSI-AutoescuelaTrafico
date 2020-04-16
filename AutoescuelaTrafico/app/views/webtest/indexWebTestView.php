@@ -2,11 +2,8 @@
 <html>
 <!-- Archivo base para probar las consultas, faltan la seleccion de alumnos, edicion, etc -->
 
-<head>
-	<title>CREDENCIALES WEB TEST</title>
-</head>
-
 <body>
+	<h1>CREDENCIALES WEB TEST</h1>
 <div class="filter">
 	<p>Aqui iria algun tipo de filtro</p>
 </div>
@@ -37,16 +34,17 @@
     </tr>
     
     <?php
-    	foreach($recursosAdministrador as $num=>$accesoWeb){
-    		echo "<tr>";
-			echo "<td>" . $accesoWeb->getUsuario() . "</td>";
-			echo "<td>" . $accesoWeb->getClavePorDefecto() . "</td>";
-			echo "<td>" . $accesoWeb->getFechaRenovacion() . "</td>";
-			echo "<td>" . $accesoWeb->getFechaCaducidad() . "</td>";
-			echo "<td>" . $accesoWeb->getTiempoRestante() . "</td>";
-			echo "</tr>";
+		if($recursosAdministrador!=null){
+			foreach($recursosAdministrador as $num=>$accesoWeb){
+	    		echo "<tr>";
+				echo "<td>" . $accesoWeb->getUsuario() . "</td>";
+				echo "<td>" . $accesoWeb->getClavePorDefecto() . "</td>";
+				echo "<td>" . $accesoWeb->getFechaRenovacion() . "</td>";
+				echo "<td>" . $accesoWeb->getFechaCaducidad() . "</td>";
+				echo "<td>" . $accesoWeb->getTiempoRestante() . "</td>";
+				echo "</tr>";
+    		}
     	}
-
     ?>
 
 </table>

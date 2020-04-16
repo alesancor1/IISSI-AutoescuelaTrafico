@@ -15,7 +15,7 @@ class WebTestController extends BaseController{
 	public function indexRecursosWebTest(){
 		$recursos = new WebTestModel($this -> adapter);
 		$recursosAdministrador = $recursos -> getRecursosAdministrador();
-		$this -> view("/clases/indexRecursosWebTest", array("recursosAdministrador" => $recursosAdministrador));
+		$this -> view("/webtest/indexWebTest", array("recursosAdministrador" => $recursosAdministrador));
 	}
 	
 	//	ALUMNO
