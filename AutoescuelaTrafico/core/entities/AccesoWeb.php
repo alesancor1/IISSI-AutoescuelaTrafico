@@ -4,21 +4,23 @@ class AccesoWeb extends BaseEntity {
 	
     public function create($line){
         $args[] = split(",", $line);
-        return new AccesoWeb($args[0],$args[1],$args[2],$args[3]);
+        return new AccesoWeb($args[0],$args[1],$args[2],$args[3], $args[4]);
     }
 
 	private $usuario;
 	private $clavePorDefecto;
 	private $fechaRenovacion;
 	private $fechaCaducidad;
+	private $tiempoRestante;
 
 
-	public function _construct($usuario, $clavePorDefecto, $fechaRenovacion, $fechaCaducidad) {
+	public function _construct($usuario, $clavePorDefecto, $fechaRenovacion, $fechaCaducidad, $tiempoRestante) {
 		parent::__contstruct("AccesoWeb");
 		$this -> usuario = $usuario;
 		$this -> clavePorDefecto = $clavePorDefecto;
 		$this -> fechaRenovacion = $fechaRenovacion;
 		$this -> fechaCaducidad = $fechaCaducidad;
+		$this -> tiempoRestante = $tiempoRestante;
 	}
 
 
@@ -57,6 +59,15 @@ class AccesoWeb extends BaseEntity {
      */
     public function getFechaCaducidad(){
         return $this->FechaCaducidad;
+    }
+
+	/**
+     * Get TiempoRestante
+     *
+     * @return VariableType
+     */
+    public function getTiempoRestante(){
+        return $this->tiempoRestante;
     }
 
 }
