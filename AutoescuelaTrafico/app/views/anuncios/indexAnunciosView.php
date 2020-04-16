@@ -3,12 +3,13 @@
 <title>Anuncios</title>
 
 <h1>Anuncios</h1>
+
+<script type="text/javascript" src="./js/popup.js"></script>
+
     <body>
     	<?php if($_SESSION["cuenta"][2] != 'Alumno'){?>
     	<div>
-    		<form action='./index.php?controller=Anuncios&action=add' method='post'>
-    			<input type='submit' name='añadirEntrada' value='Añadir Entrada'></form>
-    		</form>
+    		<button class="nuevaEntrada" onclick='openPopup("addAnuncio")'>Nueva Entrada</button>
     	</div><?php
     	}?>
 
@@ -20,4 +21,6 @@
             </div><?php
         }?>
     </body>
+    <?php require_once __DIR__."/addAnuncioView.php";?>
+    
 </html>

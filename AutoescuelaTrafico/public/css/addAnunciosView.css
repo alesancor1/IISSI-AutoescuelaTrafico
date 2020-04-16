@@ -1,0 +1,46 @@
+.form-popup {
+  width: 75%;
+  height: 75%;
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  border: 3px solid #f1f1f1
+}
+.form-container {
+  max-width: 100%;
+  max-height: 100%;
+  padding: 5%;
+  background-color: white;
+}
+.titulo input[type=text]{
+  width: 60%;
+  padding: 10px;
+  margin: 0px 10px 22px 10px;
+  border: none;
+  background: #f1f1f1;
+}
+.descripcion textarea{
+  width: 97%;
+  padding: 15px;
+  margin: 10px 0 0 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+}
+.volver{
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  margin-left: -20px;
+}
+.enviar{
+	background-color: blue;
+	color: white;
+	border:none;
+	padding: 5px 10px 5px 10px;
+	margin: 10px 0 0 40%;
+
+}
