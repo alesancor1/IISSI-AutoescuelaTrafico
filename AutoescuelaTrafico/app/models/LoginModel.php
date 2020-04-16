@@ -8,7 +8,7 @@ class LoginModel extends BaseModel{
 		parent::__construct($this->table, $adapter);
 	}
 	
-	public function getBy($usuario, $password){
+	public function getByLogin($usuario, $password){
 		$query = "SELECT * FROM Login WHERE Usuario='$usuario' AND Pass= '$password'";
 		$res = $this->ejecutaSql($query);
 		if($res!=null)

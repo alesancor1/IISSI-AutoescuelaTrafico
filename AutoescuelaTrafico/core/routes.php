@@ -5,6 +5,11 @@ function loadController($controller){
 	$controller = ucwords($controller).'Controller';
 	$strFileController=__DIR__.'/../app/controllers/'.$controller.'.php';
 
+	if(isset($_GET["action"]))
+		ErrorHandler::check($controller,$_GET["action"]);
+	else
+		ErrorHandler::check($controller);
+
 	if(!is_file($strFileController)){
 		$strFileController=__DIR__.'/../app/controllers/'.ucwords(DEFAULT_CONTROLLER).'Controller.php';
 	}

@@ -20,9 +20,13 @@ class LoginController extends BaseController {
 		$loginModel = new LoginModel($this->adapter);
 		
 		if(isset($_POST["uname"]) && isset($_POST["psw"])){
-			$row = $loginModel->getBy($_POST["uname"], $_POST["psw"]);
-			$tipo = $row->TIPO;
-			$dni = $row->DNI;
+			
+			$row = $loginModel->getByLogin($_POST["uname"], $_POST["psw"]);
+			$tipo = null; $dni=null;
+			if(isset($row)){
+				$tipo = $row[0]->TIPO;
+				$dni = $row[0]->DNI;
+			}
 			
 			if($tipo != 'Profesor' AND $tipo != 'Alumno' AND $tipo != 'Administrador'){
 				$this->view("login", array("error"=>TRUE));
@@ -31,15 +35,15 @@ class LoginController extends BaseController {
 				
 				switch ($tipo) {
 					case 'Profesor':
-						$this->view("mainPage");
+						funciones::redirect("MainPage");
 						break;
 					
 					case 'Alumno':
-						$this->view("mainPage");
+						funciones::redirect("MainPage");
 						break;
 						
 					case 'Administrador':
-						$this->view("mainPage");
+						funciones::redirect("MainPage");
 						break;
 						
 					default:

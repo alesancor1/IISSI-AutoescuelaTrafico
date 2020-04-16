@@ -54,29 +54,10 @@ class BaseModel{
                 }
             }
             elseif($rowNum==1){
-                $res = $stmt->fetchObject();
+                $res[] = $stmt->fetchObject();
             }
         }            
         return $res;       
     }
-    /* public function ejecutarSql($query){
-        $query=$this->db()->query($query);
-        if($query==true){
-            if($query->rowCount()>1){
-                while($row = $query->fetchObject()) {
-                   $resultSet[]=$row;
-                }
-            }elseif($query->rowCount()==1){
-                if($row = $query->fetchObject()) {
-                    $resultSet=$row;
-                }
-            }else{
-                $resultSet=true;
-            }
-        }else{
-            $resultSet=false;
-        }         
-        return $resultSet;
-    }*/
 }
 ?>
