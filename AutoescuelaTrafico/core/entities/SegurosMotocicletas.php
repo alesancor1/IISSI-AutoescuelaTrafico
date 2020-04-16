@@ -1,5 +1,5 @@
 <?php
-class SegurosTurismos extends BaseEntity{
+class SegurosMotocicletas extends BaseEntity{
 	
 	protected $id;
 	protected $companyia;
