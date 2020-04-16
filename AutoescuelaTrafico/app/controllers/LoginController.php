@@ -35,15 +35,15 @@ class LoginController extends BaseController {
 				
 				switch ($tipo) {
 					case 'Profesor':
-						funciones::redirect("MainPage");
+						funciones::redirect("Anuncios");
 						break;
 					
 					case 'Alumno':
-						funciones::redirect("MainPage");
+						funciones::redirect("Anuncios");
 						break;
 						
 					case 'Administrador':
-						funciones::redirect("MainPage");
+						funciones::redirect("Anuncios");
 						break;
 						
 					default:

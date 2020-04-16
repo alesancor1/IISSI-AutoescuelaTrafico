@@ -32,7 +32,7 @@ class BaseController{
         }   
         else{
             require_once __DIR__.'/../../app/views/'.$vista.'View.php';
-            if(isset($_SESSION["cuenta"]) && $_GET["controller"]!=DEFAULT_CONTROLLER)
+            if(isset($_SESSION["cuenta"]) && isset($_GET["controller"]) && $_GET["controller"]!=DEFAULT_CONTROLLER)
                 require_once __DIR__.'/../../app/views/layouts/menubar.php';
         }  
     }

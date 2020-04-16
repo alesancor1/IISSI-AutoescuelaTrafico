@@ -19,6 +19,10 @@
         	            	echo "</ul>";
     	                	echo "<a href=\"#\"><li>WebTest</li></a>";
 	                        echo "<a href=\"#\"><li>Notificaciones</li></a>";
+                            echo "<ul style='list-style-type:none;'>";
+                                echo "<a href=\"?controller=Anuncios\"><li>Anuncios</li></a>";
+                                echo "<a href=\"#\"><li>Mensajes</li></a>";
+                            echo "</ul>";
                     	echo "</ul>";
                 	}
 					if($_SESSION["cuenta"][2]=='Profesor'){
