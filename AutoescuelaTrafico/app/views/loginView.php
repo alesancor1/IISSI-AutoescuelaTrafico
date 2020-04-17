@@ -6,7 +6,7 @@
 if($error){?>
 	<script>alert("Nombre de usuario o contraseña incorrectos");</script>
 <?php } ?>
-<form action="../public/index.php?controller=Login&action=login" method="post">
+<form action="?controller=Login&action=login" method="post">
 	<div class="container">
     	<label for="uname">Usuario</label></br>
 		<input type="text" placeholder="Inserte su usuario" name="uname" required></br>

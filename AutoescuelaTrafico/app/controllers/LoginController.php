@@ -32,26 +32,9 @@ class LoginController extends BaseController {
 				$this->view("login", array("error"=>TRUE));
 			} else {
 				$_SESSION["cuenta"] = array($_POST["uname"], $_POST["psw"], $tipo, $dni);
-				
-				switch ($tipo) {
-					case 'Profesor':
-						funciones::redirect("Anuncios");
-						break;
-					
-					case 'Alumno':
-						funciones::redirect("Anuncios");
-						break;
-						
-					case 'Administrador':
-						funciones::redirect("Anuncios");
-						break;
-						
-					default:
-						break;
-				}
-			}		
+				funciones::redirect("Anuncios");
+			}
 		}
 	}
-
 }
 ?>
