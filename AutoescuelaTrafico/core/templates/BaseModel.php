@@ -18,7 +18,7 @@ class BaseModel{
         while ($row = $query->fetchObject()) {
            $resultSet[]=$row;
         }
-         
+       
         return $resultSet;
     }
      
@@ -58,6 +58,14 @@ class BaseModel{
             }
         }            
         return $res;       
+    }
+
+    public function getLOB($table,$column,$oidColumn,$id){
+        $stmt = $this->db()->prepare("SELECT $column FROM $table WHERE $oidColumn=$id");
+        $stmt->execute();
+        $stmt->bindColumn(1,$res, PDO::PARAM_LOB);
+        $stmt=$stmt->fetch(PDO::FETCH_BOUND);
+        return $res;
     }
 }
 ?>

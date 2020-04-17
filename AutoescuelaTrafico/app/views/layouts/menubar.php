@@ -19,6 +19,11 @@
         	            	echo "</ul>";
     	                	echo "<a href=\"#\"><li>WebTest</li></a>";
 	                        echo "<a href=\"#\"><li>Notificaciones</li></a>";
+                            echo "<ul style='list-style-type:none;'>";
+                                echo "<a href=\"?controller=Anuncios\"><li>Anuncios</li></a>";
+                                echo "<a href=\"#\"><li>Mensajes</li></a>";
+                            echo "</ul>";
+                            echo "<a href=\"?\"><li> <= </li></a>";
                     	echo "</ul>";
                 	}
 					if($_SESSION["cuenta"][2]=='Profesor'){
@@ -34,6 +39,7 @@
                    				echo "<a href=\"#\"><li>Anuncios</li></a>";
                     			echo "<a href=\"#\"><li>Mensajes</li></a>";
                     		echo "</ul>";
+                            echo "<a href=\"?\"><li> <= </li></a>";
                     	echo "</ul>";
                 	}
                 	if($_SESSION["cuenta"][2]=='Administrador'){
@@ -49,7 +55,7 @@
                         	echo "<a href=\"#\"><li>Vehiculos</li></a>";
                         	echo "<a href=\"#\"><li>Recursos</li></a>";
                     		echo "<ul style=\"list-style-type:none;\">";
-                   				echo "<a href=\"#\"><li>WebTest</li></a>";
+                   				echo "<a href=\"?controller=WebTest&action=indexRecursosWebTest\"><li>WebTest</li></a>";
 	                    		echo "<a href=\"#\"><li>Ordenadores</li></a>";
                     		echo "</ul>";
                         	echo "<a href=\"#\"><li>Administración</li></a>";
@@ -58,6 +64,7 @@
                    				echo "<a href=\"#\"><li>Anuncios</li></a>";
                     			echo "<a href=\"#\"><li>Mensajes</li></a>";
                     		echo "</ul>";
+                            echo "<a href=\"?\"><li> <= </li></a>";
                     	echo "</ul>";
                 	}
 				}

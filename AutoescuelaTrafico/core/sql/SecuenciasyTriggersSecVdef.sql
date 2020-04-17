@@ -85,6 +85,10 @@ INCREMENT BY 1
 START WITH 1
 MAXVALUE 99999;
 
+CREATE SEQUENCE SEC_Anuncios
+INCREMENT BY 1
+START WITH 1
+MAXVALUE 99999;
 
 -- Triggers asociados a secuencias
 
@@ -274,3 +278,25 @@ BEGIN
     :NEW.OID_RM := valorSecuencia;
 END;
 /
+
+CREATE OR REPLACE TRIGGER TR_SEC_Anuncios
+BEFORE INSERT ON Anuncios
+FOR EACH ROW
+DECLARE
+    valorSecuencia NUMBER := 0;
+BEGIN
+    SELECT SEC_Anuncios.NEXTVAL INTO valorSecuencia FROM DUAL;
+    :NEW.OID_ANUN := valorSecuencia;
+END;
+/
+INSERT INTO Anuncios VALUES (0,to_date('17/11/2019','DD/MM/YYYY'),'Esto es un anuncio','Lorem ipsum dolor sit amet, 
+        consectetur adipiscing elit. Aliquam nec orci a metus iaculis cursus. Nullam gravida nulla non finibus 
+        condimentum. Ut eget metus fringilla, luctus diam ac, fringilla metus. Praesent pharetra, ligula at dignissim 
+        egestas, ipsum dolor varius tortor, vel malesuada tellus metus id erat. Aenean id malesuada sapien, id ultricies neque. 
+        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla malesuada accumsan 
+        libero, ac sodales odio sollicitudin quis. Vestibulum lacinia egestas efficitur. Curabitur consectetur nibh mauris, in 
+        ultricies turpis aliquam quis. Etiam ut nunc eget urna tempor dictum. Proin congue at lectus sit amet tincidunt.');
+
+INSERT INTO Anuncios VALUES (1,to_date('19/01/2020','DD/MM/YYYY'),'Esto es otro anuncio','Lorem ipsum dolor sit amet, 
+        consectetur adipiscing elit. Aliquam nec orci a metus iaculis cursus. Nullam gravida nulla non finibus  
+        ultricies turpis aliquam quis. Etiam ut nunc eget urna tempor dictum. Proin congue at lectus sit amet tincidunt.');

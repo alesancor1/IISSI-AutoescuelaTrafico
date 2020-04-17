@@ -585,5 +585,4 @@ Pruebas_ReparacionesTurismos.actualizar('Prueba 4 - Actualizacion ReparaciónTuri
 
 --Pruebas_ReparacionesTurismos.eliminar('Prueba 5 - Eliminacion ReparaciónTurismo', 1, TRUE); NO TIENE SENTIDO
 
-
 END;

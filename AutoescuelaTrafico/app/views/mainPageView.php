@@ -7,7 +7,7 @@
 <div class="topnav">
 	<a class="faq" href="#faq"><i></i></a>
 	<div class="search-container">
-    	<form action="/action_page.php">
+    	<form action="">
       	<input type="text" placeholder="Search.." name="search">
         	<button type="submit">Buscar<i class="fa fa-search"></i></button>
     	</form>
@@ -16,7 +16,7 @@
     
     <?php
     if(isset($_SESSION["cuenta"])){
-        echo "<a class='cuenta' href='Anuncios.php'>Logeado como: ".$_SESSION["cuenta"][0]."</a>";
+        echo "<a class='cuenta' href='?controller=Anuncios'>Logeado como: ".$_SESSION["cuenta"][0]."</a>";
 
         echo "<form action='../public/index.php' method='post'>";
         echo "<input type='submit' name='cerrarSesion' value='Cerrar Sesion'></form>";

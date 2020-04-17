@@ -1,5 +1,6 @@
 --BORRADO DE TABLAS Y SECUENCIAS
 drop table z_calendar;
+DROP TABLE Anuncios;
 DROP TABLE Login;
 DROP TABLE ReparacionesMotocicletas;
 DROP TABLE ReparacionesTurismos;
@@ -48,3 +49,4 @@ DROP SEQUENCE SEC_ITVTurismos;
 DROP SEQUENCE SEC_ITVMotocicletas;
 DROP SEQUENCE SEC_ReparacionesTurismos;
 DROP SEQUENCE SEC_ReparacionesMotocicletas;
+DROP SEQUENCE SEC_Anuncios;

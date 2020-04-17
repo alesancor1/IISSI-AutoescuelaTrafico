@@ -39,7 +39,7 @@ class ClasesController extends BaseController {
 		$clasesInformacion = $clases -> getInformacionAlumno();
 		$this -> view("/clases/indexClasesInformacion", array("clasesInformacion"=>$clasesInformacion));
 	}
-	
+
 
 }
 ?>
