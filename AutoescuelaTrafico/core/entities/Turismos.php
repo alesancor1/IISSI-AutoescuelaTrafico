@@ -11,7 +11,7 @@ class Turismos extends Vehiculo{
         return new Turismos($args[1],$args[2],$args[3]);
     }
 	
-	public function _construct($matricula, $estado, $modelo){
+	public function __construct($matricula, $estado, $modelo){
 		parent::__construct("Turismos");
 		if (!EstadoVehiculo::isValid($estado)){
     		throw new InvalidArgumentException(
