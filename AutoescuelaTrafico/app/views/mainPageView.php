@@ -17,7 +17,7 @@
 <div class="topnav">
 	<a class="faq" href="#faq"><i></i></a>
 	<div class="search-container">
-    	<form action="/action_page.php">
+    	<form action="">
       	<input type="text" placeholder="Search.." name="search">
         	<button type="submit">Buscar<i class="fa fa-search"></i></button>
     	</form>

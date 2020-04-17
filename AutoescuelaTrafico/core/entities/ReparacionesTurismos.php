@@ -1,12 +1,7 @@
 <?php
-class ReparacionesTurismos extends BaseEntity{
+class ReparacionesTurismos extends Reparaciones{
 	
-	protected $id;
-	protected $descripcion;
-	protected $fecha;
-	protected $coste;
 	protected $turismo;
-	protected $taller;
 	
 	public function create($line){
         $args = split(",", $line);
@@ -22,79 +17,6 @@ class ReparacionesTurismos extends BaseEntity{
 		$this -> turismo = $turismo;
 		$this -> taller = $taller;
 	}
-
-
-	/**
-     * Get id
-     *
-     * @return VariableType
-     */
-    public function getId(){
-        return $this->id;
-    }
-
-	/**
-     * Set id
-     *
-     * @param VariableType $id
-     */
-    public function setId($id){
-        $this->id = $id;
-    }
-
-	/**
-     * Get descripcion
-     *
-     * @return VariableType
-     */
-    public function getDescripcion(){
-        return $this->descripcion;
-    }
-
-	/**
-     * Set descripcion
-     *
-     * @param VariableType $descripcion
-     */
-    public function setDescripcion($descripcion){
-        $this->descripcion = $descripcion;
-    }
-
-	/**
-     * Get fecha
-     *
-     * @return VariableType
-     */
-    public function getFecha(){
-        return $this->fecha;
-    }
-
-	/**
-     * Set fecha
-     *
-     * @param VariableType $fecha
-     */
-    public function setFecha($fecha){
-        $this->fecha = $fecha;
-    }
-
-	/**
-     * Get coste
-     *
-     * @return VariableType
-     */
-    public function getCoste(){
-        return $this->coste;
-    }
-
-	/**
-     * Set coste
-     *
-     * @param VariableType $coste
-     */
-    public function setCoste($coste){
-        $this->coste = $coste;
-    }
 
 	/**
      * Get turismo
@@ -112,24 +34,6 @@ class ReparacionesTurismos extends BaseEntity{
      */
     public function setTurismo($turismo){
         $this->turismo = $turismo;
-    }
-
-	/**
-     * Get taller
-     *
-     * @return VariableType
-     */
-    public function getTaller(){
-        return $this->taller;
-    }
-
-	/**
-     * Set taller
-     *
-     * @param VariableType $taller
-     */
-    public function setTaller($taller){
-        $this->taller = $taller;
     }
 }
 
