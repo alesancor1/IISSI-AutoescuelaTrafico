@@ -11,7 +11,11 @@ class Alumnos extends Persona {
     }
 
 	public function __construct($dni, $nombre, $apellidos, $telefono, $fechaNacimiento, $clasesPagadas, $RMedico) {
+<<<<<<< HEAD:AutoescuelaTrafico/core/entities/Alumnos.php
 		parent::__contstruct("Alumnos");
+=======
+		parent::__construct("Alumno");
+>>>>>>> aacc4a2e5ee9a59369e6647a353a0cedc324bf53:AutoescuelaTrafico/core/entities/Alumno.php
 		$this -> dni = $dni;
 		$this -> nombre = $nombre;
 		$this -> apellidos = $apellidos;
