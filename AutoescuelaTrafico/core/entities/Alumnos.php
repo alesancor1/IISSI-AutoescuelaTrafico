@@ -1,12 +1,17 @@
 <?php
-class Alumno extends Persona {
+class Alumnos extends Persona {
 
 	private $fechaNacimiento;
 	private $clasesPagadas;
 	private $RMedico;
+	
+	public function create($line){
+        $args = split(",", $line);
+        return new Pista($args[1],$args[2],$args[3],$args[4],$args[5],$args[6],$args[7]);
+    }
 
 	public function __construct($dni, $nombre, $apellidos, $telefono, $fechaNacimiento, $clasesPagadas, $RMedico) {
-		parent::__contstruct("Alumno");
+		parent::__contstruct("Alumnos");
 		$this -> dni = $dni;
 		$this -> nombre = $nombre;
 		$this -> apellidos = $apellidos;

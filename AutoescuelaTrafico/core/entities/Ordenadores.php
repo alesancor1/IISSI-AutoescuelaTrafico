@@ -1,12 +1,17 @@
 <?php
-class Ordenador extends BaseEntity {
+class Ordenadores extends BaseEntity {
 	private $id;
 	private $estado;
 	private $modelo;
 	private $so;
 
+	public function create($line){
+        $args = split(",", $line);
+        return new Ordenadores($args[1],$args[2],$args[3],$args[4]);
+    }
+
 	public function __construct($id, $estado, $modelo, $so) {
-		parent::__construct("Ordenador");
+		parent::__construct("Ordenadores");
 		$this -> id = $id;
 		$this -> etstado = $estado;
 		$this -> modelo = $modelo;
