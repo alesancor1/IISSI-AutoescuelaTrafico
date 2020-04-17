@@ -5,16 +5,13 @@ class Motocicletas extends Vehiculo{
 	
 	public function create($line){
         $args = split(",", $line);
-		if (!EstadoVehiculo::isValid($args[2])){
-    		throw new InvalidArgumentException(
-    			sprintf("'%s' no es un estado de vehiculo valido", (string)$estado)
-			);
-		}
         return new Motocicletas($args[1],$args[2],$args[3]);
     }
 	
-	public function _construct($matricula, $estado, $modelo, $cc){
+	public function _construct($matricula, EstadoVehiculo $estado, $modelo, $cc){
 		parent::__construct("Motocicletas");
+		// La parte nueva, aplica el isValid para comprobar si el parametro que se mete es del enumerado
+		// en otro caso mete excepcion (Borrar despues)
 		if (!EstadoVehiculo::isValid($estado)){
     		throw new InvalidArgumentException(
     			sprintf("'%s' no es un estado de vehiculo valido", (string)$estado)
@@ -28,20 +25,12 @@ class Motocicletas extends Vehiculo{
 	}
 
 
-	/**
-     * Get cc
-     *
-     * @return VariableType
-     */
+
     public function getCc(){
         return $this->cc;
     }
 
-	/**
-     * Set cc
-     *
-     * @param VariableType $cc
-     */
+
     public function setCc($cc){
         $this->cc = $cc;
     }
