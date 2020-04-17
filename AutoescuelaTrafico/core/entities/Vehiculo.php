@@ -40,7 +40,12 @@ class Vehiculo extends BaseEntity{
      *
      * @param VariableType $estado
      */
-    public function setEstado($estado){
+    public function setEstado(EstadoVehiculo $estado){
+    	if (!EstadoVehiculo::isValid($estado)){
+    		throw new InvalidArgumentException(
+    			sprintf("'%s' no es un estado de vehiculo valido", (string)$estado)
+			);
+    	}
         $this->estado = $estado;
     }
 

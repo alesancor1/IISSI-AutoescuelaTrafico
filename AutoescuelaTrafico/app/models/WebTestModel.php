@@ -23,6 +23,22 @@ class WebTestModel extends BaseModel{
 		return $tablaRecursos;
 	}
 	
+	//	ALUMNO
+	
+	public function getInformacionAlumno(){
+		$dni = $_SESSION["cuenta"][3];
+		$query = "SELECT USUARIO,CLAVEPORDEFECTO,FECHARENOVACION,FECHACADUCIDAD,TRUNC(FECHACADUCIDAD)-TRUNC(SYSDATE) FROM ALUMNOS RIGHT JOIN AccesoWeb ON Alumnos.ACCESOWEB=AccesoWeb.USUARIO WHERE Alumnos.DNI = '$dni'";
+		$datos = $this->ejecutaSql($query);
+		if(sizeof($datos)==0){
+			$datos = null;
+		} else {
+			foreach($datos as $num => $accesoWeb){
+				$datos[$num] = AccesoWeb::__parse("AccesoWeb", $accesoWeb);
+			}
+		}
+		return $datos;
+	}
+	
 }
 
 ?>

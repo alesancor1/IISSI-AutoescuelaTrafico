@@ -17,7 +17,7 @@
                 	   			echo "<a href=\"#\"><li>Información</li></a>";
             	        		echo "<a href=\"#\"><li>Tutorías</li></a>";
         	            	echo "</ul>";
-    	                	echo "<a href=\"#\"><li>WebTest</li></a>";
+    	                	echo "<a href=\"?controller=WebTest&action=indexInformacionWebTest\"><li>WebTest</li></a>";
 	                        echo "<a href=\"#\"><li>Notificaciones</li></a>";
                             echo "<ul style='list-style-type:none;'>";
                                 echo "<a href=\"?controller=Anuncios\"><li>Anuncios</li></a>";

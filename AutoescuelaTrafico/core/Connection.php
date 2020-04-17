@@ -23,7 +23,7 @@ class Connection extends PDO {
 			$conexion -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			return $conexion;
 		} catch(PDOException $e) {
-			view("error",array("tipo"=>"ConexionDB"));
+			BaseModel::view("error",array("tipo"=>"ConexionDB"));
 		}
 	}
 

@@ -44,19 +44,16 @@ class BaseModel{
    
     public function ejecutaSql($query){
         $stmt = $this->db()->query($query);
-        $res = null;
-
-        if($query==true){
-            $rowNum = $this->rowNum($query);
-            if($rowNum>1){
-                for($i=0;$i<$rowNum;$i++){
-                    $res[$i]=$stmt->fetchObject();
-                }
+        if($stmt == true){
+            if(strpos($query,'SELECT')!== false){
+                $res = null;
+                $rowNum = $this->rowNum($query);
+                for($i=0;$i<$rowNum;$i++)
+                    $res[$i]=$stmt->fetchObject();               
             }
-            elseif($rowNum==1){
-                $res[] = $stmt->fetchObject();
-            }
-        }            
+        }
+        else
+            ;        //errorHandler::checkTrigger($query)
         return $res;       
     }
 

@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html>
+
 <title>Página principal</title>
+
+<head>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+   <style>
+	#mapid { height: 100%;
+	width:100%; }
+   </style>
+</head>
 
 <body>
 <!-- Top navigation menu -->
@@ -98,5 +108,13 @@
         </fieldset>
     </form>
 </div>
+
+<!-- Mapa -->
+<div id="mapid"></div>
+ 
+<script>
+	var mymap = L.map('mapid').setView([37.3848963,-6.0114024], 13);
+</script>
+
 
 </body>
