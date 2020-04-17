@@ -17,6 +17,11 @@ class AnunciosController extends BaseController {
 		$this -> view("/anuncios/indexAnuncios", array("allAnuncios"=>$allAnuncios));
 	}
 
+	public function enviar(){
+		$anuncios = new AnunciosModel($this -> adapter);
+		$insertarAnuncios = $anuncios -> insert($_POST["titulo"],$_POST["descripcion"]);
+		funciones::redirect("Anuncios");
+	}
 
 }
 ?>

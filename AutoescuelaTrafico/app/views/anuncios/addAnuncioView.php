@@ -8,7 +8,7 @@
     	<div class="overlay" id="overlay">
             <div class = "popup" id = "popup">
                 
-                <form action="" class="form-container">
+                <form action="?controller=Anuncios&action=enviar" class="form-container" method = "post">
 
                     <div class = "titulo">
                         <label for="titulo"><b>TITULO</b></label>

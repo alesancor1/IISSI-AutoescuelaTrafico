@@ -3,7 +3,7 @@
 <title>Examenes</title>
 <body>
 	<!-- Tabla Examenes Teoricos-->
-	<?php if($allExamenes["circulacion"] != null){
+	<?php if($allExamenes["teoricos"] != null){
 		?>
 		<h3>EXAMENES TEORICOS</h3>
 		<table>
