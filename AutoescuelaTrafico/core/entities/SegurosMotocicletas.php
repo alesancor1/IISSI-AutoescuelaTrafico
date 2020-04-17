@@ -1,12 +1,6 @@
 <?php
 class SegurosTurismos extends BaseEntity{
 	
-	protected $id;
-	protected $companyia;
-	protected $tipoSeguro;
-	protected $fechaContrato;
-	protected $tipoCuota;
-	protected $importeCuota;
 	protected $motocicleta;
 	
 	public function create($line){
@@ -24,6 +18,26 @@ class SegurosTurismos extends BaseEntity{
 		$this -> importeCuota = $importeCuota;
 		$this -> motocicleta = $motocicleta;
 	}
+
+
+
+	/**
+     * Get motocicleta
+     *
+     * @return VariableType
+     */
+    public function getMotocicleta(){
+        return $this->motocicleta;
+    }
+
+	/**
+     * Set motocicleta
+     *
+     * @param VariableType $motocicleta
+     */
+    public function setMotocicleta($motocicleta){
+        $this->motocicleta = $motocicleta;
+    }
 }
 
 ?>

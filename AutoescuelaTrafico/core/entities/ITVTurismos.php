@@ -1,11 +1,6 @@
 <?php
-class ITVTurismos extends BaseEntity{
+class ITVTurismos extends ITV{
 	
-	protected $id;
-	protected $fecha;
-	protected $fechaExpira;
-	protected $coste;
-	protected $revision;
 	protected $turismos;
 	
 	public function create($line){
@@ -23,6 +18,23 @@ class ITVTurismos extends BaseEntity{
 		$this -> turismos = $turismos;
 	}
 
+	/**
+     * Get turismos
+     *
+     * @return VariableType
+     */
+    public function getTurismos(){
+        return $this->turismos;
+    }
+
+	/**
+     * Set turismos
+     *
+     * @param VariableType $turismos
+     */
+    public function setTurismos($turismos){
+        $this->turismos = $turismos;
+    }
 }
 
 ?>
