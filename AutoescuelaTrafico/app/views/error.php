@@ -1,45 +1,58 @@
 <!DOCTYPE html>
 <html>
+<head>
+	
+	<meta charset="UTF-8" content="width=device-width initial, initial-scale=1">
+	<title>Página de error</title>
+	<link rel="stylesheet" type="text/css" href="./css/errorPage.css">
+	
+</head>
 
 <body>
 
-<div class='errorTOP'>
+<div class="errorTOP">
+	<div class="errorCrash">
+		<img class="errorImagen" src="./img/errorCrash.png" alt="Error al cargar la imagen. Hoy no es tu día ;("/>
+	</div>
 	
-	<h1>HA SUCEDIDO UN ERROR :(</h1>
-	<img class="errorImagen" src="./img/errorCrash.png" alt="Error al cargar la imagen. Hoy no es tu día ;("/>
+	<div class="errorMensaje">
+		<p>Ha sucedido un error :(</p>
+	</div>
+		
+	<!-- <div class="exclamacion">
+		<img src="./img/exclamacionroja.png" alt="Error al cargar la imagen. Hoy no es tu día ;( />
+	</div> -->
 
-<?php
+	<?php
+		echo '<link rel="stylesheet" type="text/css" href="./css/errorPage.css">';
+		echo '<div class="switchMensaje">';
+
 switch($tipo){
 	case "conexionDB": ?>
-		<div class="errorConexionDB">
 			<p>Ha ocurrido un error al conectarse al servidor de base de datos.</p>
-		</div> 
-		<?php ; break;
+	<?php ; break;
 		
 	case "notLoggedIn": ?>
-		<div class="errorNotLoggedIn">
 			<p>Debes iniciar sesion para acceder a estas funciones.</p>
-		</div>
 	<?php ; break;
 		
 	case "wrongLogin": ?>
-		<div class="errorWrongLogin">
-			<p>No tienes acceso a esta funcion.</p>
-		</div>
+		<p>No tienes acceso a esta función.</p>
 		<?php ; break;
 	
 	default:?>
-		<div class="errorWrongLogin">
-			<p>Error desconocido.</p>
-		</div>
-		<?php ;
-} ?>
+		<p>Error desconocido.</p>
+	<?php ;
+} 
+	echo '</div>';
+?>
 
 <?php
-	$url = "location.href='./index.php';"; ?>
-	<div class="botonVolverAtrásError">
-	<?php echo '<input type="button" onclick='.$url. ' value="Volver al inicio"/>' ?>
-	</div>
+	echo '<link rel="stylesheet" type="text/css" href="./css/errorPage.css">';
+	
+	$url = "location.href='./index.php';";
+	
+	echo '<input type="button" class="botonVolverAtrasError" onclick='.$url. ' value="Volver al inicio"/>'; ?>
 
 	<?php
 	exit();

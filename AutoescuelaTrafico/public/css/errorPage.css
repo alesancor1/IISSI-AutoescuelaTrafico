@@ -1,0 +1,28 @@
+* {
+	background: rgba(173,216,230,1);
+	color:white;
+	font-weight: bold;
+}
+
+.errorCrash>img{
+	float:left;
+	width:50%;
+}
+
+.errorMensaje{
+	padding-top:1.25%;
+	font-size: 550%;
+}
+
+.switchMensaje {
+	font-size: 300%;
+}
+
+.botonVolverAtrasError{
+	width:auto;
+	height:50px;
+	margin-left:15%;
+	border-radius: 200px 200px 200px 200px;
+	-moz-border-radius: 200px 200px 200px 200px;
+	-webkit-border-radius: 200px 200px 200px 200px;
+}
