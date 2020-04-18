@@ -10,12 +10,14 @@
   justify-content: center;
   display: flex;
   visibility: hidden;
+  z-index: 2;
 }
 .overlay.active{
   visibility: visible;
 }
 /*ventana del popup*/
-.popup { 
+.popup {
+  position: absolute;
   width: 75%;
   height: 75%;
   background: white;

@@ -36,15 +36,16 @@
 .imagen img{
   position: absolute;
   top: 0%;
-  height: 100%;
+  height: 8vw;
   width: 45%;
+  size: 2.1vw;
 }
 /*titulo*/
 .title{
   word-wrap: break-word;
   margin-left: 40%;
   font-style: italic;
-  font-size: 160%;
+  font-size: 2.1vw;
   color: blue;
   width: 58%;
 }
@@ -52,7 +53,7 @@
 .usr-container{
   position: absolute;
   margin-left: -5%;
-  top:35%;
+  top: 35%;
   width: 60%;
   height: 5%;
 }
@@ -181,6 +182,7 @@
 .descripcion{
   word-wrap: break-word;
   position: absolute;
+  text-align: center;
   top:23%;
   width: 95%;
 }
@@ -202,8 +204,9 @@
 /* ANIMACIONES */
 /* ------------------------- */
 .popup.active{
-  transform: scale(1);
-  opacity: 1;
   border: 3px solid #f1f1f1;
   border-radius: 5%;
+  transform: scale(1);
+  opacity: 1;
 }
+
