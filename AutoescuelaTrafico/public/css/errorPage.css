@@ -26,3 +26,8 @@
 	-moz-border-radius: 200px 200px 200px 200px;
 	-webkit-border-radius: 200px 200px 200px 200px;
 }
+
+.botonVolverAtrasError:hover{
+	cursor: pointer;
+	border: 2px solid white;
+}
