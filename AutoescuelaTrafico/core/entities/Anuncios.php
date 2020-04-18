@@ -56,7 +56,7 @@ class Anuncios extends BaseEntity {
      * @return VariableType
      */
     public function getTexto(){
-        $res = fpassthru($this->texto);
+        return stream_get_contents($this->texto);
     }
 
     public function setTexto($texto){
