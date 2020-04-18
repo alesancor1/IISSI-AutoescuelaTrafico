@@ -17,56 +17,97 @@
 }
 /*ventana del popup*/
 .popup {
-  position: absolute;
+  position: relative;
   width: 75%;
   height: 75%;
   background: white;
   border: none;
-  font-family: 'Montserrat', sans-serif;
+  font-family: sans-serif;
 
   transform: scale(0.7);
   opacity: 0;
   transition: .3s ease all;
 }
+.nuevo{
+  width: 100%;
+  font-size: 5vh;
+  position: absolute;
+  top: 0;
+  margin-left: 50px;
+  z-index: 1;
+}
 /*formulario*/
 .form-container {
-  max-width: 100%;
-  max-height: 100%;
-  padding: 5%;
+  position: relative;
   background-color: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
 
   opacity: 0;
 }
+.titulo{
+  position: absolute;
+  top: 15%;
+  left: 50px;
+  width: 100%;
+  height: 5%;
+}
 .titulo input[type=text]{
-  width: 60%;
-  padding: 10px;
-  margin: 0px 10px 22px 10px;
-  border: none;
+  width: 50%;
+  height: 100%;
+  margin-left: 10px;
   background: #f1f1f1;
+  border: none;
+}
+.descripcion{
+  top: 25%;
+  position: absolute;
+  left: 50px;
+  right: 50px;
+  width: 90%;
+  height: 50%;
 }
 .descripcion textarea{
-  width: 97%;
-  padding: 15px;
-  margin: 10px 0 0 0;
   border: none;
-  background: #f1f1f1;
+  margin-top: 6px;
   resize: none;
+  width: 100%;
+  background: #f1f1f1;
+  height: 100%;
+}
+.botones{
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 20%;
 }
 .volver{
+  border:none;
   background-color: white;
-  border: none;
-  cursor: pointer;
+  position: absolute;
+  left: 3%;
+  bottom: 5%;
   margin-left: -20px;
+  cursor: pointer;
 }
 .volver:hover{
-  color: blue;
+  color:#84C1FD;
 }
 .enviar{
-	background-color: blue;
-	color: white;
-	border:none;
-	padding: 5px 10px 5px 10px;
-	margin: 10px 0 0 40%;
+  margin-top: 15px;
+  height: 30%;
+  width: 20%;
+  background-color: #84C1FD;
+  border: 2px solid #0A559F;
+  cursor: pointer;
+}
+.enviar:hover{
+  color:white;
+  border:none;
 }
 
 /* ------------------------- */

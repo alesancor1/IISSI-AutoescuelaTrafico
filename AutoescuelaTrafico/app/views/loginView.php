@@ -50,15 +50,15 @@
 				<img class = "logo" src = "./img/autoescuela.png" alt = "logo">
 			</div>
 
-			<div class=usr-container>
-				<label for="uname">Usuario</label></br>
-				<input type="text" placeholder="Inserte su usuario" name="uname" required>
-			</div>
+				<div class=usr-container>
+					<label for="uname">Usuario</label></br>
+					<input type="text" placeholder="Inserte su usuario" name="uname" required>
+				</div>
 
-			<div class=psw-container>
-				<label for="psw">Contraseña</label></br>
-				<input type="password" placeholder="Inserte su contraseña" name="psw" required>
-			</div>
+				<div class=psw-container>
+					<label for="psw">Contraseña</label></br>
+					<input type="password" placeholder="Inserte su contraseña" name="psw" required>
+				</div>
 
 			<div class=botones>
 				<button type="submit">Iniciar sesión</button></br>

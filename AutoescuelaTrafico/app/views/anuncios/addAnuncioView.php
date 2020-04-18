@@ -7,6 +7,7 @@
 
     	<div class="overlay" id="overlay">
             <div class = "popup" id = "popup">
+                <h1 class = nuevo>NUEVO ANUNCIO</h1>
                 
                 <form action="?controller=Anuncios&action=enviar" class="form-container" method = "post">
 
@@ -17,7 +18,7 @@
 
                     <div class = "descripcion">
                         <label for="descripcion"><b>DESCRIPCIÓN</b></label>
-                        <textarea placeholder="Escribe aqui" name="descripcion" cols="50" rows="24" required></textarea>
+                        <textarea placeholder="Escribe aqui" name="descripcion" cols="30" rows="23" required></textarea>
                     </div>
 
                     <div class = "botones">

@@ -14,6 +14,9 @@
 }
 /*formulario*/
 .form-container {
+  min-height: 480px;
+  min-width: 400px;
+  max-width: 400px;
   display: flex;
   position: relative;
   background-color: white;
@@ -36,16 +39,15 @@
 .imagen img{
   position: absolute;
   top: 0%;
-  height: 8vw;
+  height: 100%;
   width: 45%;
-  size: 2.1vw;
 }
 /*titulo*/
 .title{
   word-wrap: break-word;
   margin-left: 40%;
   font-style: italic;
-  font-size: 2.1vw;
+  font-size: 170%;
   color: blue;
   width: 58%;
 }
