@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html>
 
-<title>Página principal</title>
+<title>Autoescuela Tráfico</title>
 
 <head>
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"/>
 	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
     <link rel="stylesheet" href="./css/mainPage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
+
 <div class = wrapper>
-<!-- Top navigation menu -->
+
+    <!----------------------------------------------------------------
+      Top navigation menu 
+    ------------------------------------------------------------------>
     <div class="topnav">
 
-    	<i class="faq" href="#faq"></i>
+    	<div class = faq onclick='document.getElementById("quienes_somos").scrollIntoView({behavior: "smooth"})'>
+            <i class="fa fa-question-circle-o"></i>
+        </div>
 
     	<div class="search-container">
         	<form action="">
           	<input type="text" placeholder="Search.." name="search">
-            	<button type="submit"> > <i class="fa fa-search"></i></button>
+            	<button type="submit"><i class="fa fa-search"></i></button>
         	</form>
       	</div>
 
@@ -30,7 +37,7 @@
             <div class = logedAs onclick="location.href = '?controller=Anuncios'">
                 <form action = './index.php' method = post>
                     <p>Logeado como: <?php echo $_SESSION["cuenta"][0]?></p>     
-                    <input type='submit' name='cerrarSesion' value='Cerrar Sesion'>
+                    <button type='submit' name = 'logout'><i class="fa fa-sign-out"></i></button>
                 </form>
             </div> <?php
         }
@@ -40,30 +47,36 @@
         </div>    
     </div>
 
-    <!-- Banner -->
+    <!----------------------------------------------------------------
+      Banner 
+    ------------------------------------------------------------------>
     <div class="banner">
     	<img src="banner.jpg" class="banner-img" alt="Banner"/>
     </div>
 
-    <!-- Botones -->
+    <!----------------------------------------------------------------- 
+      Botones 
+    ------------------------------------------------------------------->
     <div class="buttons">
     	<div class="btn">
         	<p> ¿Quiénes somos?</p>
-            <button onclick = 'location.href = "#quienes_somos"'>v</button>
+            <button onclick = 'document.getElementById("quienes_somos").scrollIntoView({behavior: "smooth"})'>v</button>
         </div>
         
         <div class="btn">
         	<p>Ofertas</p>
-            <button onclick = 'location.href = "#ofertas"'>v</button>
+            <button onclick = 'document.getElementById("ofertas").scrollIntoView({behavior: "smooth"})'>v</button>
         </div>
         
         <div class="btn">
         	<p>Contacto</p>
-            <button onclick = 'location.href = "#contacto"'>v</button>
+            <button onclick = 'document.getElementById("contacto").scrollIntoView({behavior: "smooth"})'>v</button>
         </div>
     </div>
 
-    <!-- Quienes somos -->
+    <!----------------------------------------------------------------
+      Quienes somos 
+    ------------------------------------------------------------------>
     <div class="quienes_somos" id="quienes_somos">
     	<h2>QUIENES SOMOS</h2>
     	<div class="slider">
@@ -75,7 +88,9 @@
         </div>
     </div>
 
-    <!-- Ofertas -->
+    <!----------------------------------------------------------------
+      ofertas 
+    ------------------------------------------------------------------>
     <div class="ofertas" id="ofertas">
     	<h2>OFERTAS</h2>
     	<div class="permiso_a">
@@ -90,7 +105,9 @@
         </div>
     </div>
 
-    <!-- Contacto -->
+    <!----------------------------------------------------------------
+      Contacto 
+    ------------------------------------------------------------------>
     <div class="contacto" id="contacto">
     	<h2>CONTACTO</h2>
         <form action= >
@@ -113,7 +130,9 @@
         </form>
     </div>
 
-    <!-- Mapa -->
+    <!----------------------------------------------------------------
+      mapa 
+    ------------------------------------------------------------------>
     <div class = "ubicacion">
         <p>SEVILLA:</br>Calle</br>41919 (Sevilla)</br> tlf: 9XXXXXXXX</br> email: *****@***.com</p>
         <img src = ./img/autoescuela.png>

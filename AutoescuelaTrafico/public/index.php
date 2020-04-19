@@ -15,11 +15,10 @@ require_once __DIR__.'/../core/routes.php';
 require_once __DIR__.'/../core/ErrorHandler.php';
 
 //Si hay algun controlador lo cargamos, si no cargamos el por defecto
-
 if(!isset($_SESSION))
 	session_start();
 
-if(isset($_POST['cerrarSesion']))
+if(isset($_POST['logout']))
 	unset($_SESSION["cuenta"]);
 
 if(isset($_GET["controller"])){
