@@ -1,0 +1,67 @@
+.wrapper{
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow: scroll;
+	z-index: 0;
+
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	grid-template-rows: 5% 30% 65% 100% 100% 100%;
+  	grid-template-areas: 
+    "top-nav	top-nav"
+    "banner		banner"
+    "botones	botones"
+    "quienes_somos		quienes_somos"
+    "ofertas	ofertas"
+    "form		ubicacion";
+}/*TOPNAV*/
+.topnav{
+	grid-area: top-nav;
+	z-index: 2;
+	position: sticky;
+	top: 0;
+	background-color: #366DEE;
+}
+/*BANNER*/
+.banner{
+	border: 3px solid black;
+	grid-area: banner;
+	z-index: 1;
+}
+/*BOTONES DE SCROLL*/
+.buttons{
+	border: 3px solid black;
+	grid-area: botones;
+	z-index: 1;
+}
+/*QUIENES SOMOS*/
+.quienes_somos{
+	border: 3px solid black;
+	grid-area: quienes_somos;
+	z-index: 1;
+}
+/*OFERTAS*/
+.ofertas{
+	border: 3px solid black;
+	grid-area: ofertas;
+	z-index: 1;
+}
+/*FORMULARIO CONTACTO*/
+.contacto{
+	border: 3px solid black;
+	grid-area: form;
+	z-index: 1;
+}
+/*MAPA Y UBICACION*/
+.ubicacion{
+	border: 3px solid black;
+	grid-area: ubicacion;
+	z-index: 1;
+}
+.ubicacion img{
+	height: 10%;
+	width: 10%;
+}

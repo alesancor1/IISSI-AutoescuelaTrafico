@@ -6,6 +6,7 @@
 <head>
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
 	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="./css/mainPage.css">
    <style>
 	#mapid { height: 100%;
 	width:100%; }
@@ -13,6 +14,7 @@
 </head>
 
 <body>
+<div class = wrapper>
 <!-- Top navigation menu -->
 <div class="topnav">
 	<a class="faq" href="#faq"><i></i></a>
@@ -41,20 +43,20 @@
 
 <!-- Banner -->
 <div class="banner">
-	<img src="banner.jpg" class="banner-img" alt=""/>
+	<img src="banner.jpg" class="banner-img" alt="Banner"/>
 </div>
 
 <!-- Botones -->
 <div class="buttons">
-	<div class="quienes_somos">
+	<div class="quienes_somosbtn">
     	<a href="#quienes_somos"> ¿Quiénes somos?</a>
     </div>
     
-    <div class="ofertas">
+    <div class="ofertasbtn">
     	<a href="#ofertas"> Ofertas</a>
     </div>
     
-    <div class="contacto">
+    <div class="contactobtn">
     	<a href="#contacto"> Contacto</a>
     </div>
 </div>
@@ -63,7 +65,7 @@
 <div class="quienes_somos" id="quienes_somos">
 	<h2>QUIENES SOMOS</h2>
 	<div class="slider">
-    	
+    	<p>Aqui va un slider</p>
     </div>
     <div class="info">
     	<h3>The standard Lorem Ipsum passage, used since the 1500s</h3>
@@ -72,22 +74,22 @@
 </div>
 
 <!-- Ofertas -->
-<div class="ofertas" id="quienes_somos">
+<div class="ofertas" id="ofertas">
 	<h2>OFERTAS</h2>
 	<div class="permiso_a">
     	<h2>Permiso A</h2>
-    	<img src= alt="">
+    	<img src="" alt="">
         <p>Texto de permiso A</p>
     </div>
     <div class="permiso_b">
     	<h2>Permiso B</h2>
-        <img src= alt="">
+        <img src="" alt="">
         <p>Texto de permiso B</p>
     </div>
 </div>
 
 <!-- Contacto -->
-<div class="contacto" id="quienes_somos">
+<div class="contacto" id="contacto">
 	<h2>CONTACTO</h2>
     <form action= >
     	<fieldset>
@@ -110,11 +112,15 @@
 </div>
 
 <!-- Mapa -->
-<div id="mapid"></div>
+<div class = "ubicacion">
+    <p>SEVILLA:</br>Calle</br>41919 (Sevilla)</br> tlf: 9XXXXXXXX</br> email: *****@***.com</p>
+    <img src = ./img/autoescuela.png>
+    <div id="mapid" class = "map"></div>
+</div>
  
 <script>
 	var mymap = L.map('mapid').setView([37.3848963,-6.0114024], 13);
 </script>
 
-
+</div>
 </body>
