@@ -9,7 +9,7 @@
 
 	display: grid;
 	grid-template-columns: 1fr 2fr;
-	grid-template-rows: 5% 30% 65% 100% 100% 100%;
+	grid-template-rows: 45px 30% 65% 100% 100% 100%;
   	grid-template-areas: 
     "top-nav	top-nav"
     "banner		banner"
@@ -17,45 +17,189 @@
     "quienes_somos		quienes_somos"
     "ofertas	ofertas"
     "form		ubicacion";
-}/*TOPNAV*/
+}
+/* ------------------------------------*/
+/* TOPNAV */
+/* ------------------------------------*/
 .topnav{
 	grid-area: top-nav;
 	z-index: 2;
 	position: sticky;
 	top: 0;
 	background-color: #366DEE;
+	border-bottom: 3px solid rgba(0,0,0,0.3);
+
+	display: grid;
+	grid-template-columns: 0.25fr 1fr 4fr 1.25fr;
+	grid-template-rows: 45px;
+	grid-template-areas:
+	"faq	search	heading	sesion";
 }
-/*BANNER*/
+/* FAQ */
+.topnav .faq{
+	border: 3px solid black;
+	grid-area:faq;
+}
+/* BARRA DE BUSQUEDA*/
+.topnav .search-container{
+	grid-area: search;
+	display: flex;
+	align-items: center;
+}
+.topnav .search-container button[type=submit]{
+	right: 0;
+	width: 10%;
+	border-radius: 100%;
+	border: none;
+	background-color: #C6DDFF;
+	font-weight: bolder;
+	color: #366DEE;
+	cursor: pointer;
+}
+.topnav .search-container input[type=text]{
+	border-radius: 50px;
+	border: none;
+}
+/* TITULO DE AUTOESCUELA TRAFICO*/
+.topnav .heading {
+	grid-area: heading;
+	height: 45px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: sans-serif;
+	text-align: center;
+	margin-top: 0;
+	color: white;
+}
+/* BOTONES DE INICIAR/CERRAR SESION*/
+.topnav .sesion{
+	grid-area: sesion;
+	display: flex;
+	justify-content: flex-end;
+}
+.topnav .sesion .login{
+	width: 90%;
+	height: 100%;
+	color: white;
+	background-color: #254A9F;
+	border: none;
+	cursor: pointer;
+	font-size: 100%;
+}
+.topnav .sesion .login:hover{
+	background-color: rgba(0,0,0,0.5);
+}
+.topnav .sesion .logedAs{
+	width: 90%;
+	background-color: #254A9F;
+	cursor: pointer;
+}
+.topnav .sesion .logedAs form{
+	display: grid;
+	grid-template-columns: 80% 20%;
+	grid-template-rows: 45px;
+	grid-template-areas: "log cerrar";
+}
+.topnav .sesion .logedAs p{
+	grid-area: log;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	padding-left: 5px;
+	margin-top: 0;
+	height: 45px;
+	white-space: nowrap;
+ 	overflow: hidden;
+	color: white;
+}
+.topnav .sesion .logedAs p:hover{
+	background-color: rgba(0,0,0,0.3);
+}
+.topnav .sesion .logedAs input[type=submit]{
+	grid-area: cerrar;
+	border: none;
+	color: white;
+	background-color: #254A9F;
+	cursor: pointer;
+}
+.topnav .sesion .logedAs input[type=submit]:hover{
+	background-color: rgba(0,0,0,0.3);
+}
+
+
+/* ------------------------------------*/
+/* BANNER */
+/* ------------------------------------*/
 .banner{
 	border: 3px solid black;
 	grid-area: banner;
 	z-index: 1;
 }
-/*BOTONES DE SCROLL*/
+/* ------------------------------------*/
+/* BOTONES DE SCROLL */
+/* ------------------------------------*/
 .buttons{
-	border: 3px solid black;
 	grid-area: botones;
+	background: linear-gradient(180deg, rgba(198,221,240,1) 0%, rgba(198,221,240,1) 37%, rgba(255,255,255,1) 100%);
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	padding: 5% 10% 15% 10%;
+	grid-gap: 10%;
 	z-index: 1;
 }
-/*QUIENES SOMOS*/
+.buttons *{
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 130%;
+}
+.buttons .btn{
+	background: #7CABF2;
+	color: white;
+}
+.buttons button{
+	border-radius: 100%;
+	border: 3px solid #366DEE;
+	width: 40px;
+	height: 40px;
+	opacity: 0.85;
+	cursor: pointer;
+	position: absolute;
+	bottom: 20%;
+}
+.buttons p{
+	position: absolute;
+	top: 15%;
+}
+/* ------------------------------------*/
+/* QUIENES SOMOS */
+/* ------------------------------------*/
 .quienes_somos{
 	border: 3px solid black;
 	grid-area: quienes_somos;
 	z-index: 1;
 }
-/*OFERTAS*/
+/* ------------------------------------*/
+/* OFERTAS */
+/* ------------------------------------*/
 .ofertas{
-	border: 3px solid black;
 	grid-area: ofertas;
+	background: #c6ddf0;
 	z-index: 1;
 }
-/*FORMULARIO CONTACTO*/
+/* ------------------------------------*/
+/* FORMULARIO CONTACTO */
+/* ------------------------------------*/
 .contacto{
 	border: 3px solid black;
 	grid-area: form;
 	z-index: 1;
 }
-/*MAPA Y UBICACION*/
+/* ------------------------------------*/
+/* MAPA Y UBICACION */
+/* ------------------------------------*/
 .ubicacion{
 	border: 3px solid black;
 	grid-area: ubicacion;
@@ -64,4 +208,8 @@
 .ubicacion img{
 	height: 10%;
 	width: 10%;
+}
+#mapid { 
+	height: 100%;
+	width:100%; 
 }
