@@ -199,6 +199,11 @@
 	height: 100%;
 	max-height: 200px;
 	min-height: 200px;
+	transform: scale(0.9);
+	transition: .2s ease all;
+}
+.buttons .btn:hover{
+	transform: scale(1.025);
 }
 .buttons button{
 	border-radius: 100%;
@@ -209,6 +214,9 @@
 	cursor: pointer;
 	position: absolute;
 	bottom: 20%;
+}
+.buttons button:hover{
+	border: 3px solid white;
 }
 .buttons p{
 	text-align: center;
