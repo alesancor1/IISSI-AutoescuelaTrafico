@@ -13,7 +13,7 @@
 
 	display: grid;
 	grid-template-columns: 1fr 2fr;
-	grid-template-rows: 45px 30% 65% 100% 100% 100%;
+	grid-template-rows: 45px 30% 1fr 100% 100% 100%;
   	grid-template-areas: 
     "top-nav	top-nav"
     "banner		banner"
@@ -26,17 +26,17 @@
 /* SCROLLBAR */
 /* ---------------------------*/
 @media (min-width: 600px){
-	.wrapper::-webkit-scrollbar{
+	*::-webkit-scrollbar{
 		width: 5px;
 		background-color: #c6ddf0;
 	}
 }
 @media (max-width: 600px){
-	.wrapper::-webkit-scrollbar{
+	*::-webkit-scrollbar{
 			width: 0px;
 	}
 }
-.wrapper::-webkit-scrollbar-thumb{
+*::-webkit-scrollbar-thumb{
 	background-color: #104491;
 	border-radius: 100px;
 }
@@ -136,6 +136,7 @@
 	grid-template-columns: 8fr 2fr;
 	grid-template-rows: 45px;
 	grid-template-areas: "log cerrar";
+	padding-left: 10px;
 }
 .topnav .sesion .logedAs p{
 	grid-area: log;
@@ -147,6 +148,7 @@
 	height: 45px;
 	white-space: nowrap;
  	overflow: hidden;
+ 	text-overflow: ellipsis;
 	color: white;
 }
 .topnav .sesion .logedAs p:hover{
@@ -227,10 +229,120 @@
 /* QUIENES SOMOS */
 /* ------------------------------------*/
 .quienes_somos{
-	border: 3px solid black;
 	grid-area: quienes_somos;
+	
+	font-family: sans-serif;
+	background-color: white;
+	display: grid;
+	grid-gap:50px;
+	padding: 50px 50px 200px 50px;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 9% 90%;
 	z-index: 1;
 }
+.quienes_somos h2{
+	grid-row: 1;
+	grid-column: 1 /span 2;
+	height: 100%;
+	text-align: center;
+	font-size: 200%;
+}
+
+/*			*/
+/* 	SLIDER	*/
+/*			*/
+.quienes_somos .slider{
+	grid-column: 1;
+	width: 100%;
+	height: 100%;
+	min-height: 200px;
+	max-height: 500px;
+	margin: auto;
+	position: relative;
+	background-color: rgba(198,221,240,1);
+}
+.slider .mySlides{
+	display: none;
+	height: 100%;
+}
+.slider img{
+	width: 100%;
+	height: 100%;
+}
+.slider .prev, .next{
+	cursor: pointer;
+	position: absolute;
+	top: 48%;
+	width: auto;
+	margin-top: -22px;
+	padding: 16px;
+	color: white;
+	font-weight: bold;
+	font-size: 25px;
+	transition: 0.6s ease;
+	border-radius: 0 3px 3px 0;
+	user-select: none;
+}
+.slider .next{
+	right: 0;
+	border-radius: 3px 0 0 3px;
+}
+.slider .prev:hover, .next:hover{
+	background-color: rgba(0,0,0,0.8);
+}
+.slider .text {
+	color: #f2f2f2;
+	font-size: 15px;
+	padding: 8px 12px;
+	position: absolute;
+	bottom: 8px;
+	width: 100%;
+	text-align: center;
+}
+.slider .dot {
+	cursor: pointer;
+	height: 12px;
+	width: 12px;
+	margin: 10px 2px;
+	background-color: #bbb;
+	border-radius: 50%;
+	display: inline-block;
+	transition: background-color 0.6s ease;
+}
+.slider .active, .dot:hover {
+  background-color: #717171;
+}
+
+/* ANIMACION AL PASAR PAGINA */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* 							*/
+/*	texto de quienes somos	*/
+/*							*/
+.quienes_somos .info{
+	grid-column: 2;
+	background: linear-gradient(180deg, rgba(198,221,240,1) 0%, rgba(198,221,240,1) 37%, rgba(255,255,255,1) 100%);
+	padding: 50px;
+	line-height: 1.5em;
+	text-align: justify;
+	overflow-y: auto;
+}
+
+
+
 /* ------------------------------------*/
 /* OFERTAS */
 /* ------------------------------------*/

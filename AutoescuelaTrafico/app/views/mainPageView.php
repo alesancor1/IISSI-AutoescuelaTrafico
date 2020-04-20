@@ -36,7 +36,7 @@
         <?php if(isset($_SESSION["cuenta"])){ ?>
             <div class = logedAs onclick="location.href = '?controller=Anuncios'">
                 <form action = './index.php' method = post>
-                    <p>Logeado como: <?php echo $_SESSION["cuenta"][0]?></p>     
+                    <p><?php echo $_SESSION["cuenta"][0]?></p>     
                     <button type='submit' name = 'logout'><i class="fa fa-sign-out"></i></button>
                 </form>
             </div> <?php
@@ -78,9 +78,34 @@
       Quienes somos 
     ------------------------------------------------------------------>
     <div class="quienes_somos" id="quienes_somos">
-    	<h2>QUIENES SOMOS</h2>
+    	<h2>¿QUIÉNES SOMOS?</h2>
+
     	<div class="slider">
-        	<p>Aqui va un slider</p>
+        	<div class="mySlides fade">
+                <img src="./img/autoescuela.png">
+                <div class="text">Prueba 1</div>
+            </div>
+
+            <div class="mySlides fade">
+                <img src="./img/errorCrash.png">
+                <div class="text">Prueba 2</div>
+            </div>
+
+            <div class="mySlides fade">
+                <img src="./img/exclamacionroja.png">
+                <div class="text">Prueba 3</div>
+            </div>
+
+            <!--botones del slider-->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+            <!--circulitos-->
+            <div style="text-align:center">
+              <span class="dot" onclick="currentSlide(1)"></span>
+              <span class="dot" onclick="currentSlide(2)"></span>
+              <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
         </div>
         <div class="info">
         	<h3>The standard Lorem Ipsum passage, used since the 1500s</h3>
@@ -88,6 +113,8 @@
         </div>
     </div>
 
+    <!--Script del slider-->
+    <script type="text/javascript" src="./js/slideshow.js"></script>
     <!----------------------------------------------------------------
       ofertas 
     ------------------------------------------------------------------>
