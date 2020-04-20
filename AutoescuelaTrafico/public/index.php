@@ -1,3 +1,11 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	    <link rel="icon" href="./favicon.ico"/>
+    	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+</html>
+
 <?php
 //Configuracion global
 require_once __DIR__.'/../app/config/globals.php';

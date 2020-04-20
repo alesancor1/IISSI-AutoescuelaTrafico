@@ -7,7 +7,6 @@
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"/>
 	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
     <link rel="stylesheet" href="./css/mainPage.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -82,18 +81,15 @@
 
     	<div class="slider">
         	<div class="mySlides fade">
-                <img src="./img/autoescuela.png">
-                <div class="text">Prueba 1</div>
+                <img src="./img/slider1.png">
             </div>
 
             <div class="mySlides fade">
-                <img src="./img/errorCrash.png">
-                <div class="text">Prueba 2</div>
+                <img src="./img/slider2.png">
             </div>
 
             <div class="mySlides fade">
-                <img src="./img/exclamacionroja.png">
-                <div class="text">Prueba 3</div>
+                <img src="./img/slider3.png">
             </div>
 
             <!--botones del slider-->
@@ -108,8 +104,8 @@
             </div>
         </div>
         <div class="info">
-        	<h3>The standard Lorem Ipsum passage, used since the 1500s</h3>
-            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+        	<h3>Autoescuela Tráfico</h3>
+            <p>El centro de formacion Autoescuela Tráfico es un centro de formación vial, que pretende contribuir enseñando educación vial para evitar los accidentes de tráfico. Así como promover actividades  para la mejora de la Logística y el Transporte. Esta iniciativa responde a una inquietud por participar en algo que nos atañe a todos. Queremos ayudar a solucionar estos problemas, desde el ámbito de la sensibilización, la innovación y la educación en valores. Pretendemos ser un referente y liderar proyectos que desde el ámbito de la innovación y la formación contribuyan a la mejora de la Seguridad Vial, del Medio Ambiente, la Logística y el Transporte.</p>
         </div>
     </div>
 
@@ -119,7 +115,7 @@
       ofertas 
     ------------------------------------------------------------------>
     <div class="ofertas" id="ofertas">
-    	<h2>OFERTAS</h2>
+    	<h2 class = "ofertasTitle">OFERTAS</h2>
     	<div class="permiso_a">
         	<h2>Permiso A</h2>
         	<img src="" alt="">
@@ -166,9 +162,7 @@
         <div id="mapid" class = "map"></div>
     </div>
      
-    <script>
-    	var mymap = L.map('mapid').setView([37.3848963,-6.0114024], 13);
-    </script>
+    <script type="text/javascript" src="./js/map.js"></script>>
 
 </div>
 </body>
