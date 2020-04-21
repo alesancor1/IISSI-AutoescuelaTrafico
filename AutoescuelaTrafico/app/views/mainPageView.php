@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"/>
 	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
     <link rel="stylesheet" href="./css/mainPage.css">
+    <link rel="stylesheet" href="./css/mainPageMobile.css">
 </head>
 
 <body>
@@ -132,23 +133,18 @@
       Contacto 
     ------------------------------------------------------------------>
     <div class="contacto" id="contacto">
-    	<h2>CONTACTO</h2>
         <form action= >
         	<fieldset>
             	<legend>Contáctanos</legend>
-                <label for="contact_name">Nombre:</label>
-                <input type="text" id="contact_name" name="contact_name"><br>
+                <input type="text" id="contact_name" name="contact_name" placeholder="Su nombre"><br>
                 
-                <label for="contact_email">Email:</label>
-                <input type="email" id="contact_email" name="contact_email"><br>
+                <input type="email" id="contact_email" name="contact_email" placeholder="Su email"><br>
                 
-                <label for="contact_phone">Teléfono:</label>
-                <input type="tel" id="contact_phone" name="contact_phone"><br>
+                <input type="tel" id="contact_phone" name="contact_phone" placeholder="Su teléfono"><br>
                 
-                <label for="contact_msg">Mensaje:</label>
-                <input type="text" id="contact_msg" name="contact_msg"><br>
+                <textarea id="contact_msg" name="contact_msg" placeholder="Su mensaje"></textarea><br>
                 
-                <input type="button" value="Enviar"/>
+                <input type="submit" value="Enviar"/>
             </fieldset>
         </form>
     </div>

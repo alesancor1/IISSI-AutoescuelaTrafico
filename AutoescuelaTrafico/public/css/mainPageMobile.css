@@ -1,0 +1,35 @@
+@media (max-width: 1000px){
+	.ofertas{
+		grid-template-areas: 
+		"titulo"
+		"permiso_a"
+		"permiso_b";
+		grid-template-rows: 9% 45% 45%;
+		grid-template-columns: 1fr;
+		padding: 50px 50px 150px 50px;
+	}
+}
+@media (max-width: 600px){
+	*::-webkit-scrollbar{
+			width: 0px;
+	}
+}
+@media(max-width: 800px){
+	.quienes_somos{
+		grid-template-areas: "titulo"
+							 "slider"
+							 "info";
+		grid-template-rows: 9% 45% 45%;
+		grid-template-columns: 1fr;
+	}
+}
+@media(max-width: 800px){
+	.contacto{
+		padding: 50px 0px 150px 0px;
+	}
+}
+@media (max-height: 650px){
+	.wrapper{
+		grid-template-rows: 45px 195px 412px 650px 650px 650px;
+	}
+}

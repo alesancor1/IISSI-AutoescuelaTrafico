@@ -25,16 +25,11 @@
 /* ---------------------------*/
 /* SCROLLBAR */
 /* ---------------------------*/
-@media (min-width: 600px){
-	*::-webkit-scrollbar{
-		width: 5px;
-		background-color: #c6ddf0;
-	}
-}
-@media (max-width: 600px){
-	*::-webkit-scrollbar{
-			width: 0px;
-	}
+
+*::-webkit-scrollbar{
+	width: 5px;
+	background-color: #c6ddf0;
+
 }
 *::-webkit-scrollbar-thumb{
 	background-color: #104491;
@@ -240,11 +235,13 @@
 	padding: 50px 50px 200px 50px;
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 9% 90%;
+	grid-template-areas: "titulo titulo"
+						 "slider info";
+	transition: .2s ease all;
 	z-index: 1;
 }
 .quienes_somos h2{
-	grid-row: 1;
-	grid-column: 1 /span 2;
+	grid-area: titulo;
 	height: 100%;
 	text-align: center;
 	font-size: 200%;
@@ -254,7 +251,7 @@
 /* 	SLIDER	*/
 /*			*/
 .quienes_somos .slider{
-	grid-column: 1;
+	grid-area: slider;
 	width: 100%;
 	height: 100%;
 	min-height: 200px;
@@ -329,7 +326,7 @@
 /*	texto de quienes somos	*/
 /*							*/
 .quienes_somos .info{
-	grid-column: 2;
+	grid-area: info;
 	background: linear-gradient(180deg, rgba(198,221,240,1) 0%, rgba(198,221,240,1) 37%, rgba(255,255,255,1) 100%);
 	padding: 50px;
 	line-height: 1.5em;
@@ -349,21 +346,28 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 9% 90%;
+	grid-template-areas: "titulo titulo"
+						 "permiso_a permiso_b";
 	grid-column-gap: 150px;
 	grid-row-gap: 30px;
 	padding: 50px 150px 150px 150px;
 	font-family: sans-serif;
+	transition: .2s ease all;
 	z-index: 1;
 }
 .ofertas .ofertasTitle{
-	grid-row: 1;
-	grid-column: 1/ span 2;
+	grid-area: titulo;
 	height: 100%;
 	text-align: center;
 	font-size: 200%;
 }
+.ofertas .permiso_a{
+	grid-area: permiso_a;
+}
+.ofertas .permiso_b{
+	grid-area: permiso_b;
+}
 .ofertas [class^=permiso_]{
-	grid-row: 2;
 	background-color: white;
 	display: grid;
 	grid-template-rows: 1fr 3fr 5fr;
@@ -388,10 +392,54 @@
 /* FORMULARIO CONTACTO */
 /* ------------------------------------*/
 .contacto{
-	border: 3px solid black;
 	grid-area: form;
-
+	background-color: white;
+	padding: 50px 50px 150px 50px;
 	z-index: 1;
+	transition: .2s ease all;
+}
+.contacto form{
+	height: 100%;
+	width: 100%;
+}
+.contacto form fieldset {
+	position: relative;
+	background-color: #366DEE;
+	border: 2px solid black;
+	height: 100%;
+	width: 100%;
+	padding: 10%;
+	min-height: 650px;
+}
+.contacto form input[type=text],input[type=email],input[type=tel]{
+	border: 2px solid black;
+	height: 30px;
+	width: 100%;
+	padding-left: 10px;
+	margin-bottom: 50px;
+}
+.contacto form #contact_msg{
+	resize: none;
+	overflow-y: auto;
+	padding-left: 10px;
+	border: 2px solid black;
+	width: 100%;
+	height: 40%;
+}
+.contacto form input[type=submit]{
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.5);
+	border: 3px solid black;
+	height: 30px;
+	width: 60px;
+	cursor: pointer;
+}
+.contacto form input[type=submit]:hover{
+	background-color: rgb(0, 0, 0, 0.2);
+	border: 2px solid white;
 }
 /* ------------------------------------*/
 /* MAPA Y UBICACION */
