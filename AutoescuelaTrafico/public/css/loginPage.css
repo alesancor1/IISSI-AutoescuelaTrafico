@@ -160,6 +160,7 @@
 /*ventana del popup*/
 .popup {
 
+  display: flex;
   position: absolute;
   width: 30%;
   height: 35%;

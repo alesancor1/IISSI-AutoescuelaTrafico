@@ -51,7 +51,7 @@
       Banner 
     ------------------------------------------------------------------>
     <div class="banner">
-    	<img src="banner.jpg" class="banner-img" alt="Banner"/>
+    	<img src="./img/banner.png" class="banner-img" alt="Banner"/>
     </div>
 
     <!----------------------------------------------------------------- 
@@ -153,12 +153,18 @@
       mapa 
     ------------------------------------------------------------------>
     <div class = "ubicacion">
-        <p>SEVILLA:</br>Calle</br>41919 (Sevilla)</br> tlf: 9XXXXXXXX</br> email: *****@***.com</p>
-        <img src = ./img/autoescuela.png>
+        <p>SEVILLA:</br></br>Calle</br>41919 (Sevilla)</br></br> tlf: 9XXXXXXXX</br> email: *****@***.com</p>
+        <div class = logo>
+            <img src = ./img/autoescuela.png>
+            <h2>AUTOESCUELA</br>TRÁFICO</h2>
+        </div>
         <div id="mapid" class = "map"></div>
     </div>
+
+    <div class = footer>
+    </div>
      
-    <script type="text/javascript" src="./js/map.js"></script>>
+    <script type="text/javascript" src="./js/map.js"></script>
 
 </div>
 </body>

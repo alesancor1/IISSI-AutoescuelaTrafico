@@ -8,6 +8,14 @@
 		grid-template-columns: 1fr;
 		padding: 50px 50px 150px 50px;
 	}
+	.ubicacion .logo img{
+		grid-area: logo;
+		padding-bottom: 40px;
+		height: 100%;
+	}
+	.ubicacion .logo h2{
+		visibility: hidden;
+	}
 }
 @media (max-width: 600px){
 	*::-webkit-scrollbar{
@@ -22,14 +30,15 @@
 		grid-template-rows: 9% 45% 45%;
 		grid-template-columns: 1fr;
 	}
-}
-@media(max-width: 800px){
 	.contacto{
-		padding: 50px 0px 150px 0px;
+		padding: 50px 0px 0px 0px;
+	}
+	.wrapper{
+		grid-template-rows: 45px 18% 1fr 100% 100% 90% 10%;
 	}
 }
 @media (max-height: 650px){
 	.wrapper{
-		grid-template-rows: 45px 195px 412px 650px 650px 650px;
+		grid-template-rows: 45px 195px 410px 650px 650px 650px;
 	}
 }
