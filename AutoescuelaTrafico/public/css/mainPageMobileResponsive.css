@@ -1,0 +1,155 @@
+/*------------------------*/
+/* MOVIL APAISADO		  */
+/*------------------------*/
+@media only screen and (max-width: 800px){
+	.ofertas{
+		grid-gap: 30px;
+		padding: 50px 50px 150px 50px;
+	}
+	*::-webkit-scrollbar{
+			width: 3px;
+	}
+	.contacto{
+		padding: 50px 0px 100px 0px;
+	}
+	.wrapper{
+		grid-template-rows: 45px 18% 1fr 100% 100% 100%;
+	}
+}
+@media only screen and (max-height: 650px){
+	.wrapper{
+		grid-template-rows: 45px 195px 410px 650px 650px 650px;
+	}
+}
+@media only screen and (max-height: 650px) and (max-width: 800px){
+	.wrapper{
+		grid-template-rows: 45px 117px 1fr 650px 650px 650px;
+	}
+}
+
+/*------------------------*/
+/* MOVIL NORMAL			  */
+/*------------------------*/
+@media only screen and (max-width: 500px){
+	/*amplia la searchbar*/
+	.topnav .faq{
+		visibility: hidden;
+	}
+	.topnav .search-container{
+		grid-column: 1/span 2;
+		margin-left: 10px;
+	}
+	/*boton de iniciar sesion*/
+	.topnav .sesion .login{
+		font-size: 80%;
+	}
+	/*botones de redireccion*/
+	.buttons{
+		grid-gap: 5%;
+		padding: 5% 20px 15% 20px;
+	}
+	.buttons .btn{
+		min-height: 150px;
+		max-height: 150px;
+	}
+	.buttons .btn p{
+		font-size: 19px;
+	}
+	.buttons button{
+		bottom: 15%;
+		height: 35px;
+		width: 35px;
+	}
+	/*scrollbar mas fina*/
+	*::-webkit-scrollbar{
+			width: 2px;
+	}
+	/*edita el layout de quienes somos*/
+	.quienes_somos{
+		grid-template-areas: "titulo"
+							 "slider"
+							 "info";
+		grid-template-rows: 9% 45% 45%;
+		grid-template-columns: 1fr;
+		padding: 50px 30px 200px 30px;
+	}
+	.quienes_somos .info{
+		padding: 20px;
+	}
+	/*edita el layout de ofertas*/
+	.ofertas{
+		grid-template-areas: 
+		"titulo"
+		"permiso_a"
+		"permiso_b";
+		grid-template-rows: 9% 45% 45%;
+		grid-template-columns: 1fr;
+		padding: 50px 50px 150px 50px;
+	}
+	/*edita el layout de contactos*/
+	.wrapper{
+		grid-template-columns: 1fr;
+		grid-template-rows: 45px 117px 1fr 100% 100% 50% 50% 10%;
+	  	grid-template-areas: 
+	    "top-nav"
+	    "banner"
+	    "botones"
+	    "quienes_somos"
+	    "ofertas"
+	    "form"
+	    "ubicacion"
+	    "footer";
+	}
+	.contacto{
+		min-height: 300px;
+		grid-area: form;
+		background-color: white;
+		padding: 50px 5px 0px 5px;
+		z-index: 1;
+		transition: .2s ease all;
+		padding: 50px 0px 0px 0px;
+	}
+	.contacto form #contact_msg{
+		width: 45%;
+		height: 200px;
+		position: absolute;
+		right: 10px;
+		top: 50px;
+	}
+	.contacto form fieldset{
+		min-height: 250px;
+	}
+	.contacto form input[type=text],input[type=email],input[type=tel]{
+		width: 45%;
+		left: 10px;
+	}
+	.ubicacion{
+		min-height: 300px;
+
+		grid-template-areas: "mapa logo"
+							 "mapa info";
+		grid-template-columns: 1fr 0.5fr;
+		grid-template-rows: 2fr 0.66fr;
+		padding: 10px 10px 0 10px;
+		z-index: 1;
+	}
+	.ubicacion p{
+		margin-left: 10px;
+	}
+	/*muestra solo el logo en contactos*/
+	.ubicacion .logo img{
+		grid-area: logo;
+		padding-bottom: 40px;
+		height: 100%;
+	}
+	.ubicacion .logo h2{
+		visibility: hidden;
+	}
+
+/* Dispositivos pequeños*/
+@media only screen and (max-height: 700px){
+	.wrapper{
+		grid-template-rows: 45px 117px 1fr 700px 700px 350px 350px 100px;
+	}
+}
+

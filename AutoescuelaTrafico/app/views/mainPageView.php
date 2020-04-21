@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"/>
 	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
     <link rel="stylesheet" href="./css/mainPage.css">
-    <link rel="stylesheet" href="./css/mainPageMobile.css">
+    <link rel="stylesheet" href="./css/mainPageMobileResponsive.css">
 </head>
 
 <body>

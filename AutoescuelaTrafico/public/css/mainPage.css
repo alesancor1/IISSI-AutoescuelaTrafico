@@ -13,7 +13,7 @@
 
 	display: grid;
 	grid-template-columns: 1fr 2fr;
-	grid-template-rows: 45px 30% 1fr 100% 100% 90% 10%;
+	grid-template-rows: 45px 30% 1fr 100% 100% 100% 100%;
   	grid-template-areas: 
     "top-nav	top-nav"
     "banner		banner"
@@ -21,7 +21,6 @@
     "quienes_somos		quienes_somos"
     "ofertas	ofertas"
     "form		ubicacion"
-    "footer		footer";
 }
 /* ---------------------------*/
 /* SCROLLBAR */
@@ -245,6 +244,9 @@
 	z-index: 1;
 }
 .quienes_somos h2{
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
 	grid-area: titulo;
 	height: 100%;
 	text-align: center;
@@ -331,6 +333,9 @@
 /*							*/
 .quienes_somos .info{
 	grid-area: info;
+	margin: auto;
+	max-height: 600px;
+	height: 100%;
 	background: linear-gradient(180deg, rgba(198,221,240,1) 0%, rgba(198,221,240,1) 37%, rgba(255,255,255,1) 100%);
 	padding: 50px;
 	line-height: 1.5em;
@@ -352,7 +357,7 @@
 	grid-template-rows: 9% 90%;
 	grid-template-areas: "titulo titulo"
 						 "permiso_a permiso_b";
-	grid-column-gap: 150px;
+	grid-column-gap: 80px;
 	grid-row-gap: 30px;
 	padding: 50px 150px 150px 150px;
 	font-family: sans-serif;
@@ -375,6 +380,7 @@
 	background-color: white;
 	display: grid;
 	grid-template-rows: 1fr 3fr 5fr;
+	max-height: 700px;
 	overflow-y: auto;
 }
 .ofertas [class^=permiso_] h2{
@@ -396,10 +402,10 @@
 /* FORMULARIO CONTACTO */
 /* ------------------------------------*/
 .contacto{
-	min-height: 700px;
+	min-height: 600px;
 	grid-area: form;
 	background-color: white;
-	padding: 50px 50px 0px 50px;
+	padding: 50px 50px 100px 50px;
 	z-index: 1;
 	transition: .2s ease all;
 }
@@ -414,7 +420,7 @@
 	height: 100%;
 	width: 100%;
 	padding: 10%;
-	min-height: 650px;
+	min-height: 550px;
 }
 .contacto form input[type=text],input[type=email],input[type=tel]{
 	border: 2px solid black;
@@ -429,7 +435,7 @@
 	padding-left: 10px;
 	border: 2px solid black;
 	width: 100%;
-	height: 50%;
+	height: 40%;
 }
 .contacto form input[type=submit]{
 	position: absolute;
@@ -458,7 +464,7 @@
 						 "mapa mapa";
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 0.66fr 2fr;
-	padding: 50px 10px 0 10px;
+	padding: 50px 10px 100px 10px;
 	z-index: 1;
 }
 .ubicacion p{
