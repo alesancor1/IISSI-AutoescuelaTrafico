@@ -112,20 +112,40 @@
 
     <!--Script del slider-->
     <script type="text/javascript" src="./js/slideshow.js"></script>
+
+
     <!----------------------------------------------------------------
       ofertas 
     ------------------------------------------------------------------>
-    <div class="ofertas" id="ofertas">
+    <div class="ofertas" id="ofertas">    
     	<h2 class = "ofertasTitle">OFERTAS</h2>
+
     	<div class="permiso_a">
-        	<h2>Permiso A</h2>
-        	<img src="" alt="">
-            <p>Texto de permiso A</p>
+
+        	<h2>Permiso A2</h2>
+
+        	<img src="./img/permisoa.png" alt="permisoa">
+
+            <p>Precio: 295€ (IVA incluido)</br></br>Incluye:</br></br>- Matrícula</br>- Test online</br>- Tramitación de expediente</br>- Tutorías personalizadas</br>- 4 clases pista</br>- 2 clases circulación</br>- 1 examen de pista</br>- 1 examen de circulación</br>- Tasas de tráfico incluidas</p>
+
+            <div class=hover>
+                <p>Motocicletas hasta 35 kw (unos 48 cv): relación potencia peso de 0,2 kw/kg y no derivadas de un vehículo con más del doble de su potencia.</br>Solo se pueden limitar motocicletas hasta 70 kw.</br>Vehículos de tres ruedas hasta 15 kw.</p>
+
+            </div>
         </div>
+
         <div class="permiso_b">
+
         	<h2>Permiso B</h2>
-            <img src="" alt="">
-            <p>Texto de permiso B</p>
+
+            <img src="./img/permisob.png" alt="permisob">
+
+            <p>Precio: 179€ (IVA incluido)</br></br>Incluye:</br></br>- Matrícula</br>- Test online</br>- Videoexplicaciones</br>- Tramitación de expediente</br>- Tutorías personalizadas</br>- 10 clases prácticas</br>- Tasas de tráfico incluidas</p>
+
+            <div class=hover>
+                <p>Automóviles hasta 3500 kg y 9 plazas con remolque hasta 750 kg.</br>Quads y vehículos de tres ruedas.</br>Ciclomotores.</br>Motocicletas hasta 125 cc. (con 3 años de antigüedad del permiso B).</p>
+
+            </div>
         </div>
     </div>
 

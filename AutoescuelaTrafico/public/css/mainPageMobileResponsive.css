@@ -30,7 +30,7 @@
 /*------------------------*/
 /* MOVIL NORMAL			  */
 /*------------------------*/
-@media only screen and (max-width: 500px){
+@media only screen and (max-width: 568px){
 	/*amplia la searchbar*/
 	.topnav .faq{
 		visibility: hidden;
@@ -85,6 +85,12 @@
 		grid-template-rows: 9% 45% 45%;
 		grid-template-columns: 1fr;
 		padding: 50px 50px 150px 50px;
+	}
+	.ofertas [class^=permiso_] p{
+		padding-left: 10px;
+		padding-right: 10px;
+		font-size: 12px;
+		line-height: 1.2em;
 	}
 	/*edita el layout de contactos*/
 	.wrapper{
@@ -145,11 +151,12 @@
 	.ubicacion .logo h2{
 		visibility: hidden;
 	}
-
+}
 /* Dispositivos pequeños*/
 @media only screen and (max-height: 700px){
 	.wrapper{
 		grid-template-rows: 45px 117px 1fr 700px 700px 350px 350px 100px;
 	}
+
 }
 

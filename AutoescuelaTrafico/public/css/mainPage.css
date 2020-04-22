@@ -377,13 +377,46 @@
 	grid-area: permiso_b;
 }
 .ofertas [class^=permiso_]{
+	position: relative;
 	background-color: white;
 	display: grid;
 	grid-template-rows: 1fr 3fr 5fr;
+	grid-template-areas: "title" "img" "texto";
 	max-height: 700px;
+}
+.ofertas [class^=permiso_] p{
+	grid-area: texto;
 	overflow-y: auto;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: left;
+	line-height: 1.5em;
+}
+/*texto sobre la imagen*/
+.ofertas .hover{
+	grid-area: img;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	transition: .2s ease all;
+}
+.ofertas .hover p{
+	display: flex;
+	align-items: baseline;
+	padding-top: 20px;
+	margin: 0 0 0 0;
+	color: white;
+	visibility: hidden;
+	height: 100%;
+}
+.ofertas .hover:hover *{
+	visibility: visible;
+}
+.ofertas .hover:hover{
+	background-color: rgba(0,0,0,0.5);
 }
 .ofertas [class^=permiso_] h2{
+	grid-area: title;
 	color: white;
 	background-color: #366DEE;
 	margin-top: 0px;
@@ -394,8 +427,9 @@
 	justify-content: center;
 }
 .ofertas [class^=permiso_] img{
-	height: 100%;
-	border: 3px solid black;
+	grid-area: img;
+	height: 40%;
+	width: 100%;
 }
 
 /* ------------------------------------*/
