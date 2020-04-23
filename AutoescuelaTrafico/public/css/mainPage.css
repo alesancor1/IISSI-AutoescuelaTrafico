@@ -486,6 +486,9 @@
 	background-color: rgb(0, 0, 0, 0.2);
 	border: 2px solid white;
 }
+.contacto .atras{
+	visibility: hidden;
+}
 /* ------------------------------------*/
 /* MAPA Y UBICACION */
 /* ------------------------------------*/

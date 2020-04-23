@@ -5,9 +5,9 @@
 
 <head>
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"/>
-	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
     <link rel="stylesheet" href="./css/mainPage.css">
     <link rel="stylesheet" href="./css/mainPageMobileResponsive.css">
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
 </head>
 
 <body>
@@ -153,7 +153,7 @@
       Contacto 
     ------------------------------------------------------------------>
     <div class="contacto" id="contacto">
-        <form action= >
+        <form id = 'formContacto' action= >
         	<fieldset>
             	<legend>Contáctanos</legend>
                 <input type="text" id="contact_name" name="contact_name" placeholder="Su nombre"><br>
@@ -165,6 +165,7 @@
                 <textarea id="contact_msg" name="contact_msg" placeholder="Su mensaje"></textarea><br>
                 
                 <input type="submit" value="Enviar"/>
+                <button class="atras" id="closeForm">< volver</button>
             </fieldset>
         </form>
     </div>
@@ -173,18 +174,20 @@
       mapa 
     ------------------------------------------------------------------>
     <div class = "ubicacion" id="ubicacion">
-        <p>CONTACTO:</br></br>Calle</br>41919 (Sevilla)</br></br> tlf: 9XXXXXXXX</br> email: *****@***.com</br><a href=#contacto>abrir formulario de contacto</a></p>
+        <p>CONTACTO:</br></br>Calle</br>41919 (Sevilla)</br></br> tlf: 9XXXXXXXX</br> email: *****@***.com</br>
+        <a href=# id='openForm'>abrir formulario de contacto</a></p>
         <div class = logo>
             <img src = ./img/autoescuela.png>
             <h2>AUTOESCUELA</br>TRÁFICO</h2>
         </div>
         <div id="mapid" class = "map"></div>
     </div>
+    
 
-    <div class = footer>
-    </div>
-     
+    <!-------------------------------------------------------------
+      javascript
+    -------------------------------------------------------------->
+    <script type="text/javascript" src="./js/contactPopup.js"></script>
     <script type="text/javascript" src="./js/map.js"></script>
-
 </div>
 </body>
