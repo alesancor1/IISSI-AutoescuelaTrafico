@@ -3,9 +3,9 @@ class EstadoVehiculo{
 	
 	const __default = self::ListoParaSuUso;
 	
-	const Averiado = 0;
-	const EnTaller = 1;
-	const ListoParaSuUso = 2;
+	const Averiado = "Averiado";
+	const EnTaller = "EnTaller";
+	const ListoParaSuUso = "ListoParaSuUso";
 	
 	//La funcion que comprueba si una variable pertenece a las constantes del enumerado
 	public static function isValid($state){
