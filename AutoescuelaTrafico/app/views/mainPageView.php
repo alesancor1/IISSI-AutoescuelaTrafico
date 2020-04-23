@@ -58,19 +58,19 @@
       Botones 
     ------------------------------------------------------------------->
     <div class="buttons">
-    	<div class="btn">
+    	<div class="btn" id=quienesSomosbtn>
         	<p> ¿Quiénes somos?</p>
             <button onclick = 'document.getElementById("quienes_somos").scrollIntoView({behavior: "smooth"})'>v</button>
         </div>
         
-        <div class="btn">
+        <div class="btn" id=ofertasbtn>
         	<p>Ofertas</p>
             <button onclick = 'document.getElementById("ofertas").scrollIntoView({behavior: "smooth"})'>v</button>
         </div>
         
-        <div class="btn">
+        <div class="btn" id = contactobtn>
         	<p>Contacto</p>
-            <button onclick = 'document.getElementById("contacto").scrollIntoView({behavior: "smooth"})'>v</button>
+            <button onclick = 'document.getElementById("ubicacion").scrollIntoView({behavior: "smooth"})'>v</button>
         </div>
     </div>
 
@@ -172,8 +172,8 @@
     <!----------------------------------------------------------------
       mapa 
     ------------------------------------------------------------------>
-    <div class = "ubicacion">
-        <p>SEVILLA:</br></br>Calle</br>41919 (Sevilla)</br></br> tlf: 9XXXXXXXX</br> email: *****@***.com</p>
+    <div class = "ubicacion" id="ubicacion">
+        <p>CONTACTO:</br></br>Calle</br>41919 (Sevilla)</br></br> tlf: 9XXXXXXXX</br> email: *****@***.com</br><a href=#contacto>abrir formulario de contacto</a></p>
         <div class = logo>
             <img src = ./img/autoescuela.png>
             <h2>AUTOESCUELA</br>TRÁFICO</h2>

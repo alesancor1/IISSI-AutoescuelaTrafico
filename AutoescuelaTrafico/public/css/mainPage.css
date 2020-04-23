@@ -504,6 +504,9 @@
 .ubicacion p{
 	grid-area: info;
 }
+.ubicacion p a{
+	visibility: hidden;
+}
 .ubicacion .logo{
 	grid-area: logo;
 	display: grid;

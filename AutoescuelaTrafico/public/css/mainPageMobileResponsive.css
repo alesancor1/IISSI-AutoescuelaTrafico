@@ -16,17 +16,11 @@
 		grid-template-rows: 45px 18% 1fr 100% 100% 100%;
 	}
 }
-@media only screen and (max-height: 650px){
-	.wrapper{
-		grid-template-rows: 45px 195px 410px 650px 650px 650px;
-	}
-}
 @media only screen and (max-height: 650px) and (max-width: 800px){
 	.wrapper{
 		grid-template-rows: 45px 117px 1fr 650px 650px 650px;
 	}
 }
-
 /*------------------------*/
 /* MOVIL NORMAL			  */
 /*------------------------*/
@@ -45,12 +39,39 @@
 	}
 	/*botones de redireccion*/
 	.buttons{
-		grid-gap: 5%;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
+		grid-template-areas: "quienesSomos ofertas"
+							 "quienesSomos contacto";
+		grid-column-gap: 5%;
+		grid-row-gap: 3px;
 		padding: 5% 20px 15% 20px;
 	}
-	.buttons .btn{
-		min-height: 150px;
-		max-height: 150px;
+	.buttons .btn[id=quienesSomosbtn]{
+		grid-area: quienesSomos;
+		min-height: 160px;
+		max-height: 160px;
+	}
+	.buttons .btn[id=ofertasbtn]{
+		grid-area: ofertas;
+		min-height: 75px;
+		max-height: 75px;
+	}
+	.buttons .btn[id=contactobtn]{
+		grid-area: contacto;
+		min-height: 75px;
+		max-height: 75px;
+	}
+	.buttons .btn[id=ofertasbtn] p, .btn[id=contactobtn] p{
+		left: 15px;
+		margin-top: 17px;
+	}
+	.buttons .btn[id=ofertasbtn] button, .btn[id=contactobtn] button{
+		right: 15px;
+		height: 30px;
+		width: 30px;
+		bottom: unset;
+		font-size: 20px;
 	}
 	.buttons .btn p{
 		font-size: 19px;
@@ -95,25 +116,24 @@
 	/*edita el layout de contactos*/
 	.wrapper{
 		grid-template-columns: 1fr;
-		grid-template-rows: 45px 117px 1fr 100% 100% 50% 50% 10%;
+		grid-template-rows: 45px 117px 1fr 100% 100% 100% 100%;
 	  	grid-template-areas: 
 	    "top-nav"
 	    "banner"
 	    "botones"
 	    "quienes_somos"
 	    "ofertas"
-	    "form"
 	    "ubicacion"
-	    "footer";
+	    "form";
 	}
 	.contacto{
 		min-height: 300px;
+		height: 100%;
 		grid-area: form;
 		background-color: white;
-		padding: 50px 5px 0px 5px;
 		z-index: 1;
 		transition: .2s ease all;
-		padding: 50px 0px 0px 0px;
+		padding: 0px 0px 0px 0px;
 	}
 	.contacto form #contact_msg{
 		width: 45%;
@@ -132,11 +152,11 @@
 	.ubicacion{
 		min-height: 300px;
 
-		grid-template-areas: "mapa logo"
-							 "mapa info";
+		grid-template-areas: "info logo"
+							 "mapa mapa";
 		grid-template-columns: 1fr 0.5fr;
-		grid-template-rows: 2fr 0.66fr;
-		padding: 10px 10px 0 10px;
+		grid-template-rows: 0.66fr 2fr;
+		padding: 10px 10px 0px 10px;
 		z-index: 1;
 	}
 	.ubicacion p{
@@ -151,12 +171,14 @@
 	.ubicacion .logo h2{
 		visibility: hidden;
 	}
+	/*muestra el boton que lleva al formulario*/
+	.ubicacion p a{
+		visibility: visible;
+	}
 }
-/* Dispositivos pequeños*/
 @media only screen and (max-height: 700px){
 	.wrapper{
-		grid-template-rows: 45px 117px 1fr 700px 700px 350px 350px 100px;
+		grid-template-rows: 45px 117px 1fr 700px 700px 700px 700px;
 	}
-
 }
 
