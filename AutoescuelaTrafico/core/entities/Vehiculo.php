@@ -1,7 +1,6 @@
 <?php
 class Vehiculo extends BaseEntity{
 	
-	//Mira el setEstado (borrar esto mas tarde)
 	
 	protected $matricula;
 	protected $estado;
@@ -27,7 +26,7 @@ class Vehiculo extends BaseEntity{
 
 
     public function setEstado(EstadoVehiculo $estado){
-    	//EL mismo chequeo todo el rato (Borra el comentario)
+    	
     	if (!EstadoVehiculo::isValid($estado)){
     		throw new InvalidArgumentException(
     			sprintf("'%s' no es un estado de vehiculo valido", (string)$estado)

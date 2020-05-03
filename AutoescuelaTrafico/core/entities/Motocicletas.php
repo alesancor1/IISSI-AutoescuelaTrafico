@@ -10,8 +10,7 @@ class Motocicletas extends Vehiculo{
 	
 	public function _construct($matricula, EstadoVehiculo $estado, $modelo, $cc){
 		parent::__construct("Motocicletas");
-		// La parte nueva, aplica el isValid para comprobar si el parametro que se mete es del enumerado
-		// en otro caso mete excepcion (Borrar despues)
+
 		if (!EstadoVehiculo::isValid($estado)){
     		throw new InvalidArgumentException(
     			sprintf("'%s' no es un estado de vehiculo valido", (string)$estado)

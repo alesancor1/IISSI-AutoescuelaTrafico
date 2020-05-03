@@ -20,6 +20,6 @@ class EstadoVehiculo{
 }
 
 //Darle el valor a la variable
-//$variable = EstadoVehiculo::EnTaller; (Diria yo que es de esta forma)
+//$variable = EstadoVehiculo::EnTaller;
 
 ?>
