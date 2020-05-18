@@ -17,7 +17,15 @@
             <script type="text/javascript" src="./js/popup.js"></script><?php
         	}?>
 
-            <?php foreach($allAnuncios as $num=>$anuncio){
+        <?php
+            $limit      = ( isset( $_GET['limit'] ) ) ? $_GET['limit'] : 2;
+            $page       = ( isset( $_GET['page'] ) ) ? $_GET['page'] : 0;
+            $links      = ( isset( $_GET['links'] ) ) ? $_GET['links'] : 7;
+            $Paginator = new Paginator($allAnuncios);
+            $anuncios = $Paginator -> getData($limit, $page);
+            echo $Paginator->createLinks( $links, 'paginacion' );
+        ?>
+            <?php foreach($anuncios->data as $num=>$anuncio){
             ?>  <div class = anuncio>
                     <?php echo "<h3>".$anuncio->getTitulo()."</h3>"?>
                     <?php echo "<p class = fecha>".$anuncio->getFecha()."</p>"?>

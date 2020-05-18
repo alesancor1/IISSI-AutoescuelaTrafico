@@ -174,7 +174,7 @@
       mapa 
     ------------------------------------------------------------------>
     <div class = "ubicacion" id="ubicacion">
-        <p>CONTACTO:</br></br>Calle</br>41919 (Sevilla)</br></br> tlf: 9XXXXXXXX</br> email: *****@***.com</br>
+        <p>CONTACTO:</br></br>Ronda de Triana 36-A</br>41010 (Sevilla)</br></br> tlf: 955 12 53 56</br> email: aetsevilla@gmail.com</br></br>
         <a href=# id='openForm'>abrir formulario de contacto</a></p>
         <div class = logo>
             <img src = ./img/autoescuela.png>

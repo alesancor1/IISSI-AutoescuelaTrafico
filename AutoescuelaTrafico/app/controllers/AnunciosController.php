@@ -22,6 +22,5 @@ class AnunciosController extends BaseController {
 		$insertarAnuncios = $anuncios -> insert($_POST["titulo"],$_POST["descripcion"]);
 		funciones::redirect("Anuncios");
 	}
-
 }
 ?>
