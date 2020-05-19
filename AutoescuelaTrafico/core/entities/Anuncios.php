@@ -4,7 +4,7 @@ class Anuncios extends BaseEntity {
 	
     public function create($line){
         $args = split(",", $line);
-        return new Anuncios($args[0],$args[1],$args[2],$args[3]);
+        return new Anuncios($args[1],$args[2],$args[3],$args[4]);
     }
 
 	private $id;

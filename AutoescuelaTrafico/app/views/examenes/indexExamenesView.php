@@ -5,17 +5,7 @@
 	<div id = contenido class = contenido>
 		<!-- Tabla Examenes Teoricos-->
 		<?php if($allExamenes["teoricos"] != null){
-			?>
-			
-			<!-- Obtención de los datos paginados-->
-			<?php
-			    $limit      = ( isset( $_GET['limit'] ) ) ? $_GET['limit'] : 10;
-	    		$page       = ( isset( $_GET['page'] ) ) ? $_GET['page'] : 1;
-	    		$links      = ( isset( $_GET['links'] ) ) ? $_GET['links'] : 7;
-				$Paginator = new Paginator($allExamenes["teoricos"]);
-				$teoricos = $Paginator -> getData($limit, $page);
-			?>
-			
+			?>	
 			<h3>EXAMENES TEORICOS</h3>
 			<table>
 				<tr>
@@ -23,14 +13,13 @@
 			        <th>Calificacion</th>
 			        <th>nº Fallos</th>
 		    	</tr>
-		  	<?php foreach($teoricos->data as $num=>$examenT){
+		  	<?php foreach($allExamenes["teoricos"] as $num=>$examenT){
 		  			echo "<tr>";
 		  			echo "<td>". $examenT->getFecha(). "</td>";
 		  			echo "<td>". $examenT->getCalificacion(). "</td>";
 					echo "<td>". $examenT->getNFallos(). "</td>";
 					echo "</tr>";
 		  		}
-		  		echo $Paginator->createLinks( $links, 'paginacion' );
 			}?>
 			</table>
 

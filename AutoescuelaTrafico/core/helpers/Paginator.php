@@ -2,48 +2,43 @@
  
 class Paginator {
  		
- 	private $_data;
-    private $_limit;
-    private $_page;
-    private $_total;
- 
-	public function __construct($data) {
-	     
-	    $this->_data = $data;
-	    $this->_total = sizeof($data);
-	     
+    private $_limit; //numero de elementos de cada pagina
+    private $_page;  //pagina actual en la que estoy
+    private $_total; //total de filas de la consulta
+
+    public $_start; //primer elemento de la pagina
+    public $_end;   //ultimo elemento de la pagina
+ 	
+ 	/*constructor*/
+	public function __construct() {
+		$this->_limit = null;
+		$this->_page = null;
+		$this->_total = null;
 	}
 
-	/*devuelve los datos cortados según el limite indicado*/
-	public function getData( $limit = 10, $page = 1 ) {
-     
-	    $this->_limit = $limit;
-	    $this->_page = $page;
-	 
-	    if ( $this->_limit == 'all' || $this->_limit >= sizeof($this->_data)) 
-	        $results = $this->_data;   
-	    else 
-	        $results = array_slice($this->_data, $limit * $page, $limit); 
-	 
-	    $result         = new stdClass();
-	    $result->page   = $this->_page;
-	    $result->limit  = $this->_limit;
-	    $result->total  = $this->_total;
-	    $result->data   = $results;
-	 
-	    return $result;
+	/*metodo que setea los atributos*/
+	public function __init($model){
+		$this->_total = $model->rows();
+		$this->_limit = isset($_GET["limit"]) ? (int)$_GET["limit"] : 2;
+		$this->_page = isset($_GET["page"]) ? (int)$_GET["page"] : 1;
+
+		$this->_start = ($this->_page-1)*($this->_limit) + 1;
+		$this->_end = $this->_page * $this->_limit;
+
+		if($this->_page < 1) $this->_page = 1;
+		if($this->_limit < 0) $this->_limit = 10;
 	}
 
 	/*botones y enlaces*/
 	public function createLinks( $links, $list_class ) {
-	    if ( $this->_limit == 'all' || $this->_limit >= sizeof($this->_data)) {
+	    if ( $this->_limit == 'all' || $this->_limit >= $this->_total) {
 	        return '';
 	    }
 	 
-	    $last       = ceil( $this->_total / $this->_limit )-1;
-	    $start      = ( ( $this->_page - $links ) > 0 ) ? $this->_page - $links : 0;
+	    $last       = ceil( $this->_total / $this->_limit );
+	    $start      = ( ( $this->_page - $links ) > 0 ) ? $this->_page - $links : 1;
 	    $end        = ( ( $this->_page + $links ) < $last ) ? $this->_page + $links : $last;	 
-	    $class      = ( $this->_page == 0 ) ? "disabled" : "";
+	    $class      = ( $this->_page == 1 ) ? "disabled" : "";
   	    $html       = '<ul class="' . $list_class . '">';
 
   	    $uri = '';

@@ -56,6 +56,10 @@ class BaseModel{
             ;        //errorHandler::checkTrigger($query)
         return $res;       
     }
+    public function consultaPaginada($query, $first, $last){
+        $paginated = "SELECT * FROM ( SELECT ROWNUM RNUM, AUX.* FROM (".$query.") AUX WHERE ROWNUM <=".$last.") WHERE RNUM >=".$first;
+        return $this->ejecutaSql($paginated);
+    }
 
     public function getLOB($table,$column,$oidColumn,$id){
         $stmt = $this->db()->prepare("SELECT $column FROM $table WHERE $oidColumn=$id");
