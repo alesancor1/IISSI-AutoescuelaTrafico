@@ -36,6 +36,10 @@ class ClasesController extends BaseController {
 		$this -> view("/clases/indexClasesInformacion", array("clasesInformacion"=>$clasesInformacion));
 	}
 	
+	/*
+	 * Para que funcione hay que añadir al SQL la tabla AUX_T (mirar procedimiento del entregable IISSI1).
+	 * 
+	 */
 	public function indexClasesTutorias(){
 		$tutorias = new ClasesModel($this -> adapter);
 		$tutoriasInformacion = $tutorias -> getTutoriasAlumno();
