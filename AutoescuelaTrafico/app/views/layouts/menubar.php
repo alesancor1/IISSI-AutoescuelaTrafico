@@ -22,7 +22,6 @@ body{
   font-size: 14px;
   letter-spacing: 1px;
 }
-
 .wrapper{
   display: flex;
   width: 100%;
@@ -32,69 +31,42 @@ body{
   position: relative;
 }
 
-.sidebar .bg_shadow{
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: #000;
-  z-index: 998;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-}
-
 .sidebar_inner {
-  width: 250px;
+  width: 50px;
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
   background: #5558c9;
-  z-index: 999;
   transition: all 0.3s ease;
-}
-
-.main_container {
-  margin-left: 250px;
-  width: calc(100% - 250px);
-   transition: all 0.3s ease;
 }
 
 .sidebar_inner .profile_info {
   padding: 20px;
-  text-align: center;
+  text-align: left;
 }
-
-.sidebar_inner .profile_info .profile_img {
-  width: 100px;
-  margin: 0 auto 5px;
+.sidebar_inner .profile_info .icon{
+	position: absolute;
+	left: 9px;
+	top: 15px;
+	font-size: 40px;
+	color: #c4dcff;
 }
-
-.sidebar_inner .profile_info .profile_img img {
-  width: 100%;
-  display: block;
+.sidebar_inner .profile_info p{
+	white-space: nowrap;
+ 	overflow: hidden;
+ 	margin-left: 50px;
+	color: #c4dcff;
+	font-weight: 800;
 }
-
-.sidebar_inner .profile_info .profile_data .name {
-  font-size: 18px;
-  color: #fff;
-  margin-bottom: 5px;
-  font-family: 'Trade Winds';
-}
-
-.sidebar_inner .profile_info .profile_data span {
-  color: #c4dcff;
-}
-
 .sidebar_inner .siderbar_menu{
-      height: 490px;
-    overflow: auto;
+    height: 490px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .sidebar_inner .siderbar_menu > li > a {
-  padding: 12px 20px;
+  padding: 12px 15px;
   display: flex;
   align-items: center;
   position: relative;
@@ -118,26 +90,23 @@ body{
   top: 20px;
   right: 20px;
   transition: all 0.3s ease;
+  visibility: hidden;
 }
 
 .sidebar .logout_btn button{
-	cursor:pointer;
+  cursor:pointer;
   position: absolute;
   bottom: 20px;
   left: 20px;
-  width: 210px;
-  border: 1px solid #fff;
-  color: #3d3d79;
-  border-radius: 3px;
-  font-weight: 600;
-  padding: 8px;
-  text-align: center;
+  border: none;
+  color: #c4dcff;
+  text-align: left;
   transition: all 0.3s ease;
-  font-size:18px;
+  font-size:30px;
+  background-color: transparent;
 }
 
 .sidebar .logout_btn button:hover{
-  background: #fff;
   color: #3d3d79;
 }
 
@@ -154,29 +123,6 @@ body{
 .sidebar_inner .close:hover,
 .navbar .hamburger:hover{
   opacity: 0.7;
-}
-
-/*.navbar{
-  background: #fff;
-  height: 50px;
-  width: 100%;
-  box-shadow: 0 3px 5px rgba(0,0,0,0.125);
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
-}*/
-
-/*.navbar*/ 
-
-/*	Hay que pegar la hamburguer a la barra o convertirlo en solapa */
-.hamburger{
-  font-size: 25px;
-  position:absolute;
-  right:0;
-  cursor: pointer;
-  margin-right: 50px;
-  color: #5558c9;
-  display: block;
 }
 
 .accordion{
@@ -204,73 +150,101 @@ body{
 }
 
 .siderbar_menu > li.active .accordion{
-  height: 100px;
+  height: 90px;
 }
 
 .siderbar_menu > li.active .arrow{
   transform: rotate(180deg);
   transition: all 0.3s ease;
 }
-
-
-@media (max-width: 1024px) {
-  .sidebar_inner{
-    left: -115%;
-    transition: all 0.5s ease;
-  }
-  .navbar .hamburger,
-  .sidebar_inner .close{
-    display: block;
-  }
-  .content .item{
-    width: 47%;
-  }
-  .wrapper.active .sidebar_inner{
-  left: 0;
-  transition: all 0.5s ease;
+.close{
+	padding-right: 3px;
+	background-color: #5558c9;
+	position: absolute;
+	height: 100%;
+	left: 50px;
+	top: 0;
+	color: white;
+	transition: all 0.3s ease;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	z-index: 10;
 }
+.contenido{
+	margin-left: 75px;
+	transition: all 0.3s ease;
+	z-index: 100;
+}
+@media screen and (max-width: 700px){
+	.contenido{
+		z-index: 0;
+	}
 }
 
-@media (max-width: 528px) {
-  .content .item{
-    width: 100%;
-  }
-}
 		</style>
 
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 		<script>
+			/*acordeones desplegables*/
 			$(document).ready(function() {
 				$(".siderbar_menu li").click(function() {
+					var width = getComputedStyle(document.getElementById("mySidebar")).width;
+					var arrows = document.getElementsByClassName("arrow");
+					if(width.localeCompare("50px")==0){
+						document.getElementById("toggleButtonArrow").className = "fas fa-chevron-left";
+						document.getElementById("mySidebar").style.width = "250px";
+						document.getElementById("toggleButton").style.left = "250px";
+						for(var i = 0; i<arrows.length; i++)
+							arrows[i].style.cssText = "visibility: visible; transition: all 0.3s ease;";
+						if(window.innerWidth>=700)
+							document.getElementById("contenido").style.marginLeft = "275px";
+					}
 					$(".siderbar_menu li").removeClass("active");
 					$(this).addClass("active");
 				});
-
-				$(".hamburger").click(function() {
-					$(".wrapper").addClass("active");
-				});
-
-				$(".close, .bg_shadow").click(function() {
-					$(".wrapper").removeClass("active");
-				});
 			});
+
+			/*boton de abrir/cerrar*/
+			function toggleNav(x){
+				var width = getComputedStyle(document.getElementById("mySidebar")).width;
+				var arrows = document.getElementsByClassName("arrow");
+				if(width.localeCompare("50px")==0){
+					document.getElementById("toggleButtonArrow").className = "fas fa-chevron-left";
+					document.getElementById("mySidebar").style.width = "250px";
+					document.getElementById("toggleButton").style.left = "250px";
+					for(var i = 0; i<arrows.length; i++)
+						arrows[i].style.cssText = "visibility: visible; transition: all 0.3s ease;";
+					if(window.innerWidth>=700)
+						document.getElementById("contenido").style.marginLeft = "275px";
+				}
+				else{
+					$(".siderbar_menu li").removeClass("active");
+					document.getElementById("toggleButtonArrow").className = "fas fa-chevron-right";
+					document.getElementById("mySidebar").style.width = "50px";
+					document.getElementById("toggleButton").style.left = "50px";
+					for(var i = 0; i<arrows.length; i++)
+						arrows[i].style.cssText  = "visibility: hidden; transition: none;";
+					document.getElementById("contenido").style.marginLeft = "75px";
+					}
+				}
 		</script>
 	</head>
 
 	<body>
-		<div class="navbar">
-       		<div class="hamburger">
-       			<i class="fas fa-bars"></i>
-       		</div>
-       		
-       </div>
 		<div class="wrapper">
+
+			<div class="close" onclick = "toggleNav(this)" id = "toggleButton">
+				<i class="fas fa-chevron-right" id="toggleButtonArrow"></i>
+			</div>
+
 			<div class="sidebar">
-				<div class="sidebar_inner">
+				<div class="sidebar_inner" id = "mySidebar">
 					<!-- Datos del usuario -->
 					<div class="profile_info">
 						<div class="icon">
-							<i class="fas fa-user"></i>
+							<i class="fas fa-user-circle"></i>
 						</div>
 						<p>Ingresado como:</p>
 						<?php
@@ -285,10 +259,10 @@ body{
 							$tipoUsuario = $_SESSION['cuenta'][2];
 							switch ($tipoUsuario) {
 								case 'Alumno': ?>
-								<li class="active">
+								<li>
 									<a href="?controller=Examenes">
 									<div class="icon">
-										<i class="fas fa-user"></i>
+										<i class="fas fa-clipboard"></i>
 									</div>
 									<div class='title'>
 										<p>Exámenes</p>
@@ -298,12 +272,12 @@ body{
 								<li>
 									<a href="#">
 									<div class="icon">
-										<i class="fas fa-user"></i>
+										<i class="fas fa-chalkboard-teacher"></i>
 									</div>
 									<div class='title'>
 										<p>Clases</p>
 									</div>
-									<div class="arrow">
+									<div class="arrow" id = arrow>
 										<i class="fas fa-chevron-down"></i>
 									</div></a>
 									<ul class="accordion">
@@ -319,12 +293,12 @@ body{
 								<li>
 									<a href="#">
 									<div class="icon">
-										<i class="fas fa-user"></i>
+										<i class="fas fa-check-circle"></i>
 									</div>
 									<div class='title'>
 										<p>WebTest</p>
 									</div>
-									<div class="arrow">
+									<div class="arrow" id = arrow>
 										<i class="fas fa-chevron-down"></i>
 									</div></a>
 									<ul class="accordion">
@@ -340,12 +314,12 @@ body{
 								<li>
 									<a href="#">
 									<div class="icon">
-										<i class="fas fa-user"></i>
+										<i class="fas fa-bell"></i>
 									</div>
 									<div class='title'>
 										<p>Notificaciones</p>
 									</div>
-									<div class="arrow">
+									<div class="arrow" id = arrow>
 										<i class="fas fa-chevron-down"></i>
 									</div></a>
 									<ul class="accordion">
@@ -360,10 +334,10 @@ body{
 								
 								<?php break; 
 								case 'Profesor':?>
-								<li class="active">
+								<li>
 									<a href="?controller=Clases&action=HORARIOS">
 									<div class="icon">
-										<i class="fas fa-user"></i>
+										<i class="fas fa-calendar"></i>
 									</div>
 									<div class='title'>
 										<p>Horario</p>
@@ -373,12 +347,12 @@ body{
 								<li>
 									<a href="#">
 									<div class="icon">
-										<i class="fas fa-user"></i>
+										<i class="fas fa-user-graduate"></i>
 									</div>
 									<div class='title'>
 										<p>Alumnos</p>
 									</div>
-									<div class="arrow">
+									<div class="arrow" id = arrow>
 										<i class="fas fa-chevron-down"></i>
 									</div></a>
 									<ul class="accordion">
@@ -394,12 +368,12 @@ body{
 								<li>
 									<a href="#">
 									<div class="icon">
-										<i class="fas fa-user"></i>
+										<i class="fas fa-bell"></i>
 									</div>
 									<div class='title'>
 										<p>Notificaciones</p>
 									</div>
-									<div class="arrow">
+									<div class="arrow" id = arrow>
 										<i class="fas fa-chevron-down"></i>
 									</div></a>
 									<ul class="accordion">
@@ -416,15 +390,15 @@ body{
 								<?php break;
 								case 'Administrador':?>
 								
-								<li class="active">
+								<li>
 									<a href="#">
 									<div class="icon">
-										<i class="fas fa-user"></i>
+										<i class="fas fa-user-graduate"></i>
 									</div>
 									<div class='title'>
 										<p>Alumnado</p>
 									</div>
-									<div class="arrow">
+									<div class="arrow" id = arrow>
 										<i class="fas fa-chevron-down"></i>
 									</div></a>
 									<ul class="accordion">
@@ -440,7 +414,7 @@ body{
 								<li>
 									<a href="A LISTADO DE PROFESORES">
 									<div class="icon">
-										<i class="fas fa-user"></i>
+										<i class="fas fa-user-tie"></i>
 									</div>
 									<div class='title'>
 										<p>Profesorado</p>
@@ -450,7 +424,7 @@ body{
 								<li>
 									<a href="A ClasesController metodo de horarios para administrador">
 									<div class="icon">
-										<i class="fas fa-user"></i>
+										<i class="fas fa-chalkboard-teacher"></i>
 									</div>
 									<div class='title'>
 										<p>Clases</p>
@@ -460,7 +434,7 @@ body{
 								<li>
 									<a href="A VehiculosController">
 									<div class="icon">
-										<i class="fas fa-user"></i>
+										<i class="fas fa-car"></i>
 									</div>
 									<div class='title'>
 										<p>Vehículos</p>
@@ -470,12 +444,12 @@ body{
 								<li>
 									<a href="#">
 									<div class="icon">
-										<i class="fas fa-user"></i>
+										<i class="fas fa-boxes"></i>
 									</div>
 									<div class='title'>
 										<p>Recursos</p>
 									</div>
-									<div class="arrow">
+									<div class="arrow" id = arrow>
 										<i class="fas fa-chevron-down"></i>
 									</div></a>
 									<ul class="accordion">
@@ -492,7 +466,7 @@ body{
 								<li>
 									<a href="A Administracion">
 									<div class="icon">
-										<i class="fas fa-user"></i>
+										<i class="fas fa-toolbox"></i>
 									</div>
 									<div class='title'>
 										<p>Administracion</p>
@@ -502,12 +476,12 @@ body{
 								<li>
 									<a href="#">
 									<div class="icon">
-										<i class="fas fa-user"></i>
+										<i class="fas fa-bell"></i>
 									</div>
 									<div class='title'>
 										<p>Notificaciones</p>
 									</div>
-									<div class="arrow">
+									<div class="arrow" id = arrow>
 										<i class="fas fa-chevron-down"></i>
 									</div></a>
 									<ul class="accordion">
@@ -523,11 +497,7 @@ body{
                 		} ?>
 						</li>
 					</ul>		
-					<?php } ?>
-					<div class="close">
-						<i class="fas fa-times"></i>
-					</div>
-                
+					<?php } ?>         
 					<div class="logout_btn">
 						<form action = './index.php' method = post>   
                     		<button type='submit' name = 'logout'><i class="fa fa-sign-out"></i></button>
