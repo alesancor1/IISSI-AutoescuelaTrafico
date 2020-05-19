@@ -37,6 +37,17 @@ class ClasesModel extends BaseModel {
 		$clases[] = $this -> ejecutaSql($query);
 		return $clases;
 	 }
+	 
+	 public function getTutoriasAlumno(){
+	 	$query = "SELECT P.Nombre, P.Apellidos, LIBRES.FECHA, LIBRES.HORA FROM (
+	 		(SELECT AUX_T.FECHA,AUX_T.HORA,P.DNI FROM AUX_T, Profesores P)
+	 		minus
+			(SELECT C.FECHA,C.HORAINICIO,C.dniProfesor FROM CLASES C WHERE C.FECHA>=TRUNC(sysdate))
+			) LIBRES
+ 			RIGHT JOIN PROFESORES P ON P.DNI = libres.dni";
+		$tutorias[] = $this -> ejecutaSql($query);
+		return $tutorias;
+	 }
 	 	
 
 }

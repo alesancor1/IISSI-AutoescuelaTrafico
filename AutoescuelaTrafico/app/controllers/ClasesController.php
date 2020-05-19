@@ -30,16 +30,17 @@ class ClasesController extends BaseController {
 
 	//	ALUMNOS
 
-	/* ToDo:
-	 * 	- indexClasesTutorias
-	 */
-
 	public function indexClasesInformacion() {
 		$clases = new ClasesModel($this -> adapter);
 		$clasesInformacion = $clases -> getInformacionAlumno();
 		$this -> view("/clases/indexClasesInformacion", array("clasesInformacion"=>$clasesInformacion));
 	}
-
+	
+	public function indexClasesTutorias(){
+		$tutorias = new ClasesModel($this -> adapter);
+		$tutoriasInformacion = $tutorias -> getTutoriasAlumno();
+		$this -> view("/tutorias/indexTutorias", array("tutoriasInformacion"=>$tutoriasInformacion));
+	}
 
 }
 ?>
