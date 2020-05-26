@@ -10,7 +10,7 @@ class Alumnos extends Persona {
         return new Alumnos($args[1],$args[2],$args[3],$args[4],$args[5],$args[6],$args[7]);
     }
 
-	public function __construct($dni, $nombre, $apellidos, $telefono, $fechaNacimiento, $clasesPagadas, $RMedico) {
+	public function __construct($dni, $nombre, $apellidos, $telefono, $clasesPagadas, $fechaNacimiento, $RMedico) {
 		parent::__contstruct("Alumnos");
 		$this -> dni = $dni;
 		$this -> nombre = $nombre;

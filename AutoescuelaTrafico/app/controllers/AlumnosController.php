@@ -1,5 +1,4 @@
 <?php
-//ESTA CLASE ES UN EJEMPLO PARA MOSTRAR LOS ALUMNOS
 class AlumnosController extends BaseController {
 
 	public $conectar;
@@ -12,52 +11,28 @@ class AlumnosController extends BaseController {
 		$this -> adapter = $this -> conectar -> conexion();
 	}
 	
-	public function index(){
+	// PROFESOR
+		//LISTA
+	public function listaProfesor(){
+		$alumnos = new AlumnosModel($this -> adapter);
+
+		//inicializacion del paginador
+		if(!isset($_SESSION["paginator"])) 
+			$_SESSION["paginator"] = new Paginator();
+		$paginator = $_SESSION["paginator"];
+		$paginator->__init($alumnos);
+
+		//llamada al metodo de consulta
+		$listaProf = $alumnos -> getAlumnos($paginator->_start, $paginator->_end);
 		
-		//Creamos el objeto alumno
-		$alumno = new AlumnosModel($this->adapter);
-		
-		//Conseguimos todos los alumnos
-		$allAlumnos = $alumno->getAll();
-        
-        //Cargamos la vista index y le pasamos valores
-        $this->view("indexAlumnos",array(
-            "allAlumnos"=>$allAlumnos,
-        ));
-    }
-     
-    public function crear(){
-        if(isset($_POST["Nombre"])){
-             
-            //Creamos un alumno
-            $alumno=new Usuario($this->adapter);
-			$alumno->setDni($_POST["DNI"]);
-            $alumno->setNombre($_POST["Nombre"]);
-            $alumno->setApellidos($_POST["Apellido"]);
-            $alumno->setTelefono($_POST["Telefono"]);
-			$alumno->setFechaNacimiento($_POST["FechaNacimiento"]);
-			$alumno->setClasesPagadas($_POST["ClasesPagadas"]);
-			$alumno->setRMedico($_POST["RMedico"]);
-            $save=$alumno->save();
-        }
-        $this->redirect("Alumnos", "index");
-    }
-     
-    public function borrar(){
-        if(isset($_GET["DNI"])){
-            $id=(int)$_GET["DNI"];
-             
-            $alumno=new Alumno($this->adapter);
-            $alumno->deleteById($id);
-        }
-        $this->redirect("Alumnos", "index");
-    }
-     
-    public function hola(){
-        $alumno=new AlumnosModel($this->adapter);
-        $alu=$alumno->getAlumnos();
-        var_dump($alu);
-    }
+		//renderiza la vista pasandole el array de anuncios
+		$this -> view("/alumnos/ListaAlumnos", array("listaProf"=>$listaProf));
+			
+	}
+	
+	
+	// ADMINISTRADOR
+	
 
 }
 ?>

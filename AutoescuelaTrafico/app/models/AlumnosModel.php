@@ -10,10 +10,19 @@ class AlumnosModel extends BaseModel {
 	}
 
 	// Metodos de consulta
-	public function getAlumnos() {
-		$query = "SELECT * FROM Alumnos";
-		$alumno = $this -> ejecutaSql($query);
-		return $alumno;
+	public function getAlumnos($first = 0, $last = -1) {
+		$query = "SELECT A.* FROM Alumnos A RIGHT JOIN( SELECT DNIALUMNO,DNIPROFESOR FROM Clases C WHERE DNIPROFESOR='" . $_SESSION["cuenta"][3] . "'" . " GROUP BY DNIALUMNO,DNIPROFESOR) ON DNI=DNIALUMNO";
+		$alumnos = $this -> consultaPaginada($query, $first, $last);
+		foreach ($alumnos as $num => $alumno) {
+			$alumnos[$num] = Alumnos::__parse("Alumnos", $alumno);
+		}
+		return $alumnos;
+	}
+
+	// Consulta paginada
+	public function rows() {
+		$query = "SELECT A.* FROM Alumnos A RIGHT JOIN( SELECT DNIALUMNO,DNIPROFESOR FROM Clases C WHERE DNIPROFESOR='" . $_SESSION["cuenta"][3] . "'" . " GROUP BY DNIALUMNO,DNIPROFESOR) ON DNI=DNIALUMNO";
+		return $this -> rowNum($query);
 	}
 
 }
