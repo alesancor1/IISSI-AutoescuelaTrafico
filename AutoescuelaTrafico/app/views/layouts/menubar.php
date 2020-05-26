@@ -197,7 +197,7 @@
 									</div></a>
 									<ul class="accordion">
 										<li>
-											<a href="?controller=Alumnos&action=LISTADO">Lista</a>
+											<a href="?controller=Alumnos&action=listaAdministrador">Lista</a>
 										</li>
 										<li>
 											<a href="?controller=Alumnos&action=PONER METODO">Calificaciones</a>
@@ -207,7 +207,7 @@
 								
 								<!-- Profesorado -->
 								<li>
-									<a href="A LISTADO DE PROFESORES">
+									<a href="?controller=Profesores&action=indexProfesoradoInformacion">
 									<div class="icon">
 										<i class="fas fa-user-tie"></i>
 									</div>
