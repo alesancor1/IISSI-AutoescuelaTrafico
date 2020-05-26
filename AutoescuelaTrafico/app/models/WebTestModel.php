@@ -7,12 +7,19 @@ class WebTestModel extends BaseModel{
 		parent::__construct($this -> table, $adapter);
 	}
 	
+	public function rows(){
+		return $this -> rowNum("SELECT * FROM WebTest");
+	}
+	
 	//	ADMINISTRADOR
 	
-	public function getRecursosAdministrador(){
+		//	Hay que paginar
+	public function getRecursosAdministrador($first = 0, $last = -1){
 		// usuario clave fechaCaducidad tiempoRestante ultimaRenovacion
-		$query = "SELECT USUARIO,CLAVEPORDEFECTO,FECHARENOVACION,FECHACADUCIDAD,TRUNC(FECHACADUCIDAD)-TRUNC(SYSDATE) FROM ALUMNOS RIGHT JOIN AccesoWeb ON Alumnos.ACCESOWEB=AccesoWeb.USUARIO";
+		$filtroPorUsuario = isset($_POST["filtro"]) ? $_POST["filtro"] : "";
+		$query = "SELECT USUARIO,CLAVEPORDEFECTO,FECHARENOVACION,FECHACADUCIDAD,TRUNC(FECHACADUCIDAD)-TRUNC(SYSDATE) FROM ALUMNOS RIGHT JOIN ACCESOWEB ON ALUMNOS.ACCESOWEB=ACCESOWEB.USUARIO";
 		$tablaRecursos = $this->ejecutaSql($query);
+		//$tablaRecursos = $this -> consultaPaginada($query, $first, $last);
 		if(sizeof($tablaRecursos)==0){
 			$tablaRecursos = null;
 		} else {

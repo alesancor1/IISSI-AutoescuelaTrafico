@@ -149,7 +149,7 @@
 									</div></a>
 									<ul class="accordion">
 										<li>
-											<a href="?controller=Alumnos&action=listaProf">Lista</a>
+											<a href="?controller=Alumnos&action=listaProfesor">Lista</a>
 										</li>
 										<li>
 											<a href="?controller=Alumnos&action=PONER METODO">Calificaciones</a>
@@ -218,7 +218,7 @@
 								
 								<!-- Clases -->
 								<li>
-									<a href="A ClasesController metodo de horarios para administrador">
+									<a href="?controller=Clases&action=indexGestion">
 									<div class="icon">
 										<i class="fas fa-chalkboard-teacher"></i>
 									</div>
@@ -252,8 +252,7 @@
 									</div></a>
 									<ul class="accordion">
 										<li>
-											<!-- Creo que es otro metodo -->
-											<a href="?controller=WebTest&action=indexInformacionWebTest">Web Test</a>
+											<a href="?controller=WebTest&action=indexRecursosWebTest">Web Test</a>
 										</li>
 										<li>
 											<a href="A ORDENADORES">Ordenadores</a>
@@ -297,7 +296,8 @@
                 		} ?>
 						</li>
 					</ul>		
-					<?php } ?>    
+					<?php } ?>
+					
 					<!-- LOGOUT -->     
 					<div class="logout_btn">
 						<form action = './index.php' method = post>   

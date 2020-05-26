@@ -15,11 +15,15 @@ class ClasesController extends BaseController {
 	/* ToDo:
 	 *	- Horarios
 	 */
+	 
+	//	Hay que unificar el de horario con el de gestion ya que van por tabs que no vamos a hacer cargas distintas
 
 	public function indexGestion() {
 		$clases = new ClasesModel($this -> adapter);
 		$gestionClases = $clases -> getGestionAdministrador();
-		$this -> view("/clases/indexClasesGestion", array("gestionClases"=>$gestionClases));
+		//	En la unificacion de los metodos tendriamos que hacer las dos peticiones/querys aqui e unificarlas
+		//	en una variable que los contenga a ambos en un unico array (esto si no hacemos el horario final)
+		$this -> view("/clases/indexClasesAdmin", array("gestionClases"=>$gestionClases));
 	}
 
 	//	PROFESORES
