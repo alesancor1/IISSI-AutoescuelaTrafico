@@ -179,7 +179,7 @@
 									</ul>
 								</li>
 								
-								<!-- ADMINISTRADOR -->
+								<!--  ADMINISTRADOR  -->
 								<?php break;
 								case 'Administrador':?>
 								
