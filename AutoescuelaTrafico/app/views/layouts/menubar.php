@@ -93,7 +93,7 @@
 											<a href="?controller=WebTest&action=indexInformacionWebTest">Información</a>
 										</li>
 										<li>
-											<a href="google.es">Ir al sitio</a>
+											<a href="http://www.tuautoescuela.es/aula-virtual">Ir al sitio</a>
 										</li>
 									</ul>
 								</li>
@@ -171,7 +171,7 @@
 									</div></a>
 									<ul class="accordion">
 										<li>
-											<a href="?controller=Notificaciones&action=PONER METODO">Anuncios</a>
+											<a href="?controller=Anuncios&action=index">Anuncios</a>
 										</li>
 										<li>
 											<a href="MENSAJES">Mensajes</a>
@@ -255,7 +255,7 @@
 											<a href="?controller=WebTest&action=indexRecursosWebTest">Web Test</a>
 										</li>
 										<li>
-											<a href="A ORDENADORES">Ordenadores</a>
+											<a href="?controller=Ordenadores&action=indexRecursosOrdenadores">Ordenadores</a>
 										</li>
 									</ul>
 								</li>
