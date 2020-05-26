@@ -149,7 +149,7 @@
 									</div></a>
 									<ul class="accordion">
 										<li>
-											<a href="?controller=Alumnos&action=PONER METODO">Lista</a>
+											<a href="?controller=Alumnos&action=listaProfesor">Lista</a>
 										</li>
 										<li>
 											<a href="?controller=Alumnos&action=PONER METODO">Calificaciones</a>
