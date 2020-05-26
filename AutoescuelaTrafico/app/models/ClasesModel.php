@@ -7,6 +7,10 @@ class ClasesModel extends BaseModel {
 		parent::__construct($this -> table, $adapter);
 	}
 	
+	public function rows(){
+		return $this -> rowNum("SELECT * FROM Clases");
+	}
+	
 	//	ADMINISTRADOR
 	
 	/* ToDo:
@@ -27,28 +31,12 @@ class ClasesModel extends BaseModel {
 	 */ 
 	 
 	//	ALUMNOS
-	
-	/* ToDo:
-	 * 	- getTutoriasAlumno
-	 */ 
 	 
 	 public function getInformacionAlumno(){
 		$query = "SELECT OID_C, C.Fecha, C.HoraInicio, Cantidad FROM Clases C RIGHT JOIN PagoClases PaC ON PaC.OID_PaC = C.PagoClase WHERE DNIALUMNO = '" . $_SESSION["cuenta"][3] . "' AND TO_DATE(CONCAT(CONCAT(TO_CHAR(C.FECHA),':'), TO_CHAR(C.HORAINICIO)),'DD/MM/YYYY HH24:Mi')<SYSDATE ORDER BY OID_C ASC";
 		$clases[] = $this -> ejecutaSql($query);
 		return $clases;
 	 }
-	 
-	 public function getTutoriasAlumno(){
-	 	$query = "SELECT P.Nombre, P.Apellidos, LIBRES.FECHA, LIBRES.HORA FROM (
-	 		(SELECT AUX_T.FECHA,AUX_T.HORA,P.DNI FROM AUX_T, Profesores P)
-	 		minus
-			(SELECT C.FECHA,C.HORAINICIO,C.dniProfesor FROM CLASES C WHERE C.FECHA>=TRUNC(sysdate))
-			) LIBRES
- 			RIGHT JOIN PROFESORES P ON P.DNI = libres.dni";
-		$tutorias[] = $this -> ejecutaSql($query);
-		return $tutorias;
-	 }
-	 	
 
 }
 ?>

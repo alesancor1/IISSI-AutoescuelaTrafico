@@ -20,7 +20,7 @@ class Paginator {
 	/*metodo que setea los atributos*/
 	public function __init($model){
 		$this->_total = $model->rows();
-		$this->_limit = isset($_GET["limit"]) ? (int)$_GET["limit"] : 2;
+		$this->_limit = isset($_GET["limit"]) ? (int)$_GET["limit"] : 10;
 		$this->_page = isset($_GET["page"]) ? (int)$_GET["page"] : 1;
 
 		if($this->_page < 1) $this->_page = 1;

@@ -13,10 +13,11 @@
 					<th>Profesor</th>
 					<th>Horario</th>
 				</tr>
+			
 			<?php 
 				if($tutoriasInformacion!=null){
+					echo $_SESSION["paginator"]->createLinks(4,'');
 					foreach($tutoriasInformacion[0] as $num=>$tutoria){
-						//	Habria que parsear los datos a la clase Tutoria en el modelo
 						echo "<tr>";
 						echo "<td>" . $tutoria->APELLIDOS . ", " . $tutoria->NOMBRE . "</td>";
 						echo "<td>" . $tutoria->HORA . ", " . $tutoria->FECHA . "</td>";
