@@ -26,7 +26,7 @@ class Paginator {
 		if($this->_page < 1) $this->_page = 1;
 		if($this->_limit < 1) $this->_limit = 10;
 
-		$this->_numPages = $this->_total / $this->_limit;
+		$this->_numPages = ceil($this->_total / $this->_limit);
 
 		if($this->_total % $this->_limit > 0) $this->_total++;
 		if($this->_page >= $this->_numPages) $this->_page = $this->_numPages;
@@ -56,9 +56,11 @@ class Paginator {
 
 	    /*boton de atras*/
 	    if($this->_page <= 1 )
-	       $html.= '<li class="'.$class.'"><a href="'.$uri.'&limit='.$this->_limit.'&page='.( $this->_page ).'">&laquo;</a></li>';
+	       $html.= '<li class="start '.$class.'">
+	   				<a href="'.$uri.'&limit='.$this->_limit.'&page='.( $this->_page ).'">&laquo;</a></li>';
 	 	else
-	 		$html.= '<li class="'.$class.'"><a href="'.$uri.'&limit='.$this->_limit.'&page='.($this->_page-1 ).'">&laquo;</a></li>';
+	 		$html.= '<li class="start'.$class.'">
+	 				<a href="'.$uri.'&limit='.$this->_limit.'&page='.($this->_page-1 ).'">&laquo;</a></li>';
 	 	/*puntos suspensivos a la izqda*/
 	    if ( $start > 1 ) {
 	        $html   .= '<li><a href="'.$uri.'&limit=' . $this->_limit . '&page=1"> 1 </a> </li>';
@@ -80,9 +82,11 @@ class Paginator {
 	 	/*boton de adelante*/
 	    $class = ( $this->_page >= $last ) ? "disabled" : "";
 	    if( $this->_page >= $this->_numPages)
-	   	   $html.= '<li class="'.$class.'"><a href="'.$uri.'&limit='.$this->_limit.'&page='.( $this->_page ).'">&raquo;</a></li>';
+	   	   $html.= '<li class="end '.$class.'">
+	   				<a href="'.$uri.'&limit='.$this->_limit.'&page='.( $this->_page ).'">&raquo;</a></li>';
 	 	else
-	 	   $html.= '<li class="'.$class.'"><a href="'.$uri.'&limit='.$this->_limit.'&page='.( $this->_page+1).'">&raquo;</a></li>';
+	 	   $html.= '<li class="end '.$class.'">
+	 				<a href="'.$uri.'&limit='.$this->_limit.'&page='.( $this->_page+1).'">&raquo;</a></li>';
 	    $html.= '</ul>';
 	 
 	    return $html;
