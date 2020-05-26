@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
-
+    <head>
+        <link rel="stylesheet" href="./css/tables.css">
+    </head>
 <body>
 <table>
 	<tr>
