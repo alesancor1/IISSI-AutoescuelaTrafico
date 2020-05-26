@@ -1,5 +1,4 @@
 <?php
-//ESTE MODELO ES DE EJEMPLO
 class AlumnosModel extends BaseModel {
 
 	private $table;
@@ -18,6 +17,15 @@ class AlumnosModel extends BaseModel {
 		}
 		return $alumnos;
 	}
+	
+	// public function getCalificaciones(){
+		// $dni = $_SESSION["cuenta"][3];
+		// $query = "SELECT NOMBRE,Apellidos,FECHA,CALIFICACION FROM (SELECT DISTINCT C.DNIALUMNO,AET.FECHA,AET.CALIFICACION FROM CLASES C LEFT JOIN EXAMENESTEORICOS AET ON AET.ALUMNO = C.DNIALUMNO WHERE DNIPROFESOR = " . $dni . ")ALUCALIF LEFT JOIN ALUMNOS ON alumnos.dni=alucalif.dnialumno ORDER BY NOMBRE,FECHA";
+		// $calificaciones = $this -> ejecutaSql($query);
+		// foreach (calificaciones as $num => $calificacion) {
+			// $calificacion[$num] = 
+		// }
+	// }
 
 	// Consulta paginada
 	public function rows() {
