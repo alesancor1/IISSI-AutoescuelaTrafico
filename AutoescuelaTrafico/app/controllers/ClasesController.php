@@ -32,7 +32,14 @@ class ClasesController extends BaseController {
 
 	public function indexClasesInformacion() {
 		$clases = new ClasesModel($this -> adapter);
-		$clasesInformacion = $clases -> getInformacionAlumno();
+		
+		if(!isset($_SESSION["paginator"])){
+			$_SESSION["paginator"] = new Paginator();
+		}
+		$paginator = $_SESSION["paginator"];
+		$paginator -> __init($clases);
+		
+		$clasesInformacion = $clases -> getInformacionAlumno($paginator -> _start, $paginator -> _end);
 		$this -> view("/clases/indexClasesInformacion", array("clasesInformacion"=>$clasesInformacion));
 	}
 	

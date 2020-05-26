@@ -33,12 +33,17 @@
 						?>
 					</div>
 					
+					<!-- Contenido de la sidebar -->
 					<ul class="siderbar_menu">
 						<li>
+						<!-- Distintos tipos de usuarios -->
+						
+						<!-- ALUMNO -->
 						<?php
 							$tipoUsuario = $_SESSION['cuenta'][2];
 							switch ($tipoUsuario) {
 								case 'Alumno': ?>
+								<!-- Examenes -->
 								<li>
 									<a href="?controller=Examenes">
 									<div class="icon">
@@ -49,6 +54,7 @@
 									</div></a>
 								</li>
 								
+								<!-- Clases -->
 								<li>
 									<a href="#">
 									<div class="icon">
@@ -70,6 +76,7 @@
 									</ul>
 								</li>
 								
+								<!-- Webtest -->
 								<li>
 									<a href="#">
 									<div class="icon">
@@ -91,6 +98,7 @@
 									</ul>
 								</li>
 								
+								<!-- Notificaciones -->
 								<li>
 									<a href="#">
 									<div class="icon">
@@ -112,8 +120,11 @@
 									</ul>
 								</li>
 								
+								<!-- PROFESORES -->
 								<?php break; 
 								case 'Profesor':?>
+								
+								<!-- Horario -->
 								<li>
 									<a href="?controller=Clases&action=HORARIOS">
 									<div class="icon">
@@ -124,13 +135,14 @@
 									</div></a>
 								</li>
 								
+								<!-- Alumnos -->
 								<li>
 									<a href="#">
 									<div class="icon">
 										<i class="fas fa-user-graduate"></i>
 									</div>
 									<div class='title'>
-										<p>Alumnos</p>
+										<p>Alumnado</p>
 									</div>
 									<div class="arrow" id = arrow>
 										<i class="fas fa-chevron-down"></i>
@@ -145,6 +157,7 @@
 									</ul>
 								</li>
 								
+								<!-- Notificaciones -->
 								<li>
 									<a href="#">
 									<div class="icon">
@@ -161,15 +174,16 @@
 											<a href="?controller=Notificaciones&action=PONER METODO">Anuncios</a>
 										</li>
 										<li>
-											<a href="google.es">Ir al sitio</a>
+											<a href="MENSAJES">Mensajes</a>
 										</li>
 									</ul>
 								</li>
 								
-								
+								<!-- ADMINISTRADOR -->
 								<?php break;
 								case 'Administrador':?>
 								
+								<!-- Alumnado -->
 								<li>
 									<a href="#">
 									<div class="icon">
@@ -191,6 +205,7 @@
 									</ul>
 								</li>
 								
+								<!-- Profesorado -->
 								<li>
 									<a href="A LISTADO DE PROFESORES">
 									<div class="icon">
@@ -201,6 +216,7 @@
 									</div></a>
 								</li>
 								
+								<!-- Clases -->
 								<li>
 									<a href="A ClasesController metodo de horarios para administrador">
 									<div class="icon">
@@ -211,6 +227,7 @@
 									</div></a>
 								</li>
 								
+								<!-- Vehiculos -->
 								<li>
 									<a href="A VehiculosController">
 									<div class="icon">
@@ -221,6 +238,7 @@
 									</div></a>
 								</li>
 								
+								<!-- Recursos -->
 								<li>
 									<a href="#">
 									<div class="icon">
@@ -243,6 +261,7 @@
 									</ul>
 								</li>
 								
+								<!-- Administracion -->
 								<li>
 									<a href="A Administracion">
 									<div class="icon">
@@ -253,6 +272,7 @@
 									</div></a>
 								</li>
 								
+								<!-- Notificaciones -->
 								<li>
 									<a href="#">
 									<div class="icon">
@@ -277,7 +297,8 @@
                 		} ?>
 						</li>
 					</ul>		
-					<?php } ?>         
+					<?php } ?>    
+					<!-- LOGOUT -->     
 					<div class="logout_btn">
 						<form action = './index.php' method = post>   
                     		<button type='submit' name = 'logout'><i class="fa fa-sign-out"></i></button>
