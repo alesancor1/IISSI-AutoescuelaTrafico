@@ -18,14 +18,26 @@ class AlumnosModel extends BaseModel {
 		return $alumnos;
 	}
 	
-	// public function getCalificaciones(){
-		// $dni = $_SESSION["cuenta"][3];
-		// $query = "SELECT NOMBRE,Apellidos,FECHA,CALIFICACION FROM (SELECT DISTINCT C.DNIALUMNO,AET.FECHA,AET.CALIFICACION FROM CLASES C LEFT JOIN EXAMENESTEORICOS AET ON AET.ALUMNO = C.DNIALUMNO WHERE DNIPROFESOR = " . $dni . ")ALUCALIF LEFT JOIN ALUMNOS ON alumnos.dni=alucalif.dnialumno ORDER BY NOMBRE,FECHA";
-		// $calificaciones = $this -> ejecutaSql($query);
-		// foreach (calificaciones as $num => $calificacion) {
-			// $calificacion[$num] = 
-		// }
-	// }
+	public function getExamenesTeoricos(){
+		$dni = $_SESSION["cuenta"][3];
+		$query = "SELECT NOMBRE,Apellidos,FECHA,CALIFICACION FROM (SELECT DISTINCT C.DNIALUMNO,AET.FECHA,AET.CALIFICACION FROM CLASES C LEFT JOIN EXAMENESTEORICOS AET ON AET.ALUMNO = C.DNIALUMNO WHERE DNIPROFESOR ='" . $dni . "'" . ")ALUCALIF LEFT JOIN ALUMNOS ON alumnos.dni=alucalif.dnialumno ORDER BY NOMBRE,FECHA";
+		$examenTeo = $this -> ejecutaSql($query);
+		return $calificaciones;
+	}
+	
+	public function getExamenesPracticosCirculacion(){
+		$dni = $_SESSION["cuenta"][3];
+		$query = "SELECT NOMBRE,Apellidos,FECHA,CALIFICACION FROM (SELECT DISTINCT C.DNIALUMNO,AET.FECHA,AET.CALIFICACION FROM CLASES C LEFT JOIN EXAMENESPRACTICOCIRCULACION AET ON AET.ALUMNO = C.DNIALUMNO WHERE DNIPROFESOR ='" . $dni . "'" . ")ALUCALIF LEFT JOIN ALUMNOS ON alumnos.dni=alucalif.dnialumno ORDER BY Nombre,Fecha";
+		$examenPC = $this -> ejecutaSql($query);
+		return $calificaciones;
+	}
+	
+	public function getExamenesPracticosPista(){
+		$dni = $_SESSION["cuenta"][3];
+		$query = " SELECT NOMBRE,Apellidos,FECHA,CALIFICACION FROM (SELECT DISTINCT C.DNIALUMNO,AET.FECHA,AET.CALIFICACION FROM CLASES C LEFT JOIN EXAMENESPRACTICOPISTA AET ON AET.ALUMNO = C.DNIALUMNO WHERE DNIPROFESOR ='" . $dni . "'" . ")ALUCALIF LEFT JOIN ALUMNOS ON alumnos.dni=alucalif.dnialumno ORDER BY Nombre,Fecha";
+		$examenPP = $this -> ejecutaSql($query);
+		return $examenPP;
+	}
 
 	// Consulta paginada
 	public function rows() {
