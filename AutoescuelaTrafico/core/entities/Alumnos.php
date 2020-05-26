@@ -11,7 +11,6 @@ class Alumnos extends Persona {
     }
 
 	public function __construct($dni, $nombre, $apellidos, $telefono, $clasesPagadas, $fechaNacimiento, $RMedico) {
-		parent::__contstruct("Alumnos");
 		$this -> dni = $dni;
 		$this -> nombre = $nombre;
 		$this -> apellidos = $apellidos;

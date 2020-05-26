@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
-<title>Examenes</title>
+<head>
+	<title>Examenes</title>
+	<link rel="stylesheet" href="./css/tables.css">
+</head>
 <body>
 	<div id = contenido class = contenido>
 		<!-- Tabla Examenes Teoricos-->
+		<div class = "teoricos" style = "margin-top: 40px">
 		<?php if($allExamenes["teoricos"] != null){
 			?>	
 			<h3>EXAMENES TEORICOS</h3>
@@ -22,8 +26,10 @@
 		  		}
 			}?>
 			</table>
+		</div>
 
 		<!-- Tabla Examenes Practicos-->
+		<div class = "practicos" style = "margin-top: 40px">
 		<?php if($allExamenes["circulacion"] != null || $allExamenes["pista"] != null){
 			 ?>
 			<h3>EXAMENES PRACTICOS</h3>
@@ -63,6 +69,7 @@
 			}
 			?></table><?php
 		} ?>
+		</div>
 	<div>
 </body>
 </html>

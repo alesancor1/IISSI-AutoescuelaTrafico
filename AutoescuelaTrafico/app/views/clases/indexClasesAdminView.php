@@ -3,6 +3,7 @@
 	<title>Anuncios</title>
 
 	<head>
+		<link rel="stylesheet" href="./css/tables.css">
 		<style>
 			* {
 				margin: 0;

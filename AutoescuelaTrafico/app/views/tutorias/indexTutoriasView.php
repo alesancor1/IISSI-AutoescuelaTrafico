@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
-<title>Tutorias</title>
+<head>
+	<title>Tutorias</title>
+	<link rel="stylesheet" href="./css/tables.css">
+</head>
 	
 <body>
 	<div id="contenido" class="contenido">
 		
-		<h1>Tutorias del alumno</h1>
+		<h1>HORAS DE TUTORIA</h1>
 		
 		<div>
 			<table>
@@ -16,13 +19,13 @@
 			
 			<?php 
 				if($tutoriasInformacion!=null){
-					echo $_SESSION["paginator"]->createLinks(4,'');
 					foreach($tutoriasInformacion[0] as $num=>$tutoria){
 						echo "<tr>";
 						echo "<td>" . $tutoria->APELLIDOS . ", " . $tutoria->NOMBRE . "</td>";
 						echo "<td>" . $tutoria->HORA . ", " . $tutoria->FECHA . "</td>";
 						echo "</tr>";
 					}
+					echo $_SESSION["paginator"]->createLinks(4,'');
 				}
 			?>
 

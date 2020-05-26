@@ -26,7 +26,7 @@ class AlumnosController extends BaseController {
 		$listaProf = $alumnos -> getAlumnos($paginator->_start, $paginator->_end);
 		
 		//renderiza la vista pasandole el array de anuncios
-		$this -> view("/alumnos/ListaAlumnos", array("listaProf"=>$listaProf));
+		$this -> view("alumnos/ListAlumnos", array("listaProf"=>$listaProf));
 			
 	}
 	
