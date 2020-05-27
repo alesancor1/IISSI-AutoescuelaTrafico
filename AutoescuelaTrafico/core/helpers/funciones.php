@@ -6,10 +6,10 @@ class funciones {
 	}
 
 	// Compara dos fechas, si son iguales da la primera
-	public function dateComparator($dat1, $dat2) {
+	public static function dateComparator($dat1, $dat2) {
 
-		list($day1, $month1, $year1) = split('[/.-]', $date1);
-		list($day2, $month2, $year2) = split('[/.-]', $date2);
+		list($day1, $month1, $year1) = split('[/.-]', $dat1);
+		list($day2, $month2, $year2) = split('[/.-]', $dat2);
 		
 		if($year1 == $year2) {
 			if($month1 == $month2){

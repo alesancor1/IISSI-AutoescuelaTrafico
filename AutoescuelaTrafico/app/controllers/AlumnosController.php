@@ -81,7 +81,7 @@ class AlumnosController extends BaseController {
 
 	public function listaUltimoExamen() {
 		// Los tres tipos de examen
-		$teorico = new AlumnosController($this -> adapter);
+		$teorico = new AlumnosModel($this -> adapter);
 		$listaTeorico = $teorico -> getUltimosExamenesTeoricos();
 
 		$practicoC = new AlumnosModel($this -> adapter);
@@ -96,13 +96,13 @@ class AlumnosController extends BaseController {
 		// Procesar los datos---------------------------------------------
 		// Resultado es un map
 		$resultado = array();
-
 		// Comparar fechas por teoricos
 		foreach ($listaTeorico as $num => $teo) {
+			$claves = array_keys($resultado);
 			// Comprueba si el alumno ya esta en el array
-			if ($resultado[$teo -> NOMBRE . " " . $teo -> APELLIDOS] != null) {
+			if (in_array(($teo -> NOMBRE . " " . $teo -> APELLIDOS), $claves)) {
 				// Comparando las dos fechas
-				$fe = dateComparator($resultado[$teo -> NOMBRE . " " . $teo -> APELLIDOS][1], $teo -> FECHA);
+				$fe = funciones::dateComparator($resultado[$teo -> NOMBRE . " " . $teo -> APELLIDOS] -> FECHA, $teo -> FECHA);
 				// Si la fecha nueva es mas actual se sustituye
 				if ($fe == $teo -> FECHA)
 					$resultado[$teo -> NOMBRE . " " . $teo -> APELLIDOS] = $teo;
@@ -112,9 +112,10 @@ class AlumnosController extends BaseController {
 		}
 		// Comparar fechas por practicos circulacion
 		foreach ($listaPracticoC as $num => $pC) {
-			if ($resultado[$pC -> NOMBRE . " " . $pC -> APELLIDOS] != null) {
+			$claves = array_keys($resultado);
+			if (in_array(($pC -> NOMBRE . " " . $pC -> APELLIDOS), $claves)) {
 
-				$fe = dateComparator($resultado[$pC -> NOMBRE . " " . $pC -> APELLIDOS][1], $pC -> FECHA);
+				$fe = funciones::dateComparator($resultado[$pC -> NOMBRE . " " . $pC -> APELLIDOS] -> FECHA, $pC -> FECHA);
 				if ($pC -> FECHA == $fe)
 					$resultado[$pC -> NOMBRE . " " . $pC -> APELLIDOS] = $pC;
 			} else
@@ -122,16 +123,16 @@ class AlumnosController extends BaseController {
 		}
 		// Comparar fechas por practicos pista
 		foreach ($listaPracticoP as $num => $pP) {
-			if ($resultado[$pC -> NOMBRE . " " . $pP -> APELLIDOS] != null) {
+			if (in_array(($pP -> NOMBRE . " " . $pP -> APELLIDOS), $claves)) {
 
-				$fe = dateComparator($resultado[$pP -> NOMBRE . " " . $pP -> APELLIDOS][1], $pP -> FECHA);
+				$fe = funciones::dateComparator($resultado[$pP -> NOMBRE . " " . $pP -> APELLIDOS] -> FECHA, $pP -> FECHA);
 				if ($pP -> FECHA == $fe)
 					$resultado[$pP -> NOMBRE . " " . $pC -> APELLIDOS] = $pP;
 			} else
 				$resultado[$pP -> NOMBRE . " " . $pP -> APELLIDOS] = $pP;
 
 		}
-		return $resultado;
+		$this -> view("/alumnos/ListaCalificaciones", array("resultado2" => $resultado));
 	}
 
 	// ADMINISTRADOR
