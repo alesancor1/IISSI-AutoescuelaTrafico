@@ -6,8 +6,7 @@
 	<head>
 		<link rel="stylesheet" href="./css/tables.css">
 		<style>
-		
-		/* ACORDEON */
+			/* ACORDEON */
 			.accordionContent {
 				background-color: #87B9C7;
 				color: #fff;
@@ -32,7 +31,6 @@
 				overflow: hidden;
 				transition: max-height 0.2s ease-out;
 			}
-			
 
 			* {
 				margin: 0;
@@ -118,7 +116,7 @@
 	<body>
 		<div class ="contenido" id ="contenido">
 			<ul class="tabs">
-				
+
 				<li>
 					<a href="#tab1"><span class="tab-text">Alumnos</span></a>
 				</li>
@@ -128,64 +126,69 @@
 			</ul>
 
 			<div class="secciones">
-				
-				<?php 
-					//	Comprobamos que este setteada la variable
-					//	para generar el html
+
+				<?php
+				//	Comprobamos que este setteada la variable
+				//	para generar el html
 				?>
-				
+
 				<article id="tab1">
 					<h1>CALIFICACIONES DE LOS ALUMNOS</h1>
 					<?php
+					// Para cada alumno, lo busca en el array de resultados
 					foreach ($listaAlumnos as $alum) {
-						foreach($resultado as $alumno => $examenesRecubridor){
-							if($alum -> NOMBRE == $alumno -> NOMBRE && $alum -> APELLIDOS == $alumno -> APELLIDOS){
-							echo "<button class='accordionContent'>" . $alumno . "</button>";
-							echo "<div class='panel'>";
-							foreach ($examenesRecubridor as $num => $examenes) {
-								// foreach ($examenes as $value) {
-									echo "<p>Dirección: " . $examenes . "</p>";
+						foreach ($resultado as $alumno => $examenesRecubridor) {
+							// print_r($examenesRecubridor);
+							if ($alum -> getNombre() . " " . $alum -> getApellidos() == $alumno) {
+								echo "<button class='accordionContent'>" . $alumno . "</button>";
+								echo "<div class='panel'>";
+								// foreach ($examenesRecubridor as $num => $examenes) {
+
+								echo "<p>Fecha: " . $examenesRecubridor -> FECHA . "</p>";
+								echo "<p>Calificación: " . $examenesRecubridor -> CALIFICACION . "</p>";
 								// }
-								
+								echo "</div>";
 							}
-							echo "</div>";
-						}}
+						}
 					}
+
+					// print_r($listaAlumnos);
+					// echo "<br> <br>";
+					// print_r($resultado);
 					?>
-					
 				</article>
-				
-				<?php 
-					// print_r($resultado2);
-					if(isset($resultado2)){ 
-						//print_r($resultados2); ?>
-					<article id="tab2">
-						<h1>Último examen</h1>
-						<table>
-							<tr>
-								<th>Apellidos</th>
-								<th>Nombre</th>
-								<th>Fecha</th>
-								<th>Calificacion</th>
-							</tr>
-						
-						<?php foreach($resultado2 as $num=>$row){
-							echo "<tr>";
-							echo "<td>" . $row->APELLIDOS . "</td>";
-							echo "<td>" . $row->NOMBRE . "</td>";
-							echo "<td>" . $row->FECHA . "</td>";
-							echo "<td>" . $row->CALIFICACION . "</td>";
-							echo "</tr>";
-						} ?>
-						</table>
-					</article>
+
+				<?php
+				// print_r($resultado2);
+				if(isset($resultado2)){
+				//print_r($resultados2); ?>
+				<article id="tab2">
+					<h1>Último examen</h1>
+					<table>
+						<tr>
+							<th>Apellidos</th>
+							<th>Nombre</th>
+							<th>Fecha</th>
+							<th>Calificacion</th>
+						</tr>
+
+						<?php
+	foreach ($resultado2 as $num => $row) {
+		echo "<tr>";
+		echo "<td>" . $row -> APELLIDOS . "</td>";
+		echo "<td>" . $row -> NOMBRE . "</td>";
+		echo "<td>" . $row -> FECHA . "</td>";
+		echo "<td>" . $row -> CALIFICACION . "</td>";
+		echo "</tr>";
+	}
+						?>
+					</table>
+				</article>
 				<?php } ?>
-				
-				
+
 			</div>
 		</div>
 
-		
 		<script>
 			$('ul.tabs li a:first').addClass('active');
 			$('.secciones article').hide();
@@ -201,7 +204,7 @@
 				return false;
 			});
 		</script>
-		
+
 		<!-- Acordeon -->
 		<script>
 			var acc = document.getElementsByClassName("accordionContent");
@@ -224,34 +227,30 @@
 
 </html>
 
-
-
-
-
 <!-- <html>
-	<head>
-		<title>Lista Calificaciones</title>
-	</head>
-	<body>
-		<div class="contenido" id="contenido">
-			<h1>CALIFICACIONES DE ALUMNOS</h1>
-			<?php
-			// foreach ($listaAlumnos as $num => $alumno) {
-				// echo "<br>";
-				// print_r($alumno -> getNombre());
-				// echo "<br>";
-				// foreach ($resultado[$alumno -> getNombre() . " " . $alumno -> getApellidos()] as $num => $dentro) {
-					// echo "<br>";
-					// print_r($dentro);
-				// }
-			// }
-			
-			echo "<br>";
-			echo "<br>";
-			echo "<br>";
-			print_r($resultado2);
-			
-			?>
-		</div>
-	</body>
+<head>
+<title>Lista Calificaciones</title>
+</head>
+<body>
+<div class="contenido" id="contenido">
+<h1>CALIFICACIONES DE ALUMNOS</h1>
+<?php
+// foreach ($listaAlumnos as $num => $alumno) {
+// echo "<br>";
+// print_r($alumno -> getNombre());
+// echo "<br>";
+// foreach ($resultado[$alumno -> getNombre() . " " . $alumno -> getApellidos()] as $num => $dentro) {
+// echo "<br>";
+// print_r($dentro);
+// }
+// }
+
+echo "<br>";
+echo "<br>";
+echo "<br>";
+print_r($resultado2);
+
+?>
+</div>
+</body>
 </html> -->
