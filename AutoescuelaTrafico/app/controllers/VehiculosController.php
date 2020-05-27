@@ -13,20 +13,33 @@ class VehiculosController extends BaseController{
 	//	ADMINISTRADOR
 	
 	public function getUsosYTalleres(){
+		//	Usos por alumno
 		$usos = new VehiculosModel($this->adapter);
-		$usos = $usos -> getUsosPorAlumno();
+		$usos = $usos->getUsosPorAlumno();
 		
 		$usosPorAlumno = array();
-		
 		foreach($usos as $uso){
 			$id = $uso -> APELLIDOS . ", " . $uso -> NOMBRE;
 			$usosPorAlumno[$id][] = $uso;
 		}
 		
-		//	Poner la consulta de los talleres
+		//	Talleres
+		$talleres = new VehiculosModel($this->adapter);
+		$talleres = $talleres->getTalleres();
 		
-		$this -> view("/vehiculos/usosYTalleres", array("usosPorAlumno" => $usosPorAlumno));
-		
+		$this -> view("/vehiculos/usosYTalleres", array("usosPorAlumno" => $usosPorAlumno, "talleres" => $talleres));
+	}
+	
+	public function addTaller(){
+		$talleres = new VehiculosModel($this->adapter);
+		$addTaller = $talleres->addTaller($_POST["nombreTaller"], $_POST["direccionTaller"], $_POST["telefonoTaller"]);
+		funciones::redirect("Vehiculos", "getUsosYTalleres");
+	}
+	
+	public function deleteTaller(){
+		$talleres = new VehiculosModel($this->adapter);
+		$deleteTaller = $talleres->deleteTaller($_POST["nombreTaller"], $_POST["direccionTaller"], $_POST["telefonoTaller"]);
+		funciones::redirect("Vehiculos", "getUsosYTalleres");
 	}
 	
 }

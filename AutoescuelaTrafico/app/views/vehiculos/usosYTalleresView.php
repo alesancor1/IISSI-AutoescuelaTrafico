@@ -5,6 +5,33 @@
 		<title>Usos y talleres</title>
 		<link rel="stylesheet" href="./css/tables.css">
 		<style>
+			/* ACORDEON */
+			.accordionContent {
+				background-color: #87B9C7;
+				color: #fff;
+				cursor: pointer;
+				padding: 18px;
+				width: 100%;
+				border: none;
+				text-align: left;
+				outline: none;
+				font-size: 15px;
+				transition: 0.4s;
+			}
+
+			.accordionContent .active, .accordionContent:hover {
+				background-color: #037FB2;
+			}
+
+			.panel {
+				padding: 0 18px;
+				background-color: white;
+				max-height: 0;
+				overflow: hidden;
+				transition: max-height 0.2s ease-out;
+			}
+			
+				
 			/* TABS */
 			* {
 				margin: 0;
@@ -98,7 +125,7 @@
 				</li>
 
 				<li>
-					<a href="#tab2"><span class="tab-text">Talleres SIN HACER</span></a>
+					<a href="#tab2"><span class="tab-text">Talleres</span></a>
 				</li>
 
 			</ul>
@@ -106,6 +133,14 @@
 			<div class="secciones">
 				<article id="tab1">
 					<h1>Usos de vehículos</h1>
+					
+					<div class="filtros">
+						<form class="" id="" action="?controller=Vehiculos&action=getUsosYTalleres" method="POST">
+							<label for="filtro">Busque alumnos o vehículos (modelo o matricula):</label>
+							<input type="text" id="filtro" name="filtro">
+							<input type="submit" hidden>
+						</form>
+					</div>
 
 					<table>
 						<tr>
@@ -129,10 +164,30 @@
 				</article>
 
 				<article id="tab2">
-					<h1>Talleres SIN HACER</h1>
-					<p>
-						Texto de prueba
-					</p>
+					<h1>Talleres</h1>
+					
+					<div>
+						<button class="nuevaEntrada" id="openPopup">Añadir</button>
+					</div>
+					
+					<?php require_once __DIR__."/addTallerView.php";?>
+					<script type="text/javascript" src="./js/popup.js"></script>
+					
+					<?php
+						foreach($talleres as $taller){
+							echo "<button class='accordionContent'>" . $taller->NOMBRE . "</button>";
+							echo "<div class='panel'>";
+							echo "<p>Dirección: " . $taller->DIRECCION . "</p>";
+							echo "<p>Teléfono: " . $taller->TELEFONO . "</p>";
+							echo "<form class='' id='' action='?controller=Vehiculos&action=deleteTaller' method='POST'>";
+							echo "<input type='hidden' id='nombreTaller' name='nombreTaller' value='" . $taller->NOMBRE . "'>";
+							echo "<input type='hidden' id='direccionTaller' name='direccionTaller' value='" . $taller->DIRECCION . "'>";
+							echo "<input type='hidden' id='telefonoTaller' name='telefonoTaller' value='" . $taller->TELEFONO . "'>";
+							echo "<button type='submit' class='eliminarTaller'>X</button>";
+							echo "</form>";
+							echo "</div>";
+						}
+					?>
 				</article>
 			</div>
 
