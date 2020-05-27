@@ -11,17 +11,16 @@
 			<?php
 			if ($listaAdmin != null) {
 							
-			echo "Lista de alumnos <br><br>";
+			echo "<h1>Lista de alumnos</h1>";
 			?>
 			<form class="" id="" action="?controller=Alumnos&action=listaAdministrador" method="POST">
 				
-				<select id="permiso" name="permiso">
-					<option value="" selected>Todos</option>
+				<select id="permiso" name="permiso" onchange="this.form.submit()">
+					<option disabled selected>Filtrar por permiso</option>
+					<option value="">Todos</option>
 					<option value="A2">Permiso A2</option>
 					<option value="B">Permiso B</option>
-				</select>
-				
-				<input type="submit" value="Enviar">
+				</select>				
 			</form>
 				
 				<form class="" id="" action="ACCIONDEBORRARDELCONTROLADORALUMNOS" method="POST">
