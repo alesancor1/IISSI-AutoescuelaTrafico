@@ -1,0 +1,51 @@
+.añadirAlumno{
+	float: right;
+	position: relative;
+	margin-right: 50px;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+.añadirAlumno:hover{
+	color: royalblue;
+}
+.añadirAlumno i{
+	font-size: 25px;
+}
+
+.borrarSelec{
+	float: right;
+	position: relative;
+	margin-right: 20px;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+.borrarSelec:hover{
+	color: royalblue;
+}
+.borrarSelec i{
+	font-size: 25px;
+}
+
+.permiso{
+	position: relative;
+	float: right;
+	margin-right: 20px;
+	height: 25px;
+	border-radius: 20px;
+}
+
+.titleList{
+	position: absolute;
+	top: 40px;
+	margin-left: 50px;
+}
+
+.data{
+	margin-top: 50px;
+}
+.data table{
+	padding-top: 20px;
+	border-collapse: unset;
+}
