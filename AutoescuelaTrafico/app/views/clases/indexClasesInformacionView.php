@@ -22,7 +22,6 @@
 				
 				<?php 
 					if($clasesInformacion!=null){
-						echo $_SESSION["paginator"]->createLinks(4,'');
 						foreach($clasesInformacion as $num => $clase){
 							echo "<tr>";
 							echo "<td>" . $clase->OID_C . "</td>";
@@ -33,8 +32,8 @@
 						}
 					}
 				?>
-
 				</table>
+				<?php echo $_SESSION["paginator"]->createLinks(4,'paginatorButtons'); ?>
 			</div>
 		</div>
 	</div>

@@ -93,7 +93,7 @@
 											<a href="?controller=WebTest&action=indexInformacionWebTest">Información</a>
 										</li>
 										<li>
-											<a href="http://www.tuautoescuela.es/aula-virtual">Ir al sitio</a>
+											<a href="http://www.tuautoescuela.es/aula-virtual" target="_blank">Ir al sitio</a>
 										</li>
 									</ul>
 								</li>
@@ -255,7 +255,7 @@
 											<a href="?controller=WebTest&action=indexRecursosWebTest">Web Test</a>
 										</li>
 										<li>
-											<a href="?controller=Ordenadores&action=indexRecursosOrdenadores">Ordenadores</a>
+											<a href="?controller=Ordenadores">Ordenadores</a>
 										</li>
 									</ul>
 								</li>

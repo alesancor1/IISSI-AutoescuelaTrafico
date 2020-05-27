@@ -25,6 +25,13 @@ class OrdenadoresModel extends BaseModel{
 		return $tabla;
 	}
 	
+	public function insert($estadoPc, $modelo, $so){
+		$tabla = $this -> ejecutaSql("INSERT INTO Ordenadores (ESTADOPC, MODELO, SO) VALUES ('$estadoPc', '$modelo', '$so')");
+	}
+	
+	public function delete($oidPc){
+		$tabla = $this->ejecutaSql("DELETE FROM Ordenadores WHERE OID_PC = '$oidPc'");
+	}
 }
 
 ?>

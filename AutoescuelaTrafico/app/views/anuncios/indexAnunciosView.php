@@ -15,7 +15,7 @@
                 <?php require_once __DIR__."/addAnuncioView.php";?>
                 <script type="text/javascript" src="./js/popup.js"></script><?php
             	}?>
-                <?php echo $_SESSION["paginator"]->createLinks(7,'')?>
+                <?php echo $_SESSION["paginator"]->createLinks(4,'paginatorButtons')?>
                 <?php foreach($allAnuncios as $num=>$anuncio){
                 ?>  <div class = anuncio>
                         <?php echo "<h3>".$anuncio->getTitulo()."</h3>"?>
