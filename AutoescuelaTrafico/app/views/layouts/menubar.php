@@ -24,7 +24,7 @@
 					<!-- Datos del usuario -->
 					<div class="profile_info">
 						<div class="icon">
-							<i class="fas fa-user-circle"></i>
+							<i class="fas fa-user-circle" onclick="location.href='?'"></i>
 						</div>
 						<p>Ingresado como:</p>
 						<?php
@@ -115,7 +115,7 @@
 											<a href="?controller=Anuncios&action=index">Anuncios</a>
 										</li>
 										<li>
-											<a href="MENSAJES">Mensajes</a>
+											<a href="?controller=Mensajes">Mensajes</a>
 										</li>
 									</ul>
 								</li>
@@ -174,7 +174,7 @@
 											<a href="?controller=Anuncios&action=index">Anuncios</a>
 										</li>
 										<li>
-											<a href="MENSAJES">Mensajes</a>
+											<a href="?controller=Mensajes">Mensajes</a>
 										</li>
 									</ul>
 								</li>
@@ -288,7 +288,7 @@
 											<a href="?controller=Anuncios&action=index">Anuncios</a>
 										</li>
 										<li>
-											<a href="MENSAJES">Mensajes</a>
+											<a href="?controller=Mensajes">Mensajes</a>
 										</li>
 									</ul>
 								</li>

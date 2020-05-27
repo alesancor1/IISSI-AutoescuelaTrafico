@@ -19,6 +19,9 @@ class ErrorHandler{
 					if($sesion!="Administrador"&&$action=="indexGestion")
 						BaseController::view("error",array("tipo"=>"wrongLogin"));
 					break;
+				case "MensajesController":
+						BaseController::view("error",array("tipo"=>"notImplemented"));
+					break;
 
 			}
 		}

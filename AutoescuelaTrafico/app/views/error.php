@@ -39,6 +39,10 @@ switch($tipo){
 	case "wrongLogin": ?>
 		<p>No tienes acceso a esta función.</p>
 		<?php ; break;
+
+	case "notImplemented" ?>
+			<p>Esta funcion aun no esta implementada</p>
+		<?php ; break;
 	
 	default:?>
 		<p>Error desconocido.</p>
