@@ -2,19 +2,45 @@
 <html>
 	<head>
 		<title> Lista Alumnos </title>
+		<link rel="stylesheet" href="./css/tables.css">
+
 	</head>
 	<body>
 		<div class = "contenido" id = "contenido">
+
+			<?php
+			if ($listaAdmin != null) {
+							
+			echo "Lista de alumnos <br><br>";
+			?>
+			<form class="" id="" action="?controller=Alumnos&action=listaAdministrador" method="POST">
+				
+				<select id="permiso" name="permiso">
+					<option value="" selected>Todos</option>
+					<option value="A2">Permiso A2</option>
+					<option value="B">Permiso B</option>
+				</select>
+				
+				<input type="submit" value="Enviar">
+			</form>
+				
+				<form class="" id="" action="ACCIONDEBORRARDELCONTROLADORALUMNOS" method="POST">
 			
-			<?php 
-			foreach( $listaAdmin as $num=>$alumno){
-				echo "<p>";	
-				print_r($alumno);
-				echo "</p>";
-			}
+				<table>
+					<?php
+					foreach ($listaAdmin as $num => $alumno) { ?>
+					<tr>
+						<td>
+						<label><input type="checkbox" id="<?php echo "cbox" . $num ?>" value="on"> <?php echo $alumno -> getApellidos() . ", " . $alumno ->getNombre() . " - " . $alumno -> getDni() . "<br>"; ?> </label><br>
+						</td>
+					<?php } ?>
+					</tr>
+				</table>
+			</form>
 			
-			 ?>
+		<?php	} ?>
 			
+			<?php echo $_SESSION["paginator"]->createLinks(4,'paginatorButtons');?>
 		</div>
 	</body>
 
