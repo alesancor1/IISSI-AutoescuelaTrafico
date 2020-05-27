@@ -20,7 +20,7 @@ class AlumnosModel extends BaseModel {
 	
 	public function getAlumnosSinPaginar(){
 		$query = "SELECT A.* FROM Alumnos A RIGHT JOIN( SELECT DNIALUMNO,DNIPROFESOR FROM Clases C WHERE DNIPROFESOR='" . $_SESSION["cuenta"][3] . "'" . " GROUP BY DNIALUMNO,DNIPROFESOR) ON DNI=DNIALUMNO";
-		$alumnos = $this -> ejecutaSql($querry);
+		$alumnos = $this -> ejecutaSql($query);
 		foreach ($alumnos as $num => $alumno) {
 			$alumnos[$num] = Alumnos::__parse("Alumnos", $alumno);
 		}
@@ -31,14 +31,14 @@ class AlumnosModel extends BaseModel {
 		$dni = $_SESSION["cuenta"][3];
 		$query = "SELECT NOMBRE,Apellidos,FECHA,CALIFICACION FROM (SELECT DISTINCT C.DNIALUMNO,AET.FECHA,AET.CALIFICACION FROM CLASES C LEFT JOIN EXAMENESTEORICOS AET ON AET.ALUMNO = C.DNIALUMNO WHERE DNIPROFESOR ='" . $dni . "'" . ")ALUCALIF LEFT JOIN ALUMNOS ON alumnos.dni=alucalif.dnialumno ORDER BY NOMBRE,FECHA";
 		$examenTeo = $this -> ejecutaSql($query);
-		return $calificaciones;
+		return $examenTeo;
 	}
 	
 	public function getExamenesPracticosCirculacion(){
 		$dni = $_SESSION["cuenta"][3];
 		$query = "SELECT NOMBRE,Apellidos,FECHA,CALIFICACION FROM (SELECT DISTINCT C.DNIALUMNO,AET.FECHA,AET.CALIFICACION FROM CLASES C LEFT JOIN EXAMENESPRACTICOCIRCULACION AET ON AET.ALUMNO = C.DNIALUMNO WHERE DNIPROFESOR ='" . $dni . "'" . ")ALUCALIF LEFT JOIN ALUMNOS ON alumnos.dni=alucalif.dnialumno ORDER BY Nombre,Fecha";
 		$examenPC = $this -> ejecutaSql($query);
-		return $calificaciones;
+		return $examenPC;
 	}
 	
 	public function getExamenesPracticosPista(){
