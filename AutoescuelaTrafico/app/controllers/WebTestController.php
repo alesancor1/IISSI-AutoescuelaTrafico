@@ -20,9 +20,8 @@ class WebTestController extends BaseController{
 		}
 		$paginator = $_SESSION["paginator"];
 		$paginator->__init($recursos);
-		
+
 		$recursosAdministrador = $recursos -> getRecursosAdministrador($paginator->_start, $paginator->_end);
-		
 		$this -> view("/webtest/indexWebTestAdmin", array("recursosAdministrador" => $recursosAdministrador));
 		
 //		$recursos = new WebTestModel($this -> adapter);
