@@ -36,6 +36,8 @@ class ClasesController extends BaseController {
 
 	public function indexClasesInformacion() {
 		$clases = new ClasesModel($this -> adapter);
+
+		$clases->method = 'getInformacionAlumno';
 		
 		if(!isset($_SESSION["paginator"])){
 			$_SESSION["paginator"] = new Paginator();
@@ -52,7 +54,9 @@ class ClasesController extends BaseController {
 	 * 
 	 */
 	public function indexClasesTutorias(){
-		$tutorias = new TutoriasModel($this -> adapter);
+		$tutorias = new ClasesModel($this -> adapter);
+
+		$tutorias->method = 'getTutoriasAlumno';
 		
 		if(!isset($_SESSION["paginator"])){
 			$_SESSION["paginator"] = new Paginator();
