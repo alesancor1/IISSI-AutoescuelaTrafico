@@ -20,6 +20,15 @@ class AlumnosAdminModel extends BaseModel {
 		}
 		return $alumnos;
 	}
+	
+	public function insert($dni, $nombre, $apellidos, $fechaNacimiento, $permisoMatriculado, $oferta){	
+		$this->ejecutaSql("INSERT INTO Alumnos (DNI, NOMBRE, APELLIDOS, FECHANACIMIENTO) VALUES ('$dni', '$nombre', '$apellidos', to_date('$fechaNacimiento','YYYY-MM-DD'))");
+		$this->ejecutaSql("INSERT INTO MATRICULAS (FECHA, PERMISOMATRICULADO, ALUMNO, OFERTA) VALUES (sysdate, '$permisoMatriculado', '$dni', '$oferta')");	
+	}
+	
+	public function delete($dni) {
+		$this->ejecutaSql("DELETE FROM ALUMNOS WHERE DNI='$dni'");
+	}
 
 	// Consulta paginada
 	public function rows() {

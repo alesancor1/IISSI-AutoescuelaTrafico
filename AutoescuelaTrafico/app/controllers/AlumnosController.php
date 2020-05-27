@@ -152,6 +152,21 @@ class AlumnosController extends BaseController {
 		//renderiza la vista pasandole el array de anuncios
 		$this -> view("/alumnos/ListaAlumnosAdmin", array("listaAdmin" => $listaAdmin));
 	}
+	
+	public function enviar(){
+		$alumno= new AlumnosAdminModel($this->adapter);
+		$insertarAlumno= $alumno -> insert($_POST["dni"],$_POST["nombre"],$_POST["apellidos"],$_POST["fechaNacimiento"],$_POST["permiso"],$_POST["oferta"]);
+		funciones::redirect("Alumnos", "listaAdministrador");
+	}
+
+	public function borrar(){		
+		$alumno= new AlumnosAdminModel($this->adapter);
+		
+		foreach ($_POST as $num => $dni) {
+			$borrarAlumno= $alumno -> delete($dni);	
+		}
+		funciones::redirect("Alumnos", "listaAdministrador");
+	}
 
 }
 ?>
