@@ -3,7 +3,6 @@
 	font-weight: 600;
 }
 .paginatorButtons{
-	transition: 0.3s ease all;
 	height: 45px;
 	display: flex;
 	justify-content: center;

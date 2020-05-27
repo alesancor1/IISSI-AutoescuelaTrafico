@@ -19,6 +19,8 @@
 
 			/*boton de abrir/cerrar*/
 			function toggleNav(x){
+				document.getElementById("contenido").style.transition = "0.3s ease all";
+
 				var width = getComputedStyle(document.getElementById("mySidebar")).width;
 				var arrows = document.getElementsByClassName("arrow");
 				if(width.localeCompare("50px")==0){

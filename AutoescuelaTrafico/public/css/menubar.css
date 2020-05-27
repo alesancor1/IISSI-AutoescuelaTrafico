@@ -165,7 +165,6 @@ body{
 }
 .contenido{
 	margin-left: 60px;
-	transition: all 0.3s ease;
 	z-index: 100;
 }
 @media screen and (max-width: 700px){
