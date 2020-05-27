@@ -168,7 +168,7 @@
 									<a href="?controller=Alumnos&action=listaProfesor">Lista</a>
 								</li>
 								<li>
-									<a href="?controller=Alumnos&action=PONER METODO">Calificaciones</a>
+									<a href="?controller=Alumnos&action=listaCalificacionesProfesor">Calificaciones</a>
 								</li>
 							</ul>
 						</li>

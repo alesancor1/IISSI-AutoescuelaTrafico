@@ -30,6 +30,8 @@ class AlumnosController extends BaseController {
 	}
 
 	public function listaCalificacionesProfesor() {
+		// _______________________________________________________________________________________________________
+		// Parte de ALUMNOS_______________________________________________________________________________________
 		// Los tres tipos de examen---------------------------------------
 		$teorico = new AlumnosModel($this -> adapter);
 		$listaTeorico = $teorico -> getExamenesTeoricos();
@@ -76,10 +78,8 @@ class AlumnosController extends BaseController {
 			$resultado[$nombreApellidos] = $arrayRecubridor;
 		}
 
-		$this -> view("/alumnos/ListaCalificaciones", array("resultado" => $resultado, "listaAlumnos" => $listaAlumnos));
-	}
-
-	public function listaUltimoExamen() {
+		//___________________________________________________________________________________________________________
+		// Los ultimos examenes______________________________________________________________________________________
 		// Los tres tipos de examen
 		$teorico = new AlumnosModel($this -> adapter);
 		$listaTeorico = $teorico -> getUltimosExamenesTeoricos();
@@ -132,7 +132,8 @@ class AlumnosController extends BaseController {
 				$resultado[$pP -> NOMBRE . " " . $pP -> APELLIDOS] = $pP;
 
 		}
-		$this -> view("/alumnos/ListaCalificaciones", array("resultado2" => $resultado));
+
+		$this -> view("/alumnos/ListaCalificaciones", array("resultado" => $resultado, "listaAlumnos" => $listaAlumnos, "resultado2" => $resultado));
 	}
 
 	// ADMINISTRADOR

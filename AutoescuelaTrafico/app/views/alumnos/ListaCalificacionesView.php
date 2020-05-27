@@ -6,6 +6,34 @@
 	<head>
 		<link rel="stylesheet" href="./css/tables.css">
 		<style>
+		
+		/* ACORDEON */
+			.accordionContent {
+				background-color: #87B9C7;
+				color: #fff;
+				cursor: pointer;
+				padding: 18px;
+				width: 100%;
+				border: none;
+				text-align: left;
+				outline: none;
+				font-size: 15px;
+				transition: 0.4s;
+			}
+
+			.accordionContent .active, .accordionContent:hover {
+				background-color: #037FB2;
+			}
+
+			.panel {
+				padding: 0 18px;
+				background-color: white;
+				max-height: 0;
+				overflow: hidden;
+				transition: max-height 0.2s ease-out;
+			}
+			
+
 			* {
 				margin: 0;
 				padding: 0;
@@ -92,10 +120,10 @@
 			<ul class="tabs">
 				
 				<li>
-					<a href="#tab1"><span class="tab-text">Horario</span></a>
+					<a href="#tab1"><span class="tab-text">Alumnos</span></a>
 				</li>
 				<li>
-					<a href="#tab2"><span class="tab-text">Gestión</span></a>
+					<a href="#tab2"><span class="tab-text">Último examen</span></a>
 				</li>
 			</ul>
 
@@ -107,31 +135,46 @@
 				?>
 				
 				<article id="tab1">
-					<h1>HORARIO</h1>
-					<p>
-						AQUI IRIA EL HORARIO
-					</p>
+					<h1>CALIFICACIONES DE LOS ALUMNOS</h1>
+					<?php
+					foreach ($listaAlumnos as $alum) {
+						foreach($resultado as $alumno => $examenesRecubridor){
+							if($alum -> NOMBRE == $alumno -> NOMBRE && $alum -> APELLIDOS == $alumno -> APELLIDOS){
+							echo "<button class='accordionContent'>" . $alumno . "</button>";
+							echo "<div class='panel'>";
+							foreach ($examenesRecubridor as $num => $examenes) {
+								// foreach ($examenes as $value) {
+									echo "<p>Dirección: " . $examenes . "</p>";
+								// }
+								
+							}
+							echo "</div>";
+						}}
+					}
+					?>
+					
 				</article>
 				
 				<?php 
-					if(isset($gestionClases)){ 
-						//print_r($gestionClases); ?>
+					// print_r($resultado2);
+					if(isset($resultado2)){ 
+						//print_r($resultados2); ?>
 					<article id="tab2">
-						<h1>GESTION CLASES</h1>
+						<h1>Último examen</h1>
 						<table>
 							<tr>
-								<th>Alumno</th>
-								<th>Días sin dar clase</th>
-								<th>Última clase</th>
-								<th>Profesor</th>
+								<th>Apellidos</th>
+								<th>Nombre</th>
+								<th>Fecha</th>
+								<th>Calificacion</th>
 							</tr>
 						
-						<?php foreach($gestionClases as $num=>$row){
+						<?php foreach($resultado2 as $num=>$row){
 							echo "<tr>";
-							echo "<td>" . $row->ALUMNO . "</td>";
-							echo "<td>" . $row->DIASSINCLASE . "</td>";
-							echo "<td>" . $row->FECHAULTIMACLASE . "</td>";
-							echo "<td>" . $row->PROFESOR . "</td>";
+							echo "<td>" . $row->APELLIDOS . "</td>";
+							echo "<td>" . $row->NOMBRE . "</td>";
+							echo "<td>" . $row->FECHA . "</td>";
+							echo "<td>" . $row->CALIFICACION . "</td>";
 							echo "</tr>";
 						} ?>
 						</table>
@@ -142,6 +185,7 @@
 			</div>
 		</div>
 
+		
 		<script>
 			$('ul.tabs li a:first').addClass('active');
 			$('.secciones article').hide();
@@ -156,6 +200,24 @@
 				$(activeTab).show();
 				return false;
 			});
+		</script>
+		
+		<!-- Acordeon -->
+		<script>
+			var acc = document.getElementsByClassName("accordionContent");
+			var i;
+
+			for ( i = 0; i < acc.length; i++) {
+				acc[i].addEventListener("click", function() {
+					this.classList.toggle("active");
+					var panel = this.nextElementSibling;
+					if (panel.style.maxHeight) {
+						panel.style.maxHeight = null;
+					} else {
+						panel.style.maxHeight = panel.scrollHeight + "px";
+					}
+				});
+			}
 		</script>
 
 	</body>
