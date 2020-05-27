@@ -10,7 +10,7 @@
 						for(var i = 0; i<arrows.length; i++)
 							arrows[i].style.cssText = "visibility: visible; transition: all 0.3s ease;";
 						if(window.innerWidth>=700)
-							document.getElementById("contenido").style.marginLeft = "275px";
+							document.getElementById("contenido").style.marginLeft = "260px";
 					}
 					$(".siderbar_menu li").removeClass("active");
 					$(this).addClass("active");
@@ -28,7 +28,7 @@
 					for(var i = 0; i<arrows.length; i++)
 						arrows[i].style.cssText = "visibility: visible; transition: all 0.3s ease;";
 					if(window.innerWidth>=700)
-						document.getElementById("contenido").style.marginLeft = "275px";
+						document.getElementById("contenido").style.marginLeft = "260px";
 				}
 				else{
 					$(".siderbar_menu li").removeClass("active");
@@ -37,6 +37,6 @@
 					document.getElementById("toggleButton").style.left = "50px";
 					for(var i = 0; i<arrows.length; i++)
 						arrows[i].style.cssText  = "visibility: hidden; transition: none;";
-					document.getElementById("contenido").style.marginLeft = "75px";
+					document.getElementById("contenido").style.marginLeft = "60px";
 					}
 				}
