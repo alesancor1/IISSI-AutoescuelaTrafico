@@ -44,7 +44,7 @@ class AlumnosController extends BaseController {
 		$alumnos = new AlumnosModel($this -> adapter);
 		$listaAlumnos = $alumnos -> getAlumnosSinPaginar();
 		//----------------------------------------------------------------
-		
+
 		// Procesar los datos---------------------------------------------
 		// Resultado es un map
 		$resultado = array();
@@ -54,22 +54,22 @@ class AlumnosController extends BaseController {
 			// Array de teoria
 			$arrayTeo = array();
 			foreach ($listaTeorico as $num => $teo) {
-				if($nombreApellidos == $teo -> NOMBRE . " " . $teo -> APELLIDOS)
+				if ($nombreApellidos == $teo -> NOMBRE . " " . $teo -> APELLIDOS)
 					array_push($arrayTeo, $teo);
 			}
 			// Array practico circulacion
 			$arrayPC = array();
 			foreach ($listaPracticoC as $num => $pC) {
-				if($nombreApellidos == $pC -> NOMBRE . " " . $pC -> APELLIDOS)
+				if ($nombreApellidos == $pC -> NOMBRE . " " . $pC -> APELLIDOS)
 					array_push($arrayPC, $pC);
 			}
 			// Array practico pista
 			$arrayPP = array();
 			foreach ($listaPracticoP as $num => $pP) {
-				if($nombreApellidos == $pP -> NOMBRE . " " . $pP -> APELLIDOS)
+				if ($nombreApellidos == $pP -> NOMBRE . " " . $pP -> APELLIDOS)
 					array_push($arrayPP, $pP);
 			}
-			
+
 			// Array de todos los examenes [[Teoricos],[Circulacion],[Pista]]
 			$arrayRecubridor = $arrayName = array($arrayTeo, $arrayPC, $arrayPP);
 			// {Nombre Apellidos => [[Teoricos],[Circulacion],[Pista]], ...}
@@ -79,34 +79,59 @@ class AlumnosController extends BaseController {
 		$this -> view("/alumnos/ListaCalificaciones", array("resultado" => $resultado, "listaAlumnos" => $listaAlumnos));
 	}
 
-	public function listaUltimoExamen(){
+	public function listaUltimoExamen() {
 		// Los tres tipos de examen
 		$teorico = new AlumnosController($this -> adapter);
 		$listaTeorico = $teorico -> getUltimosExamenesTeoricos();
-		
+
 		$practicoC = new AlumnosModel($this -> adapter);
 		$listaPracticoC = $practicoC -> getUltimosExamenesPP();
-		
+
 		$practicoP = new AlumnosModel($this -> adapter);
 		$listaPracticoP = $practicoP -> getUltimoExamenPC();
-		
-		// Inicializaciones de paginadores
-		if (!isset($_SESSION["paginator"]))
-			$_SESSION["paginator"] = new Paginator();
-		$paginator = $_SESSION["paginator"];
-		$paginator -> __init($listaTeorico);
-		
-		if (!isset($_SESSION["paginator"]))
-			$_SESSION["paginator"] = new Paginator();
-		$paginator = $_SESSION["paginator"];
-		$paginator -> __init($listaPracticoC);
 
-		if (!isset($_SESSION["paginator"]))
-			$_SESSION["paginator"] = new Paginator();
-		$paginator = $_SESSION["paginator"];
-		$paginator -> __init($listaPracticoP);
-		
-		
+		$alumnos = new AlumnosModel($this -> adapter);
+		$listaAlumnos = $alumnos -> getAlumnosSinPaginar();
+
+		// Procesar los datos---------------------------------------------
+		// Resultado es un map
+		$resultado = array();
+
+		// Comparar fechas por teoricos
+		foreach ($listaTeorico as $num => $teo) {
+			// Comprueba si el alumno ya esta en el array
+			if ($resultado[$teo -> NOMBRE . " " . $teo -> APELLIDOS] != null) {
+				// Comparando las dos fechas
+				$fe = dateComparator($resultado[$teo -> NOMBRE . " " . $teo -> APELLIDOS][1], $teo -> FECHA);
+				// Si la fecha nueva es mas actual se sustituye
+				if ($fe == $teo -> FECHA)
+					$resultado[$teo -> NOMBRE . " " . $teo -> APELLIDOS] = $teo;
+				// Si no esta presente en el array se añade el nuevo ultimo examen
+			} else
+				$resultado[$teo -> NOMBRE . " " . $teo -> APELLIDOS] = $teo;
+		}
+		// Comparar fechas por practicos circulacion
+		foreach ($listaPracticoC as $num => $pC) {
+			if ($resultado[$pC -> NOMBRE . " " . $pC -> APELLIDOS] != null) {
+
+				$fe = dateComparator($resultado[$pC -> NOMBRE . " " . $pC -> APELLIDOS][1], $pC -> FECHA);
+				if ($pC -> FECHA == $fe)
+					$resultado[$pC -> NOMBRE . " " . $pC -> APELLIDOS] = $pC;
+			} else
+				$resultado[$pC -> NOMBRE . " " . $pC -> APELLIDOS] = $pC;
+		}
+		// Comparar fechas por practicos pista
+		foreach ($listaPracticoP as $num => $pP) {
+			if ($resultado[$pC -> NOMBRE . " " . $pP -> APELLIDOS] != null) {
+
+				$fe = dateComparator($resultado[$pP -> NOMBRE . " " . $pP -> APELLIDOS][1], $pP -> FECHA);
+				if ($pP -> FECHA == $fe)
+					$resultado[$pP -> NOMBRE . " " . $pC -> APELLIDOS] = $pP;
+			} else
+				$resultado[$pP -> NOMBRE . " " . $pP -> APELLIDOS] = $pP;
+
+		}
+		return $resultado;
 	}
 
 	// ADMINISTRADOR

@@ -58,21 +58,24 @@ class AlumnosModel extends BaseModel {
 	public function getUltimosExamenesTeoricos($first = 0, $last = -1){
 		$dni = $_SESSION["cuenta"][3];
 		$query = "SELECT DISTINCT ALUMNO,ET.FECHA,CALIFICACION,TIPOPERMISO FROM examenesteoricos ET LEFT JOIN CLASES ON ALUMNO=DNIALUMNO WHERE DNIPROFESOR='" . $dni . "'". "AND CALIFICACION IS NOT NULL";
-		$ultimoExamenT = $this -> consultaPaginada($query, $first, $last);
+		// $ultimoExamenT = $this -> consultaPaginada($query, $first, $last);
+		$ultimoExamenT = $this -> consultaPaginada($query);
 		return $ultimoExamen;
 	}
 	
 	public function getUltimosExamenesPP($first = 0, $last = -1){
 		$dni = $_SESSION["cuenta"][3];
 		$query = "SELECT DISTINCT ALUMNO,ET.FECHA,CALIFICACION,TIPOPERMISO FROM examenespracticopista ET LEFT JOIN CLASES ON ALUMNO=DNIALUMNO WHERE DNIPROFESOR='" . $dni . "'" . " AND CALIFICACION IS NOT NULL";
-		$ultimoExamenPP = $this -> consultaPaginada($query, $first, $last);
+		// $ultimoExamenPP = $this -> consultaPaginada($query, $first, $last);
+		$ultimoExamenPP = $this -> consultaPaginada($query);
 		return $ultimoExamenPP;
 	}
 	
 	public function getUltimoExamenPC($first = 0, $last = -1){
 		$dni = $_SESSION["cuenta"][3];
 		$query = "SELECT DISTINCT ALUMNO,ET.FECHA,CALIFICACION,TIPOPERMISO FROM examenespracticocirculacion ET LEFT JOIN CLASES ON ALUMNO=DNIALUMNO WHERE DNIPROFESOR='" . $dni . "'" . "AND CALIFICACION IS NOT NULL";
-		$ultimoExamenPC = $this -> consultaPaginada($query, $first, $last);
+		// $ultimoExamenPC = $this -> consultaPaginada($query, $first, $last);
+		$ultimoExamenPC = $this -> consultaPaginada($query);
 		return $ultimoExamenPC;
 	}
 	
