@@ -1,6 +1,7 @@
 <?php
 class WebTestModel extends BaseModel{
 	public $table;
+	public $method = null;
 
 	public function __construct($adapter) {
 		$this -> table = "Clases";
@@ -8,7 +9,18 @@ class WebTestModel extends BaseModel{
 	}
 	
 	public function rows(){
-		return $this -> rowNum("SELECT * FROM WebTest");
+		switch($this->method){
+			case 'getRecursosAdministrador':
+				return $this->rowNum("SELECT USUARIO,CLAVEPORDEFECTO,FECHARENOVACION,FECHACADUCIDAD,TRUNC(FECHACADUCIDAD)-TRUNC(SYSDATE) FROM ALUMNOS RIGHT JOIN ACCESOWEB ON ALUMNOS.ACCESOWEB=ACCESOWEB.USUARIO");
+				break;
+			
+			case 'getInformacionAlumno':
+				return $this->rowNum("SELECT USUARIO,CLAVEPORDEFECTO,FECHARENOVACION,FECHACADUCIDAD,TRUNC(FECHACADUCIDAD)-TRUNC(SYSDATE) FROM ALUMNOS RIGHT JOIN AccesoWeb ON Alumnos.ACCESOWEB=AccesoWeb.USUARIO WHERE Alumnos.DNI = '" . $_SESSION['cuenta'][3] . "'");
+				break;
+				
+			default:
+				return $this -> rowNum("SELECT * FROM WebTest");
+		}
 	}
 	
 	//	ADMINISTRADOR
@@ -18,6 +30,7 @@ class WebTestModel extends BaseModel{
 		// usuario clave fechaCaducidad tiempoRestante ultimaRenovacion
 		$filtroPorUsuario = isset($_POST["filtro"]) ? $_POST["filtro"] : "";
 		$query = "SELECT USUARIO,CLAVEPORDEFECTO,FECHARENOVACION,FECHACADUCIDAD,TRUNC(FECHACADUCIDAD)-TRUNC(SYSDATE) FROM ALUMNOS RIGHT JOIN ACCESOWEB ON ALUMNOS.ACCESOWEB=ACCESOWEB.USUARIO";
+		$query = "SELECT * FROM ($query) Q WHERE Q.USUARIO LIKE '%$filtroPorUsuario%'";
 		$tablaRecursos = $this->ejecutaSql($query);
 		//$tablaRecursos = $this -> consultaPaginada($query, $first, $last);
 		if(sizeof($tablaRecursos)==0){

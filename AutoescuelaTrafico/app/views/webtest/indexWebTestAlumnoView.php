@@ -19,9 +19,9 @@
 					<tr>
 						<th>Usuario</th>
 						<th>Clave</th>
-						<th>fechaRenovacion</th>
-						<th>fechaCaducidad</th>
-						<th>tiempoRestante</th>
+						<th>Fecha de renovacion</th>
+						<th>Fecha de caducidad</th>
+						<th>Tiempo restante</th>
 					</tr>
 					<tr>
 						<td class="usuario">

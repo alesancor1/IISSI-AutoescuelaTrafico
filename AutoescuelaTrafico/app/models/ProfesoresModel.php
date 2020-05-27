@@ -26,6 +26,17 @@ class ProfesoresModel extends BaseModel {
 		$query = "SELECT * FROM profesoresimpartenpermisos";
 		$table = $this->ejecutaSql($query);
 		return $table;
-	}	
+	}
+	
+	public function addProfesor($dni, $nombre, $apellidos, $fechaContrato, $telefono, $salario, $nss){
+		$query = "INSERT INTO Profesores (DNI, NOMBRE, APELLIDOS, FECHACONTRATO, TELEFONO, SALARIO, NSS) 
+		VALUES ('$dni', '$nombre', '$apellidos', to_date('$fechaContrato','YYYY-MM-DD'), '$telefono', '$salario', '$nss')";
+		echo($query);
+		$tabla = $this -> ejecutaSql($query);
+	}
+	
+	public function deleteProfesor($dni){
+		$tabla = $this -> ejecutaSql("DELETE FROM Profesores WHERE DNI = '$dni'");
+	}
 }
 ?>

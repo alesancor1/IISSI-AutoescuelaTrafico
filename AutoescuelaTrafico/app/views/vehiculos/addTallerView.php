@@ -23,7 +23,7 @@
 					</div>
 					
                     <div class = "telefonoTaller">
-                        <label for="telefonoTaller"><b>Sistema operativo del PC</b></label>
+                        <label for="telefonoTaller"><b>Nº de teléfono/b></label>
                         <input type="text" placeholder="Inserte el número de teléfono" name="telefonoTaller" id="telefonoTaller" required>
                     </div>
 
