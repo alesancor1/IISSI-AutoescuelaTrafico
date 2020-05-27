@@ -11,7 +11,7 @@
 			<?php
 			if ($listaAdmin != null) {
 							
-			echo "Lista de alumnos <br><br>";
+			echo "<h1>Lista de alumnos</h1>";
 			?>
 			<form class="" id="" action="?controller=Alumnos&action=listaAdministrador" method="POST">
 				
