@@ -79,6 +79,33 @@ class AlumnosController extends BaseController {
 		$this -> view("/alumnos/ListaCalificaciones", array("resultado" => $resultado, "listaAlumnos" => $listaAlumnos));
 	}
 
+	public function listaUltimoExamen(){
+		// Los tres tipos de examen
+		$teorico = new AlumnosController($this -> adapter);
+		$listaTeorico = $teorico -> getUltimosExamenesTeoricos();
+		
+		$practicoC = new AlumnosModel($this -> adapter);
+		$listaPracticoC = $practicoC -> getUltimosExamenesPP();
+		
+		$practicoP = new AlumnosModel($this -> adapter);
+		$listaPracticoP = $practicoP -> getUltimoExamenPC();
+		
+		if (!isset($_SESSION["paginator"]))
+			$_SESSION["paginator"] = new Paginator();
+		$paginator = $_SESSION["paginator"];
+		$paginator -> __init($listaTeorico);
+		
+		if (!isset($_SESSION["paginator"]))
+			$_SESSION["paginator"] = new Paginator();
+		$paginator = $_SESSION["paginator"];
+		$paginator -> __init($listaPracticoC);
+
+		if (!isset($_SESSION["paginator"]))
+			$_SESSION["paginator"] = new Paginator();
+		$paginator = $_SESSION["paginator"];
+		$paginator -> __init($listaPracticoP);
+	}
+
 	// ADMINISTRADOR
 	// LISTA
 	public function listaAdministrador() {
