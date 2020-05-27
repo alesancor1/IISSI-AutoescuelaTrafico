@@ -90,6 +90,7 @@ class AlumnosController extends BaseController {
 		$practicoP = new AlumnosModel($this -> adapter);
 		$listaPracticoP = $practicoP -> getUltimoExamenPC();
 		
+		// Inicializaciones de paginadores
 		if (!isset($_SESSION["paginator"]))
 			$_SESSION["paginator"] = new Paginator();
 		$paginator = $_SESSION["paginator"];
@@ -104,6 +105,8 @@ class AlumnosController extends BaseController {
 			$_SESSION["paginator"] = new Paginator();
 		$paginator = $_SESSION["paginator"];
 		$paginator -> __init($listaPracticoP);
+		
+		
 	}
 
 	// ADMINISTRADOR
