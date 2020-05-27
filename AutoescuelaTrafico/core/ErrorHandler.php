@@ -20,8 +20,9 @@ class ErrorHandler{
 						BaseController::view("error",array("tipo"=>"wrongLogin"));
 					break;
 				case "MensajesController":
+				case "HorarioController":
 						BaseController::view("error",array("tipo"=>"notImplemented"));
-					break;
+				break;
 
 			}
 		}

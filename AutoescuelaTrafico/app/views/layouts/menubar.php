@@ -30,8 +30,8 @@
 							Ingresado como:
 						</p>
 						<?php
-if(isset($_SESSION['cuenta'])){
-echo "<p>".$_SESSION['cuenta'][0]."</p>";
+						if(isset($_SESSION['cuenta'])){
+						echo "<p>".$_SESSION['cuenta'][0]."</p>";
 						?>
 					</div>
 
@@ -138,7 +138,7 @@ echo "<p>".$_SESSION['cuenta'][0]."</p>";
 
 						<!-- Horario -->
 						<li>
-							<a href="?controller=Clases&action=HORARIOS">
+							<a href="?controller=Horario">
 							<div class="icon">
 								<i class="fas fa-calendar"></i>
 							</div>
