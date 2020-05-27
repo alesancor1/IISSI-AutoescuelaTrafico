@@ -19,7 +19,8 @@ class AlumnosModel extends BaseModel {
 	}
 	
 	public function getAlumnosSinPaginar(){
-		$query = "SELECT A.* FROM Alumnos A RIGHT JOIN( SELECT DNIALUMNO,DNIPROFESOR FROM Clases C WHERE DNIPROFESOR='" . $_SESSION["cuenta"][3] . "'" . " GROUP BY DNIALUMNO,DNIPROFESOR) ON DNI=DNIALUMNO";
+		// El 0 es de relleno para cuadrarlo con como esta hecho en el paginado
+		$query = "SELECT 0, A.* FROM Alumnos A RIGHT JOIN( SELECT DNIALUMNO,DNIPROFESOR FROM Clases C WHERE DNIPROFESOR='" . $_SESSION["cuenta"][3] . "'" . " GROUP BY DNIALUMNO,DNIPROFESOR) ON DNI=DNIALUMNO";
 		$alumnos = $this -> ejecutaSql($query);
 		foreach ($alumnos as $num => $alumno) {
 			$alumnos[$num] = Alumnos::__parse("Alumnos", $alumno);

@@ -46,25 +46,26 @@ class AlumnosController extends BaseController {
 		//----------------------------------------------------------------
 		
 		// Procesar los datos---------------------------------------------
-		$resultado = new \Ds\Map();
+		// Resultado es un map
+		$resultado = array();
 		foreach ($listaAlumnos as $num => $alumno) {
 			// variable de nombre + apellidos
 			$nombreApellidos = $alumno -> getNombre() . " " . $alumno -> getApellidos();
 			// Array de teoria
 			$arrayTeo = array();
-			foreach ($listTeorico as $num => $teo) {
+			foreach ($listaTeorico as $num => $teo) {
 				if($nombreApellidos == $teo -> NOMBRE . " " . $teo -> APELLIDOS)
 					array_push($arrayTeo, $teo);
 			}
 			// Array practico circulacion
 			$arrayPC = array();
-			foreach ($listPracticoC as $num => $pC) {
+			foreach ($listaPracticoC as $num => $pC) {
 				if($nombreApellidos == $pC -> NOMBRE . " " . $pC -> APELLIDOS)
 					array_push($arrayPC, $pC);
 			}
 			// Array practico pista
 			$arrayPP = array();
-			foreach ($listPracticoP as $num => $pP) {
+			foreach ($listaPracticoP as $num => $pP) {
 				if($nombreApellidos == $pP -> NOMBRE . " " . $pP -> APELLIDOS)
 					array_push($arrayPP, $pP);
 			}
@@ -72,7 +73,7 @@ class AlumnosController extends BaseController {
 			// Array de todos los examenes [[Teoricos],[Circulacion],[Pista]]
 			$arrayRecubridor = $arrayName = array($arrayTeo, $arrayPC, $arrayPP);
 			// {Nombre Apellidos => [[Teoricos],[Circulacion],[Pista]], ...}
-			$resultado -> put($nombreApellidos, $arrayRecubridor);
+			$resultado[$nombreApellidos] = $arrayRecubridor;
 		}
 
 		$this -> view("/alumnos/ListaCalificaciones", array("resultado" => $resultado, "listaAlumnos" => $listaAlumnos));
