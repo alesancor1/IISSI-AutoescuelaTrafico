@@ -18,6 +18,15 @@ class AlumnosModel extends BaseModel {
 		return $alumnos;
 	}
 	
+	public function getAlumnosSinPaginar(){
+		$query = "SELECT A.* FROM Alumnos A RIGHT JOIN( SELECT DNIALUMNO,DNIPROFESOR FROM Clases C WHERE DNIPROFESOR='" . $_SESSION["cuenta"][3] . "'" . " GROUP BY DNIALUMNO,DNIPROFESOR) ON DNI=DNIALUMNO";
+		$alumnos = $this -> ejecutaSql($querry);
+		foreach ($alumnos as $num => $alumno) {
+			$alumnos[$num] = Alumnos::__parse("Alumnos", $alumno);
+		}
+		return $alumnos;
+	}
+	
 	public function getExamenesTeoricos(){
 		$dni = $_SESSION["cuenta"][3];
 		$query = "SELECT NOMBRE,Apellidos,FECHA,CALIFICACION FROM (SELECT DISTINCT C.DNIALUMNO,AET.FECHA,AET.CALIFICACION FROM CLASES C LEFT JOIN EXAMENESTEORICOS AET ON AET.ALUMNO = C.DNIALUMNO WHERE DNIPROFESOR ='" . $dni . "'" . ")ALUCALIF LEFT JOIN ALUMNOS ON alumnos.dni=alucalif.dnialumno ORDER BY NOMBRE,FECHA";
