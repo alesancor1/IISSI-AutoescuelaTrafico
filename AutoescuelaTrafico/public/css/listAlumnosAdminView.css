@@ -49,3 +49,21 @@
 	padding-top: 20px;
 	border-collapse: unset;
 }
+.data table tr td input[type="checkbox"]{
+	position: relative;
+	float: left;
+	margin-left: 30px;
+    width:20px;
+    height:20px;
+    background:white;
+    border-radius:5px;
+    border:2px solid #555;
+}
+.data table tr td{
+	font-size: 17px;
+	display: flex;
+}
+.data table tr td label{
+	width: 100%;
+	text-align: center;
+}

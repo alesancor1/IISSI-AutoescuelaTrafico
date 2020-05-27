@@ -22,7 +22,8 @@
 					<!-- borrar seleccion-->
 					<button class="borrarSelec" type="submit"><i class="fa fa-trash"></i></button> 
 					<!-- COLLAPSE SELECT DE FILTRO -->
-					<form class="" id="" action="?controller=Alumnos&action=listaAdministrador" method="POST">			
+					<?php $limit = isset($_GET["limit"]) ? '&limit='.$_GET["limit"] : '' ?>
+					<form class="" id="" <?php echo 'action=?controller=Alumnos&action=listaAdministrador'.$limit?> method="POST">			
 						<select class="permiso" id="permiso" name="permiso" onchange="this.form.submit()">
 							<option disabled selected>Filtrar por permiso</option>
 							<option value="">Todos</option>
