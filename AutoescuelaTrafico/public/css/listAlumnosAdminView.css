@@ -1,4 +1,4 @@
-.añadirAlumno{
+.nuevaEntrada{
 	float: right;
 	position: relative;
 	margin-right: 50px;
@@ -6,10 +6,10 @@
 	background-color: transparent;
 	cursor: pointer;
 }
-.añadirAlumno:hover{
+.nuevaEntrada:hover{
 	color: royalblue;
 }
-.añadirAlumno i{
+.nuevaEntrada i{
 	font-size: 25px;
 }
 
