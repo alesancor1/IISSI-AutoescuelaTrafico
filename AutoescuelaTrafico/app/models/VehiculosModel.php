@@ -3,7 +3,7 @@ class VehiculosModel extends BaseModel{
 	public $table;
 
 	public function __construct($adapter) {
-		$this -> table = "PEPITO GRILLO";
+		$this -> table = "Vehiculos";
 		parent::__construct($this -> table, $adapter);
 	}
 	
@@ -39,7 +39,33 @@ class VehiculosModel extends BaseModel{
 		$query = "DELETE FROM Talleres WHERE NOMBRE = '$nombreTaller' AND DIRECCION = '$direccionTaller' AND TELEFONO = '$telefonoTaller'";
 		$tabla = $this -> ejecutaSql($query);
 	}
-
+	
+	public function getInfoVehiculos(){
+		$query = "SELECT MODELO,MATRICULA,ESTADO,TIPOSEGURO,F AS FECHA,REVISION,TIPOCUOTA,IMPORTECUOTA FROM TURISMOS LEFT JOIN SEGUROSTURISMOS ON MATRICULA=TURISMO
+				  LEFT JOIN(
+    					SELECT TURISMO,F,REVISION FROM ITVTURISMOS LEFT JOIN
+        					(SELECT TURISMO T,MAX(FECHA)F FROM ITVTURISMOS GROUP BY TURISMO) ON T = TURISMO WHERE FECHA = F
+    					)ITV ON ITV.TURISMO = MATRICULA
+    	UNION
+				  SELECT MODELO,MATRICULA,ESTADO,TIPOSEGURO,F AS FECHA,REVISION,TIPOCUOTA,IMPORTECUOTA FROM MOTOCICLETAS LEFT JOIN SEGUROSMOTOCICLETAS ON MATRICULA=MOTOCICLETA
+				  LEFT JOIN(
+    					SELECT MOTOCICLETA,F,REVISION FROM ITVMOTOCICLETAS LEFT JOIN
+        					(SELECT MOTOCICLETA T,MAX(FECHA)F FROM ITVMOTOCICLETAS GROUP BY MOTOCICLETA) ON T = MOTOCICLETA WHERE FECHA = F
+    					)ITV ON ITV.MOTOCICLETA = MATRICULA";
+		
+		$tabla = $this-> ejecutaSql($query);
+		return $tabla;
+	}
+	
+	public function getReparacionesVehiculos(){
+		$query = "SELECT FECHA,DESCRIPCION,COSTE,TALLER,TURISMO AS MATRICULA FROM REPARACIONESTURISMOS
+    				UNION
+				  SELECT FECHA,DESCRIPCION,COSTE,TALLER,MOTOCICLETA AS MATRICULA FROM REPARACIONESMOTOCICLETAS";
+				  
+		$tabla = $this->ejecutaSql($query);
+		return $tabla;
+	}
+	
  }
 
 ?>

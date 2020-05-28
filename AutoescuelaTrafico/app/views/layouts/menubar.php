@@ -269,7 +269,7 @@
 							</div></a>
 							<ul class="accordion">
 								<li>
-									<a href="AFAS">Información</a>
+									<a href="?controller=Vehiculos&action=infoVehiculos">Información</a>
 								</li>
 								<li>
 									<a href="?controller=Vehiculos&action=getUsosYTalleres">Usos y talleres</a>
