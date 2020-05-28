@@ -18,10 +18,9 @@ class OrdenadoresController extends BaseController{
 		$this -> view("/ordenadores/indexOrdenadoresAdmin", array("recursosOrdenadores" => $recursosOrdenadores));
 	}
 	
-		//	REVISAR, funciona en la BBDD (se ve en el sqldeveloper) pero no lo muestra en la pagina de ninguna forma (recargar, cache, reiniciar, logout, etc)
 	public function addPc(){
 		$ordenadores = new OrdenadoresModel($this -> adapter);
-		$addOrdenador = $ordenadores->insertPc($_POST["estadoPc"], $_POST["modelo"], $_POST["so"]);
+		$addOrdenador = $ordenadores->insertPc(isset($_POST["estadoPc"]) ? $_POST["estadoPc"] : null, $_POST["modelo"], $_POST["so"]);
 		funciones::redirect("Ordenadores");
 	}
 	

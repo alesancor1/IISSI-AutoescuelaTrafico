@@ -14,17 +14,17 @@
 					
 					<div class="dni">
 						<label for="dni"><b>DNI</b></label>
-						<input type="text" placeholder="Inserte el DNI" name="dni" id="dni" required>
+						<input type="text" placeholder="Inserte el DNI" name="dni" id="dni" pattern="[0-9]{7}[A-Z]{1}" required>
 					</div>
 					
 					<div class="nombre">
 						<label for="nombre"><b>Nombre</b></label>
-						<input type="text" placeholder="Introduzca el nombre" name="nombre" id="nombre" required>
+						<input type="text" placeholder="Introduzca el nombre" name="nombre" id="nombre" maxlength="20" required>
 					</div>
 					
                     <div class = "apellidos">
                         <label for="apellidos"><b>Apellidos</b></label>
-                        <input type="text" placeholder="Inserte los apellidos" name="apellidos" id="apellidos" required>
+                        <input type="text" placeholder="Inserte los apellidos" name="apellidos" id="apellidos" maxlength="20" required>
                     </div>
                     
                     <div class = "fechaContrato">
@@ -34,17 +34,17 @@
                     
                     <div class = "telefono">
                         <label for="telefono"><b>Nº de teléfono</b></label>
-                        <input type="text" placeholder="Inserte el nº de tlf." name="telefono" id="telefono" required>
+                        <input type="text" placeholder="Inserte el nº de tlf." name="telefono" id="telefono" pattern="[0-9]{9}" required>
                     </div>
                     
                     <div class = "salario">
                         <label for="salario"><b>Salario</b></label>
-                        <input type="text" placeholder="Inserte el salario" name="salario" id="salario" required>
+                        <input type="text" placeholder="Inserte el salario" name="salario" id="salario" max="5000" required>
                     </div>
                     
                     <div class = "nss">
                         <label for="nss"><b>Nº de la Seguridad Social</b></label>
-                        <input type="text" placeholder="Inserte el Nº SS" name="nss" id="nss" required>
+                        <input type="text" placeholder="Inserte el Nº SS" name="nss" id="nss" pattern="[0-9]{2} [0-9]{10}" required>
                     </div>
 
                     <div class = "botones">

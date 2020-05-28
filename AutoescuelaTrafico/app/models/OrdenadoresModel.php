@@ -27,7 +27,9 @@ class OrdenadoresModel extends BaseModel{
 	}
 	
 	public function insertPc($estadoPc, $modelo, $so){
-		$tabla = $this -> ejecutaSql("INSERT INTO Ordenadores (ESTADOPC, MODELO, SO) VALUES ('$estadoPc', '$modelo', '$so')");
+		if($estadoPc!==null){
+			$tabla = $this -> ejecutaSql("INSERT INTO Ordenadores (ESTADOPC, MODELO, SO) VALUES ('$estadoPc', '$modelo', '$so')");
+		}
 	}
 	
 	public function deletePc($oidPc){

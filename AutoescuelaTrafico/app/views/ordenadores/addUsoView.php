@@ -14,7 +14,7 @@
 					
 					<div class="dni">
 						<label for="dni"><b>DNI del alumno</b></label>
-						<input type="text" placeholder="99999999X" name="dni" id="dni">
+						<input type="text" placeholder="99999999X" name="dni" id="dni" pattern="[0-9]{7}[A-Z]{1}">
 					</div>
 					
 					<div class="fechaUso">
