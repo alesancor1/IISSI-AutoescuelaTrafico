@@ -2,7 +2,7 @@
 <html>
 <head>
 	<!-- PERSONALIZAR ESTE CSS -->
-    <link rel="stylesheet" type="text/css" href="./css/addAnunciosView.css">
+    <link rel="stylesheet" type="text/css" href="./css/popup.css">
 </head>
     <body>
 
@@ -12,18 +12,18 @@
                 
                 <form action="?controller=Vehiculos&action=addTaller" class="form-container" method = "post">
 					
-					<div class="nombreTaller">
+					<div class="inputText">
 						<label for="nombreTaller"><b>Nombre del taller</b></label>
 						<input type="text" placeholder="Inserte el nombre" name="nombreTaller" id="nombreTaller" maxlength="20" required>
 					</div>
 					
-					<div class="direccionTaller">
+					<div class="inputText">
 						<label for="direccionTaller"><b>Dirección del taller</b></label>
 						<input type="text" placeholder="Introduzca la dirección" name="direccionTaller" id="direccionTaller" maxlength="20" required>
 					</div>
 					
-                    <div class = "telefonoTaller">
-                        <label for="telefonoTaller"><b>Nº de teléfono/b></label>
+                    <div class = "inputText">
+                        <label for="telefonoTaller"><b>Nº de teléfono</b></label>
                         <input type="text" placeholder="Inserte el número de teléfono" name="telefonoTaller" id="telefonoTaller" pattern="[0-9]{9}" required>
                     </div>
 

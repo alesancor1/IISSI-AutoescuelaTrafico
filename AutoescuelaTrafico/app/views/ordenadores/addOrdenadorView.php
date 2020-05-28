@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<!-- PERSONALIZAR ESTE CSS -->
-		<link rel="stylesheet" type="text/css" href="./css/addAnunciosView.css">
+		<link rel="stylesheet" type="text/css" href="./css/popup.css">
 	</head>
 	<body>
 
@@ -12,7 +12,7 @@
 
 				<form action="?controller=Ordenadores&action=addPc" class="form-container" method = "post">
 
-					<div class="estadoPc">
+					<div class="select">
 						<label for="estadoPc"><b>Nuevo estado del PC</b></label>
 						<select id="estadoPc" name="estadoPc">
 							<option disabled selected>Seleccione el estado</option>
@@ -23,12 +23,12 @@
 						</select>
 					</div>
 
-					<div class="modelo">
+					<div class="inputText">
 						<label for="modelo"><b>Modelo del PC</b></label>
 						<input type="text" placeholder="Modelo del equipo" name="modelo" id="modelo" maxlength="25" required>
 					</div>
 
-					<div class = "so">
+					<div class = "inputText">
 						<label for="so"><b>Sistema operativo del PC</b></label>
 						<input type="text" placeholder="S.O." name="so" id="so" maxlength="25" required>
 					</div>

@@ -2,7 +2,7 @@
 <html>
 <head>
 	<!-- PERSONALIZAR ESTE CSS -->
-    <link rel="stylesheet" type="text/css" href="./css/addAnunciosView.css">
+    <link rel="stylesheet" type="text/css" href="./css/popup.css">
 </head>
     <body>
 
@@ -12,27 +12,27 @@
                 
                 <form action="?controller=Ordenadores&action=addUso" class="form-container" method = "post">
 					
-					<div class="dni">
+					<div class="inputText">
 						<label for="dni"><b>DNI del alumno</b></label>
 						<input type="text" placeholder="99999999X" name="dni" id="dni" pattern="[0-9]{7}[A-Z]{1}">
 					</div>
 					
-					<div class="fechaUso">
+					<div class="inputDate">
 						<label for="fechaUso"><b>Fecha de uso</b></label>
 						<input type="date" name="fechaUso" required>
 					</div>
 					
-					<div class="horaComienzo">
+					<div class="inputTime">
 						<label for="horaComienzo"><b>Hora de comienzo</b></label>
 						<input type="time" name="horaComienzo" required>
 					</div>
 					
-					<div class="horaFin">
+					<div class="inputTime">
 						<label for="horaFin"><b>Hora de fin</b></label>
 						<input type="time" name="horaFin" required>
 					</div>
 					
-					<div class="estadoPc">
+					<div class="select">
 						<label for="estadoPc"><b>Nuevo estado del PC</b></label>
 						<select id="estadoPc" name="estadoPc">
 							<option disabled selected>Seleccione el estado</option>
