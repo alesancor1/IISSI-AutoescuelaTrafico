@@ -31,6 +31,50 @@ class AlumnosAdminModel extends BaseModel {
 		$this->ejecutaSql("DELETE FROM ALUMNOS WHERE DNI='$dni'");
 	}
 
+
+	// CALIFICACIONES
+	public function getAlumnosSinPaginar() {
+		// El 0 es de relleno para cuadrarlo con como esta hecho en el paginado
+		$query = "SELECT 0,A.* FROM Alumnos A RIGHT JOIN( SELECT DNIALUMNO,DNIPROFESOR FROM Clases C
+		 GROUP BY DNIALUMNO,DNIPROFESOR) ON DNI=DNIALUMNO";
+		$alumnos = $this -> ejecutaSql($query);
+		foreach ($alumnos as $num => $alumno) {
+			$alumnos[$num] = Alumnos::__parse("Alumnos", $alumno);
+		}
+		return $alumnos;
+	}
+
+	public function getExamenesTeoricos() {
+		$dni = $_SESSION["cuenta"][3];
+		$query = "SELECT 'TEORICO' AS TIPO,NOMBRE,Apellidos,FECHA,CALIFICACION FROM (SELECT NOMBRE,Apellidos,FECHA,CALIFICACION FROM 
+		(SELECT DISTINCT C.DNIALUMNO,AET.FECHA,AET.CALIFICACION FROM CLASES C LEFT JOIN 
+		EXAMENESTEORICOS AET ON AET.ALUMNO = C.DNIALUMNO) ALUCALIF 
+		LEFT JOIN ALUMNOS ON alumnos.dni=alucalif.dnialumno ORDER BY NOMBRE,FECHA) WHERE CALIFICACION IS NOT NULL";
+		$examenTeo = $this -> ejecutaSql($query);
+		return $examenTeo;
+	}
+
+	public function getExamenesPracticosCirculacion() {
+		$dni = $_SESSION["cuenta"][3];
+		$query = "SELECT 'CIRCULACION' AS TIPO,NOMBRE,Apellidos,FECHA,CALIFICACION FROM (SELECT NOMBRE,Apellidos,FECHA,CALIFICACION FROM 
+		(SELECT DISTINCT C.DNIALUMNO,AET.FECHA,AET.CALIFICACION FROM CLASES C LEFT JOIN 
+		EXAMENESPRACTICOCIRCULACION AET ON AET.ALUMNO = C.DNIALUMNO)ALUCALIF 
+		LEFT JOIN ALUMNOS ON alumnos.dni=alucalif.dnialumno ORDER BY Nombre,Fecha) WHERE CALIFICACION IS NOT NULL";
+		$examenPC = $this -> ejecutaSql($query);
+		return $examenPC;
+	}
+
+	public function getExamenesPracticosPista() {
+		$dni = $_SESSION["cuenta"][3];
+		$query = "SELECT 'PISTA' AS TIPO,NOMBRE,Apellidos,FECHA,CALIFICACION FROM (SELECT NOMBRE,Apellidos,FECHA,CALIFICACION FROM 
+		(SELECT DISTINCT C.DNIALUMNO,AET.FECHA,AET.CALIFICACION FROM CLASES C LEFT JOIN
+		 EXAMENESPRACTICOPISTA AET ON AET.ALUMNO = C.DNIALUMNO)ALUCALIF 
+		 LEFT JOIN ALUMNOS ON alumnos.dni=alucalif.dnialumno ORDER BY Nombre,Fecha) WHERE CALIFICACION IS NOT NULL";
+		$examenPP = $this -> ejecutaSql($query);
+		return $examenPP;
+	}
+	
+
 	// Consulta paginada
 	public function rows() {
 		$filtro = isset($_SESSION["filtro"]) ? $_SESSION["filtro"] : "";

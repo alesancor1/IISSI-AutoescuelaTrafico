@@ -42,10 +42,6 @@ class AlumnosController extends BaseController {
 		$practicoP = new AlumnosModel($this -> adapter);
 		$listaPracticoP = $practicoP -> getExamenesPracticosPista();
 		//----------------------------------------------------------------
-		// Todos los alumnos del profesor---------------------------------
-		$alumnos = new AlumnosModel($this -> adapter);
-		$listaAlumnos = $alumnos -> getAlumnosSinPaginar();
-		//----------------------------------------------------------------
 
 		// Procesar los datos---------------------------------------------
 		// Resultado es un map
@@ -104,8 +100,81 @@ class AlumnosController extends BaseController {
 		$this -> view("/alumnos/ListaCalificaciones", array("resultado" => $resultado, "resultado2" => $resultado2));
 	}
 
-	// ADMINISTRADOR
-	// LISTA
+// PARTE DE  ADMINISTRADOR
+	// CALIFICACIONES
+	public function listaCalificacionesAdmin() {
+		// _______________________________________________________________________________________________________
+		// Parte de ALUMNOS_______________________________________________________________________________________
+		// Los tres tipos de examen---------------------------------------
+		$teorico = new AlumnosAdminModel($this -> adapter);
+		$listaTeorico = $teorico -> getExamenesTeoricos();
+
+		$practicoC = new AlumnosAdminModel($this -> adapter);
+		$listaPracticoC = $practicoC -> getExamenesPracticosCirculacion();
+
+		$practicoP = new AlumnosAdminModel($this -> adapter);
+		$listaPracticoP = $practicoP -> getExamenesPracticosPista();
+		//----------------------------------------------------------------
+
+
+		// Procesar los datos---------------------------------------------
+		// Resultado es un map
+		$resultado = array();
+
+		foreach ($listaTeorico as $num => $teo) {
+			// variable de nombre + apellidos
+			$nombreApellidos = $teo -> NOMBRE . " " . $teo -> APELLIDOS;
+			// Si el array de claves del 'array_map' resultado contiene el nombre
+			// se añade el examen
+			if (array_key_exists($nombreApellidos, $resultado))
+				array_push($resultado[$nombreApellidos], $teo);
+			// En caso de no tener la clave se crea una clave con ese nombre y se le
+			// asocia un array vacio al que se le añade el examen
+			else {
+				$resultado[$nombreApellidos] = array();
+				array_push($resultado[$nombreApellidos], $teo);
+			}
+		}
+		foreach ($listaPracticoC as $num => $pC) {
+			$nombreApellidos = $pC -> NOMBRE . " " . $pC -> APELLIDOS;
+			if (array_key_exists($nombreApellidos, $resultado))
+				array_push($resultado[$nombreApellidos], $pC);
+			else {
+				$resultado[$nombreApellidos] = array();
+				array_push($resultado[$nombreApellidos], $pC);
+			}
+		}
+		foreach ($listaPracticoP as $num => $pP) {
+			$nombreApellidos = $pP -> NOMBRE . " " . $pP -> APELLIDOS;
+			if (array_key_exists($nombreApellidos, $resultado))
+				array_push($resultado[$nombreApellidos], $pP);
+			else {
+				$resultado[$nombreApellidos] = array();
+				array_push($resultado[$nombreApellidos], $pP);
+			}
+		}
+
+		// __________________________________________________________________________________
+		// Los ultimos examenes______________________________________________________________________________________
+
+		$resultado2 = $resultado;
+		foreach ($resultado2 as $alumno => $examenes) {
+			if ($alumno != null && sizeof($examenes) >= 1) {
+				$actual = $examenes[0];
+				for ($i = 0; $i < (sizeof($examenes) - 1); $i++) {
+					if (($actual -> FECHA) != funciones::dateComparator($actual -> FECHA, $examenes[$i + 1] -> FECHA)) {
+						$actual = $examenes[$i + 1];
+					}
+				}
+			}
+			$nombreApellidos = $actual -> NOMBRE . " " . $actual -> APELLIDOS;
+			$resultado2[$nombreApellidos] = $actual;
+		}
+
+		$this -> view("/alumnos/ListaCalificacionesAdmin", array("resultado" => $resultado, "resultado2" => $resultado2));
+	}
+
+	// LISTA ALUMNOS
 	public function listaAdministrador() {
 		$alumnos = new AlumnosAdminModel($this -> adapter);
 		if (isset($_POST["permiso"]))
