@@ -42,12 +42,15 @@ class VehiculosController extends BaseController{
 		funciones::redirect("Vehiculos", "getUsosYTalleres");
 	}
 	
-	public function infoVehiculo(){
+	public function infoVehiculos(){
 		$infoVehiculos = new VehiculosModel($this->adapter);
-		$infoVehiculos = $infoVehiculos->getInfoVehiculo();
+		$infoVehiculos = $infoVehiculos->getInfoVehiculos();
 		
-		$this-> view("/vehiculos/vehiculosAdmin", array("infoVehiculos" => $infoVehiculos));
+		$infoReparaciones = new VehiculosModel($this->adapter);
+		$infoReparaciones = $infoReparaciones -> getReparacionesVehiculos();
+		
+		$this-> view("/vehiculos/vehiculosAdmin", array("infoVehiculos" => $infoVehiculos, "infoReparaciones" => $infoReparaciones));
 	}
-		
+			
 }
 ?>
