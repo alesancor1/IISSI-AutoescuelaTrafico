@@ -37,5 +37,20 @@ class OrdenadoresController extends BaseController{
 		$this -> view("/ordenadores/usosPc", array("verUsos" => $verUsos));
 	}
 	
+	public function addUso(){
+		$usos = new OrdenadoresModel($this->adapter);
+		$addUso = $usos->addUso($_POST["fechaUso"], $_POST["horaComienzo"], $_POST["horaFin"], $_POST["dni"], $_POST["oidPc"], isset($_POST["estadoPc"]) ? $_POST["estadoPc"] : null);
+		$this->verUsos();
+	}
+	
+	public function deleteUsos(){
+		$usos = new OrdenadoresModel($this->adapter);
+		
+		foreach($_POST as $num => $oidU){
+			$borraUso = $usos->deleteUso($oidU);
+		}
+		$this->verUsos();
+	}
+	
 }
 ?>

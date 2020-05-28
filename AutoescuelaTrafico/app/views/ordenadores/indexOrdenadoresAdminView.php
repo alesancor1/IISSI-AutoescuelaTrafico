@@ -26,6 +26,7 @@
 			<table>
 				<tr>
 					<th>Ordenador</th>
+					<th>Modelo</th>
 					<th>Estado</th>
 					<th>Último alumno</th>
 					<th>Fecha</th>
@@ -41,6 +42,7 @@
 						echo "<tr>";
 						if(empty($ordenador->APELLIDOS)){
 							echo "<td>" . $ordenador->PC . "</td>";
+							echo "<td>" . $ordenador->MODELO . "</td>";
 							echo "<td>" . $ordenador->ESTADOPC . "</td>";
 							echo "<td>-</td>";
 							echo "<td>-</td>";
@@ -50,6 +52,7 @@
 							echo "<td>";
 						} else {
 							echo "<td>" . $ordenador->PC . "</td>";
+							echo "<td>" . $ordenador->MODELO . "</td>";
 							echo "<td>" . $ordenador->ESTADOPC . "</td>";
 							echo "<td>" . $ordenador->APELLIDOS . " - " . $ordenador->NOMBRE . "</td>";
 							echo "<td>" . $ordenador->FECHA . "</td>";

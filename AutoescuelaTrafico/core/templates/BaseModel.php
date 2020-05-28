@@ -44,6 +44,7 @@ class BaseModel{
    
     public function ejecutaSql($query){
         $stmt = $this->db()->query($query);
+		$res = null;
         if($stmt == true){
             if(strpos($query,'SELECT')!== false){
                 $res = null;
@@ -52,8 +53,6 @@ class BaseModel{
                     $res[$i]=$stmt->fetchObject();               
             }
         }
-        else
-            ;        //errorHandler::checkTrigger($query)
         return $res;       
     }
     public function consultaPaginada($query, $first, $last){

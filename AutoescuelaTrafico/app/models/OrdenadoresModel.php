@@ -14,7 +14,7 @@ class OrdenadoresModel extends BaseModel{
 	//	ADMINISTRADOR
 	
 	public function getRecursosOrdenadores(){
-		$query = "SELECT Q.*,ESTADOPC FROM (
+		$query = "SELECT Q.*,ESTADOPC, MODELO FROM (
     		SELECT NOMBRE,APELLIDOS,OID_PC PC,FECHA,HORACOMIENZO,HORAFIN,ROUND(24*(TO_DATE(HORAFIN,'HH24:Mi')-TO_DATE(HORACOMIENZO,'HH24:Mi')),2) TIEMPOUSO FROM ALUMNOS RIGHT JOIN
         	(SELECT * FROM USOPC RIGHT JOIN( SELECT O.OID_PC,MAX(HORACOMIENZO)HORAC,FECHA F FROM USOPC RIGHT JOIN ORDENADORES O ON PC = OID_PC
             RIGHT JOIN (
@@ -35,11 +35,25 @@ class OrdenadoresModel extends BaseModel{
 	}
 	
 	public function verUsos($oidPc){
-		$query = "SELECT ESTADOPC,NOMBRE,APELLIDOS,FECHA,HORACOMIENZO,HORAFIN,ROUND(24*(TO_DATE(HORAFIN,'HH24:Mi')-TO_DATE(HORACOMIENZO,'HH24:Mi')),2)
+		$query = "SELECT OID_U,OID_PC,ESTADOPC,NOMBRE,APELLIDOS,FECHA,HORACOMIENZO,HORAFIN,ROUND(24*(TO_DATE(HORAFIN,'HH24:Mi')-TO_DATE(HORACOMIENZO,'HH24:Mi')),2)
 		TIEMPOUSO
 		FROM USOPC RIGHT JOIN ORDENADORES ON PC=OID_PC LEFT JOIN ALUMNOS ON ALUMNO=DNI WHERE OID_PC = $oidPc ORDER BY FECHA";
 		$table = $this->ejecutaSql($query);
 		return $table;
+	}
+	
+	public function addUso($fechaUso, $horaComienzo, $horaFin, $dni, $oidPc, $estadoPc){
+		$query = "INSERT INTO UsoPC (FECHA, HORACOMIENZO, HORAFIN, ALUMNO, PC) VALUES (to_date('$fechaUso','YYYY-MM-DD'), '$horaComienzo', '$horaFin', '$dni', $oidPc)";
+		$table = $this->ejecutaSql($query);
+		
+		if($estadoPc!==null){
+			$query = "UPDATE Ordenadores SET ESTADOPC = '$estadoPc' WHERE OID_PC = $oidPc";
+			$table = $this->ejecutaSql($query);
+		}
+	}
+	
+	public function deleteUso($oidU){
+		$this->ejecutaSql("DELETE FROM UsoPC WHERE OID_U = $oidU");
 	}
 }
 
