@@ -101,7 +101,7 @@ class AlumnosController extends BaseController {
 			$resultado2[$nombreApellidos] = $actual;
 		}
 
-		$this -> view("/alumnos/ListaCalificaciones", array("resultado" => $resultado, "listaAlumnos" => $listaAlumnos, "resultado2" => $resultado2));
+		$this -> view("/alumnos/ListaCalificaciones", array("resultado" => $resultado, "resultado2" => $resultado2));
 	}
 
 	// ADMINISTRADOR
