@@ -4,36 +4,9 @@
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Profesorado</title>
-		<style>
-			/* ACORDEON */
-			.accordionContent {
-				background-color: #87B9C7;
-				color: #fff;
-				cursor: pointer;
-				padding: 18px;
-				width: 100%;
-				border: none;
-				text-align: left;
-				outline: none;
-				font-size: 15px;
-				transition: 0.4s;
-			}
-
-			.accordionContent .active, .accordionContent:hover {
-				background-color: #037FB2;
-			}
-
-			.panel {
-				padding: 0 18px;
-				background-color: white;
-				max-height: 0;
-				overflow: hidden;
-				transition: max-height 0.2s ease-out;
-			}
-		</style>
-		
+		<link rel="stylesheet" type="text/css" href="./css/accordionAndTabs.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+		<style> body{ background: white; }</style>
 	</head>
 
 	<body>
@@ -80,26 +53,9 @@
 				}
 			?>
 
-		</div>
-		
-		
+		</div>		
 		<!-- Acordeon -->
-		<script>
-			var acc = document.getElementsByClassName("accordionContent");
-			var i;
-
-			for ( i = 0; i < acc.length; i++) {
-				acc[i].addEventListener("click", function() {
-					this.classList.toggle("active");
-					var panel = this.nextElementSibling;
-					if (panel.style.maxHeight) {
-						panel.style.maxHeight = null;
-					} else {
-						panel.style.maxHeight = panel.scrollHeight + "px";
-					}
-				});
-			}
-		</script>
+		<script type="text/javascript" src="./js/accordionAndTabs.js"></script>
 	</body>
 
 </html>
