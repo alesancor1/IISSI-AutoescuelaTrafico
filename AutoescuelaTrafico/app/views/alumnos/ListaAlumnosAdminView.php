@@ -9,19 +9,17 @@
 	<body>
 		<div class = "contenido" id = "contenido">
 
-			
-	
-			<!-- DATOS Y BOTON DE BORRAR -->
+		<!-- DATOS Y BOTON DE BORRAR -->
 			<div class="data">
-				<form class="" id="" action="?controller=Alumnos&action=borrar" method="POST">
-					<h1 class="titleList">Lista de alumnos</h1>
-					<!-- añadir alumno-->
-					<button id='openPopup' class="añadirAlumno"><i class="fa fa-user-plus"></i></button>
-					<?php require_once __DIR__."/addAlumnoView.php";?>
-					<script type="text/javascript" src="./js/popup.js"></script>
-					<!-- borrar seleccion-->
-					<button class="borrarSelec" type="submit"><i class="fa fa-trash"></i></button> 
-					<!-- COLLAPSE SELECT DE FILTRO -->
+
+				<h1 class="titleList">Lista de alumnos</h1>
+
+				<!-- AÑADIR ALUMNO -->
+				<button class="nuevaEntrada" id='openPopup' ><i class="fa fa-user-plus"></i></button>
+				<?php require_once __DIR__."/addAlumnoView.php";?>
+				<script type="text/javascript" src="./js/popup.js"></script>
+
+				<!-- COLLAPSE SELECT DE FILTRO -->
 					<?php $limit = isset($_GET["limit"]) ? '&limit='.$_GET["limit"] : '' ?>
 					<form class="" id="" <?php echo 'action=?controller=Alumnos&action=listaAdministrador'.$limit?> method="POST">			
 						<select class="permiso" id="permiso" name="permiso" onchange="this.form.submit()">
@@ -32,6 +30,9 @@
 						</select>
 					</form>
 
+				<form class="" id="" action="?controller=Alumnos&action=borrar" method="POST">			
+					<!-- borrar seleccion-->
+					<button class="borrarSelec" type="submit"><i class="fa fa-trash"></i></button> 					
 					<table>
 						<tr>
 							<th style="border-radius: 20px 20px 0 0">Alumnos</th>

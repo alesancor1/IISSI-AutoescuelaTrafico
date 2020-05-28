@@ -21,8 +21,9 @@ class AlumnosAdminModel extends BaseModel {
 		return $alumnos;
 	}
 	
-	public function insert($dni, $nombre, $apellidos, $fechaNacimiento, $permisoMatriculado, $oferta){	
-		$this->ejecutaSql("INSERT INTO Alumnos (DNI, NOMBRE, APELLIDOS, FECHANACIMIENTO) VALUES ('$dni', '$nombre', '$apellidos', to_date('$fechaNacimiento','YYYY-MM-DD'))");
+	public function insert($dni, $nombre, $apellidos, $fechaNacimiento, $permisoMatriculado, $oferta){
+		$this->ejecutaSql("INSERT INTO ACCESOWEB(USUARIO,CLAVEPORDEFECTO,FECHARENOVACION,FECHACADUCIDAD,WEB) VALUES ('$dni',DBMS_RANDOM.STRING('x',12),sysdate,sysdate+61,1)");	
+		$this->ejecutaSql("INSERT INTO Alumnos (DNI, NOMBRE, APELLIDOS, FECHANACIMIENTO,ACCESOWEB) VALUES ('$dni', '$nombre', '$apellidos', to_date('$fechaNacimiento','YYYY-MM-DD'),'$dni')");
 		$this->ejecutaSql("INSERT INTO MATRICULAS (FECHA, PERMISOMATRICULADO, ALUMNO, OFERTA) VALUES (sysdate, '$permisoMatriculado', '$dni', '$oferta')");	
 	}
 	
