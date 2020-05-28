@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="./css/addAnunciosView.css">
+    <link rel="stylesheet" type="text/css" href="./css/popup.css">
 </head>
     <body>
 
@@ -11,27 +11,27 @@
                 
                 <form action="?controller=Alumnos&action=enviar" class="form-container" method = "post">
 
-                    <div class = "titulo">
+                    <div class = "inputText">
                         <label for="titulo"><b>DNI</b></label>
                         <input type="text" placeholder="DNI" name="dni" required>
                     </div>
 
-                    <div class = "nombre">
+                    <div class = "inputText">
                         <label for="nombre"><b>NOMBRE</b></label>
                         <input type="text" placeholder="Nombre del alumno" name="nombre" required>
                     </div>
                     
-                    <div class = "apellidos">
+                    <div class = "inputText">
                         <label for="apellidos"><b>APELLIDOS</b></label>
                         <input type="text" placeholder="Apellidos del alumno" name="apellidos" required>
                     </div>
                     
-                    <div class = "fechaNacimiento">
+                    <div class = "inputDate">
                         <label for="fechaNacimiento"><b>Fecha de Nacimiento</b></label>
                         <input type="date" name="fechaNacimiento" required>
                     </div>
                     
-                    <div class = "permiso">
+                    <div class = "select">
                         <label for="permiso"><b>Permiso</b></label>
                         <select id="permiso" name="permiso">
                         	<option disabled selected>Seleccionar permiso</option>
@@ -40,7 +40,7 @@
                         </select>
                     </div>
                     
-                    <div class = "oferta">
+                    <div class = "select">
                         <label for="oferta"><b>Oferta</b></label>
                         <select id="oferta" name="oferta">
                         	<option disabled selected>Seleccionar oferta</option>

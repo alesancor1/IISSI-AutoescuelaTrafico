@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="./css/addAnunciosView.css">
+    <link rel="stylesheet" type="text/css" href="./css/popup.css">
 </head>
     <body>
 
@@ -11,12 +11,12 @@
                 
                 <form action="?controller=Anuncios&action=enviar" class="form-container" method = "post">
 
-                    <div class = "titulo">
+                    <div class = "inputText">
                         <label for="titulo"><b>TITULO</b></label>
                         <input type="text" placeholder="Titulo" name="titulo" required>
                     </div>
 
-                    <div class = "descripcion">
+                    <div class = "textarea">
                         <label for="descripcion"><b>DESCRIPCIÓN</b></label>
                         <textarea placeholder="Escribe aqui" name="descripcion" cols="30" rows="23" required></textarea>
                     </div>
