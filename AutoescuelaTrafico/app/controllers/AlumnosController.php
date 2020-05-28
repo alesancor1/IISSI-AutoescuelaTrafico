@@ -116,62 +116,31 @@ class AlumnosController extends BaseController {
 		$listaPracticoP = $practicoP -> getExamenesPracticosPista();
 		//----------------------------------------------------------------
 
-
-		// Procesar los datos---------------------------------------------
-		// Resultado es un map
-		$resultado = array();
-
-		foreach ($listaTeorico as $num => $teo) {
-			// variable de nombre + apellidos
-			$nombreApellidos = $teo -> NOMBRE . " " . $teo -> APELLIDOS;
-			// Si el array de claves del 'array_map' resultado contiene el nombre
-			// se añade el examen
-			if (array_key_exists($nombreApellidos, $resultado))
-				array_push($resultado[$nombreApellidos], $teo);
-			// En caso de no tener la clave se crea una clave con ese nombre y se le
-			// asocia un array vacio al que se le añade el examen
-			else {
-				$resultado[$nombreApellidos] = array();
-				array_push($resultado[$nombreApellidos], $teo);
-			}
-		}
-		foreach ($listaPracticoC as $num => $pC) {
-			$nombreApellidos = $pC -> NOMBRE . " " . $pC -> APELLIDOS;
-			if (array_key_exists($nombreApellidos, $resultado))
-				array_push($resultado[$nombreApellidos], $pC);
-			else {
-				$resultado[$nombreApellidos] = array();
-				array_push($resultado[$nombreApellidos], $pC);
-			}
-		}
-		foreach ($listaPracticoP as $num => $pP) {
-			$nombreApellidos = $pP -> NOMBRE . " " . $pP -> APELLIDOS;
-			if (array_key_exists($nombreApellidos, $resultado))
-				array_push($resultado[$nombreApellidos], $pP);
-			else {
-				$resultado[$nombreApellidos] = array();
-				array_push($resultado[$nombreApellidos], $pP);
-			}
-		}
-
 		// __________________________________________________________________________________
-		// Los ultimos examenes______________________________________________________________________________________
+		// Examenes separados por aprobado o no aprobado_____________________________________
 
-		$resultado2 = $resultado;
-		foreach ($resultado2 as $alumno => $examenes) {
-			if ($alumno != null && sizeof($examenes) >= 1) {
-				$actual = $examenes[0];
-				for ($i = 0; $i < (sizeof($examenes) - 1); $i++) {
-					if (($actual -> FECHA) != funciones::dateComparator($actual -> FECHA, $examenes[$i + 1] -> FECHA)) {
-						$actual = $examenes[$i + 1];
-					}
-				}
-			}
-			$nombreApellidos = $actual -> NOMBRE . " " . $actual -> APELLIDOS;
-			$resultado2[$nombreApellidos] = $actual;
+		$listaTeoricoApto = array();
+		$listaTeoricoNoApto = array();
+		$listaPracticoCApto = array();
+		$listaPracticoCNoApto = array();
+		$listaPracticoPNoApto = array();
+		$listaPracticoPApto = array();
+		
+		foreach ($listaTeorico as $num => $examen) {
+			if($examen -> CALIFICACION == "Apto") array_push($listaTeoricoApto, $examen);
+			else array_push($listaTeoricoNoApto, $examen);
+		}
+		foreach ($listaPracticoC as $num => $examen) {
+			if($examen -> CALIFICACION == "Apto") array_push($listaPracticoCApto, $examen);
+			else array_push($listaPracticoCNoApto, $examen);
+		}
+		foreach ($listaPracticoP as $num => $examen) {
+			if($examen -> CALIFICACION == "Apto") array_push($listaPracticoPApto, $examen);
+			else array_push($listaPracticoPNoApto, $examen);
 		}
 
-		$this -> view("/alumnos/ListaCalificacionesAdmin", array("resultado" => $resultado, "resultado2" => $resultado2));
+		$this -> view("/alumnos/ListaCalificacionesAdmin", array("teoricoA" => $listaTeoricoApto, "teoricoN" => $listaTeoricoNoApto,
+		 "circulacionA" => $listaPracticoCApto, "circulacionN" => $listaPracticoCNoApto, "pistaA" => $listaPracticoPApto, "pistaN" => $listaPracticoPNoApto));
 	}
 
 	// LISTA ALUMNOS
