@@ -32,25 +32,44 @@
 					<th>Hora inicio</th>
 					<th>Hora de fin</th>
 					<th>Tiempo de uso</th>
-					<th>ELIMINACION</th>
+					<th></th>
 				</tr>
 			
 			<?php 
 				if($recursosOrdenadores!=null){
 					foreach($recursosOrdenadores as $num=>$ordenador){
 						echo "<tr>";
-						echo "<td>" . $ordenador->PC . "</td>";
-						echo "<td>" . $ordenador->ESTADOPC . "</td>";
-						echo "<td>" . $ordenador->APELLIDOS . ", " . $ordenador->NOMBRE . "</td>";
-						echo "<td>" . $ordenador->FECHA . "</td>";
-						echo "<td>" . $ordenador->HORACOMIENZO . "</td>";
-						echo "<td>" . $ordenador->HORAFIN . "</td>";
-						echo "<td>" . $ordenador->TIEMPOUSO  . " horas</td>";
-						echo "<td>";
-						echo "<form action='?controller=Ordenadores&action=delete' method='post'>";
+						if(empty($ordenador->APELLIDOS)){
+							echo "<td>" . $ordenador->PC . "</td>";
+							echo "<td>" . $ordenador->ESTADOPC . "</td>";
+							echo "<td>-</td>";
+							echo "<td>-</td>";
+							echo "<td>-</td>";
+							echo "<td>-</td>";
+							echo "<td>-</td>";
+							echo "<td>";
+						} else {
+							echo "<td>" . $ordenador->PC . "</td>";
+							echo "<td>" . $ordenador->ESTADOPC . "</td>";
+							echo "<td>" . $ordenador->APELLIDOS . " - " . $ordenador->NOMBRE . "</td>";
+							echo "<td>" . $ordenador->FECHA . "</td>";
+							echo "<td>" . $ordenador->HORACOMIENZO . "</td>";
+							echo "<td>" . $ordenador->HORAFIN . "</td>";
+							echo "<td>" . $ordenador->TIEMPOUSO  . " horas</td>";
+							echo "<td>";
+						}
+						echo "<form action='?controller=Ordenadores&action=deletePc' method='post'>";
 						echo "<input type='hidden' name='oidPc' id='oidPc' value='" . $ordenador->PC . "'>";
 						echo "<button type='submit' class='eliminarPc'>X</button>";
 						echo "</form>";
+						
+						echo "<form action='?controller=Ordenadores&action=verUsos' method='post'>";
+						echo "<input type='hidden' name='oidPc' id='oidPc' value='" . $ordenador->PC . "'>";
+						echo "<button type='submit' class='verUsos'>Usos</button>";
+						echo "</form>";
+						
+						echo "</td>";
+						echo "</tr>";
 					}
 				}
 			?>

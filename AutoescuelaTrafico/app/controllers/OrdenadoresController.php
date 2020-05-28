@@ -19,16 +19,22 @@ class OrdenadoresController extends BaseController{
 	}
 	
 		//	REVISAR, funciona en la BBDD (se ve en el sqldeveloper) pero no lo muestra en la pagina de ninguna forma (recargar, cache, reiniciar, logout, etc)
-	public function add(){
+	public function addPc(){
 		$ordenadores = new OrdenadoresModel($this -> adapter);
-		$addOrdenador = $ordenadores->insert($_POST["estadoPc"], $_POST["modelo"], $_POST["so"]);
+		$addOrdenador = $ordenadores->insertPc($_POST["estadoPc"], $_POST["modelo"], $_POST["so"]);
 		funciones::redirect("Ordenadores");
 	}
 	
-	public function delete(){
+	public function deletePc(){
 		$ordenadores = new OrdenadoresModel($this -> adapter);
-		$deleteOrdenador = $ordenadores->delete($_POST["oidPc"]);
+		$deleteOrdenador = $ordenadores->deletePc($_POST["oidPc"]);
 		funciones::redirect("Ordenadores");
+	}
+	
+	public function verUsos(){
+		$usos = new OrdenadoresModel($this->adapter);
+		$verUsos = $usos->verUsos($_POST["oidPc"]);
+		$this -> view("/ordenadores/usosPc", array("verUsos" => $verUsos));
 	}
 	
 }

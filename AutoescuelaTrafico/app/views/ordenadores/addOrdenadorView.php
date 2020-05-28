@@ -10,7 +10,7 @@
             <div class = "popup" id = "popup">
                 <h1 class ="nuevo">NUEVO ORDENADOR</h1>
                 
-                <form action="?controller=Ordenadores&action=add" class="form-container" method = "post">
+                <form action="?controller=Ordenadores&action=addPc" class="form-container" method = "post">
 					
 					<div class="estadoPc">
 						<label for="estadoPc"><b>Estado del PC</b></label>
