@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html>
 	<title>Lista Calificaciones</title>
 
@@ -25,7 +24,7 @@
 			</ul>
 
 			<div class="secciones">
-
+			<!-- TAB DE TEORIA -->
 				<article id="tab1">
 					<h1>Calificaciones teoricas</h1>
 					<?php
@@ -76,7 +75,7 @@
 					<?php } 
 					else echo "No hay examenes NO APTOS";?>
 				</article>
-
+				<!-- TAB DE CIRCULACION -->
 				<article id="tab2">
 					<h1>Calificaciones practicas circulacion</h1>
 					<?php
@@ -127,6 +126,7 @@
 					<?php } 
 					else echo "No hay examenes NO APTOS";?>
 				</article>
+				<!-- TAB DE PISTA -->
 				<article id="tab3">
 					<h1>Calificaciones practicas pista</h1>
 					<?php

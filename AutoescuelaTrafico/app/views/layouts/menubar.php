@@ -222,7 +222,7 @@
 									<a href="?controller=Alumnos&action=listaAdministrador">Lista</a>
 								</li>
 								<li>
-									<a href="?controller=Alumnos&action=PONER METODO">Calificaciones</a>
+									<a href="?controller=Alumnos&action=listaCalificacionesAdmin">Calificaciones</a>
 								</li>
 							</ul>
 						</li>
