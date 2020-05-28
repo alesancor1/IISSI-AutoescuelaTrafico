@@ -62,7 +62,7 @@ class AlumnosController extends BaseController {
 			// asocia un array vacio al que se le añade el examen
 			else {
 				$resultado[$nombreApellidos] = array();
-				$array_push($resultado[$nombreApellidos], $teo);
+				array_push($resultado[$nombreApellidos], $teo);
 			}
 		}
 		foreach ($listaPracticoC as $num => $pC) {
@@ -78,24 +78,30 @@ class AlumnosController extends BaseController {
 			$nombreApellidos = $pP -> NOMBRE . " " . $pP -> APELLIDOS;
 			if (array_key_exists($nombreApellidos, $resultado))
 				array_push($resultado[$nombreApellidos], $pP);
-			else{
+			else {
 				$resultado[$nombreApellidos] = array();
 				array_push($resultado[$nombreApellidos], $pP);
-				}
 			}
-			
+		}
+
 		// __________________________________________________________________________________
 		// Los ultimos examenes______________________________________________________________________________________
 
 		$resultado2 = $resultado;
-		
 		foreach ($resultado2 as $alumno => $examenes) {
-			foreach ($examenes as $num => $examen) {
-				
+			if ($alumno != null && sizeof($examenes) >= 1) {
+				$actual = $examenes[0];
+				for ($i = 0; $i < (sizeof($examenes) - 1); $i++) {
+					if (($actual -> FECHA) != funciones::dateComparator($actual -> FECHA, $examenes[$i + 1] -> FECHA)) {
+						$actual = $examenes[$i + 1];
+					}
+				}
 			}
+			$nombreApellidos = $actual -> NOMBRE . " " . $actual -> APELLIDOS;
+			$resultado2[$nombreApellidos] = $actual;
 		}
 
-		$this -> view("/alumnos/ListaCalificaciones", array("resultado" => $resultado, "listaAlumnos" => $listaAlumnos, "resultado2" => $resultado));
+		$this -> view("/alumnos/ListaCalificaciones", array("resultado" => $resultado, "listaAlumnos" => $listaAlumnos, "resultado2" => $resultado2));
 	}
 
 	// ADMINISTRADOR
@@ -134,6 +140,4 @@ class AlumnosController extends BaseController {
 	}
 
 }
-
-
 ?>
