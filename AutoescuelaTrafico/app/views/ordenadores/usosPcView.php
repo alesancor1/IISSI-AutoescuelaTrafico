@@ -40,7 +40,7 @@
 					</tr>
 			
 					<?php 
-						if($verUsos!=null){
+						if($verUsos[0]->OID_U !=null){
 							echo "<input type='hidden' name='oidPc' id='oidPc' value='" . $verUsos[0]->OID_PC . "'>";
 							foreach($verUsos as $num=>$uso){
 								echo "<tr>";
