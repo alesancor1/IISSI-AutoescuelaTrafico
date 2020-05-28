@@ -140,7 +140,8 @@ class AlumnosController extends BaseController {
 	// LISTA
 	public function listaAdministrador() {
 		$alumnos = new AlumnosAdminModel($this -> adapter);
-
+		if(isset($_POST["permiso"])) $_SESSION["filtro"] = $_POST["permiso"];
+		
 		//inicializacion del paginador
 		if (!isset($_SESSION["paginator"]))
 			$_SESSION["paginator"] = new Paginator();

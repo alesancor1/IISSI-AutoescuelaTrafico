@@ -10,7 +10,7 @@ class AlumnosAdminModel extends BaseModel {
 
 	// Metodos de consulta
 	public function getAlumnos($first = 0, $last = -1) {
-		$filtro = isset($_POST["permiso"]) ? $_POST["permiso"] : "";
+		$filtro = isset($_SESSION["filtro"]) ? $_SESSION["filtro"] : "";
 		$query = "SELECT * FROM ALUMNOS LEFT JOIN MATRICULAS ON ALUMNOS.DNI=MATRICULAS.ALUMNO";
 		$query = "SELECT * FROM ($query) Q WHERE Q.PERMISOMATRICULADO LIKE '%$filtro%'";
 		
@@ -32,7 +32,9 @@ class AlumnosAdminModel extends BaseModel {
 
 	// Consulta paginada
 	public function rows() {
-		$query = "SELECT * FROM Alumnos";
+		$filtro = isset($_SESSION["filtro"]) ? $_SESSION["filtro"] : "";
+		$query = "SELECT * FROM ALUMNOS LEFT JOIN MATRICULAS ON ALUMNOS.DNI=MATRICULAS.ALUMNO";
+		$query = "SELECT * FROM ($query) Q WHERE Q.PERMISOMATRICULADO LIKE '%$filtro%'";
 		return $this -> rowNum($query);
 	}
 

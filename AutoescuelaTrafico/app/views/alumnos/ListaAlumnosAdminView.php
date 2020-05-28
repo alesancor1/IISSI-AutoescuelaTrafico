@@ -29,7 +29,7 @@
 							<option value="">Todos</option>
 							<option value="A2">Permiso A2</option>
 							<option value="B">Permiso B</option>
-						</select>				
+						</select>
 					</form>
 
 					<table>
