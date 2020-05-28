@@ -51,7 +51,7 @@
 
                     <div class = "botones">
                         <button type="button" class="volver" id='closePopup'> < Volver</button>
-                        <button type="submit" class="añadir">Añadir</button>
+                        <button type="submit" class="enviar">Añadir</button>
                     </div>
 
                 </form>
