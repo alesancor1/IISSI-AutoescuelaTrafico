@@ -34,7 +34,7 @@ class ClasesModel extends BaseModel {
 	 */
 	 
 	 public function getGestionAdministrador(){
-	 	$query = "SELECT CONCAT(CONCAT(Alumnos.Apellidos,' '), Alumnos.Nombre) AS ALUMNO, DIAS_SIN_DAR_CLASE(Alumnos.DNI) AS diasSinClase, FECHA_ULTIMA_CLASE(Alumnos.DNI) AS fechaUltimaClase, CONCAT(CONCAT(Profesores.Apellidos,' '), Profesores.Nombre) AS PROFESOR FROM Clases LEFT JOIN Alumnos ON Alumnos.DNI = Clases.DNIAlumno LEFT JOIN Profesores ON Profesores.DNI = Clases.DNIProfesor ORDER BY Alumnos.DNI";
+	 	$query = "SELECT DISTINCT * FROM (SELECT CONCAT(CONCAT(Alumnos.Apellidos,' '), Alumnos.Nombre) AS ALUMNO, DIAS_SIN_DAR_CLASE(Alumnos.DNI) AS diasSinClase, FECHA_ULTIMA_CLASE(Alumnos.DNI) AS fechaUltimaClase, CONCAT(CONCAT(Profesores.Apellidos,' '), Profesores.Nombre) AS PROFESOR FROM Clases LEFT JOIN Alumnos ON Alumnos.DNI = Clases.DNIAlumno LEFT JOIN Profesores ON Profesores.DNI = Clases.DNIProfesor ORDER BY Alumnos.DNI)";
 		$tabla = $this->ejecutaSql($query);
 		return $tabla;
 	 }
