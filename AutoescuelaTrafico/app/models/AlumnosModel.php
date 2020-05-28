@@ -37,30 +37,30 @@ class AlumnosModel extends BaseModel {
 
 	public function getExamenesTeoricos() {
 		$dni = $_SESSION["cuenta"][3];
-		$query = "SELECT NOMBRE,Apellidos,FECHA,CALIFICACION FROM 
+		$query = "SELECT 'TEORICO' AS TIPO,NOMBRE,Apellidos,FECHA,CALIFICACION FROM (SELECT NOMBRE,Apellidos,FECHA,CALIFICACION FROM 
 		(SELECT DISTINCT C.DNIALUMNO,AET.FECHA,AET.CALIFICACION FROM CLASES C LEFT JOIN 
 		EXAMENESTEORICOS AET ON AET.ALUMNO = C.DNIALUMNO WHERE DNIPROFESOR ='" . $dni . "'" . ")ALUCALIF 
-		LEFT JOIN ALUMNOS ON alumnos.dni=alucalif.dnialumno ORDER BY NOMBRE,FECHA";
+		LEFT JOIN ALUMNOS ON alumnos.dni=alucalif.dnialumno ORDER BY NOMBRE,FECHA) WHERE CALIFICACION IS NOT NULL";
 		$examenTeo = $this -> ejecutaSql($query);
 		return $examenTeo;
 	}
 
 	public function getExamenesPracticosCirculacion() {
 		$dni = $_SESSION["cuenta"][3];
-		$query = "SELECT NOMBRE,Apellidos,FECHA,CALIFICACION FROM 
+		$query = "SELECT 'CIRCULACION' AS TIPO,NOMBRE,Apellidos,FECHA,CALIFICACION FROM (SELECT NOMBRE,Apellidos,FECHA,CALIFICACION FROM 
 		(SELECT DISTINCT C.DNIALUMNO,AET.FECHA,AET.CALIFICACION FROM CLASES C LEFT JOIN 
 		EXAMENESPRACTICOCIRCULACION AET ON AET.ALUMNO = C.DNIALUMNO WHERE DNIPROFESOR ='" . $dni . "'" . ")ALUCALIF 
-		LEFT JOIN ALUMNOS ON alumnos.dni=alucalif.dnialumno ORDER BY Nombre,Fecha";
+		LEFT JOIN ALUMNOS ON alumnos.dni=alucalif.dnialumno ORDER BY Nombre,Fecha) WHERE CALIFICACION IS NOT NULL";
 		$examenPC = $this -> ejecutaSql($query);
 		return $examenPC;
 	}
 
 	public function getExamenesPracticosPista() {
 		$dni = $_SESSION["cuenta"][3];
-		$query = " SELECT NOMBRE,Apellidos,FECHA,CALIFICACION FROM 
+		$query = "SELECT 'PISTA' AS TIPO,NOMBRE,Apellidos,FECHA,CALIFICACION FROM (SELECT NOMBRE,Apellidos,FECHA,CALIFICACION FROM 
 		(SELECT DISTINCT C.DNIALUMNO,AET.FECHA,AET.CALIFICACION FROM CLASES C LEFT JOIN
 		 EXAMENESPRACTICOPISTA AET ON AET.ALUMNO = C.DNIALUMNO WHERE DNIPROFESOR ='" . $dni . "'" . ")ALUCALIF 
-		 LEFT JOIN ALUMNOS ON alumnos.dni=alucalif.dnialumno ORDER BY Nombre,Fecha";
+		 LEFT JOIN ALUMNOS ON alumnos.dni=alucalif.dnialumno ORDER BY Nombre,Fecha) WHERE CALIFICACION IS NOT NULL";
 		$examenPP = $this -> ejecutaSql($query);
 		return $examenPP;
 	}
@@ -69,10 +69,10 @@ class AlumnosModel extends BaseModel {
 	// Para Lista Calificaciones Ult Examen--------------------------------------------------------
 	public function getUltimosExamenesTeoricos() {
 		$dni = $_SESSION["cuenta"][3];
-		$query = "SELECT NOMBRE, APELLIDOS, FECHA, CALIFICACION FROM ALUMNOS RIGHT JOIN 
+		$query = "SELECT 'TEORICO' AS TIPO,NOMBRE, APELLIDOS, FECHA, CALIFICACION FROM (SELECT NOMBRE, APELLIDOS, FECHA, CALIFICACION FROM ALUMNOS RIGHT JOIN 
 		(SELECT DISTINCT ALUMNO,ET.FECHA,CALIFICACION,TIPOPERMISO FROM examenesteoricos ET 
 		LEFT JOIN CLASES ON ALUMNO=DNIALUMNO WHERE DNIPROFESOR='" . $dni . "'" . " AND 
-		CALIFICACION IS NOT NULL) ON ALUMNO=DNI";
+		CALIFICACION IS NOT NULL) ON ALUMNO=DNI) WHERE CALIFICACION IS NOT NULL";
 		// $ultimoExamenT = $this -> consultaPaginada($query, $first, $last);
 		$ultimoExamenT = $this -> ejecutaSql($query);
 		return $ultimoExamenT;
@@ -80,10 +80,10 @@ class AlumnosModel extends BaseModel {
 
 	public function getUltimosExamenesPP() {
 		$dni = $_SESSION["cuenta"][3];
-		$query = "SELECT NOMBRE, APELLIDOS, FECHA, CALIFICACION FROM ALUMNOS RIGHT JOIN 
+		$query = "SELECT 'PISTA' AS TIPO,NOMBRE, APELLIDOS, FECHA, CALIFICACION FROM (SELECT NOMBRE, APELLIDOS, FECHA, CALIFICACION FROM ALUMNOS RIGHT JOIN 
 		(SELECT DISTINCT ALUMNO,ET.FECHA,CALIFICACION,TIPOPERMISO FROM examenespracticopista ET
 		 LEFT JOIN CLASES ON ALUMNO=DNIALUMNO WHERE DNIPROFESOR='" . $dni . "'" . " AND 
-		 CALIFICACION IS NOT NULL) ON ALUMNO=DNI";
+		 CALIFICACION IS NOT NULL) ON ALUMNO=DNI) WHERE CALIFICACION IS NOT NULL";
 		// $ultimoExamenPP = $this -> consultaPaginada($query, $first, $last);
 		$ultimoExamenPP = $this -> ejecutaSql($query);
 		return $ultimoExamenPP;
@@ -91,10 +91,10 @@ class AlumnosModel extends BaseModel {
 
 	public function getUltimoExamenPC() {
 		$dni = $_SESSION["cuenta"][3];
-		$query = "SELECT NOMBRE, APELLIDOS, FECHA, CALIFICACION FROM ALUMNOS RIGHT JOIN 
+		$query = "SELECT 'CIRCULACION' AS TIPO,NOMBRE, APELLIDOS, FECHA, CALIFICACION FROM (SELECT NOMBRE, APELLIDOS, FECHA, CALIFICACION FROM ALUMNOS RIGHT JOIN 
 		(SELECT DISTINCT ALUMNO,ET.FECHA,CALIFICACION,TIPOPERMISO FROM examenespracticocirculacion ET 
-		LEFT JOIN CLASES ON ALUMNO=DNIALUMNO WHERE DNIPROFESOR='82939193S' AND CALIFICACION 
-		IS NOT NULL)  ON ALUMNO=DNI";
+		LEFT JOIN CLASES ON ALUMNO=DNIALUMNO WHERE DNIPROFESOR='" . $dni . "'" . " AND CALIFICACION 
+		IS NOT NULL)  ON ALUMNO=DNI) WHERE CALIFICACION IS NOT NULL";
 		// $ultimoExamenPC = $this -> consultaPaginada($query, $first, $last);
 		$ultimoExamenPC = $this -> ejecutaSql($query);
 		return $ultimoExamenPC;

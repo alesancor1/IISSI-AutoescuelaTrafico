@@ -135,22 +135,19 @@
 				<article id="tab1">
 					<h1>CALIFICACIONES DE LOS ALUMNOS</h1>
 					<?php
+					print_r($resultado);
 					// Para cada alumno, lo busca en el array de resultados
-					foreach ($listaAlumnos as $alum) {
-						foreach ($resultado as $alumno => $examenesRecubridor) {
-							// print_r($examenesRecubridor);
-							if ($alum -> getNombre() . " " . $alum -> getApellidos() == $alumno) {
+						foreach ($resultado as $alumno => $examenes) {
+							// if ($alum -> getNombre() . " " . $alum -> getApellidos() == $alumno) {
 								echo "<button class='accordionContent'>" . $alumno . "</button>";
 								echo "<div class='panel'>";
-								// foreach ($examenesRecubridor as $num => $examenes) {
 
-								echo "<p>Fecha: " . $examenesRecubridor -> FECHA . "</p>";
-								echo "<p>Calificación: " . $examenesRecubridor -> CALIFICACION . "</p>";
-								// }
+								echo "<p>Fecha: " . $examenes -> FECHA . "</p>";
+								echo "<p>Calificación: " . $examenes -> CALIFICACION . "</p>";
 								echo "</div>";
-							}
+							// }
+							echo "$alumno";
 						}
-					}
 
 					// print_r($listaAlumnos);
 					// echo "<br> <br>";
@@ -169,18 +166,20 @@
 							<th>Apellidos</th>
 							<th>Nombre</th>
 							<th>Fecha</th>
+							<th>Tipo</th>
 							<th>Calificacion</th>
 						</tr>
 
 						<?php
-	foreach ($resultado2 as $num => $row) {
-		echo "<tr>";
-		echo "<td>" . $row -> APELLIDOS . "</td>";
-		echo "<td>" . $row -> NOMBRE . "</td>";
-		echo "<td>" . $row -> FECHA . "</td>";
-		echo "<td>" . $row -> CALIFICACION . "</td>";
-		echo "</tr>";
-	}
+						foreach ($resultado2 as $num => $row) {
+							echo "<tr>";
+							echo "<td>" . $row -> APELLIDOS . "</td>";
+							echo "<td>" . $row -> NOMBRE . "</td>";
+							echo "<td>" . $row -> FECHA . "</td>";
+							echo "<td>" . $row -> TIPO . "</td>";
+							echo "<td>" . $row -> CALIFICACION . "</td>";
+							echo "</tr>";
+						}
 						?>
 					</table>
 				</article>
