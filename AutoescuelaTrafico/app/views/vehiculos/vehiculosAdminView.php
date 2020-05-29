@@ -4,15 +4,21 @@
 <head>
 	<title>Vehiculos información</title>
 	<link rel="stylesheet" href="./css/tables.css">
+	<link rel="stylesheet" type="text/css" href="./css/accordionAndTabs.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<style> body{ background: white; }</style>
 </head>
 
 <body>
 	
 	<div class="contenido" id="contenido">
-		
+				
 		<?php if ($infoVehiculos!=null){
 			foreach ($infoVehiculos as $num => $infoVehiculo) {
-				echo "MODELO: " . $infoVehiculo->MODELO . "<br>";
+				echo "<button class='accordionContent'>" . $infoVehiculo->MODELO . "</button>";
+				
+				echo "<div class='panel'>";
+				
 				echo "MATRICULA: " . $infoVehiculo->MATRICULA . "<br>";
 				echo "ESTADO: " . $infoVehiculo->ESTADO . "<br>";
 				echo "TIPO DE SEGURO: " . ($infoVehiculo->TIPOSEGURO !=null ? $infoVehiculo->TIPOSEGURO : " - ") . "<br>";
@@ -22,36 +28,50 @@
 				echo "IMPORTE DE LA CUOTA: " . ($infoVehiculo->IMPORTECUOTA !=null ? $infoVehiculo->IMPORTECUOTA : " - ") . "<br><br>";
 			
 			?>
-				<table>
+				
 					
 				<?php
-				if ($infoReparaciones!=null) { ?>
-					<tr>
-						<th>Fecha</th>
-						<th>Descripcion</th>
-						<th>Importe</th>
-						<th>Taller</th>
-					</tr>
+				if ($infoReparaciones!=null) {
 			
-				<?php
-					foreach ($infoReparaciones as $num => $infoReparacione) {
-						if ($infoReparacione->MATRICULA == $infoVehiculo->MATRICULA) {
-					?>		<tr>
-								<td><?php echo $infoReparacione->FECHA ?></td>
-								<td><?php echo $infoReparacione->DESCRIPCION ?></td>
-								<td><?php echo $infoReparacione->COSTE ?></td>
-								<td><?php echo $infoReparacione->TALLER ?></td>
+					foreach ($infoReparaciones as $matricula => $reparaciones) {
+						if ($matricula == $infoVehiculo->MATRICULA) {
+							
+						echo "<table>";
+					
+							echo "<tr>
+								<th>Fecha</th>
+								<th>Descripcion</th>
+								<th>Importe</th>
+								<th>Taller</th>
+							</tr>";
+							
+						
+						foreach ($reparaciones as $reparacion) {
+						?>
+							<tr>
+								<td><?php echo $reparacion->FECHA ?></td>
+								<td><?php echo $reparacion->DESCRIPCION ?></td>
+								<td><?php echo $reparacion->COSTE ?></td>
+								<td><?php echo $reparacion->TALLER ?></td>
 							</tr>
-				  <?php }
+							
+					<?php	}
 					}
-				} ?>
-				</table>
+						
+					?>	
+							
+				  <?php 
+					}
+					echo "</table><br>";
+				} ?>				
 				
-			<?php	
+			<?php
+			 	echo "</div>";
 			}
 		} ?>
 		
 	</div>
+	<script type="text/javascript" src="./js/accordionAndTabs.js"></script>
 
 </body>
 </html>

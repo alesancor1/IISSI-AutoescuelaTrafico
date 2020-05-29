@@ -49,7 +49,12 @@ class VehiculosController extends BaseController{
 		$infoReparaciones = new VehiculosModel($this->adapter);
 		$infoReparaciones = $infoReparaciones -> getReparacionesVehiculos();
 		
-		$this-> view("/vehiculos/vehiculosAdmin", array("infoVehiculos" => $infoVehiculos, "infoReparaciones" => $infoReparaciones));
+		$res;
+		foreach ($infoReparaciones as $num => $reparacion) {
+			$res[$reparacion->MATRICULA][] = $reparacion;
+		}
+		
+		$this-> view("/vehiculos/vehiculosAdmin", array("infoVehiculos" => $infoVehiculos, "infoReparaciones" => $res));
 	}
 			
 }
