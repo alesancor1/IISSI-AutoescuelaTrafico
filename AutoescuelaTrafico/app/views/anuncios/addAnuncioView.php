@@ -13,7 +13,7 @@
 
                     <div class = "inputText">
                         <label for="titulo"><b>TITULO</b></label>
-                        <input type="text" placeholder="Titulo" name="titulo" required>
+                        <input type="text" placeholder="Titulo" name="titulo" maxlength="50" required>
                     </div>
 
                     <div class = "textarea">

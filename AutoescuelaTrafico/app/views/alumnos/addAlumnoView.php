@@ -13,17 +13,17 @@
 
                     <div class = "inputText">
                         <label for="titulo"><b>DNI</b></label>
-                        <input type="text" placeholder="DNI" name="dni" required>
+                        <input type="text" placeholder="DNI" name="dni" pattern="[0-9]{7}[A-Z]{1}" required>
                     </div>
 
                     <div class = "inputText">
                         <label for="nombre"><b>NOMBRE</b></label>
-                        <input type="text" placeholder="Nombre del alumno" name="nombre" required>
+                        <input type="text" placeholder="Nombre del alumno" name="nombre" maxlength="20" required>
                     </div>
                     
                     <div class = "inputText">
                         <label for="apellidos"><b>APELLIDOS</b></label>
-                        <input type="text" placeholder="Apellidos del alumno" name="apellidos" required>
+                        <input type="text" placeholder="Apellidos del alumno" name="apellidos" maxlength="30" required>
                     </div>
                     
                     <div class = "inputDate">
