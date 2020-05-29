@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Profesorado</title>
 		<link rel="stylesheet" type="text/css" href="./css/accordionAndTabs.css">
+		<link rel="stylesheet" type="text/css" href="./css/indexProfesoresAdminView.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<style> body{ background: white; }</style>
 	</head>
@@ -12,7 +13,7 @@
 	<body>
 
 		<div class="contenido" id="contenido">
-			<h1>Profesores:</h1>
+			<h1 style="margin: 50px 0 0 30px">Profesores:</h1>
 			
 			<div>
 				<button class="nuevaEntrada" id="openPopup">Añadir</button>
@@ -21,17 +22,18 @@
 			<?php require_once __DIR__."/addProfesorView.php";?>
 			<script type="text/javascript" src="./js/popup.js"></script>
 			
+			<div class=accordionProf>
 			<?php
 				if($infoProfesores!=null){
 					foreach($infoProfesores as $num=>$profesor){
 						echo "<button class='accordionContent'>" . $profesor->getApellidos() . ", " . $profesor->getNombre() . "</button>";
 						echo "<div class='panel'>";
-						echo "<p>DNI: " . $profesor->getDni() . "</p>";
-						echo "<p>Fecha contrato: " . $profesor->getFechaContrato() . "</p>";
-						echo "<p>Teléfono: " . $profesor->getTelefono() . "</p>";
-						echo "<p>Salario mensual: " . $profesor->getSalario() . "</p>";
-						echo "<p>Nº SS: " . $profesor->getNSeguridadSocial() . "</p>";
-						echo "<p>Permisos que imparte:</p>";
+						echo "<p><b>DNI:</b> " . $profesor->getDni() . "</p>";
+						echo "<p><b>Fecha contrato:</b> " . $profesor->getFechaContrato() . "</p>";
+						echo "<p><b>Teléfono:</b> " . $profesor->getTelefono() . "</p>";
+						echo "<p><b>Salario mensual:</b> " . $profesor->getSalario() . "</p>";
+						echo "<p><b>Nº SS:</b> " . $profesor->getNSeguridadSocial() . "</p>";
+						echo "<p><b>Permisos que imparte:</b></p>";
 						echo "<ul>";
 						foreach($permisosImpartidos as $num1=>$permisoImpartido){
 							if ($profesor -> getDni() == $permisoImpartido -> DNI) {
@@ -52,7 +54,7 @@
 					}	
 				}
 			?>
-
+			</div>
 		</div>		
 		<!-- Acordeon -->
 		<script type="text/javascript" src="./js/accordionAndTabs.js"></script>

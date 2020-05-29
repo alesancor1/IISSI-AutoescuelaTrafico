@@ -30,7 +30,7 @@
 					<?php
 					if(!empty($teoricoA)){
 					?>
-					<p>APTOS</p>
+					<h3 style="font-size: 16px; margin: 30px 0 0 20px">APTOS</h3>
 					<table>
 						<tr>
 							<th>Apellidos</th>
@@ -50,10 +50,10 @@
 						?>
 					</table>
 					<?php } 
-					else echo "No hay examenes APTOS";
+					else echo "<h3 style='font-size: 16px; margin: 30px 0 0 20px'>No hay examenes APTOS</h3>";
 					if(!empty($teoricoN)){
 					?>
-					<p>NO APTOS</p>
+					<h3 style="font-size: 16px; margin: 30px 0 0 20px">NO APTOS</h3>
 					<table>
 						<tr>
 							<th>Apellidos</th>
@@ -73,7 +73,7 @@
 						?>
 					</table>
 					<?php } 
-					else echo "No hay examenes NO APTOS";?>
+					else echo "<h3 style='font-size: 16px; margin: 30px 0 0 20px'>No hay examenes NO APTOS</h3>";?>
 				</article>
 				<!-- TAB DE CIRCULACION -->
 				<article id="tab2">
@@ -81,7 +81,7 @@
 					<?php
 					if(!empty($circulacionA)){
 					?>
-					<p>APTOS</p>
+					<h3 style="font-size: 16px; margin: 30px 0 0 20px">APTOS</h3>
 					<table>
 						<tr>
 							<th>Apellidos</th>
@@ -101,10 +101,10 @@
 						?>
 					</table>
 					<?php }
-					else echo "No hay examenes APTOS";
+					else echo "<h3 style='font-size: 16px; margin: 30px 0 0 20px'>No hay examenes APTOS</h3>";
 					if(!empty($circulacionN)){
 					?>
-					<p>NO APTOS</p>
+					<h3 style="font-size: 16px; margin: 30px 0 0 20px">NO APTOS</h3>
 					<table>
 						<tr>
 							<th>Apellidos</th>
@@ -124,7 +124,7 @@
 						?>
 					</table>
 					<?php } 
-					else echo "No hay examenes NO APTOS";?>
+					else echo "<h3 style='font-size: 16px; margin: 30px 0 0 20px'>No hay examenes NO APTOS</h3>";?>
 				</article>
 				<!-- TAB DE PISTA -->
 				<article id="tab3">
@@ -132,7 +132,7 @@
 					<?php
 					if(!empty($pistaA)){
 					?>
-					<p>APTOS</p>
+					<h3 style="font-size: 16px; margin: 30px 0 0 20px">APTOS</h3>
 					<table>
 						<tr>
 							<th>Apellidos</th>
@@ -152,10 +152,10 @@
 						?>
 					</table>
 					<?php }
-					else echo "No hay examenes APTOS";
+					else echo "<h3 style='font-size: 16px; margin: 30px 0 0 20px'>No hay examenes APTOS</h3>";
 					if(!empty($pistaN)){
 					?>
-					<p>NO APTOS</p>
+					<h3 style="font-size: 16px; margin: 30px 0 0 20px">NO APTOS</h3>
 					<table>
 						<tr>
 							<th>Apellidos</th>
@@ -175,7 +175,7 @@
 						?>
 					</table>
 					<?php } 
-					else echo "No hay examenes NO APTOS";?>
+					else echo "<h3 style='font-size: 16px; margin: 30px 0 0 20px'>No hay examenes NO APTOS</h3>";?>
 				</article>
 			</div>
 		</div>
