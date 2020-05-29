@@ -4,7 +4,7 @@ class WebTestModel extends BaseModel{
 	public $method = null;
 
 	public function __construct($adapter) {
-		$this -> table = "Clases";
+		$this -> table = "WebTest";
 		parent::__construct($this -> table, $adapter);
 	}
 	
@@ -41,6 +41,19 @@ class WebTestModel extends BaseModel{
 			}
 		}
 		return $tablaRecursos;
+	}
+	
+	public function insertAccesoWeb($accesoWeb){
+		 //solo si el alumno esta creado y tiene accesoWeb a null(caducado o no tiene asignado)
+		$query = "UPDATE ALUMNOS SET ACCESOWEB='$accesoWeb' WHERE DNI = '$accesoWeb'";
+		$this -> ejecutaSql($query);
+	}
+	
+	public function renovacionAccesoWeb($accesoWeb) {
+		
+		$this->ejecutaSql("DELETE FROM ACCESOWEB WHERE USUARIO ='$accesoWeb'");
+		$query = "UPDATE ALUMNOS SET ACCESOWEB='$accesoWeb' WHERE DNI = '$accesoWeb'";
+		$this->ejecutaSql($query);
 	}
 	
 	//	ALUMNO

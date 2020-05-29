@@ -16,6 +16,13 @@
 				</form>
 			</div>
 
+			
+			<!-- AÑADIR ALUMNO -->
+			
+			<button class="nuevaEntrada" id='openPopup' ><i class="fa fa-user-plus"></i></button>
+				<?php require_once __DIR__."/addWebTestView.php";?>
+				<script type="text/javascript" src="./js/popup.js"></script>
+
 			<table>
 				<tr>
 					<th>Usuario</th>
@@ -34,8 +41,18 @@
 						echo "<td>" . $accesoWeb -> getFechaRenovacion() . "</td>";
 						echo "<td>" . $accesoWeb -> getFechaCaducidad() . "</td>";
 						echo "<td>" . $accesoWeb -> getTiempoRestante() . "</td>";
-						echo "</tr>";
-					}
+					?> 
+						<td>
+						<form class="" id="" action="?controller=WebTest&action=renovar" method="POST">
+						
+							<input type="hidden" id="dni" name="dni" value="<?php echo $accesoWeb -> getUsuario(); ?>">
+							<button type="submit" class="renovarAccesoWeb">RENOVAR</button>
+						
+						</form>
+						</td>
+					</tr>
+						
+			<?php	}
 				}
 				?>
 			</table>
