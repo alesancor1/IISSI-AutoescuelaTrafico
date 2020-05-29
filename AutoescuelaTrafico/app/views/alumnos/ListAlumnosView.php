@@ -3,24 +3,25 @@
 	<head>
 		<title> Lista Alumnos </title>
 		<link rel="stylesheet" href="./css/tables.css">
+		<link rel="stylesheet" type="text/css" href="./css/listAlumnosProfView.css">
 
 	</head>
 	<body>
 		<div class = "contenido" id = "contenido">
-			
-			<h1>Lista de alumnos:</h1>
-			<br>
 		
-		<div class="filtros">
-			<form class="" id="" action="?controller=Alumnos&action=listaProfesor" method="POST">
-				<label for="filtro">Buscar por nombre, apellidos o DNI:</label>
-				<input type="text" id="filtro" name="filtro">
-				<input type="submit" hidden>
-			</form>
-		</div>
+			<div class="filtros">
+				<h1>Lista de alumnos:</h1>
+				<form class="" id="" action="?controller=Alumnos&action=listaProfesor" method="POST">
+					<input type="text" id="filtro" name="filtro" placeholder="Nombre, apellidos o DNI">
+					<input type="submit" hidden>
+				</form>
+			</div>
 			
-		<table>
-			<?php 
+			<table>
+				<tr>
+					<th style="border-radius: 20px 20px 0 0">Alumnos</th>
+				</tr>
+				<?php 
 				foreach( $listaProf as $num=>$alumno) { ?>
 				<tr>
 					<td>
