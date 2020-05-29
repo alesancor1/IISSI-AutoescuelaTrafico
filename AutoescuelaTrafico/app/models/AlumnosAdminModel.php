@@ -29,6 +29,7 @@ class AlumnosAdminModel extends BaseModel {
 	
 	public function delete($dni) {
 		$this->ejecutaSql("DELETE FROM ALUMNOS WHERE DNI='$dni'");
+		$this->ejecutaSql("DELETE FROM ACCESOWEB WHERE USUARIO='$dni'");
 	}
 
 
