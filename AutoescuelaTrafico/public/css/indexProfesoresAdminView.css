@@ -2,7 +2,28 @@
 	padding: 0 30px 0 30px;
 }
 .nuevaEntrada{
-	position: relative;
-	float: right;
+	position: absolute;
+	right: 0;
+	bottom: 0;
 	margin-right: 30px;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+.nuevaEntrada:hover{
+	color: royalblue;
+}
+.nuevaEntrada i{
+	font-size: 20px;
+}
+.eliminarProf{
+	float: right;
+	font-size: 20px;
+	font-weight: 600;
+}
+.eliminarProf:hover{
+	color: #d4d4d4;
+}
+.panel p{
+	margin-top: 10px;
 }

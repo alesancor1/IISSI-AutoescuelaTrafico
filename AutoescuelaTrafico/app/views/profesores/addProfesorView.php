@@ -14,7 +14,7 @@
 					
 					<div class="inputText">
 						<label for="dni"><b>DNI</b></label>
-						<input type="text" placeholder="Inserte el DNI" name="dni" id="dni" pattern="[0-9]{7}[A-Z]{1}" required>
+						<input type="text" placeholder="Inserte el DNI" name="dni" id="dni" pattern="[0-9]{8}[A-Z]{1}" required>
 					</div>
 					
 					<div class="inputText">
