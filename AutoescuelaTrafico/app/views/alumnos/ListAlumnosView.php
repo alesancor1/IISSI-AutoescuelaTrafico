@@ -11,8 +11,8 @@
 		
 			<div class="filtros">
 				<h1>Lista de alumnos:</h1>
-				<form class="filtroForm" id="filtroForm" action="?controller=Alumnos&action=listaProfesor" method="POST">
-					<input type="text" id="filtro" name="filtro" placeholder="Nombre, apellidos o DNI">
+				<form class="filtroForm" name="" id="filtroForm" action="?controller=Alumnos&action=listaProfesor" method="POST">
+					<input type="text" id="filtro" name="filtro" placeholder="Nombre, apellidos o DNI" oninput="validateFormListAlumnosView();">
 					<input type="submit" hidden>
 				</form>
 			</div>
@@ -36,13 +36,13 @@
 			<?php echo $_SESSION["paginator"]->createLinks(4,'paginatorButtons');?>
 		</div>
 		
-		<script type="text/javascript">
+		<!-- <script type="text/javascript">
 			$(document).ready(function(){
 				$("#filtroForm").submit(function(){
 					return validateFormListAlumnosView();
 				})
 			});
-		</script>
+		</script> -->
 		
 	</body>
 </html>
