@@ -54,6 +54,7 @@ class BaseModel{
                         $res[$i]=$stmt->fetchObject();               
                 }
             }
+            Connection::closeConexion($this->db());
             return $res;  
         }
         catch(Exception $e){
