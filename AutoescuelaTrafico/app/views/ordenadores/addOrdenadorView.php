@@ -25,12 +25,12 @@
 
 					<div class="inputText">
 						<label for="modelo"><b>Modelo del PC</b></label>
-						<input type="text" placeholder="Modelo del equipo" name="modelo" id="modelo" maxlength="25" required>
+						<input type="text" placeholder="Modelo del equipo" name="modelo" id="modelo" maxlength="25" required oninput="validationModeloPc();">
 					</div>
 
 					<div class = "inputText">
 						<label for="so"><b>Sistema operativo del PC</b></label>
-						<input type="text" placeholder="S.O." name="so" id="so" maxlength="25" required>
+						<input type="text" placeholder="S.O." name="so" id="so" maxlength="25" required oninput="validationSO();">
 					</div>
 
 					<div class = "botones">
