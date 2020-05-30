@@ -303,7 +303,7 @@
 
 						<!-- Administracion -->
 						<li>
-							<a href="A Administracion">
+							<a href="#">
 							<div class="icon">
 								<i class="fas fa-toolbox"></i>
 							</div>
@@ -311,7 +311,18 @@
 								<p>
 									Administracion
 								</p>
+							</div>
+							<div class="arrow" id = arrow>
+								<i class="fas fa-chevron-down"></i>
 							</div></a>
+							<ul class="accordion">
+								<li>
+									<a href="?controller=Administracion&action=getGastosAlumnos">Gastos alumnos</a>
+								</li>
+								<li>
+									<a href="?controller=Administracion&action=getDesglose">Desglose</a>
+								</li>
+							</ul>
 						</li>
 
 						<!-- Notificaciones -->

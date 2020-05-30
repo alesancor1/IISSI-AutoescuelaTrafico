@@ -27,6 +27,18 @@ class WebTestController extends BaseController{
 		$this -> view("/webtest/indexWebTestAdmin", array("recursosAdministrador" => $recursosAdministrador));
 	}
 	
+	public function enviar() {
+		$accesoWeb = new WebTestModel($this->adapter);
+		$insertarAccesoWeb = $accesoWeb -> insertAccesoWeb($_POST["dni"]);
+		funciones::redirect("WebTest", "indexRecursosWebTest");
+	}
+	
+	public function renovar(){
+		$accesoWeb = new WebTestModel($this->adapter);
+		$renovacion = $accesoWeb -> renovacionAccesoWeb($_POST["dni"]);
+		funciones::redirect("WebTest", "indexRecursosWebTest");
+	}
+	
 	//	ALUMNO
 	
 	public function indexInformacionWebTest(){

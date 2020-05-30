@@ -19,7 +19,7 @@ class AdministracionModel extends BaseModel {
     			ON CLASES.ALUMNO=MATRICULAS.ALUMNO
     			LEFT JOIN
         		ALUMNOS A
-    			ON A.DNI = MATRICULAS.ALUMNO WHERE A.DNI = '%$filtroAlumno%'");
+    			ON A.DNI = MATRICULAS.ALUMNO WHERE A.DNI LIKE '%$filtroAlumno%'");
 					break;
 					
 			case 'getDesgloseGeneral':
@@ -100,7 +100,7 @@ class AdministracionModel extends BaseModel {
 	
 	//	ADMINISTRADOR
 	
-	public function getGastosAlumnos(){
+	public function getGastosAlumnos($first = 0, $last = -1){
 		$filtroAlumno = isset($_POST["dni"]) ? $_POST["dni"] : "";		
 		$query = "SELECT A.DNI, NOMBRE, APELLIDOS, coalesce(COSTECLASES,0) as COSTECLASES, COSTEMATRICULAS, coalesce(COSTECLASES,0)+COSTEMATRICULAS as TOTAL
     		FROM (SELECT ALUMNO,SUM(IMPORTE)CosteClases FROM PAGOCLASES GROUP BY ALUMNO)CLASES 
@@ -109,8 +109,8 @@ class AdministracionModel extends BaseModel {
     		ON CLASES.ALUMNO=MATRICULAS.ALUMNO
     		LEFT JOIN
         	ALUMNOS A
-    		ON A.DNI = MATRICULAS.ALUMNO WHERE A.DNI = '%$filtroAlumno%'";
-		$tabla = $this->ejecutaSql($query);
+    		ON A.DNI = MATRICULAS.ALUMNO WHERE A.DNI LIKE '%$filtroAlumno%'";
+		$tabla = $this->consultaPaginada($query, $first, $last);
 		return $tabla;
 	}
 	

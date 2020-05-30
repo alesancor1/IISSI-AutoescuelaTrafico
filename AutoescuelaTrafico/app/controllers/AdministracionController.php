@@ -24,7 +24,6 @@ class AdministracionController extends BaseController {
 		$paginator->__init($gastos);
 
 		$gastosAlumnos = $gastos->getGastosAlumnos($paginator->_start, $paginator->_end);
-		print_r($gastosAlumnos);
 		
 		$this->view("/administracion/indexGastosAlumnos", array("gastosAlumnos" => $gastosAlumnos));
 	}
