@@ -59,6 +59,7 @@
 				<div class=usr-container>
 					<label for="uname">Usuario</label></br>
 					<input type="text" id="uname" placeholder="Inserte su usuario" name="uname" required>
+					<!--Para los errores-->
 					<p class="errorUName" id="errorUName"></p>
 				</div>
 				
@@ -66,6 +67,7 @@
 				<div class=psw-container>
 					<label for="psw">Contraseña</label></br>
 					<input type="password" id="pass" placeholder="Inserte su contraseña" name="psw" required>
+					<!--Para los errores-->
 					<p class="errorPsw""></p>
 				</div>
 
