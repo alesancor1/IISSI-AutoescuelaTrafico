@@ -3,20 +3,17 @@
 <head>
 	<title>Ordenadores</title>
 	<link rel="stylesheet" href="./css/tables.css">
+	<link rel="stylesheet" type="text/css" href="./css/indexOrdenadoresAdminView.css">
 </head>
 	
 <body>
 	<div id="contenido" class="contenido">
 		
-		<h1>Ordenadores</h1>
 		
-		<div class="ZONA FILTRO BOTONES">
-			<p>FILTROS</p>
-			
-			<div>
-				<button class="nuevaEntrada" id='openPopup'>AÑADIR</button>
-			</div>
-			
+		<div class="tools">
+			<h1>Ordenadores</h1>
+
+			<button class="nuevaEntrada" id='openPopup'><i class="fa fa-user-plus"></i></button>
 			<?php require_once __DIR__."/addOrdenadorView.php";?>
 			<script type="text/javascript" src="./js/popup.js"></script>
 		</div>
@@ -59,7 +56,7 @@
 							echo "<td>" . $ordenador->HORACOMIENZO . "</td>";
 							echo "<td>" . $ordenador->HORAFIN . "</td>";
 							echo "<td>" . $ordenador->TIEMPOUSO  . " horas</td>";
-							echo "<td>";
+							echo "<td class='buttons'>";
 						}
 						echo "<form action='?controller=Ordenadores&action=deletePc' method='post'>";
 						echo "<input type='hidden' name='oidPc' id='oidPc' value='" . $ordenador->PC . "'>";

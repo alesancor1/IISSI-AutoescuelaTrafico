@@ -4,17 +4,18 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Desglose general</title>
 		<link rel="stylesheet" href="./css/tables.css">
+		<link rel="stylesheet" type="text/css" href="./css/indexDesgloseGeneral.css">
 
 	</head>
 
 	<body>
 		<div class="contenido" id="contenido">
 
-			<h1>Desglose general</h1>
-
-			<!-- CORREGIR PARA ESTE -->
 			<div class="filtros">
-				<form class="" id="" action="?controller=Administracion&action=getDesglose" method="POST">
+
+				<h1>Desglose general</h1>
+
+				<form class="form" id="" action="?controller=Administracion&action=getDesglose" method="POST">
 					<label for="mes"><b>Mes</b></label>
 					<select id="mes" name="mes">
 						<option value="">Mostrar todo</option>
@@ -35,7 +36,7 @@
 					<label for="anyo"><b>Año</b></label>
 					<input type="text" name="anyo" id="anyo">
 
-					<input type="submit">
+					<button type="submit"><i class = "fa fa-arrow-right"></i></button>
 				</form>
 			</div>
 			
@@ -65,18 +66,18 @@
 							echo "<tr>";
 							echo "<td>" . $desglose->MES . "</td>";
 							echo "<td>" . $desglose->ANYO . "</td>";
-							echo "<td>" . $desglose->PAGOCLASES . "</td>";
-							echo "<td>" . $desglose->PAGOTASAS . "</td>";
-							echo "<td>" . $desglose->MATRICULAS . "</td>";
-							echo "<td>" . $desglose->REPARAT . "</td>";
-							echo "<td>" . $desglose->REPARAM . "</td>";
-							echo "<td>" . $desglose->ITVT . "</td>";
-							echo "<td>" . $desglose->ITVM . "</td>";
-							echo "<td>" . $desglose->SALARIOS . "</td>";
-							echo "<td>" . $desglose->SEGSEM . "</td>";
-							echo "<td>" . $desglose->SEGMENS . "</td>";
-							echo "<td>" . $desglose->SEGTRIM . "</td>";
-							echo "<td>" . $desglose->SEGANU . "</td>";
+							echo "<td style = 'color:green'>" . ($desglose->PAGOCLASES == null ? " " : +$desglose->PAGOCLASES)  . "</td>";
+							echo "<td style = 'color:red'>" . ($desglose->PAGOTASAS == null ? " " : -$desglose->PAGOTASAS) . "</td>";
+							echo "<td style = 'color:green'>" . ($desglose->MATRICULAS == null ? " " : +$desglose->MATRICULAS) . "</td>";
+							echo "<td style = 'color:red'>" . ($desglose->REPARAT == null ? " " : -$desglose->REPARAT) . "</td>";
+							echo "<td style = 'color:red'>" . ($desglose->REPARAM == null ? " " : -$desglose->REPARAM) . "</td>";
+							echo "<td style = 'color:red'>" . ($desglose->ITVT == null ? " " : -$desglose->ITVT) . "</td>";
+							echo "<td style = 'color:red'>" . ($desglose->ITVM == null ? " " : -$desglose->ITVM) . "</td>";
+							echo "<td style = 'color:red'>" . ($desglose->SALARIOS == null ? " " : -$desglose->SALARIOS) . "</td>";
+							echo "<td style = 'color:red'>" . ($desglose->SEGSEM == null ? " " : -$desglose->SEGSEM) . "</td>";
+							echo "<td style = 'color:red'>" . ($desglose->SEGMENS == null ? " " : -$desglose->SEGMENS) . "</td>";
+							echo "<td style = 'color:red'>" . ($desglose->SEGTRIM == null ? " " : -$desglose->SEGTRIM) . "</td>";
+							echo "<td style = 'color:red'>" . ($desglose->SEGANU == null ? " " : -$desglose->SEGANU) . "</td>";
 							echo "</tr>";
 						}
 					}
