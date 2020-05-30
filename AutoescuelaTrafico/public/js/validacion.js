@@ -3,27 +3,47 @@ var exprTildes = /^[A-Za-záéíóúÁÉÍÓÚ\s]+$/;
 var exprNombreApellidos = /^[A-Za-z ,.'-]+$/;
 var exprNumero = /[0-9]{9}/;
 
-//	Recibe objetos de la forma $('#ID')
-function validateDNI(dni){
-	var valueCheck = dni.val().trim();
+function validateFormListAlumnosView(){
+	var filtro = document.getElementById("filtro");
+	var filtroValue = filtro.value.trim();
+
+	var numeroDNI = filtroValue.substr(0, 8);
+	var letra = filtroValue.substr(-1);
 	
-	var numeroDNI = valueCheck.substr(0, 8);
-	var letra = valueCheck.substr(-1);
-	
-	var resultado = true;
-	if (!(valueCheck.length == 9) || (!exprDNI.test(valueCheck))) {
-		//dni.setCustomValidity('Introduzca un DNI válido');
-		resultado = false;
-	} else if (letra != letraDNI(numeroDNI)) {
-		//dni.setCustomValidity('El DNI debe contener la letra adecuada');
-		resultado = false;
-	} else if(valueCheck==''){
-		//dni.setCustomValidity('Introduzca su DNI');
-		resultado = false;
-	} else {
-		//dni.setCustomValidity("");
+	var dniCheck = true;
+	var error = '';
+	if(!(exprDNI.test(filtroValue))){
+		dniCheck = false;
+	} else if(letra!=letraDNI(numeroDNI)){
+		dniCheck = false;
+	} else if(filtroValue==''){
+		dniCheck = false;
 	}
-	return resultado;
+
+	var nombreCheck = true;
+	if(!exprTildes.test(filtroValue)){
+		nombreCheck = false;
+	} else if(!exprNombreApellidos.test(filtroValue)){
+		nombreCheck = false;
+	}
+
+	var apellidosCheck = true;
+	if(!exprTildes.test(filtroValue)){
+		apellidosCheck = false;
+	} else if(!exprNombreApellidos.test(filtroValue)){
+		apellidosCheck = false;
+	}
+
+	var lengthCheck = filtroValue.length<30;
+
+	var resCheck = (dniCheck || nombreCheck || apellidosCheck) && lengthCheck;
+
+	if(!resCheck) {
+		error = "Búsqueda no válida. Compruebe la válidez del DNI o del nombre o apellidos introducidos.";
+		filtro.setCustomValidity(error);
+	}
+
+	return error;
 }
 
 function validateDNI2(){
@@ -57,59 +77,27 @@ function validateDNI2(){
 	return error;
 }
 
-//	Recibe objetos de la forma $('#ID')
-function validateNombre(nombre){
-	var valueCheck = nombre.val().trim();
-	
-	var resultado = true;
-	if(!exprTildes.test(valueCheck)){
-		//nombre.setCustomValidity("Introduzca un nombre válido.");
-		resultado = false;
-	} else if(!exprNombreApellidos.test(valueCheck)){
-		//nombre.setCustomValidity("Introduzca un nombre válido.");
-		resultado = false;
-	} else {
-		//nombre.setCustomValidity("");
-	}
-	return resultado;
-}
-
 function validateNombre2(){
 	var nombre = document.getElementById("nombre");
 	var nombreValue = nombre.value;
 
 	var resultado = true;
+	var error;
 	
 	if(!exprTildes.test(nombreValue)){
-		nombre.setCustomValidity("Introduzca un nombre válido.");
+		error = "Introduzca un nombre válido.";
 		$("#nombre").css("border", '1px solid red');
 		$("#nombre").css("background", '#ffeeee');
 		resultado = false;
 	} else if(!exprNombreApellidos.test(nombreValue)){
-		nombre.setCustomValidity("Introduzca un nombre válido.");
+		error = "Introduzca un nombre válido.";
 		$("#nombre").css("border", '1px solid red');
 		$("#nombre").css("background", '#ffeeee');
 		resultado = false;
 	} else {
-		nombre.setCustomValidity("");
+		error = "";
 	}
-	return resultado;
-}
-
-//	Recibe objetos de la forma $('#ID')
-function validateApellidos(apellidos){
-	var valueCheck = apellidos.val().trim();
-	
-	var resultado = true;
-	if(!exprTildes.test(valueCheck)){
-		//apellidos.setCustomValidity('Introduzca unos apellidos válidos.');
-		resultado = false;
-	} else if(!exprNombreApellidos.test(valueCheck)){
-		//apellidos.setCustomValidity('Introduzca unos apellidos válidos.');
-		resultado = false;
-	} else {
-		//apellidos.setCustomValidity("");
-	}
+	nombre.setCustomValidity(error);
 	return resultado;
 }
 
@@ -118,20 +106,22 @@ function validateApellidos2(){
 	var apellidosValue = apellidos.value;
 
 	var resultado = true;
+	var error;
 	
 	if(!exprTildes.test(apellidosValue)){
-		apellidos.setCustomValidity('Introduzca unos apellidos válidos.');
+		error = 'Introduzca unos apellidos válidos.';
 		$("#apellidos").css("border", '1px solid red');
 		$("#apellidos").css("background", '#ffeeee');
 		resultado = false;
 	} else if(!exprNombreApellidos.test(apellidosValue)){
-		apellidos.setCustomValidity('Introduzca unos apellidos válidos.');
+		error = 'Introduzca unos apellidos válidos.';
 		$("#apellidos").css("border", '1px solid red');
 		$("#apellidos").css("background", '#ffeeee');
 		resultado = false;
 	} else {
-		apellidos.setCustomValidity("");
+		error = '';
 	}
+	apellidos.setCustomValidity(error);
 	return resultado;
 }
 
@@ -139,25 +129,28 @@ function validateTelefono(){
 	var telefono = document.getElementById("telefono");
 	var telefonoValue = telefono.value.trim();
 	
+	var error;
 	var resultado = true;
+	
 	if (telefonoValue == '') {
-		telefono.setCustomValidity('Introduzca su número de teléfono.');
+		error = 'Introduzca su número de teléfono.';
 		$("#telefono").css("border", '1px solid red');
 		$("#telefono").css("background", '#ffeeee');
 		resultado = false;
 	} else if (!exprNumero.test(telefonoValue)) {
-		telefono.setCustomValidity('Un número de teléfono solo puede contener números.');
+		error = 'Un número de teléfono solo puede contener números.';
 		$("#telefono").css("border", '1px solid red');
 		$("#telefono").css("background", '#ffeeee');
 		resultado = false;
 	} else if (telefonoValue.length < 9) {
-		telefono.setCustomValidity('Introduzca un número de teléfono correcto');
+		error = 'Introduzca un número de teléfono correcto';
 		$("#telefono").css("border", '1px solid red');
 		$("#telefono").css("background", '#ffeeee');
 		resultado = false;
 	} else {
-		telefono.setCustomValidity("");
+		error = "";
 	}
+	telefono.setCustomValidity(error);
 	return resultado;
 }
 
