@@ -56,17 +56,17 @@
 					<h3 class = "title">AUTOESCUELA</br>TRAFICO<h3><img class = "logo" src = "./img/autoescuela.png" alt = "logo">
 				</div>
 
-				<div class=usr-container>
+				<div class="usr-container">
 					<label for="uname">Usuario</label></br>
 					<input type="text" id="uname" placeholder="Inserte su usuario" name="uname" required oninput="userValidation();">
 				</div>
 
-				<div class=psw-container>
+				<div class="psw-container">
 					<label for="psw">Contraseña</label></br>
 					<input type="password" id="psw" placeholder="Inserte su contraseña" name="psw" required oninput="passwordValidation();">
 				</div>
 
-				<div class=botones>
+				<div class="botones">
 					<button type="submit">
 						Iniciar sesión
 					</button></br>

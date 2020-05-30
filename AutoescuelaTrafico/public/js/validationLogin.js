@@ -56,7 +56,7 @@ function passwordValidation() {
 
 	// Si no cumple las restricciones, devolvemos un error
 	if (!valid) {
-		var error = 'Por favor, introduzca una contraseña! El campo no puede estar vacio';
+		var error = 'Por favor, introduzca una contraseña. El campo no puede estar vacio';
 		
 	} else {
 		var error = "";
