@@ -108,12 +108,7 @@ function validateApellidos2(){
 	var resultado = true;
 	var error;
 	
-	if(!exprTildes.test(apellidosValue)){
-		error = 'Introduzca unos apellidos válidos.';
-		$("#apellidos").css("border", '1px solid red');
-		$("#apellidos").css("background", '#ffeeee');
-		resultado = false;
-	} else if(!exprNombreApellidos.test(apellidosValue)){
+	if(!exprTildes.test(apellidosValue) || !exprNombreApellidos.test(apellidosValue)){
 		error = 'Introduzca unos apellidos válidos.';
 		$("#apellidos").css("border", '1px solid red');
 		$("#apellidos").css("background", '#ffeeee');
