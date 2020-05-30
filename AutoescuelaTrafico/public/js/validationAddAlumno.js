@@ -20,6 +20,9 @@ function validateDNI() {
 	var letra = valueCheck.substr(-1);
 	var error;
 
+	entrada.style.cssText = "background-color: #f1f1f1";
+	$(".validateDni").text('');
+
 	var resultado = true;
 	if (valueCheck != '') {
 
@@ -53,6 +56,9 @@ function nombreValidation() {
 	var ensenya = $(".validateNombre");
 	var campo = $("#nom");
 
+	nombre.style.cssText = "background-color: #f1f1f1";
+	ensenya.text('');
+
 	var resultado = true;
 	if (valueCheck == '') {
 		error = "Nombre vacío.";
@@ -85,6 +91,9 @@ function apellidosValidation() {
 	var valueCheck = apellidos.value;
 	var ensenya = $(".validateApellidos");
 	var campo = $("#apell");
+
+	apellidos.style.cssText = "background-color: #f1f1f1";
+	ensenya.text('');
 
 	var resultado = true;
 	if (valueCheck == '') {
