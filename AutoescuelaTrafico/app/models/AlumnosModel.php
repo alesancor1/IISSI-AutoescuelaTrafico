@@ -15,8 +15,10 @@ class AlumnosModel extends BaseModel {
 		$query = "SELECT A.* FROM Alumnos A RIGHT JOIN( SELECT DNIALUMNO,DNIPROFESOR FROM Clases C WHERE DNIPROFESOR='" . $_SESSION["cuenta"][3] . "'" . " GROUP BY DNIALUMNO,DNIPROFESOR) ON DNI=DNIALUMNO";
 		$query = "SELECT * FROM ($query) Q WHERE Q.NOMBRE LIKE '%$filtro%' OR Q.APELLIDOS LIKE '%$filtro%' OR Q.DNI LIKE '%$filtro%'";
 		$alumnos = $this -> consultaPaginada($query, $first, $last);
-		foreach ($alumnos as $num => $alumno) {
-			$alumnos[$num] = Alumnos::__parse("Alumnos", $alumno);
+		if($alumnos!==null){
+			foreach ($alumnos as $num => $alumno) {
+				$alumnos[$num] = Alumnos::__parse("Alumnos", $alumno);
+			}
 		}
 		return $alumnos;
 	}
