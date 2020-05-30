@@ -18,9 +18,11 @@ class VehiculosController extends BaseController{
 		$usos = $usos->getUsosPorAlumno();
 		
 		$usosPorAlumno = array();
-		foreach($usos as $uso){
-			$id = $uso -> APELLIDOS . ", " . $uso -> NOMBRE;
-			$usosPorAlumno[$id][] = $uso;
+		if($usos!=null){
+			foreach($usos as $uso){
+				$id = $uso -> APELLIDOS . ", " . $uso -> NOMBRE;
+				$usosPorAlumno[$id][] = $uso;
+			}
 		}
 		
 		//	Talleres

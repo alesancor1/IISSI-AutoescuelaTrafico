@@ -2,6 +2,36 @@ var exprDNI = /[0-9]{8}[A-Z]/;
 var exprTildes = /^[A-Za-záéíóúÁÉÍÓÚ\s]+$/;
 var exprNombreApellidos = /^[A-Za-z ,.'-]+$/;
 var exprNumero = /[0-9]{9}/;
+var exprMatricula = /[0-9]{4} [A-Z]{4}/;
+
+function validateUsos(){
+	var filtro = document.getElementById("filtroUsos");
+	var filtroValue = filtro.value.trim();
+	
+	var error = '';
+	
+	var apellidosCheck = true;
+	if(!exprNombreApellidos.test(filtroValue)){
+		apellidosCheck = false;
+		error = "Introduzca un nombre o apellidos válidos.";
+	}
+
+	var modeloCheck = filtroValue.length<=20;
+	if(!modeloCheck){
+		error = "La búsqueda ha de ser menor a 20 caracteres.";
+	}
+	
+	var matriculaCheck = true;
+	if(!exprMatricula.test(filtroValue)){
+		matriculasCheck = false;
+		error = "Introduzca un formato de matrícula válido.";
+	}
+	
+	var resCheck = (apellidosCheck || matriculaCheck) && modeloCheck;
+	
+	filtro.setCustomValidity(error);
+	return error;
+}
 
 function validateFormListAlumnosView(){
 	var filtro = document.getElementById("filtro");

@@ -30,9 +30,9 @@
 					
 					<div class="filtros">
 						<h1>Usos de vehículos</h1>
-						<form class="" id="" action="?controller=Vehiculos&action=getUsosYTalleres" method="POST">
+						<form class="formUsos" id="formUsos" action="?controller=Vehiculos&action=getUsosYTalleres" method="POST">
 							<label for="filtro"></label>
-							<input type="text" id="filtro" name="filtro" placeholder="Busque por alumno o vehículo">
+							<input type="text" id="filtroUsos" name="filtroUsos" placeholder="Busque por alumno o vehículo" oninput="validateUsos();">
 							<input type="submit" hidden>
 						</form>
 					</div>
