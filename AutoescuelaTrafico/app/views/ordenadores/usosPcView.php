@@ -3,22 +3,19 @@
 <head>
 	<title>Usos del PC</title>
 	<link rel="stylesheet" href="./css/tables.css">
+	<link rel="stylesheet" type="text/css" href="./css/indexOrdenadoresAdminView.css">
 </head>
 	
 <body>
 	<div id="contenido" class="contenido">
-		
-		<h1>Usos del PC 
-			<?php if($verUsos!=null) echo $verUsos[0]->OID_PC; ?>
-		</h1>
-		
-		<div class="ZONA FILTRO BOTONES">
-			<p>FILTROS</p>
 			
-			<div>
-				<button class="nuevaEntrada" id='openPopup'>AÑADIR</button>
-			</div>
-			
+		<div class="tools" style="margin-bottom: 0">	
+			<h1>Usos del PC 
+				<?php if($verUsos!=null) echo $verUsos[0]->OID_PC; ?>
+			</h1>		
+			<button class="nuevaEntrada" id='openPopup'><i class="fa fa-plus"></i></button>
+			<button class="borrarSelec" onclick = "document.getElementById('borrar').click()"><i class = "fa fa-trash"></i></button>
+
 			<?php require_once __DIR__."/addUsoView.php";?>
 			<script type="text/javascript" src="./js/popup.js"></script>
 		</div>
@@ -28,7 +25,7 @@
 			
 			<form class="" id="" action="?controller=Ordenadores&action=deleteUsos" method="POST">
 				
-				<button class="borrarSelec" type="submit">BORRAR</button>
+				<button class="borrar" id = "borrar" type="submit"></button>
 			
 				<table>
 					<tr>

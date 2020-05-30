@@ -10,7 +10,7 @@
 	<body>
 		<div class="contenido" id="contenido">
 
-			<h1>Gastos alumnos</h1>
+			<h1 style="margin-top: 50px">Gastos alumnos</h1>
 			
 			<table>
 				<tr>
