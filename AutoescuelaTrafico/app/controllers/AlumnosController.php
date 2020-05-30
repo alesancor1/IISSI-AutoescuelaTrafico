@@ -164,7 +164,7 @@ class AlumnosController extends BaseController {
 
 	public function enviar() {
 		$alumno = new AlumnosAdminModel($this -> adapter);
-		$insertarAlumno = $alumno -> insert($_POST["dni"], $_POST["nombre"], $_POST["apellidos"], $_POST["fechaNacimiento"], $_POST["permiso"], $_POST["oferta"]);
+		$insertarAlumno = $alumno -> insert($_POST["dni"], $_POST["nombre"], $_POST["apellidos"], $_POST["fechaNacimiento"], $_POST["permiso"]);
 		funciones::redirect("Alumnos", "listaAdministrador");
 	}
 

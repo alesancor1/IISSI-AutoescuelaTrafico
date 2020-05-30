@@ -10,21 +10,21 @@
             <div class = "popup" id = "popup">
                 <h1 class ="nuevo">NUEVO PROFESOR</h1>
                 
-                <form action="?controller=Profesores&action=addProfesor" class="form-container" method = "post">
+                <form class="addProfesorForm" id="addProfesorForm" action="?controller=Profesores&action=addProfesor" class="form-container" method = "post">
 					
 					<div class="inputText">
 						<label for="dni"><b>DNI</b></label>
-						<input type="text" placeholder="Inserte el DNI" name="dni" id="dni" pattern="[0-9]{8}[A-Z]{1}" required>
+						<input type="text" placeholder="Inserte el DNI" name="dni" id="dni" pattern="[0-9]{8}[A-Z]{1}" oninput="validateDNI2();" required>
 					</div>
 					
 					<div class="inputText">
 						<label for="nombre"><b>Nombre</b></label>
-						<input type="text" placeholder="Introduzca el nombre" name="nombre" id="nombre" maxlength="20" required>
+						<input type="text" placeholder="Introduzca el nombre" name="nombre" id="nombre" maxlength="20" oninput="validateNombre2();" required>
 					</div>
 					
                     <div class = "inputText">
                         <label for="apellidos"><b>Apellidos</b></label>
-                        <input type="text" placeholder="Inserte los apellidos" name="apellidos" id="apellidos" maxlength="20" required>
+                        <input type="text" placeholder="Inserte los apellidos" name="apellidos" id="apellidos" maxlength="30" oninput="validateApellidos2();" required>
                     </div>
                     
                     <div class = "inputDate">
@@ -34,7 +34,7 @@
                     
                     <div class = "inputText">
                         <label for="telefono"><b>Nº de teléfono</b></label>
-                        <input type="text" placeholder="Inserte el nº de tlf." name="telefono" id="telefono" pattern="[0-9]{9}" required>
+                        <input type="text" placeholder="Inserte el nº de tlf." name="telefono" id="telefono" pattern="[0-9]{9}" oninput="validateTelefono();"required>
                     </div>
                     
                     <div class = "inputText">
