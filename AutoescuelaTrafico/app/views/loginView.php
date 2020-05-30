@@ -81,7 +81,7 @@
 			// Inicialización de elementos y eventos cuando el documento se carga completamente
 			$(document).ready(function() {
 
-				$("#login").on("submit", function() {
+				$("#login").submit(function() {
 
 					return validateForm();
 				});
