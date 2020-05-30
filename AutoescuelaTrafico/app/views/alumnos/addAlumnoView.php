@@ -39,15 +39,6 @@
                         	<option value="Permiso B">Permiso B</option>
                         </select>
                     </div>
-                    
-                    <div class = "select">
-                        <label for="oferta"><b>Oferta</b></label>
-                        <select id="oferta" name="oferta">
-                        	<option disabled selected>Seleccionar oferta</option>
-                        	<option value="1">Oferta 1</option>
-                        	<option value="2">Oferta 2</option>
-                        </select>
-                    </div>
 
                     <div class = "botones">
                         <button type="button" class="volver" id='closePopup'> < Volver</button>

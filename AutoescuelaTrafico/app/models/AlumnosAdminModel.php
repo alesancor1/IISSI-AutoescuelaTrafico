@@ -33,8 +33,14 @@ class AlumnosAdminModel extends BaseModel {
 
 		$this->ejecutaSql("INSERT INTO Alumnos (DNI, NOMBRE, APELLIDOS, FECHANACIMIENTO,ACCESOWEB) VALUES ('$dni', '$nombre', '$apellidos', to_date('$fechaNacimiento','YYYY-MM-DD'),'$dni')");
 
-		$this->ejecutaSql("INSERT INTO MATRICULAS (FECHA, PERMISOMATRICULADO, ALUMNO, OFERTA) VALUES (sysdate, '$permisoMatriculado', '$dni', '$oferta')");
-
+		if ($permisoMatriculado == 'Permiso B') {
+			$this->ejecutaSql("INSERT INTO MATRICULAS (FECHA, PERMISOMATRICULADO, ALUMNO, OFERTA) VALUES (sysdate, '$permisoMatriculado', '$dni', '1')");
+		}
+		
+		if ($permisoMatriculado == 'Permiso A2'){
+			$this->ejecutaSql("INSERT INTO MATRICULAS (FECHA, PERMISOMATRICULADO, ALUMNO, OFERTA) VALUES (sysdate, '$permisoMatriculado', '$dni', '2')");
+		}
+		
 		$this->db()->commit();	
 	}
 	
