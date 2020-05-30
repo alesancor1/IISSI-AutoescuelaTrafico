@@ -53,6 +53,8 @@ class ErrorHandler{
 				case "OrdenadoresController":
 					if($sesion != "Administrador")
 						BaseController::view("error",array("tipo"=>"wrongLogin"));
+					if($action == "verUsos" && !isset($_POST["oidPc"]))
+						funciones::redirect("Ordenadores");
 					break;
 
 				case "ProfesoresController":
@@ -84,7 +86,34 @@ class ErrorHandler{
 	}
 
 	public static function DBChecker($exception){
-		echo $exception;
+		$First = "ORA-200";
+		$Second = "ORA-06";
+
+
+		$Firstpos=strpos($exception, $First)+11;
+		$Secondpos=strpos($exception, $Second)-$Firstpos-1;
+
+		$exception = substr($exception , $Firstpos, $Secondpos);
+		$exception = utf8_encode ($exception);
+
+		$uri = "?controller=".$_GET["controller"];
+
+		if($_GET["controller"]=="Alumnos")
+			$uri .= "&action=listaAdministrador";
+
+		elseif($_GET["controller"]=="Profesores")
+			$uri .= "&action=indexProfesoradoInformacion";
+
+		elseif($_GET["controller"]=="Vehiculos")
+			$uri .= "&action=getUsosYTalleres";
+
+		elseif($_GET["controller"]=="WebTest")
+			$uri .= "&action=indexRecursosWebTest";
+
+		echo "<script>
+			  alert('".$exception."');
+		      window.location.href='".$uri."';
+			 </script>";	
 	}
 }
 ?>

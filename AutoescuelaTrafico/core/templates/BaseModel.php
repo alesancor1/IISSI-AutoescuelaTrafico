@@ -59,6 +59,7 @@ class BaseModel{
         catch(Exception $e){
             $this->db()->rollBack();
             ErrorHandler::DBChecker($e);
+            exit();
         }     
     }
     public function consultaPaginada($query, $first, $last){
