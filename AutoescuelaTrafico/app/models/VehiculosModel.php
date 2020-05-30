@@ -32,12 +32,12 @@ class VehiculosModel extends BaseModel{
 	}
 	
 	public function addTaller($nombreTaller, $direccionTaller, $telefonoTaller){
-		$tabla = $this -> ejecutaSql("INSERT INTO Talleres (NOMBRE, DIRECCION, TELEFONO) VALUES ('$nombreTaller', '$direccionTaller', '$telefonoTaller')");
+		$this -> ejecutaSql("INSERT INTO Talleres (NOMBRE, DIRECCION, TELEFONO) VALUES ('$nombreTaller', '$direccionTaller', '$telefonoTaller')");
 	}
 	
 	public function deleteTaller($nombreTaller, $direccionTaller, $telefonoTaller){
 		$query = "DELETE FROM Talleres WHERE NOMBRE = '$nombreTaller' AND DIRECCION = '$direccionTaller' AND TELEFONO = '$telefonoTaller'";
-		$tabla = $this -> ejecutaSql($query);
+		$this -> ejecutaSql($query);
 	}
 	
 	public function getInfoVehiculos(){

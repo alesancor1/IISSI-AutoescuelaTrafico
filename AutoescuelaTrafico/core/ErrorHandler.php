@@ -10,15 +10,70 @@ class ErrorHandler{
 			}
 		}
 		else{
-			$sesion = $_SESSION["cuenta"][2];
+			$sesion = isset($_SESSION["cuenta"]) ? $_SESSION["cuenta"][2] : null;
 			switch($controller){
-				case "ExamenesController": 
-					if($sesion!="Alumno")
-						BaseController::view("error",array("tipo"=>"wrongLogin"));break;
-				case "ClasesController":
-					if($sesion!="Administrador"&&$action=="indexGestion")
+				case "AdministracionController":
+					if($sesion != "Administrador")
 						BaseController::view("error",array("tipo"=>"wrongLogin"));
 					break;
+
+				case "AlumnosController":
+					if($sesion == "Alumno")
+						BaseController::view("error",array("tipo"=>"wrongLogin"));
+
+					elseif($sesion != "Administrador" && 
+						  ($action == "listaCalificacionesAdmin" || $action == "listaAdministrador" || $action == "enviar" || $action == "borrar"))
+						BaseController::view("error",array("tipo"=>"wrongLogin"));
+
+					elseif($sesion != "Profesor" && 
+						  ($action == "listaProfesor" || $action == "listaCalificacionesProfesor"))
+						BaseController::view("error",array("tipo"=>"wrongLogin"));
+					break;
+
+				case "AnunciosController":
+					if($sesion == "Alumno" && $action== "enviar")
+						BaseController::view("error",array("tipo"=>"wrongLogin"));
+					break;
+
+				case "ClasesController":
+					if($sesion!="Administrador" && $action=="indexGestion")
+						BaseController::view("error",array("tipo"=>"wrongLogin"));
+					break;
+
+				case "ExamenesController": 
+					if($sesion!="Alumno")
+						BaseController::view("error",array("tipo"=>"wrongLogin"));
+					break;
+
+				case "LoginController":
+					if($sesion != null)
+						funciones::redirect();
+					break;
+
+				case "OrdenadoresController":
+					if($sesion != "Administrador")
+						BaseController::view("error",array("tipo"=>"wrongLogin"));
+					break;
+
+				case "ProfesoresController":
+					if($sesion != "Administrador")
+						BaseController::view("error",array("tipo"=>"wrongLogin"));
+					break;
+
+				case "VehiculosController":
+					if($sesion != "Administrador")
+						BaseController::view("error",array("tipo"=>"wrongLogin"));
+					break;
+
+				case "WebTestController":
+					if($sesion == "Alumno" && $action != "indexInformacionWebTest")
+						BaseController::view("error",array("tipo"=>"wrongLogin"));
+
+					elseif($sesion == "Profesor")
+						BaseController::view("error",array("tipo"=>"wrongLogin"));
+					break;
+
+				//unimplemented
 				case "MensajesController":
 				case "HorarioController":
 						BaseController::view("error",array("tipo"=>"notImplemented"));
@@ -26,6 +81,10 @@ class ErrorHandler{
 
 			}
 		}
+	}
+
+	public static function DBChecker($exception){
+		echo $exception;
 	}
 }
 ?>

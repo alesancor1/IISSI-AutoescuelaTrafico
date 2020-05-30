@@ -50,10 +50,11 @@ class WebTestModel extends BaseModel{
 	}
 	
 	public function renovacionAccesoWeb($accesoWeb) {
-		
+		$this->db()->beginTransaction();
 		$this->ejecutaSql("DELETE FROM ACCESOWEB WHERE USUARIO ='$accesoWeb'");
 		$query = "UPDATE ALUMNOS SET ACCESOWEB='$accesoWeb' WHERE DNI = '$accesoWeb'";
 		$this->ejecutaSql($query);
+		$this->db()->commit();
 	}
 	
 	//	ALUMNO

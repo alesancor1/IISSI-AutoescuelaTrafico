@@ -45,6 +45,7 @@ class OrdenadoresModel extends BaseModel{
 	}
 	
 	public function addUso($fechaUso, $horaComienzo, $horaFin, $dni, $oidPc, $estadoPc){
+		$this->db()->beginTransaction();
 		$query = "INSERT INTO UsoPC (FECHA, HORACOMIENZO, HORAFIN, ALUMNO, PC) VALUES (to_date('$fechaUso','YYYY-MM-DD'), '$horaComienzo', '$horaFin', '$dni', $oidPc)";
 		$table = $this->ejecutaSql($query);
 		
@@ -52,6 +53,7 @@ class OrdenadoresModel extends BaseModel{
 			$query = "UPDATE Ordenadores SET ESTADOPC = '$estadoPc' WHERE OID_PC = $oidPc";
 			$table = $this->ejecutaSql($query);
 		}
+		$this->db()->commit();
 	}
 	
 	public function deleteUso($oidU){

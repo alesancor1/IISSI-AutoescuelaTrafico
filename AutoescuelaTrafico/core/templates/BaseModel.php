@@ -43,17 +43,23 @@ class BaseModel{
     }
    
     public function ejecutaSql($query){
-        $stmt = $this->db()->query($query);
-		$res = null;
-        if($stmt == true){
-            if(strpos($query,'SELECT')!== false){
-                $res = null;
-                $rowNum = $this->rowNum($query);
-                for($i=0;$i<$rowNum;$i++)
-                    $res[$i]=$stmt->fetchObject();               
+        try{
+            $stmt = $this->db()->query($query);
+    		$res = null;
+            if($stmt == true){
+                if(strpos($query,'SELECT')!== false){
+                    $res = null;
+                    $rowNum = $this->rowNum($query);
+                    for($i=0;$i<$rowNum;$i++)
+                        $res[$i]=$stmt->fetchObject();               
+                }
             }
+            return $res;  
         }
-        return $res;       
+        catch(Exception $e){
+            $this->db()->rollBack();
+            ErrorHandler::DBChecker($e);
+        }     
     }
     public function consultaPaginada($query, $first, $last){
         $paginated = "SELECT * FROM ( SELECT ROWNUM RNUM, AUX.* FROM (".$query.") AUX WHERE ROWNUM <=".$last.") WHERE RNUM >=".$first;
