@@ -21,14 +21,14 @@
 
                     <div class = "inputText">
                         <label for="nombre"><b>NOMBRE</b></label>
-                        <input id="nom" type="text" placeholder="Nombre del alumno" name="nombre" maxlength="20" required oninput="nombreValidation()">
+                        <input id="nom" type="text" placeholder="Nombre del alumno" name="nombre" maxlength="20" required oninput="nombreValidation();">
                         <!-- Para validaciones -->
                         <p class="validateNombre"></p>
                     </div>
                     
                     <div class = "inputText">
                         <label for="apellidos"><b>APELLIDOS</b></label>
-                        <input id="apell" type="text" placeholder="Apellidos del alumno" name="apellidos" maxlength="30" required oninput="apellidosValidation()">
+                        <input id="apell" type="text" placeholder="Apellidos del alumno" name="apellidos" maxlength="30" required oninput="apellidosValidation();">
                         <!-- Para validaciones -->
                         <p class="validateApellidos"></p>
                     </div>
