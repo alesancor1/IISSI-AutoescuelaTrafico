@@ -50,7 +50,7 @@
 		LOGIN FORM
 		------------------------------------------------->
 		<div class = "form-overlay">
-			<form id="login" action="?controller=Login&action=login" method="post" class = "form-container" novalidate="false">
+			<form id="login" name="login" action="?controller=Login&action=login" method="post" class = "form-container">
 
 				<div class = "imagen">
 					<h3 class = "title">AUTOESCUELA</br>TRAFICO<h3><img class = "logo" src = "./img/autoescuela.png" alt = "logo">
@@ -58,12 +58,12 @@
 
 				<div class=usr-container>
 					<label for="uname">Usuario</label></br>
-					<input type="text" id="uname" placeholder="Inserte su usuario" name="uname" required>
+					<input type="text" id="uname" placeholder="Inserte su usuario" name="uname" required oninput="userValidation();">
 				</div>
 
 				<div class=psw-container>
 					<label for="psw">Contraseña</label></br>
-					<input type="password" id="pass" placeholder="Inserte su contraseña" name="psw" required>
+					<input type="password" id="psw" placeholder="Inserte su contraseña" name="psw" required oninput="passwordValidation();">
 				</div>
 
 				<div class=botones>
@@ -77,16 +77,16 @@
 			</form>
 		</div>
 
-		<script type="text/javascript">
+		<!-- <script type="text/javascript">
 			// Inicialización de elementos y eventos cuando el documento se carga completamente
 			$(document).ready(function() {
 
-				$("#login").submit(function() {
+				$("#login").on("submit",(function() {
 
 					return validateForm();
 				});
 			});
-		</script>
+		</script> -->
 
 	</body>
 </html>
