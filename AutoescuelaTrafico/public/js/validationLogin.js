@@ -1,39 +1,19 @@
-function validateForm() {
-
-	var error1 = passwordValidation();
-	var error2 = unameValidation();
-
-	console.log((error1.length == 0) && (error2.length == 0));
-	return ((error1.length == 0) && (error2.length == 0));
-
-}
-
-function passwordValidation() {
-	var password = document.getElementById("pass");
-
-	var pwd = password.value;
-	console.log(pwd);
-	var valid = true;
-
-	// Comprobamos la longitud de la contraseña
-	valid = valid && (pwd.length > 0);
-
-	// Si no cumple las restricciones, devolvemos un error
-	if (!valid) {
-		var error = 'Please enter a valid password! Length >= 0.';
-		$("#pass").css("border", '1px solid red');
-		$("#pass").css("background-color", "#ffeeee");
-		$(".errorPsw").text('Contraseña vacía.');
+function validateForm(){
+	var noValidation= document.getElementById("#login").novalidate;
+	
+	if(!noValidation){
+		var error1 = userValidation();
+		var error2 = passwordValidation();
 		
-	} else {
-		var error = "";
-
+		return (error1.length==0) && (error2.length==0);
 	}
-
-	return error;
+	else{
+		return true;
+	}
 }
 
-function unameValidation() {
+function userValidation() {
+	document.getElementById('uname').style.cssText = "background-color: #DBF1FF;";
 	var name = document.getElementById("uname");
 	var nombre = name.value;
 
@@ -51,9 +31,7 @@ function unameValidation() {
 		// No hay error de caracteres no permitidos
 		if (!valid) {
 			error = "No uses carácteres inválidos, las comillas.";
-			$("#uname").css("border", '1px solid red');
-			$("#uname").css("background-color", "#ffeeee");
-			$(".errorUName").text("Comillas no válidas");
+			document.getElementById('uname').style.cssText = "background-color: #FF8989;";
 		}
 		// No hay errores
 		else {
@@ -62,10 +40,35 @@ function unameValidation() {
 		// Hay error de exceso de caracteres
 	} else {
 		error = "El usuario no puede tener más de 20 carácteres.";
-			$("#uname").css("border", '1px solid red');
-			$("#uname").css("background-color", "#ffeeee");
-			$(".errorUName").text("Usuario demasiado largo.");
 	}
+	
+	name.setCustomValidity(error);
+	
 	return error;
 }
 
+function passwordValidation() {
+	var password = document.getElementById("psw");
+
+	var pwd = password.value;
+	var valid = true;
+	var noSpecialChars = true;
+
+	// Comprobamos la longitud de la contraseña
+	valid = valid && (pwd.length > 0);
+
+	//comprobamos que no contenga caracteres especiales
+	noSpecialChars = !pwd.match('[!@#$%^&*(),.?":{}|<>]') && !pwd.match("[']");
+
+	// Si no cumple las restricciones, devolvemos un error
+	if (!valid) {
+		var error = 'Por favor, introduzca una contraseña. El campo no puede estar vacio';		
+	} else if (!noSpecialChars) {
+		var error = 'La contraseña no puede contener caracteres especiales';
+	}
+	else {
+		var error = "";
+	}
+	password.setCustomValidity(error);
+	return error;
+}
