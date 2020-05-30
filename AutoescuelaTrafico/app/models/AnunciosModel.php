@@ -25,7 +25,9 @@ class AnunciosModel extends BaseModel{
         return $this->rowNum("SELECT * FROM Anuncios");
     }
     public function insert($titulo, $texto){
+        $this->db()->beginTransaction();
         $this->ejecutaSql("INSERT INTO Anuncios (Fecha,Titulo,Texto) VALUES (sysdate,'$titulo','$texto')");
+        $this->db()->commit();
     }
 }
 

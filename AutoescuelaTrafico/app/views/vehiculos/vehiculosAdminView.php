@@ -15,7 +15,7 @@
 	<div class="contenido" id="contenido">
 		<h1 style="margin: 50px 0 0 30px; transform: none; left:0;">Vehículos:</h1>
 		
-		<div class="accordionVehiculo">
+		<div class="accordionVehiculo" style="padding: 0 30px 0 30px">
 			<?php if ($infoVehiculos!=null){
 				foreach ($infoVehiculos as $num => $infoVehiculo) {
 					echo "<button class='accordionContent'>" . $infoVehiculo->MODELO . "</button>";
