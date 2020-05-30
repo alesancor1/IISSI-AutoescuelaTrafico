@@ -4,9 +4,6 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="./css/loginPage.css">
 		<!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script> -->
-
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<script src="./js/validation.js" type="text/javascript"></script>
 	</head>
 	<body>
 
