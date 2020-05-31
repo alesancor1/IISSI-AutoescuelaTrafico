@@ -28,7 +28,7 @@ class WebTestModel extends BaseModel{
 		//	Hay que paginar
 	public function getRecursosAdministrador($first = 0, $last = -1){
 		// usuario clave fechaCaducidad tiempoRestante ultimaRenovacion
-		$filtroPorUsuario = isset($_POST["filtro"]) ? $_POST["filtro"] : "";
+		$filtroPorUsuario = isset($_SESSION["formFilter"]) ? $_SESSION["formFilter"]["filtro"] : "";
 		$query = "SELECT USUARIO,CLAVEPORDEFECTO,FECHARENOVACION,FECHACADUCIDAD,TRUNC(FECHACADUCIDAD)-TRUNC(SYSDATE) FROM ALUMNOS RIGHT JOIN ACCESOWEB ON ALUMNOS.ACCESOWEB=ACCESOWEB.USUARIO";
 		$query = "SELECT * FROM ($query) Q WHERE Q.USUARIO LIKE '%$filtroPorUsuario%'";
 		$tablaRecursos = $this->ejecutaSql($query);
@@ -40,6 +40,7 @@ class WebTestModel extends BaseModel{
 				$tablaRecursos[$num] = AccesoWeb::__parse("AccesoWeb", $accesoWeb);
 			}
 		}
+		unset($_SESSION["formFilter"]); //elimina el filtro una vez se sale de la pagina
 		return $tablaRecursos;
 	}
 	

@@ -11,7 +11,7 @@ class AlumnosModel extends BaseModel {
 	// Metodos de consulta
 	// Para ListAlumnos---------------------------------------------------------------------------
 	public function getAlumnos($first = 0, $last = -1) {
-		$filtro = isset($_POST["filtro"]) ? $_POST["filtro"] : "";
+		$filtro = isset($_SESSION["formFilter"]) ? $_SESSION["formFilter"]["filtro"] : '';
 		$query = "SELECT A.* FROM Alumnos A RIGHT JOIN( SELECT DNIALUMNO,DNIPROFESOR FROM Clases C WHERE DNIPROFESOR='" . $_SESSION["cuenta"][3] . "'" . " GROUP BY DNIALUMNO,DNIPROFESOR) ON DNI=DNIALUMNO";
 		$query = "SELECT * FROM ($query) Q WHERE Q.NOMBRE LIKE '%$filtro%' OR Q.APELLIDOS LIKE '%$filtro%' OR Q.DNI LIKE '%$filtro%'";
 		$alumnos = $this -> consultaPaginada($query, $first, $last);
@@ -20,6 +20,7 @@ class AlumnosModel extends BaseModel {
 				$alumnos[$num] = Alumnos::__parse("Alumnos", $alumno);
 			}
 		}
+		unset($_SESSION["formFilter"]); //elimina el filtro una vez se sale de la pagina
 		return $alumnos;
 	}
 

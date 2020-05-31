@@ -15,7 +15,7 @@
 
 				<h1>Desglose general</h1>
 
-				<form class="form" id="" action="?controller=Administracion&action=getDesglose" method="POST">
+				<form class="form" id="" action="?controller=Validator&action=validate" method="POST">
 					<label for="mes"><b>Mes</b></label>
 					<select id="mes" name="mes">
 						<option value="">Mostrar todo</option>

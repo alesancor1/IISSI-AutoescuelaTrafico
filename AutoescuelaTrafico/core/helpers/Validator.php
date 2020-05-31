@@ -78,14 +78,31 @@ class Validator{
 				break;
 			//filtros
 			case "alumnosFilterProf":
+				$filtro = array();
+				$filtro["filtro"] = isset($_POST["filtro"]) ? $_POST["filtro"] : "";
+				//validacion
+				$_SESSION["formFilter"] = $filtro;
 				break;
 			case "alumnosFilterAdm": //select box (no se valida)
 				break;
 			case "usoVehiculosFilter":
+				$filtro = array();
+				$filtro["filtro"] = isset($_POST["filtroUsos"]) ? $_POST["filtroUsos"] : "";
+				//validacion
+				$_SESSION["formFilter"] = $filtro;
 				break;
 			case "webTestsFilter":
+				$filtro = array();
+				$filtro["filtro"] = isset($_POST["filtro"]) ? $_POST["filtro"] : "";
+				//validacion
+				$_SESSION["formFilter"] = $filtro;
 				break;
 			case "desgloseFilter":
+				$filtro = array();
+				$filtro["mes"] = isset($_POST["mes"]) ? $_POST["mes"] : "";
+				$filtro["anyo"] = isset($_POST["anyo"]) ? $_POST["anyo"] : "";
+				//validacion
+				$_SESSION["formFilter"] = $filtro;
 				break;
 		}
 		header("Location:index.php".$callback);

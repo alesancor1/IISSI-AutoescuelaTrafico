@@ -32,10 +32,10 @@ class AdministracionController extends BaseController {
 		$desglose = new AdministracionModel($this->adapter);		
 		$desglose->method='getDesgloseGeneral';
 
-		if (isset($_POST["mes"]))
-			$_SESSION["desgloseMes"] = $_POST["mes"];
-		if(isset($_POST["anyo"]))
-			$_SESSION["desgloseAnyo"] = $_POST["anyo"];
+		if (isset($_SESSION["formFilter"]["mes"]))
+			$_SESSION["desgloseMes"] = $_SESSION["formFilter"]["mes"];
+		if(isset($_SESSION["formFilter"]["anyo"]))
+			$_SESSION["desgloseAnyo"] = $_SESSION["formFilter"]["anyo"];
 		
 		if(!isset($_SESSION["paginator"])){
 			$_SESSION["paginator"] = new Paginator();
@@ -44,6 +44,7 @@ class AdministracionController extends BaseController {
 		$paginator->__init($desglose);
 		
 		$desgloseGeneral = $desglose->getDesgloseGeneral($paginator -> _start, $paginator -> _end);
+		unset($_SESSION["formFilter"]);
 		$this -> view("/administracion/indexDesgloseGeneral", array("desgloseGeneral" => $desgloseGeneral));
 	}
 }

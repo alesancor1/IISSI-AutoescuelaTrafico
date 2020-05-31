@@ -10,7 +10,7 @@
 		
 			<div class="filtros">
 				<h1>Lista de alumnos:</h1>
-				<form class="filtroForm" name="" id="filtroForm" action="?controller=Alumnos&action=listaProfesor" method="POST">
+				<form class="filtroForm" name="" id="filtroForm" action="?controller=Validator&action=validate" method="POST">
 					<input type="text" id="filtro" name="filtro" placeholder="Nombre, apellidos o DNI" oninput="setCustomValidity('');
 						var res = validateFormListAlumnosView();
 						res.length==0 ? setCustomValidity('') :  setCustomValidity(res);">

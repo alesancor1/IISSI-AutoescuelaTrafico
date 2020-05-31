@@ -14,7 +14,7 @@ class VehiculosModel extends BaseModel{
 	//	ADMINISTRADOR
 	
 	public function getUsosPorAlumno(){
-		$filtro = isset($_POST["filtroUsos"]) ? $_POST["filtroUsos"] : "";
+		$filtro = isset($_SESSION["formFilter"]) ? $_SESSION["formFilter"]["filtro"] : "";
 
 		$query = "SELECT NOMBRE,APELLIDOS,MODELO,MATRICULA,ESTADO FROM ALUMNOCONDUCETURISMOS LEFT JOIN TURISMOS ON TURISMO = MATRICULA LEFT JOIN ALUMNOS ON DNI = ALUMNO
 			UNION
@@ -22,6 +22,8 @@ class VehiculosModel extends BaseModel{
 		$query = "SELECT * FROM ($query) Q 
 			WHERE Q.NOMBRE LIKE '%$filtro%' OR Q.APELLIDOS LIKE '%$filtro%' OR Q.MODELO LIKE '%$filtro%' OR Q.MATRICULA LIKE '%$filtro%'";
 		$tabla = $this->ejecutaSql($query);
+
+		unset($_SESSION["formFilter"]); //elimina el filtro una vez se sale de la pagina
 		return $tabla;
 	}
 	
