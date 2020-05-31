@@ -4,6 +4,8 @@ class Validator{
 	public static function validate(){
 		$formId = $_POST["validateForm"];  //en esta variable viene un Id desde cada formulario del proyecto
 		$callback = $_POST["callbackUri"];
+		$callbackError = $_POST["callbackError"];
+
 		$errors = array();
 		switch ($formId){
 			//insert-forms
@@ -11,8 +13,9 @@ class Validator{
 				$user = array();
 				$user["uname"] = $_POST["uname"];
 				$user["psw"] = $_POST["psw"];
-				//validacion
 				$_SESSION["formInput"] = $user;
+				//validacion
+				$errors = array_merge($errors, Validator::validateText($user));
 				break;
 			case "anunciosForm":
 				$anuncio = array();
@@ -107,7 +110,7 @@ class Validator{
 		}
 		if(count($errors)>0){
 			$_SESSION["errores"] = $errors;
-			//header a un callback de error
+			header("Location:index.php".$callbackError);
 		}
 		else
 			header("Location:index.php".$callback);

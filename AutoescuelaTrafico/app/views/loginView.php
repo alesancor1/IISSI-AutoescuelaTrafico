@@ -56,6 +56,16 @@
 					<h3 class = "title">AUTOESCUELA</br>TRAFICO<h3><img class = "logo" src = "./img/autoescuela.png" alt = "logo">
 				</div>
 
+				<!-- imprime errores de validacion en servidor -->
+				<?php if(isset($_SESSION["errores"])){ ?>
+					<div class = "errorMessage">
+						<?php foreach($_SESSION["errores"] as $error){
+							   echo $error;			  
+							}
+						unset($_SESSION["errores"]); ?>	
+					</div> <?php
+				} ?>
+
 				<div class=usr-container>
 					<label for="uname">Usuario</label></br>
 					<input type="text" id="uname" placeholder="Inserte su usuario" name="uname" required oninput="userValidation();">
@@ -82,7 +92,7 @@
 				<!-- para el ValidatorPHP -->
 				<input type="hidden" name = "validateForm" value = "loginForm">
 				<input type="hidden" name = "callbackUri" value = "?controller=Login&action=login">
-				<input type="hidden" name = "callbackError" value = "?controller=Login&action=login">
+				<input type="hidden" name = "callbackError" value = "?controller=Login">
 			</form>
 		</div>
 	</body>
