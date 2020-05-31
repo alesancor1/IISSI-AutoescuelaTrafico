@@ -74,7 +74,7 @@ class Validator{
 				$usoPc["estadoPc"] = $_POST["estadoPc"];
 				$usoPc["oidPc"] = $_POST["oidPc"];
 				//validacion
-				$_SESSION["formInput"] = $ordenador;
+				$_SESSION["formInput"] = $usoPc;
 				break;
 			//filtros
 			case "alumnosFilterProf":
@@ -108,6 +108,11 @@ class Validator{
 		header("Location:index.php".$callback);
 	}
 	/*FUNCIONES DE VALIDACION*/
+	private function validateText($textArr){
+		foreach ($textArr as $text) {
+			if(!preg_match("[]", $text));
+		}
+	}
 	private function validateDNI($dni){	//validacion de DNI
 		$letra = substr($dni,-1);
 		$numeroDNI = substr($dni, 0, 8);
