@@ -346,9 +346,6 @@ CREATE TABLE Login (
     
     PRIMARY KEY (Usuario)
 );
-INSERT INTO Login VALUES ('profesor1','82939193S','traficoPROF','Profesor');
-INSERT INTO Login VALUES ('alumno1','77850301Q','traficoALUM','Alumno');
-INSERT INTO Login VALUES ('administrador1','71456891V','traficoADM','Administrador');
 
 CREATE TABLE Anuncios (
     OID_ANUN NUMBER,

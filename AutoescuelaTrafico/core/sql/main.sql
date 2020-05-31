@@ -19,13 +19,16 @@ CONNECT AutoEscuelaTrafico/IISSI;
 @"RestriccionesTablasVdef.sql";              --script de restricciones de tablas
 @"SecuenciasyTriggersSecVdef.sql"            --script de secuencias y triggers asociados
 @"TriggersRNVdef.sql";                   --script de triggers no asociados a sec
-@"Procedimientos_y_FuncionesVdef.sql";   --script procedimientos y funciones
+--@"Procedimientos_y_FuncionesVdef.sql";   --script procedimientos y funciones
 @"PAQUETESVdef.sql";                     --script de paquetes
-@"tutoriasDatos.sql";					 --datos para la tabla de tutorias
 
---CONNECT AutoEscuelaTrafico/IISSI;
-@"PruebasPaquetesVdef.sql";       --pruebas de paquetes
+DISCONNECT;
+
+CONNECT AutoEscuelaTrafico/IISSI;
+--@"PruebasPaquetesVdef.sql";       --pruebas de paquetes
 --@"PruebasProcFuncionesVdef.sql";      --pruebas procedimientos
+@"insercionDatos.sql";
+@"tutoriasDatos.sql";					 --datos para la tabla de tutorias
 
 -- Cierre automático de la conexion--
 
