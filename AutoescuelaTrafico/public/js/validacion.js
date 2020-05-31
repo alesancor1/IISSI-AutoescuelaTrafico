@@ -184,6 +184,27 @@ function validateTelefono(){
 	return resultado;
 }
 
+function soloNumeros(){
+	var num = document.getElementById("anyo");
+	var numero = num.value;
+	document.getElementById('anyo').style.cssText = "background-color: #DBF1FF;";
+	
+	if(numero.length >= 6){
+		error = 'Año demasiado largo.';
+		document.getElementById('anyo').style.cssText = "background-color: #FF8989;";
+	}
+	else if(!/[0-9]*/.test(numero)){
+		error = 'Usa números.';
+		document.getElementById('anyo').style.cssText = "background-color: #FF8989;";
+	}
+	else {
+		error = "";
+		document.getElementById('anyo').style.cssText = "background-color: #DBF1FF;";
+	}
+	num.setCustomValidity(error);
+	return (error.length == 0);
+}
+
 function letraDNI(numeroDNI) {
 	var numero = numeroDNI % 23;
 	var letra = "";
