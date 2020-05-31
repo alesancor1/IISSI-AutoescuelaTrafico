@@ -115,5 +115,9 @@ class ErrorHandler{
 		      window.location.href='".$uri."';
 			 </script>";	
 	}
+
+	public static function unknownError($exception=null){
+		BaseController::view("error",array("tipo"=>$exception));
+	}
 }
 ?>

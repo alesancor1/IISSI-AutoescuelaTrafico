@@ -11,7 +11,7 @@ function loadController($controller){
 		ErrorHandler::check($controller);
 
 	if(!is_file($strFileController)){
-		$strFileController=__DIR__.'/../app/controllers/'.ucwords(DEFAULT_CONTROLLER).'Controller.php';
+		ErrorHandler::unknownError();
 	}
 
 	require_once $strFileController;
@@ -19,8 +19,8 @@ function loadController($controller){
 	return $controllerObj;
 }
 function loadAction($controllerObj, $action){
-	$action = $action;
-	$controllerObj->$action();
+		$action = $action;
+		$controllerObj->$action();
 }
 
 function doAction($controllerObj){
@@ -28,7 +28,10 @@ function doAction($controllerObj){
 		loadAction($controllerObj, $_GET["action"]);
 	}
 	else{
-		loadAction($controllerObj, DEFAULT_ACTION);
+		if(!method_exists($controllerObj, DEFAULT_ACTION))
+			ErrorHandler::unknownError();
+		else
+			loadAction($controllerObj, DEFAULT_ACTION);	
 	}
 }
 ?>
