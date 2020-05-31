@@ -16,12 +16,13 @@ function validateAnyo(){
 	var error;
 	
 	var resultado = true;
+	console.log(numero);
 	if(numero <= 1900){
 		error = 'Años a partir de 1900.';
 		$("#anyo").css("border", '1px solid red');
 		$("#anyo").css("background", '#ffeeee');
 		resultado = false;
-	} else if(numero > date('Y')){
+	} else if(numero > new Date().getFullYear()){
 		error = 'Años anteriores al año actual.';
 		$("#anyo").css("border", '1px solid red');
 		$("#anyo").css("background", '#ffeeee');
