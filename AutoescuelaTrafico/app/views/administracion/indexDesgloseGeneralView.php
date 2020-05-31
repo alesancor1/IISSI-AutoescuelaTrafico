@@ -19,8 +19,8 @@
 					<label for="mes"><b>Mes</b></label>
 					<select id="mes" name="mes">
 						<option value="">Mostrar todo</option>
-						<option value="1">Enero</option>
-						<option value="2">Febrero</option>
+						<option value="Enero">Enero</option>
+						<option value="Febrero">Febrero</option>
 						<option value="3">Marzo</option>
 						<option value="4">Abril</option>
 						<option value="5">Mayo</option>

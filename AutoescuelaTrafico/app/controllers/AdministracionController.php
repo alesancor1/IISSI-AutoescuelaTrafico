@@ -29,9 +29,13 @@ class AdministracionController extends BaseController {
 	}
 	
 	public function getDesglose(){
-		$desglose = new AdministracionModel($this->adapter);
-		
+		$desglose = new AdministracionModel($this->adapter);		
 		$desglose->method='getDesgloseGeneral';
+
+		if (isset($_POST["mes"]))
+			$_SESSION["desgloseMes"] = $_POST["mes"];
+		if(isset($_POST["anyo"]))
+			$_SESSION["desgloseAnyo"] = $_POST["anyo"];
 		
 		if(!isset($_SESSION["paginator"])){
 			$_SESSION["paginator"] = new Paginator();

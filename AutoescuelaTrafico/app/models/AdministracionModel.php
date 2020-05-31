@@ -23,8 +23,8 @@ class AdministracionModel extends BaseModel {
 					break;
 					
 			case 'getDesgloseGeneral':
-					$filtroMes = isset($_POST["mes"]) ? $_POST["mes"] : "";
-					$filtroAnyo = isset($_POST["anyo"]) ? $_POST["anyo"] : "";
+					$filtroMes = isset($_SESSION["desgloseMes"]) ? $_SESSION["desgloseMes"] : "";
+					$filtroAnyo = isset($_SESSION["desgloseAnyo"]) ? $_SESSION["desgloseAnyo"] : "";
 					return $this->rowNum("SELECT MES,ANYO,PAGOCLASES,MATRICULAS,ITVT,ITVM,PAGOTASAS,REPARAT,REPARAM,SALARIOS,SEGMENS,SEGANU,SEGSEM,SUM(SEGTRIM.IMPORTECUOTA)SEGTRIM FROM(
 	 			SELECT MES,ANYO,PAGOCLASES,MATRICULAS,ITVT,ITVM,PAGOTASAS,REPARAT,REPARAM,SALARIOS,SEGMENS,SEGANU,SUM(SEGSEM.IMPORTECUOTA)SEGSEM FROM(
 	 			SELECT MES,ANYO,PAGOCLASES,MATRICULAS,ITVT,ITVM,PAGOTASAS,REPARAT,REPARAM,SALARIOS,SEGMENS,SUM(SEGANU.IMPORTECUOTA)SEGANU FROM(
@@ -115,8 +115,8 @@ class AdministracionModel extends BaseModel {
 	}
 	
 	public function getDesgloseGeneral($first = 0, $last = -1){
-		$filtroMes = isset($_POST["mes"]) ? $_POST["mes"] : "";
-		$filtroAnyo = isset($_POST["anyo"]) ? $_POST["anyo"] : "";
+		$filtroMes = isset($_SESSION["desgloseMes"]) ? $_SESSION["desgloseMes"] : "";
+		$filtroAnyo = isset($_SESSION["desgloseAnyo"]) ? $_SESSION["desgloseAnyo"] : "";
 		$query = "SELECT MES,ANYO,PAGOCLASES,MATRICULAS,ITVT,ITVM,PAGOTASAS,REPARAT,REPARAM,SALARIOS,SEGMENS,SEGANU,SEGSEM,SUM(SEGTRIM.IMPORTECUOTA)SEGTRIM FROM(
  			SELECT MES,ANYO,PAGOCLASES,MATRICULAS,ITVT,ITVM,PAGOTASAS,REPARAT,REPARAM,SALARIOS,SEGMENS,SEGANU,SUM(SEGSEM.IMPORTECUOTA)SEGSEM FROM(
  			SELECT MES,ANYO,PAGOCLASES,MATRICULAS,ITVT,ITVM,PAGOTASAS,REPARAT,REPARAM,SALARIOS,SEGMENS,SUM(SEGANU.IMPORTECUOTA)SEGANU FROM(
