@@ -166,9 +166,9 @@
   margin-left: -25%;
   width: 50%;
   height: 200px;
-  border: 2px solid red;
+  border: 2px solid yellow;
   padding: 20px;
-  background-color: #ffeeee;
+  background-color: #FDFFC5;
 }
 .infoText p{
   width: 100%;
