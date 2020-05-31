@@ -48,59 +48,71 @@ class AlumnosController extends BaseController {
 		
 		//----------------------------------------------------------------
 		$resultado = array();
-
-		foreach ($listaTeorico as $num => $teo) {
-			// variable de nombre + apellidos
-			$nombreApellidos = $teo -> NOMBRE . " " . $teo -> APELLIDOS;
-			// Si el array de claves del 'array_map' resultado contiene el nombre
-			// se añade el examen
-			if (array_key_exists($nombreApellidos, $resultado))
-				array_push($resultado[$nombreApellidos], $teo);
-			// En caso de no tener la clave se crea una clave con ese nombre y se le
-			// asocia un array vacio al que se le añade el examen
-			else {
-				$resultado[$nombreApellidos] = array();
-				array_push($resultado[$nombreApellidos], $teo);
+		
+		if($listaTeorico!=null){
+			foreach ($listaTeorico as $num => $teo) {
+				// variable de nombre + apellidos
+				$nombreApellidos = $teo -> NOMBRE . " " . $teo -> APELLIDOS;
+				// Si el array de claves del 'array_map' resultado contiene el nombre
+				// se añade el examen
+				if (array_key_exists($nombreApellidos, $resultado))
+					array_push($resultado[$nombreApellidos], $teo);
+				// En caso de no tener la clave se crea una clave con ese nombre y se le
+				// asocia un array vacio al que se le añade el examen
+				else {
+					$resultado[$nombreApellidos] = array();
+					array_push($resultado[$nombreApellidos], $teo);
+				}
 			}
 		}
-		foreach ($listaPracticoC as $num => $pC) {
-			$nombreApellidos = $pC -> NOMBRE . " " . $pC -> APELLIDOS;
-			if (array_key_exists($nombreApellidos, $resultado))
-				array_push($resultado[$nombreApellidos], $pC);
-			else {
-				$resultado[$nombreApellidos] = array();
-				array_push($resultado[$nombreApellidos], $pC);
+		
+		if($listaPracticoC!=null){
+			foreach ($listaPracticoC as $num => $pC) {
+				$nombreApellidos = $pC -> NOMBRE . " " . $pC -> APELLIDOS;
+				if (array_key_exists($nombreApellidos, $resultado))
+					array_push($resultado[$nombreApellidos], $pC);
+				else {
+					$resultado[$nombreApellidos] = array();
+					array_push($resultado[$nombreApellidos], $pC);
+				}
 			}
 		}
-		foreach ($listaPracticoP as $num => $pP) {
-			$nombreApellidos = $pP -> NOMBRE . " " . $pP -> APELLIDOS;
-			if (array_key_exists($nombreApellidos, $resultado))
-				array_push($resultado[$nombreApellidos], $pP);
-			else {
-				$resultado[$nombreApellidos] = array();
-				array_push($resultado[$nombreApellidos], $pP);
+		
+		if($listaPracticoP!=null){
+			foreach ($listaPracticoP as $num => $pP) {
+				$nombreApellidos = $pP -> NOMBRE . " " . $pP -> APELLIDOS;
+				if (array_key_exists($nombreApellidos, $resultado))
+					array_push($resultado[$nombreApellidos], $pP);
+				else {
+					$resultado[$nombreApellidos] = array();
+					array_push($resultado[$nombreApellidos], $pP);
+				}
 			}
 		}
 		
 		// Los ultimos examenes
 
 		$resultado2 = $resultado;
-		foreach ($resultado2 as $alumno => $examenes) {
-			if ($alumno != null && sizeof($examenes) >= 1) {
-				$actual = $examenes[0];
-				for ($i = 0; $i < (sizeof($examenes) - 1); $i++) {
-					if (($actual -> FECHA) != funciones::dateComparator($actual -> FECHA, $examenes[$i + 1] -> FECHA)) {
-						$actual = $examenes[$i + 1];
+		
+		if($resultado2!=null){
+			foreach ($resultado2 as $alumno => $examenes) {
+				if ($alumno != null && sizeof($examenes) >= 1) {
+					$actual = $examenes[0];
+					for ($i = 0; $i < (sizeof($examenes) - 1); $i++) {
+						if (($actual -> FECHA) != funciones::dateComparator($actual -> FECHA, $examenes[$i + 1] -> FECHA)) {
+							$actual = $examenes[$i + 1];
+						}
 					}
 				}
+				$nombreApellidos = $actual -> NOMBRE . " " . $actual -> APELLIDOS;
+				$resultado2[$nombreApellidos] = $actual;
 			}
-			$nombreApellidos = $actual -> NOMBRE . " " . $actual -> APELLIDOS;
-			$resultado2[$nombreApellidos] = $actual;
 		}
 		//----------------------------------------------------------------
 		
 		$this -> view("/alumnos/ListaCalificaciones", array("resultado" => $resultado, "resultado2" => $resultado2));
 	}
+
 
 	//	ADMINISTRADOR
 

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
-	<title>Anuncios</title>
 
 	<head>
 		<link rel="stylesheet" href="./css/tables.css">
 		<link rel="stylesheet" type="text/css" href="./css/accordionAndTabs.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<title>Gestión de clases</title>
 
 	</head>
 	<body>

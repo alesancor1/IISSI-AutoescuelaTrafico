@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
 	<link rel="stylesheet" href="./css/tables.css">
+	<title>WebTest alumno</title>
 </head>
 
 <html>

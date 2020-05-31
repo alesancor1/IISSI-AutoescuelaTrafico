@@ -27,7 +27,11 @@
 							echo "<td>" . $clase->OID_C . "</td>";
 							echo "<td>" . $clase->FECHA . "</td>";
 							echo "<td>" . $clase->HORAINICIO . "</td>";
-							echo "<td>" . $clase->CANTIDAD . "</td>";
+							if ($clase->CANTIDAD == null) {
+								echo "<td>Incluidas en oferta</td>";
+							} else{
+								echo "<td>" . $clase->CANTIDAD . "</td>";
+							}
 							echo "</tr>";
 						}
 					}

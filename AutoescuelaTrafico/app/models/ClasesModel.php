@@ -45,8 +45,8 @@ class ClasesModel extends BaseModel {
 	 
 	 //info de clases impartidas
 	 public function getInformacionAlumno($first = 0, $last = -1){
-		$query = "SELECT OID_C, C.Fecha, C.HoraInicio, Cantidad FROM Clases C RIGHT JOIN PagoClases PaC ON PaC.OID_PaC = C.PagoClase WHERE DNIALUMNO = '" . $_SESSION["cuenta"][3] . "' AND TO_DATE(CONCAT(CONCAT(TO_CHAR(C.FECHA),':'), TO_CHAR(C.HORAINICIO)),'DD/MM/YYYY HH24:Mi')<SYSDATE ORDER BY OID_C ASC";
-		$clases = $this -> consultaPaginada($query, $first, $last);
+		$query = "SELECT OID_C, C.Fecha, C.HoraInicio, Cantidad FROM Clases C LEFT JOIN PagoClases PaC ON PaC.OID_PaC = C.PagoClase WHERE DNIALUMNO = '" . $_SESSION["cuenta"][3] . "' AND TO_DATE(CONCAT(CONCAT(TO_CHAR(C.FECHA),':'), TO_CHAR(C.HORAINICIO)),'DD/MM/YYYY HH24:Mi')<SYSDATE ORDER BY OID_C ASC";
+		$clases = $this -> ejecutaSql($query);
 		return $clases;
 	 }
 

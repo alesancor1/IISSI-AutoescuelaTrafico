@@ -55,7 +55,13 @@
 							echo "<td>" . $ordenador->FECHA . "</td>";
 							echo "<td>" . $ordenador->HORACOMIENZO . "</td>";
 							echo "<td>" . $ordenador->HORAFIN . "</td>";
-							echo "<td>" . $ordenador->TIEMPOUSO  . " horas</td>";
+							
+							if(preg_match("/^[0-9]{0},[0-9]{0,2}/", $ordenador->TIEMPOUSO)){
+								echo "<td>0" . $ordenador->TIEMPOUSO  . " horas</td>";
+							} else {
+								echo "<td>" . $ordenador->TIEMPOUSO  . " horas</td>";
+							}
+							
 							echo "<td class='buttons'>";
 						}
 						echo "<form action='?controller=Ordenadores&action=deletePc' method='post'>";

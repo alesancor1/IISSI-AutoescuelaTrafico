@@ -33,7 +33,8 @@ class OrdenadoresController extends BaseController{
 	
 	public function verUsos(){
 		$usos = new OrdenadoresModel($this->adapter);
-		$verUsos = $usos->verUsos($_POST["oidPc"]);
+		$oidPc = isset($_POST["oidPc"])? $_POST["oidPc"] : $_SESSION["formInput"]["oidPc"];
+		$verUsos = $usos->verUsos($oidPc);
 		$this -> view("/ordenadores/usosPc", array("verUsos" => $verUsos));
 	}
 	
