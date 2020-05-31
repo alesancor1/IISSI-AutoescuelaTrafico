@@ -4,6 +4,7 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="./css/loginPage.css">
 		<!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script> -->
+		<title>Iniciar sesión</title>
 	</head>
 	<body>
 

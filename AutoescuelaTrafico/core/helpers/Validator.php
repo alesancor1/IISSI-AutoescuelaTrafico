@@ -21,8 +21,9 @@ class Validator{
 				$anuncio = array();
 				$anuncio["titulo"] = $_POST["titulo"];
 				$anuncio["descripcion"] = $_POST["descripcion"];
-				//validacion
 				$_SESSION["formInput"] = $anuncio;
+				//validacion
+				$errors = array_merge($errors, Validator::validateText($anuncio));
 				break;
 			case "alumnosForm":
 				$alumno = array();
@@ -119,7 +120,7 @@ class Validator{
 	private function validateText($textArr){
 		$error = array();
 		foreach ($textArr as $text) {
-			if(!preg_match("/'/", $text) || !preg_match('/"/', $text)){
+			if(preg_match("/'+/", $text) || preg_match('/"+/', $text)){
 				$error[] = "<p>El campo de texto no debe contener comillas</p>";
 				break;
 			}
@@ -169,6 +170,42 @@ class Validator{
 		}
 		return $error;
 	}
+
+	private function validateAnyo($anyo){
+    $error = array();
+
+    if($anyo <= 1900){
+        $error[] = "<p>Años a partir de 1900.</p>";
+    } else if($anyo > date("Y")){
+        $error[] = "<p>Años anteriores al año actual.</p>";
+    } else if(!preg_match("/[0-9]{4}/", $anyo)){
+        $error[] = "<p>Utilice un formato adecuado para el año introducido.</p>";
+    }
+    return $error;
+	}
+
+	private function validateSalario($salario){
+	    $error = array();
+
+	    if(salario==''){
+	        $error[] = "<p>Inserte un valor para el salario.</p>";
+	    } else if(!preg_match("/^[0-9]{0,4}$/", $salario)){
+	        $error[] = "<p>El salario ha de ser positivo y estar comprendido entre 0 y 5000.</p>";
+	    }
+	    return $error;
+	}
+
+	private function validateNSS($nss){
+	    $error = array();
+
+	    if($nss==''){
+	        $error[] = "<p>Inserte un número de la Seguridad Social.</p>";
+	    } else if(!preg_match("/[0-9]{2} [0-9]{10}/", $nss)){
+	        $error[] = "<p>Formato incorrecto, compruebe el dato introducido.</p>";
+	    }
+	    return $error;
+	}
+
 	private function letraDNI($dni){
 		$num = $dni % 23;
 		$letra = '';
