@@ -133,6 +133,7 @@ class Validator{
 		}
 		if(count($errors)>0){
 			$_SESSION["errores"] = $errors;
+			unset($_SESSION["formFilter"]);
 			header("Location:index.php".$callbackError);
 		}
 		else
