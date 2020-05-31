@@ -4,7 +4,7 @@ class Validator{
 	public static function validate(){
 		$formId = $_POST["validateForm"];  //en esta variable viene un Id desde cada formulario del proyecto
 		$callback = $_POST["callbackUri"];
-
+		$errors = array();
 		switch ($formId){
 			//insert-forms
 			case "loginForm":
@@ -105,20 +105,30 @@ class Validator{
 				$_SESSION["formFilter"] = $filtro;
 				break;
 		}
-		header("Location:index.php".$callback);
+		if(count($errors)>0){
+			$_SESSION["errores"] = $errors;
+			//header a un callback de error
+		}
+		else
+			header("Location:index.php".$callback);
 	}
 	/*FUNCIONES DE VALIDACION*/
 	private function validateText($textArr){
+		$error = array();
 		foreach ($textArr as $text) {
-			if(!preg_match("[]", $text));
+			if(!preg_match("/'/", $text) || !preg_match('/"/', $text)){
+				$error[] = "<p>El campo de texto no debe contener comillas</p>";
+				break;
+			}
 		}
+		return $error;
 	}
 	private function validateDNI($dni){	//validacion de DNI
 		$letra = substr($dni,-1);
 		$numeroDNI = substr($dni, 0, 8);
 		$error = array();
 
-		if(!strlen($dni)==9 || !preg_match("[0-9]{8}[A-Z]", $dni)){
+		if(!strlen($dni)==9 || !preg_match("/[0-9]{8}[A-Z]/", $dni)){
 			$error[] = "<p>Introduzca un DNI válido</p>";
 		} else if($letra != letraDNI($numeroDNI)){
 			$error[] = "<p>El DNI debe contener la letra adecuada</p>";
@@ -129,7 +139,7 @@ class Validator{
 	}
 	private function validateNombre($nombre){
 		$error = array();
-		if(!preg_match("^[A-Za-z ,.'-]+$", $nombre)){
+		if(!preg_match("/^[A-Za-z ,.'-]+$/", $nombre)){
 			$error[] = "<p>Introduzca un nombre válido</p>";
 		} else if($nombre == ''){
 			$error[] = "<p>Introduzca un nombre</p>";
@@ -138,7 +148,7 @@ class Validator{
 	}
 	private function validateApellidos($apellidos){
 		$error = array();
-		if(!preg_match("^[A-Za-z ,.'-]+$", $apellidos)){
+		if(!preg_match("/^[A-Za-z ,.'-]+$/", $apellidos)){
 			$error[] = "<p>Introduzca apellidos válidos</p>";
 		} else if($apellidos == ''){
 			$error[] = "<p>Introduzca apellidos</p>";
@@ -149,7 +159,7 @@ class Validator{
 		$error = array();
 		if($telefono == ''){
 			$error[] = 'introduzca su número de teléfono';
-		} else if(!preg_match("[0-9]{9}", $telefono)){
+		} else if(!preg_match("/[0-9]{9}/", $telefono)){
 			$error[] = 'el número de teléfono sólo debe contener números';
 		} else if(strlen($telefono)>9){
 			$error[] = 'Introduzca un número de teléfono con 9 caracteres';
