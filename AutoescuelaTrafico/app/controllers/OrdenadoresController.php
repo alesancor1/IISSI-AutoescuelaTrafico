@@ -20,7 +20,8 @@ class OrdenadoresController extends BaseController{
 	
 	public function addPc(){
 		$ordenadores = new OrdenadoresModel($this -> adapter);
-		$addOrdenador = $ordenadores->insertPc(isset($_POST["estadoPc"]) ? $_POST["estadoPc"] : null, $_POST["modelo"], $_POST["so"]);
+		$ordenador = $_SESSION["formInput"];
+		$addOrdenador = $ordenadores->insertPc($ordenador["estadoPc"], $ordenador["modelo"], $ordenador["so"]);
 		funciones::redirect("Ordenadores");
 	}
 	
@@ -38,7 +39,8 @@ class OrdenadoresController extends BaseController{
 	
 	public function addUso(){
 		$usos = new OrdenadoresModel($this->adapter);
-		$addUso = $usos->addUso($_POST["fechaUso"], $_POST["horaComienzo"], $_POST["horaFin"], $_POST["dni"], $_POST["oidPc"], isset($_POST["estadoPc"]) ? $_POST["estadoPc"] : null);
+		$uso = $_SESSION["formInput"];
+		$addUso = $usos->addUso($uso["fechaUso"], $uso["horaComienzo"], $uso["horaFin"], $uso["dni"], $uso["oidPc"], isset($uso["estadoPc"]) ? $uso["estadoPc"] : null);
 		$this->verUsos();
 	}
 	

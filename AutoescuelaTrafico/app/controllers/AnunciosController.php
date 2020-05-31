@@ -28,7 +28,8 @@ class AnunciosController extends BaseController {
 
 	public function enviar(){
 		$anuncios = new AnunciosModel($this -> adapter);
-		$insertarAnuncios = $anuncios -> insert($_POST["titulo"],$_POST["descripcion"]);
+		$anuncio = $_SESSION["formInput"];
+		$insertarAnuncios = $anuncios -> insert($anuncio["titulo"],$anuncio["descripcion"]);
 		funciones::redirect("Anuncios");
 	}
 }

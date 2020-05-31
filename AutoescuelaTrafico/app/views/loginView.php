@@ -50,7 +50,7 @@
 		LOGIN FORM
 		------------------------------------------------->
 		<div class = "form-overlay">
-			<form id="login" name="login" action="?controller=Login&action=login" method="post" class = "form-container">
+			<form id="login" name="login" action="?controller=Validator&action=validate" method="post" class = "form-container">
 
 				<div class = "imagen">
 					<h3 class = "title">AUTOESCUELA</br>TRAFICO<h3><img class = "logo" src = "./img/autoescuela.png" alt = "logo">

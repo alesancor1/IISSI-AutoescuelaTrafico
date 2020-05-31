@@ -34,7 +34,8 @@ class VehiculosController extends BaseController{
 	
 	public function addTaller(){
 		$talleres = new VehiculosModel($this->adapter);
-		$addTaller = $talleres->addTaller($_POST["nombreTaller"], $_POST["direccionTaller"], $_POST["telefono"]);
+		$taller = $_SESSION["formInput"];
+		$addTaller = $talleres->addTaller($taller["nombreTaller"], $taller["direccionTaller"], $taller["telefono"]);
 		funciones::redirect("Vehiculos", "getUsosYTalleres");
 	}
 	

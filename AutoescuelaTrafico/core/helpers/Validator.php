@@ -8,20 +8,73 @@ class Validator{
 		switch ($formId){
 			//insert-forms
 			case "loginForm":
+				$user = array();
+				$user["uname"] = $_POST["uname"];
+				$user["psw"] = $_POST["psw"];
+				//validacion
+				$_SESSION["formInput"] = $user;
 				break;
 			case "anunciosForm":
+				$anuncio = array();
+				$anuncio["titulo"] = $_POST["titulo"];
+				$anuncio["descripcion"] = $_POST["descripcion"];
+				//validacion
+				$_SESSION["formInput"] = $anuncio;
 				break;
 			case "alumnosForm":
+				$alumno = array();
+				$alumno["dni"] = $_POST["dni"];
+				$alumno["nombre"] = $_POST["nombre"];
+				$alumno["apellidos"] = $_POST["apellidos"];
+				$alumno["fechaNacimiento"] = $_POST["fechaNacimiento"];
+				$alumno["permiso"] = $_POST["permiso"];
+				//validacion
+				$_SESSION["formInput"] = $alumno;
 				break;
 			case "profesorForm":
+				$profesor = array();
+				$profesor["dni"] = $_POST["dni"];
+				$profesor["nombre"] = $_POST["nombre"];
+				$profesor["apellidos"] = $_POST["apellidos"];
+				$profesor["fechaContrato"] = $_POST["fechaContrato"];
+				$profesor["telefono"] = $_POST["telefono"];
+				$profesor["salario"] = $_POST["salario"];
+				$profesor["nss"] = $_POST["nss"];
+				//validacion
+				$_SESSION["formInput"] = $profesor;
 				break;
 			case "talleresForm":
+				$taller = array();
+				$taller["nombreTaller"] = $_POST["nombreTaller"];
+				$taller["direccionTaller"] = $_POST["direccionTaller"];
+				$taller["telefono"] = $_POST["telefono"];
+				//validacion
+				$_SESSION["formInput"] = $taller;
 				break;
 			case "accesoWebForm":
+				$accesoWeb = array();
+				$accesoWeb["dni"] = $_POST["dni"];
+				//validacion
+				$_SESSION["formInput"] = $accesoWeb;
 				break;
 			case "ordenadoresForm":
+				$ordenador = array();
+				$ordenador["estadoPc"] = isset($_POST["estadoPc"]) ? $_POST["estadoPc"] : "Nuevo";
+				$ordenador["modelo"] = $_POST["modelo"];
+				$ordenador["so"] = $_POST["so"];
+				//validacion
+				$_SESSION["formInput"] = $ordenador;
 				break;
 			case "usoPcForm":
+				$usoPc = array();
+				$usoPc["dni"] = $_POST["dni"];
+				$usoPc["fechaUso"] = $_POST["fechaUso"];
+				$usoPc["horaComienzo"] = $_POST["horaComienzo"];
+				$usoPc["horaFin"] = $_POST["horaFin"];
+				$usoPc["estadoPc"] = $_POST["estadoPc"];
+				$usoPc["oidPc"] = $_POST["oidPc"];
+				//validacion
+				$_SESSION["formInput"] = $ordenador;
 				break;
 			//filtros
 			case "alumnosFilterProf":

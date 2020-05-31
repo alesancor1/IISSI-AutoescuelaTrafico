@@ -18,10 +18,11 @@ class LoginController extends BaseController {
 
 	public function login() {
 		$loginModel = new LoginModel($this->adapter);
+		$user = $_SESSION["formInput"];
 		
-		if(isset($_POST["uname"]) && isset($_POST["psw"])){
+		if(isset($user["uname"]) && isset($user["psw"])){
 			
-			$row = $loginModel->getByLogin($_POST["uname"], $_POST["psw"]);
+			$row = $loginModel->getByLogin($user["uname"], $user["psw"]);
 			$tipo = null; $dni=null;
 			if(isset($row)){
 				$tipo = $row[0]->TIPO;
@@ -31,7 +32,7 @@ class LoginController extends BaseController {
 			if($tipo != 'Profesor' AND $tipo != 'Alumno' AND $tipo != 'Administrador'){
 				$this->view("login", array("error"=>TRUE));
 			} else {
-				$_SESSION["cuenta"] = array($_POST["uname"], $_POST["psw"], $tipo, $dni);
+				$_SESSION["cuenta"] = array($user["uname"], $user["psw"], $tipo, $dni);
 				funciones::redirect("Anuncios");
 			}
 		}

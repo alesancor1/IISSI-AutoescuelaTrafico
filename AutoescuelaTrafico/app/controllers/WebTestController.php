@@ -29,7 +29,8 @@ class WebTestController extends BaseController{
 	
 	public function enviar() {
 		$accesoWeb = new WebTestModel($this->adapter);
-		$insertarAccesoWeb = $accesoWeb -> insertAccesoWeb($_POST["dni"]);
+		$webaccess = $_SESSION["formInput"];
+		$insertarAccesoWeb = $accesoWeb -> insertAccesoWeb($webaccess["dni"]);
 		funciones::redirect("WebTest", "indexRecursosWebTest");
 	}
 	

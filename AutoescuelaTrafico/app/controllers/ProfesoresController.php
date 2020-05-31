@@ -25,7 +25,8 @@ class ProfesoresController extends BaseController {
 	
 	public function addProfesor(){
 		$profesores = new ProfesoresModel($this -> adapter);
-		$addProfesor = $profesores->addProfesor($_POST["dni"], $_POST["nombre"], $_POST["apellidos"], $_POST["fechaContrato"], $_POST["telefono"], $_POST["salario"], $_POST["nss"]);
+		$profesor = $_SESSION["formInput"];
+		$addProfesor = $profesores->addProfesor($profesor["dni"], $profesor["nombre"], $profesor["apellidos"], $profesor["fechaContrato"], $profesor["telefono"], $profesor["salario"], $profesor["nss"]);
 		funciones::redirect("Profesores", "indexProfesoradoInformacion");
 	}
 	

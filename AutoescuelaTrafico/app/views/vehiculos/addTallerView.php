@@ -10,7 +10,7 @@
             <div class = "popup" id = "popup">
                 <h1 class ="nuevo">NUEVO TALLER</h1>
                 
-                <form action="?controller=Vehiculos&action=addTaller" class="form-container" method = "post">
+                <form action="?controller=Validator&action=validate" class="form-container" method = "post">
 					
 					<div class="inputText">
 						<label for="nombreTaller"><b>Nombre del taller</b></label>

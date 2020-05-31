@@ -10,12 +10,12 @@
 			<div class = "popup" id = "popup">
 				<h1 class ="nuevo">NUEVO ORDENADOR</h1>
 
-				<form action="?controller=Ordenadores&action=addPc" class="form-container" method = "post">
+				<form action="?controller=Validator&action=validate" class="form-container" method = "post">
 
 					<div class="select">
 						<label for="estadoPc"><b>Nuevo estado del PC</b></label>
 						<select id="estadoPc" name="estadoPc">
-							<option disabled selected>Seleccione el estado</option>
+							<option disabled selected value = "Nuevo">Seleccione el estado</option>
 							<option value="Nuevo">Nuevo</option>
 							<option value="BuenEstado">Buen estado</option>
 							<option value="Aceptable">Aceptable</option>

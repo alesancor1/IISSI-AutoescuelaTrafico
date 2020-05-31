@@ -9,7 +9,7 @@
             <div class = "popup" id = "popup">
                 <h1 class = nuevo>NUEVO ANUNCIO</h1>
                 
-                <form action="?controller=Anuncios&action=enviar" class="form-container" method = "post">
+                <form action="?controller=Validator&action=validate" class="form-container" method = "post">
 
                     <div class = "inputText">
                         <label for="titulo"><b>TITULO</b></label>

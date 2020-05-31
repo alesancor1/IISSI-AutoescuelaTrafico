@@ -12,7 +12,7 @@
                 <p>Introducir DNI del alumno al que se quiera asignar el nuevo accesoWeb.</p>
                 <p>¡Para alumnos a los que les haya caducado el acceso o bien nunca se les fuese asignado!</p>
                 
-                <form action="?controller=WebTest&action=enviar" class="form-container" method = "post">
+                <form action="?controller=Validator&action=validate" class="form-container" method = "post">
 
                     <div class = "inputText">
                         <label for="titulo"><b>DNI</b></label>
