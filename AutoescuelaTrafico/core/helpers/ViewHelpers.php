@@ -5,7 +5,6 @@ class ViewHelpers{
         $urlString="index.php?controller=".$controlador."&action=".$accion;
         return $urlString;
     }
-     
-    //mas posibles funciones para ayudar a las vistas
+
 }
 ?>
