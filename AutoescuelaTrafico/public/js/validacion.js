@@ -2,6 +2,36 @@ var exprDNI = /[0-9]{8}[A-Z]/;
 var exprTildes = /^[A-Za-záéíóúÁÉÍÓÚ\s]+$/;
 var exprNombreApellidos = /^[A-Za-z ,.'-]+$/;
 var exprNumero = /[0-9]{9}/;
+var exprMatricula = /[0-9]{4} [A-Z]{4}/;
+
+function validateUsos(){
+	var filtro = document.getElementById("filtroUsos");
+	var filtroValue = filtro.value.trim();
+	
+	var error = '';
+	
+	var apellidosCheck = true;
+	if(!exprNombreApellidos.test(filtroValue)){
+		apellidosCheck = false;
+		error = "Introduzca un nombre o apellidos válidos.";
+	}
+
+	var modeloCheck = filtroValue.length<=20;
+	if(!modeloCheck){
+		error = "La búsqueda ha de ser menor a 20 caracteres.";
+	}
+	
+	var matriculaCheck = true;
+	if(!exprMatricula.test(filtroValue)){
+		matriculasCheck = false;
+		error = "Introduzca un formato de matrícula válido.";
+	}
+	
+	var resCheck = (apellidosCheck || matriculaCheck) && modeloCheck;
+	
+	filtro.setCustomValidity(error);
+	return error;
+}
 
 function validateFormListAlumnosView(){
 	var filtro = document.getElementById("filtro");
@@ -20,23 +50,14 @@ function validateFormListAlumnosView(){
 		dniCheck = false;
 	}
 
-	var nombreCheck = true;
-	if(!exprTildes.test(filtroValue)){
-		nombreCheck = false;
-	} else if(!exprNombreApellidos.test(filtroValue)){
-		nombreCheck = false;
-	}
-
-	var apellidosCheck = true;
-	if(!exprTildes.test(filtroValue)){
-		apellidosCheck = false;
-	} else if(!exprNombreApellidos.test(filtroValue)){
-		apellidosCheck = false;
+	var nombreApellidosCheck = true;
+	if(!exprTildes.test(filtroValue) || !exprNombreApellidos.test(filtroValue)){
+		nombreApellidosCheck = false;
 	}
 
 	var lengthCheck = filtroValue.length<30;
 
-	var resCheck = (dniCheck || nombreCheck || apellidosCheck) && lengthCheck;
+	var resCheck = (dniCheck || nombreApellidosCheck) && lengthCheck;
 
 	if(!resCheck) {
 		error = "Búsqueda no válida. Compruebe la válidez del DNI o del nombre o apellidos introducidos.";
@@ -47,6 +68,7 @@ function validateFormListAlumnosView(){
 }
 
 function validateDNI2(){
+		
 	var dni = document.getElementById("dni");
 	var dniValue = dni.value;
 	
@@ -55,6 +77,10 @@ function validateDNI2(){
 	
 	var resultado = true;
 	var error;
+	
+	dni.style.cssText = "background-color: #f1f1f1";
+	// $(".validateDni").text('');
+	
 	if (!(dniValue.length == 9) || (!exprDNI.test(dniValue))) {
 		error = "Introduzca un DNI válido";
 		$("#dni").css("border", '1px solid red');
@@ -84,11 +110,15 @@ function validateNombre2(){
 	var resultado = true;
 	var error;
 	
-	if(!exprTildes.test(nombreValue)){
-		error = "Introduzca un nombre válido.";
+	nombre.style.cssText = "background-color: #f1f1f1";
+	// $(".validateDni").text('');
+	
+	if (nombreValue.length==0) {
+		error="Introduzca un nombre";
 		$("#nombre").css("border", '1px solid red');
 		$("#nombre").css("background", '#ffeeee');
-		resultado = false;
+		resultado=false;
+		
 	} else if(!exprNombreApellidos.test(nombreValue)){
 		error = "Introduzca un nombre válido.";
 		$("#nombre").css("border", '1px solid red');
@@ -108,11 +138,15 @@ function validateApellidos2(){
 	var resultado = true;
 	var error;
 	
-	if(!exprTildes.test(apellidosValue)){
-		error = 'Introduzca unos apellidos válidos.';
+	apellidos.style.cssText = "background-color: #f1f1f1";
+	// $(".validateDni").text('');
+	
+	if(apellidosValue==''){
+		error = 'Introduzca unos apellidos';
 		$("#apellidos").css("border", '1px solid red');
 		$("#apellidos").css("background", '#ffeeee');
 		resultado = false;
+		
 	} else if(!exprNombreApellidos.test(apellidosValue)){
 		error = 'Introduzca unos apellidos válidos.';
 		$("#apellidos").css("border", '1px solid red');
@@ -132,18 +166,16 @@ function validateTelefono(){
 	var error;
 	var resultado = true;
 	
+	telefono.style.cssText = "background-color: #f1f1f1";
+	// $(".validateDni").text('');
+	
 	if (telefonoValue == '') {
 		error = 'Introduzca su número de teléfono.';
 		$("#telefono").css("border", '1px solid red');
 		$("#telefono").css("background", '#ffeeee');
 		resultado = false;
-	} else if (!exprNumero.test(telefonoValue)) {
-		error = 'Un número de teléfono solo puede contener números.';
-		$("#telefono").css("border", '1px solid red');
-		$("#telefono").css("background", '#ffeeee');
-		resultado = false;
-	} else if (telefonoValue.length < 9) {
-		error = 'Introduzca un número de teléfono correcto';
+	} else if (!exprNumero.test(telefonoValue) || telefonoValue.length > 9) {
+		error = 'Un número de teléfono debe contener 9 números.';
 		$("#telefono").css("border", '1px solid red');
 		$("#telefono").css("background", '#ffeeee');
 		resultado = false;

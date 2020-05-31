@@ -16,7 +16,7 @@
 
                     <div class = "inputText">
                         <label for="titulo"><b>DNI</b></label>
-                        <input type="text" placeholder="DNI" name="dni" pattern="[0-9]{8}[A-Z]{1}" required>
+                        <input type="text" placeholder="DNI" name="dni" id="dni" pattern="[0-9]{7}[A-Z]{1}" oninput="validateDNI2();" required>
                     </div>
 
                     <div class = "botones">

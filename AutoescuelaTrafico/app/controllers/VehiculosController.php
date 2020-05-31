@@ -18,9 +18,11 @@ class VehiculosController extends BaseController{
 		$usos = $usos->getUsosPorAlumno();
 		
 		$usosPorAlumno = array();
-		foreach($usos as $uso){
-			$id = $uso -> APELLIDOS . ", " . $uso -> NOMBRE;
-			$usosPorAlumno[$id][] = $uso;
+		if($usos!=null){
+			foreach($usos as $uso){
+				$id = $uso -> APELLIDOS . ", " . $uso -> NOMBRE;
+				$usosPorAlumno[$id][] = $uso;
+			}
 		}
 		
 		//	Talleres
@@ -32,13 +34,13 @@ class VehiculosController extends BaseController{
 	
 	public function addTaller(){
 		$talleres = new VehiculosModel($this->adapter);
-		$addTaller = $talleres->addTaller($_POST["nombreTaller"], $_POST["direccionTaller"], $_POST["telefonoTaller"]);
+		$addTaller = $talleres->addTaller($_POST["nombreTaller"], $_POST["direccionTaller"], $_POST["telefono"]);
 		funciones::redirect("Vehiculos", "getUsosYTalleres");
 	}
 	
 	public function deleteTaller(){
 		$talleres = new VehiculosModel($this->adapter);
-		$deleteTaller = $talleres->deleteTaller($_POST["nombreTaller"], $_POST["direccionTaller"], $_POST["telefonoTaller"]);
+		$deleteTaller = $talleres->deleteTaller($_POST["nombreTaller"], $_POST["direccionTaller"], $_POST["telefono"]);
 		funciones::redirect("Vehiculos", "getUsosYTalleres");
 	}
 	

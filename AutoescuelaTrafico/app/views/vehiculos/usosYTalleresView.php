@@ -30,9 +30,9 @@
 					
 					<div class="filtros">
 						<h1>Usos de vehículos</h1>
-						<form class="" id="" action="?controller=Vehiculos&action=getUsosYTalleres" method="POST">
+						<form class="formUsos" id="formUsos" action="?controller=Vehiculos&action=getUsosYTalleres" method="POST">
 							<label for="filtro"></label>
-							<input type="text" id="filtro" name="filtro" placeholder="Busque por alumno o vehículo">
+							<input type="text" id="filtroUsos" name="filtroUsos" placeholder="Busque por alumno o vehículo" oninput="validateUsos();">
 							<input type="submit" hidden>
 						</form>
 					</div>
@@ -80,7 +80,7 @@
 							echo "<form class='' id='deleteTaller".$num."' action='?controller=Vehiculos&action=deleteTaller' method='POST'>";
 							echo "<input type='hidden' id='nombreTaller' name='nombreTaller' value='" . $taller->NOMBRE . "'>";
 							echo "<input type='hidden' id='direccionTaller' name='direccionTaller' value='" . $taller->DIRECCION . "'>";
-							echo "<input type='hidden' id='telefonoTaller' name='telefonoTaller' value='" . $taller->TELEFONO . "'>";
+							echo "<input type='hidden' id='telefono' name='telefono' value='" . $taller->TELEFONO . "'>";
 							echo "</form>";
 							echo "</div>";
 						}

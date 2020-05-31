@@ -14,7 +14,7 @@
 					
 					<div class="inputText">
 						<label for="dni"><b>DNI del alumno</b></label>
-						<input type="text" placeholder="99999999X" name="dni" id="dni" pattern="[0-9]{8}[A-Z]{1}">
+						<input type="text" placeholder="99999999X" name="dni" id="dni" pattern="[0-9]{7}[A-Z]{1}" oninput="validateDNI2();">
 					</div>
 					
 					<div class="inputDate">
