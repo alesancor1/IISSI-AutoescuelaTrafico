@@ -53,6 +53,9 @@
                         <button type="button" class="volver" id='closePopup'> < Volver</button>
                         <button type="submit" class="enviar">Enviar</button>
                     </div>
+                    <!-- para el ValidatorPHP -->
+                    <input type="hidden" name = "validateForm" value = "usoPcForm">
+                    <input type="hidden" name = "callbackUri" value = "?controller=Ordenadores&action=addUso">
 
                 </form>
 

@@ -37,6 +37,9 @@
 					<input type="text" name="anyo" id="anyo">
 
 					<button type="submit"><i class = "fa fa-arrow-right"></i></button>
+					<!-- para el ValidatorPHP -->
+                   	<input type="hidden" name = "validateForm" value = "desgloseFilter">
+                    <input type="hidden" name = "callbackUri" value = "?controller=Administracion&action=getDesglose">
 				</form>
 			</div>
 			

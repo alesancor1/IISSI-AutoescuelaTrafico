@@ -23,6 +23,9 @@
                         <button type="button" class="volver" id='closePopup'> < Volver</button>
                         <button type="submit" class="enviar">Añadir</button>
                     </div>
+                    <!-- para el ValidatorPHP -->
+                    <input type="hidden" name = "validateForm" value = "accesoWebForm">
+                    <input type="hidden" name = "callbackUri" value = "?controller=WebTest&action=enviar">
 
                 </form>
 

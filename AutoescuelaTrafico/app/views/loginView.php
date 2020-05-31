@@ -79,21 +79,10 @@
 						< volver
 					</button>
 				</div>
+				<!-- para el ValidatorPHP -->
+				<input type="hidden" name = "validateForm" value = "loginForm">
+				<input type="hidden" name = "callbackUri" value = "?controller=Login&action=login">
 			</form>
 		</div>
-
-		<!--
-		<script type="text/javascript">
-			// Inicialización de elementos y eventos cuando el documento se carga completamente
-			$(document).ready(function() {
-
-				$("#login").submit(function() {
-
-					return validateForm();
-				});
-			});
-		</script>
-		-->
-
 	</body>
 </html>

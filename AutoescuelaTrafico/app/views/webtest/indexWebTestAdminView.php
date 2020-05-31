@@ -17,9 +17,12 @@
 				<?php require_once __DIR__."/addWebTestView.php";?>
 				<script type="text/javascript" src="./js/popup.js"></script>
 
-				<form action="" method="POST">
+				<form action="?controller=WebTest&action=indexRecursosWebTest" method="POST">
 					<input type="text" id="filtro" name="filtro" placeholder="Buscar un usuario">
-					<input type="hidden" name="searchbutton"></button>
+					<input type="hidden" name="searchbutton">
+					<!-- para el ValidatorPHP -->
+                   	<input type="hidden" name = "validateForm" value = "webTestsFilter">
+                    <input type="hidden" name = "callbackUri" value = "?controller=WebTest&action=indexRecursosWebTest">
 				</form>
 			
 			

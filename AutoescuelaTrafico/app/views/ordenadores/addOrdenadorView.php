@@ -41,6 +41,9 @@
 							Enviar
 						</button>
 					</div>
+					<!-- para el ValidatorPHP -->
+                    <input type="hidden" name = "validateForm" value = "ordenadoresForm">
+                    <input type="hidden" name = "callbackUri" value = "?controller=Ordenadores&action=addPc">
 
 				</form>
 

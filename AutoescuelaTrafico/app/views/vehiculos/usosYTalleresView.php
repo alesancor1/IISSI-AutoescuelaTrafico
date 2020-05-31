@@ -34,6 +34,9 @@
 							<label for="filtro"></label>
 							<input type="text" id="filtroUsos" name="filtroUsos" placeholder="Busque por alumno o vehículo" oninput="validateUsos();">
 							<input type="submit" hidden>
+							<!-- para el ValidatorPHP -->
+                   			<input type="hidden" name = "validateForm" value = "usoVehiculosFilter">
+                    		<input type="hidden" name = "callbackUri" value = "?controller=Vehiculos&action=getUsosYTalleres">
 						</form>
 					</div>
 

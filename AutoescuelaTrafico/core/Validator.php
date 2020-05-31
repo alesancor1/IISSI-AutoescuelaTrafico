@@ -1,7 +1,40 @@
 <?php
+
 /*SENTENCIA SWITCH PARA VALIDAR CADA FORMULARIO*/
 
+$formId = $_POST["validateForm"];  //en esta variable viene un Id desde cada formulario del proyecto
+$callback = $_POST["callbackUri"];
 
+switch ($formId){
+	//insert-forms
+	case "loginForm":
+		break;
+	case "anunciosForm":
+		break;
+	case "alumnosForm":
+		break;
+	case "profesorForm":
+		break;
+	case "talleresForm":
+		break;
+	case "accesoWebForm":
+		break;
+	case "ordenadoresForm":
+		break;
+	case "usoPcForm":
+		break;
+	//filtros
+	case "alumnosFilterProf":
+		break;
+	//case "alumnosFilterAdm": //select box (no se valida)
+		//break;
+	case "usoVehiculosFilter":
+		break;
+	case "webTestsFilter":
+		break;
+	case "desgloseFilter":
+		break;
+}
 
 /*FUNCIONES DE VALIDACION*/
 private function validateDNI($dni){	//validacion de DNI
