@@ -5,7 +5,7 @@ class ErrorHandler{
 	public static function check($controller = DEFAULT_CONTROLLER, $action = DEFAULT_ACTION){
 
 		if(!isset($_SESSION["cuenta"])){
-			if($controller != DEFAULT_CONTROLLER."Controller" && $controller != "LoginController"){
+			if($controller != DEFAULT_CONTROLLER."Controller" && $controller != "LoginController" && $controller != "ValidatorController"){
 				BaseController::view("error",array("tipo"=>"notLoggedIn"));
 			}
 		}
