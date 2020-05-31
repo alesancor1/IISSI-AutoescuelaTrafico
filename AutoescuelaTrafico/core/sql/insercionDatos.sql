@@ -90,7 +90,7 @@ Pruebas_Alumnos.insertar('Prueba 2 - Inserción Alumno', '09973707X', 'Beltran', 
 Pruebas_Alumnos.insertar('Prueba 3 - Inserción Alumno', '54720204F', 'Antonio', 'Perez Gutierrez', null, 5, to_date('17/08/1979','DD/MM/YYYY'),'Valido','54720204F', TRUE);
 Pruebas_Alumnos.insertar('Prueba 4 - Inserción Alumno', '06854766F', 'Juan', 'Garcia Lopez', '100202191', 10, to_date('11/01/1976','DD/MM/YYYY'),'Valido','06854766F', TRUE);
 Pruebas_Alumnos.insertar('Prueba 5 - Inserción Alumno', '08049124K', 'Marta', 'Gonzalez Ruiz', null, 5, to_date('17/08/1976','DD/MM/YYYY'),'Valido','08049124K', TRUE);
-Pruebas_Alumnos.insertar('Prueba 6 - Inserción Alumno', '56207746R', 'Ignacio', 'Nunez Muñoz', '777273718', 10, to_date('17/10/1976','DD/MM/YYYY'),'Valido','56207746R', TRUE);
+Pruebas_Alumnos.insertar('Prueba 6 - Inserción Alumno', '56207746R', 'Ignacio', 'Nunez Munoz', '777273718', 10, to_date('17/10/1976','DD/MM/YYYY'),'Valido','56207746R', TRUE);
 Pruebas_Alumnos.insertar('Prueba 7 - Inserción Alumno', '24173215P', 'Martin', 'Sanchez Munoz', '786450851', 10, to_date('07/10/1976','DD/MM/YYYY'),'Valido','24173215P', TRUE);
 Pruebas_Alumnos.insertar('Prueba 8 - Inserción Alumno', '94187735K', 'Pepe', 'Martinez Lopez', '786442111', 10, to_date('07/11/1976','DD/MM/YYYY'),'Valido','94187735K', TRUE);
 Pruebas_Alumnos.insertar('Prueba 9 - Inserción Alumno', '29189437E', 'Domingo', 'Lopez Gomez', null, 10, to_date('04/08/1976','DD/MM/YYYY'),'Valido','29189437E', TRUE);
