@@ -13,7 +13,7 @@
 
                     <div class = "infoText">
                         <p>Introducir DNI del alumno al que se quiera asignar el nuevo accesoWeb.</p><br>
-                        <p>¡Para alumnos a los que les haya caducado el acceso o bien nunca se les fuese asignado!</p>
+                        <p>¡Para alumnos a los que les haya caducado el acceso o bien nunca se les hubiese asignado!</p>
                     </div>
 
                     <div class = "inputText">

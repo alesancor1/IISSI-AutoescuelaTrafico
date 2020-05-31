@@ -8,6 +8,42 @@ var exprCode = /{((.|\n|\r)*)}/;
 var exprSalario = /^[0-9]{0,4}$/;
 var exprNss = /[0-9]{2} [0-9]{10}/;
 
+function validateAnyo(){
+	var num = document.getElementById("anyo");
+	var numero = num.value;
+	
+	num.style.cssText = "background-color: #f1f1f1";
+	var error;
+	
+	var resultado = true;
+	if(numero <= 1900){
+		error = 'Años a partir de 1900.';
+		$("#anyo").css("border", '1px solid red');
+		$("#anyo").css("background", '#ffeeee');
+		resultado = false;
+	} else if(numero > date('Y')){
+		error = 'Años anteriores al año actual.';
+		$("#anyo").css("border", '1px solid red');
+		$("#anyo").css("background", '#ffeeee');
+		resultado = false;
+	} else if(numero.length >= 6){
+		error = 'Año demasiado largo.';
+		$("#anyo").css("border", '1px solid red');
+		$("#anyo").css("background", '#ffeeee');
+		resultado = false;
+	} else if(!/[0-9]{4}/.test(numero)){
+		error = 'Usa números.';
+		$("#anyo").css("border", '1px solid red');
+		$("#anyo").css("background", '#ffeeee');
+		resultado = false;
+	} else {
+		error = "";
+		num.style.cssText = "background-color: #f1f1f1";
+	}
+	num.setCustomValidity(error);
+	return resultado;
+}
+
 function validateUsos(){
 	var filtro = document.getElementById("filtroUsos");
 	var filtroValue = filtro.value.trim();
