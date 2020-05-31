@@ -25,11 +25,8 @@ function userValidation() {
 	// Caracteres excesivos
 	if (valid) {
 
-		var hasCaracterRaro = /"/;
-		valid = valid && !hasCaracterRaro.test(nombre);
-
 		// No hay error de caracteres no permitidos
-		if (!valid) {
+		if (/"/.test(nombre) || /'/.test(nombre)) {
 			error = "No uses carácteres inválidos, las comillas.";
 			document.getElementById('uname').style.cssText = "background-color: #FF8989;";
 		}
