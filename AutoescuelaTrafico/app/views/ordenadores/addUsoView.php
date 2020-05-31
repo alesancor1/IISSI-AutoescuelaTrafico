@@ -15,22 +15,22 @@
 					<div class="inputText">
 						<label for="dni"><b>DNI del alumno</b></label>
 						<input type="text" placeholder="99999999X" name="dni" id="dni" pattern="[0-9]{7}[A-Z]{1}" oninput="validateDNI2();">
-					</div>
+					</div><br>
 					
 					<div class="inputDate">
 						<label for="fechaUso"><b>Fecha de uso</b></label>
 						<input type="date" name="fechaUso" required>
-					</div>
+					</div><br>
 					
 					<div class="inputTime">
 						<label for="horaComienzo"><b>Hora de comienzo</b></label>
 						<input type="time" name="horaComienzo" required>
-					</div>
+					</div><br>
 					
 					<div class="inputTime">
 						<label for="horaFin"><b>Hora de fin</b></label>
 						<input type="time" name="horaFin" required>
-					</div>
+					</div><br>
 					
 					<div class="select">
 						<label for="estadoPc"><b>Nuevo estado del PC</b></label>
@@ -41,7 +41,7 @@
 							<option value="Aceptable">Aceptable</option>
 							<option value="MalEstado">Mal estado</option>
 						</select>
-					</div>
+					</div><br>
 					
 					<?php
 						if($verUsos!=null){

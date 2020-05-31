@@ -15,17 +15,17 @@
 					<div class="inputText">
 						<label for="nombreTaller"><b>Nombre del taller</b></label>
 						<input type="text" placeholder="Inserte el nombre" name="nombreTaller" id="nombreTaller" maxlength="20" required>
-					</div>
+					</div><br>
 					
 					<div class="inputText">
 						<label for="direccionTaller"><b>Dirección del taller</b></label>
 						<input type="text" placeholder="Introduzca la dirección" name="direccionTaller" id="direccionTaller" maxlength="20" required>
-					</div>
+					</div><br>
 					
                     <div class = "inputText">
                         <label for="telefono"><b>Nº de teléfono</b></label>
                         <input type="text" placeholder="Inserte el número de teléfono" name="telefono" id="telefono" pattern="[0-9]{9}" oninput="validateTelefono();" required>
-                    </div>
+                    </div><br>
 
                     <div class = "botones">
                         <button type="button" class="volver" id='closePopup'> < Volver</button>
