@@ -1,5 +1,5 @@
 var exprDNI = /[0-9]{8}[A-Z]/;
-var exprCaracterRaro = /[!@#$%^&*(),.?":{}|'<>]/;
+var exprCaracterRaro = /[!@#$%^&*(),.?":{}\/\\|'<>;´¨\+\`\[\]¡¿ºª€~]+/;
 var exprTildes = /^[A-Za-záéíóúÁÉÍÓÚ\s]+$/;
 var exprNombreApellidos = /^[A-Za-z ,.'-]+$/;
 var exprNumero = /[0-9]{9}/;
