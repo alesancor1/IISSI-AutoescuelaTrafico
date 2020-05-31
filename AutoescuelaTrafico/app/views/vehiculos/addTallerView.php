@@ -23,8 +23,8 @@
 					</div>
 					
                     <div class = "inputText">
-                        <label for="telefonoTaller"><b>Nº de teléfono</b></label>
-                        <input type="text" placeholder="Inserte el número de teléfono" name="telefonoTaller" id="telefonoTaller" pattern="[0-9]{9}" required>
+                        <label for="telefono"><b>Nº de teléfono</b></label>
+                        <input type="text" placeholder="Inserte el número de teléfono" name="telefono" id="telefono" pattern="[0-9]{9}" oninput="validateTelefono();" required>
                     </div>
 
                     <div class = "botones">

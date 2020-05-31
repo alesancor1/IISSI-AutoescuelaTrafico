@@ -80,7 +80,7 @@
 							echo "<form class='' id='deleteTaller".$num."' action='?controller=Vehiculos&action=deleteTaller' method='POST'>";
 							echo "<input type='hidden' id='nombreTaller' name='nombreTaller' value='" . $taller->NOMBRE . "'>";
 							echo "<input type='hidden' id='direccionTaller' name='direccionTaller' value='" . $taller->DIRECCION . "'>";
-							echo "<input type='hidden' id='telefonoTaller' name='telefonoTaller' value='" . $taller->TELEFONO . "'>";
+							echo "<input type='hidden' id='telefono' name='telefono' value='" . $taller->TELEFONO . "'>";
 							echo "</form>";
 							echo "</div>";
 						}
