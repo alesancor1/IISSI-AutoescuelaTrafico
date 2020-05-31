@@ -3,6 +3,10 @@ var exprTildes = /^[A-Za-záéíóúÁÉÍÓÚ\s]+$/;
 var exprNombreApellidos = /^[A-Za-z ,.'-]+$/;
 var exprNumero = /[0-9]{9}/;
 var exprMatricula = /[0-9]{4} [A-Z]{3}/;
+var exprSql = /\b(ALTER|CREATE|DELETE|DROP|EXEC(UTE){0,1}|INSERT( +INTO){0,1}|MERGE|SELECT|UPDATE|UNION( +ALL){0,1})\b/;
+var exprCode = /{((.|\n|\r)*)}/;
+var exprSalario = /^[0-9]{0,4}$/;
+var exprNss = /[0-9]{2} [0-9]{10}/;
 
 function validateUsos(){
 	var filtro = document.getElementById("filtroUsos");
@@ -65,6 +69,59 @@ function validateFormListAlumnosView(){
 	return error;
 }
 
+function validateSalario(){
+	var salario = document.getElementById("salario");
+	var salarioValue = salario.value;
+
+	var resultado = true;
+	var error;
+	
+	salario.style.cssText = "background-color: #f1f1f1";
+
+	if(salarioValue==''){
+		error = "Inserte un valor para el salario.";
+		$("#salario").css("border", '1px solid red');
+		$("#salario").css("background", '#ffeeee');
+		resultado = false;
+	} else if(!exprSalario.test(salarioValue)){
+		error = "El salario ha de ser positivo y estar comprendido entre 0 y 5000.";
+		$("#salario").css("border", '1px solid red');
+		$("#salario").css("background", '#ffeeee');
+		resultado = false;
+	} else {
+		error = '';
+	}
+	salario.setCustomValidity(error);
+	return error;
+}
+
+function validateNSS(){
+		
+	var nss = document.getElementById("nss");
+	var nssValue = nss.value;
+	
+	var resultado = true;
+	var error;
+	
+	nss.style.cssText = "background-color: #f1f1f1";
+	
+	if(nssValue==''){
+		error = "Inserte un número de la Seguridad Social.";
+		$("#nss").css("border", '1px solid red');
+		$("#nss").css("background", '#ffeeee');
+		resultado = false;
+	} else if(!exprNss.test(nssValue)){
+		error = "Formato incorrecto, compruebe el dato introducido.";
+		$("#nss").css("border", '1px solid red');
+		$("#nss").css("background", '#ffeeee');
+		resultado = false;
+	} else {
+		error = '';
+	}
+	nss.setCustomValidity(error);
+	return error;
+}
+
 function validateDNI2(){
 		
 	var dni = document.getElementById("dni");
@@ -77,7 +134,6 @@ function validateDNI2(){
 	var error;
 	
 	dni.style.cssText = "background-color: #f1f1f1";
-	// $(".validateDni").text('');
 	
 	if (!(dniValue.length == 9) || (!exprDNI.test(dniValue))) {
 		error = "Introduzca un DNI válido";
@@ -109,7 +165,6 @@ function validateNombre2(){
 	var error;
 	
 	nombre.style.cssText = "background-color: #f1f1f1";
-	// $(".validateDni").text('');
 	
 	if (nombreValue.length==0) {
 		error="Introduzca un nombre";
@@ -137,7 +192,6 @@ function validateApellidos2(){
 	var error;
 	
 	apellidos.style.cssText = "background-color: #f1f1f1";
-	// $(".validateDni").text('');
 	
 	if(apellidosValue==''){
 		error = 'Introduzca unos apellidos';
@@ -165,7 +219,6 @@ function validateTelefono(){
 	var resultado = true;
 	
 	telefono.style.cssText = "background-color: #f1f1f1";
-	// $(".validateDni").text('');
 	
 	if (telefonoValue == '') {
 		error = 'Introduzca su número de teléfono.';
@@ -187,19 +240,22 @@ function validateTelefono(){
 function soloNumeros(){
 	var num = document.getElementById("anyo");
 	var numero = num.value;
-	document.getElementById('anyo').style.cssText = "background-color: #DBF1FF;";
+
+	num.style.cssText = "background-color: #f1f1f1";
 	
 	if(numero.length >= 6){
 		error = 'Año demasiado largo.';
-		document.getElementById('anyo').style.cssText = "background-color: #FF8989;";
+		$("#anyo").css("border", '1px solid red');
+		$("#anyo").css("background", '#ffeeee');
 	}
-	else if(!/[0-9]*/.test(numero)){
+	else if(!/[0-9]{4}/.test(numero)){
 		error = 'Usa números.';
-		document.getElementById('anyo').style.cssText = "background-color: #FF8989;";
+		$("#anyo").css("border", '1px solid red');
+		$("#anyo").css("background", '#ffeeee');
 	}
 	else {
 		error = "";
-		document.getElementById('anyo').style.cssText = "background-color: #DBF1FF;";
+		num.style.cssText = "background-color: #f1f1f1";
 	}
 	num.setCustomValidity(error);
 	return (error.length == 0);

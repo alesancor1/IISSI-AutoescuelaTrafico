@@ -39,12 +39,12 @@
                     
                     <div class = "inputText">
                         <label for="salario"><b>Salario</b></label>
-                        <input type="text" placeholder="Inserte el salario" name="salario" id="salario" max="5000" required>
+                        <input type="text" placeholder="Inserte el salario" name="salario" id="salario" max="5000" oninput="validateSalario();" required>
                     </div>
                     
                     <div class = "inputText">
                         <label for="nss"><b>Nº de la Seguridad Social</b></label>
-                        <input type="text" placeholder="Inserte el Nº SS" name="nss" id="nss" pattern="[0-9]{2} [0-9]{10}" required>
+                        <input type="text" placeholder="Inserte el Nº SS" name="nss" id="nss" pattern="[0-9]{2} [0-9]{10}" oninput="validateNSS();" required>
                     </div>
 
                     <div class = "botones">
