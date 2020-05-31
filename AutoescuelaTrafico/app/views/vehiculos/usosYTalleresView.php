@@ -32,7 +32,9 @@
 						<h1>Usos de vehículos</h1>
 						<form class="formUsos" id="formUsos" action="?controller=Vehiculos&action=getUsosYTalleres" method="POST">
 							<label for="filtro"></label>
-							<input type="text" id="filtroUsos" name="filtroUsos" placeholder="Busque por alumno o vehículo" oninput="validateUsos();">
+							<input type="text" id="filtroUsos" name="filtroUsos" placeholder="Busque por alumno o vehículo" oninput="setCustomValidity('');
+								var res = validateUsos();
+								res.length==0 ? setCustomValidity('') : setCustomValidity(res);">
 							<input type="submit" hidden>
 							<!-- para el ValidatorPHP -->
                    			<input type="hidden" name = "validateForm" value = "usoVehiculosFilter">
