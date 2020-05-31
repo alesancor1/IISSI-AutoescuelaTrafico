@@ -18,10 +18,6 @@
 	<div class="errorMensaje">
 		<p>Ha sucedido un error :(</p>
 	</div>
-		
-	<!-- <div class="exclamacion">
-		<img src="./img/exclamacionroja.png" alt="Error al cargar la imagen. Hoy no es tu día ;( />
-	</div> -->
 
 	<?php
 		echo '<link rel="stylesheet" type="text/css" href="./css/errorPage.css">';

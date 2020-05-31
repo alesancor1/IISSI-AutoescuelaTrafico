@@ -32,8 +32,12 @@ class Validator{
 				$alumno["apellidos"] = $_POST["apellidos"];
 				$alumno["fechaNacimiento"] = $_POST["fechaNacimiento"];
 				$alumno["permiso"] = $_POST["permiso"];
-				//validacion
 				$_SESSION["formInput"] = $alumno;
+				//validacion
+				$errors = array_merge($errors, Validator::validateText($alumno));
+				$errors = array_merge($errors, Validator::validateDNI($alumno["dni"]));
+				$errors = array_merge($errors, Validator::validateNombre($alumno["nombre"]));
+				$errors = array_merge($errors, Validator::validateApellidos($alumno["apellidos"]));
 				break;
 			case "profesorForm":
 				$profesor = array();
@@ -44,30 +48,42 @@ class Validator{
 				$profesor["telefono"] = $_POST["telefono"];
 				$profesor["salario"] = $_POST["salario"];
 				$profesor["nss"] = $_POST["nss"];
-				//validacion
 				$_SESSION["formInput"] = $profesor;
+				//validacion
+				$errors = array_merge($errors, Validator::validateText($profesor));
+				$errors = array_merge($errors, Validator::validateDNI($profesor["dni"]));
+				$errors = array_merge($errors, Validator::validateNombre($profesor["nombre"]));
+				$errors = array_merge($errors, Validator::validateApellidos($profesor["apellidos"]));
+				$errors = array_merge($errors, Validator::validateTelefono($profesor["telefono"]));
+				$errors = array_merge($errors, Validator::validateSalario($profesor["salario"]));
+				$errors = array_merge($errors, Validator::validateNSS($profesor["nss"]));
 				break;
 			case "talleresForm":
 				$taller = array();
 				$taller["nombreTaller"] = $_POST["nombreTaller"];
 				$taller["direccionTaller"] = $_POST["direccionTaller"];
 				$taller["telefono"] = $_POST["telefono"];
-				//validacion
 				$_SESSION["formInput"] = $taller;
+				//validacion
+				$errors = array_merge($errors, Validator::validateText($taller));
+				$errors = array_merge($errors, Validator::validateTelefono($taller["telefono"]));
 				break;
 			case "accesoWebForm":
 				$accesoWeb = array();
 				$accesoWeb["dni"] = $_POST["dni"];
-				//validacion
 				$_SESSION["formInput"] = $accesoWeb;
+				//validacion
+				$errors = array_merge($errors, Validator::validateText($accesoWeb));
+				$errors = array_merge($errors, Validator::validateDNI($accesoWeb["dni"]));
 				break;
 			case "ordenadoresForm":
 				$ordenador = array();
 				$ordenador["estadoPc"] = isset($_POST["estadoPc"]) ? $_POST["estadoPc"] : "Nuevo";
 				$ordenador["modelo"] = $_POST["modelo"];
 				$ordenador["so"] = $_POST["so"];
-				//validacion
 				$_SESSION["formInput"] = $ordenador;
+				//validacion
+				$errors = array_merge($errors, Validator::validateText($ordenador));
 				break;
 			case "usoPcForm":
 				$usoPc = array();
@@ -76,37 +92,43 @@ class Validator{
 				$usoPc["horaComienzo"] = $_POST["horaComienzo"];
 				$usoPc["horaFin"] = $_POST["horaFin"];
 				$usoPc["estadoPc"] = $_POST["estadoPc"];
-				$usoPc["oidPc"] = $_POST["oidPc"];
-				//validacion
+				$usoPc["oidPc"] = $_POST["oidPc"];		
 				$_SESSION["formInput"] = $usoPc;
+				//validacion
+				$errors = array_merge($errors, Validator::validateText($usoPc));
+				$errors = array_merge($errors, Validator::validateDNI($usoPc["dni"]));
 				break;
 			//filtros
 			case "alumnosFilterProf":
 				$filtro = array();
 				$filtro["filtro"] = isset($_POST["filtro"]) ? $_POST["filtro"] : "";
-				//validacion
 				$_SESSION["formFilter"] = $filtro;
+				//validacion
+				$errors = array_merge($errors, Validator::validateText($filtro));
 				break;
 			case "alumnosFilterAdm": //select box (no se valida)
 				break;
 			case "usoVehiculosFilter":
 				$filtro = array();
-				$filtro["filtro"] = isset($_POST["filtroUsos"]) ? $_POST["filtroUsos"] : "";
-				//validacion
+				$filtro["filtro"] = isset($_POST["filtroUsos"]) ? $_POST["filtroUsos"] : "";				
 				$_SESSION["formFilter"] = $filtro;
+				//validacion
+				$errors = array_merge($errors, Validator::validateText($filtro));
 				break;
 			case "webTestsFilter":
 				$filtro = array();
 				$filtro["filtro"] = isset($_POST["filtro"]) ? $_POST["filtro"] : "";
-				//validacion
 				$_SESSION["formFilter"] = $filtro;
+				//validacion
+				$errors = array_merge($errors, Validator::validateText($filtro));
 				break;
 			case "desgloseFilter":
 				$filtro = array();
 				$filtro["mes"] = isset($_POST["mes"]) ? $_POST["mes"] : "";
 				$filtro["anyo"] = isset($_POST["anyo"]) ? $_POST["anyo"] : "";
-				//validacion
 				$_SESSION["formFilter"] = $filtro;
+				//validacion
+				$errors = array_merge($errors, Validator::validateText($filtro));
 				break;
 		}
 		if(count($errors)>0){
@@ -284,17 +306,4 @@ class Validator{
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>

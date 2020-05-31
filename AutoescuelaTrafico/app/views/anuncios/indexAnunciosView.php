@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
-<title>Anuncios</title>
 
 <head>
+	<title>Anuncios</title>
     <link rel="stylesheet" type="text/css" href="./css/indexAnunciosView.css">
 </head>
 <body>
-        <div class = contenido id = contenido>
-            <h1 class = title>Anuncios</h1>
+        <div class ="contenido" id ="contenido">
+            <h1 class ="title">Anuncios</h1>
             	<?php if($_SESSION["cuenta"][2] != 'Alumno'){?>
             	<div>
             		<button class="nuevaEntrada" id='openPopup'>Nueva Entrada</button>
@@ -24,6 +24,16 @@
                     </div><?php
                 }?>
         </div>
+        
+        <!-- imprime errores de validacion en servidor -->
+		<?php if(isset($_SESSION["errores"])){ ?>
+			<div class = "errorMessage">
+		<?php foreach($_SESSION["errores"] as $error){
+				   echo $error;			  
+			}
+			unset($_SESSION["errores"]); ?>	
+		</div> <?php
+		} ?>
 </body>
     
 </html>

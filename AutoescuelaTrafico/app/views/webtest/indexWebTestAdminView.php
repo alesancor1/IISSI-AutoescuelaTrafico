@@ -3,6 +3,7 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="./css/tables.css">
 		<link rel="stylesheet" type="text/css" href="./css/webTestAdminView.css">
+		<title>Credenciales webtest</title>
 	</head>
 	<body>
 		<div class="contenido" id="contenido">
@@ -61,6 +62,17 @@
 				}
 				?>
 			</table>
+			
+			<!-- imprime errores de validacion en servidor -->
+			<?php if(isset($_SESSION["errores"])){ ?>
+			<div class = "errorMessage">
+			<?php foreach($_SESSION["errores"] as $error){
+				   echo $error;			  
+				}
+			unset($_SESSION["errores"]); ?>	
+			</div> <?php
+			} ?>
+		
 		</div>
 	</body>
 </html>

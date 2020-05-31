@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title> Lista Alumnos </title>
+		<title> Lista alumnos </title>
 		<link rel="stylesheet" href="./css/tables.css">
 		<link rel="stylesheet" type="text/css" href="./css/listAlumnosProfView.css">
 	</head>
@@ -41,13 +41,15 @@
 			<?php echo $_SESSION["paginator"]->createLinks(4,'paginatorButtons');?>
 		</div>
 		
-		<!-- <script type="text/javascript">
-			$(document).ready(function(){
-				$("#filtroForm").submit(function(){
-					return validateFormListAlumnosView();
-				})
-			});
-		</script> -->
-		
+		<!-- imprime errores de validacion en servidor -->
+		<?php if(isset($_SESSION["errores"])){ ?>
+		<div class = "errorMessage">
+		<?php foreach($_SESSION["errores"] as $error){
+			   echo $error;			  
+			}
+			unset($_SESSION["errores"]); ?>	
+		</div> <?php
+		} ?>
+
 	</body>
 </html>

@@ -30,9 +30,10 @@ class AlumnosController extends BaseController {
 	}
 
 	public function listaCalificacionesProfesor() {
-		// _______________________________________________________________________________________________________
-		// Parte de ALUMNOS_______________________________________________________________________________________
-		// Los tres tipos de examen---------------------------------------
+
+		// ALUMNOS
+		//----------------------------------------------------------------
+		// Los tres tipos de examen
 		$teorico = new AlumnosModel($this -> adapter);
 		$listaTeorico = $teorico -> getExamenesTeoricos();
 
@@ -43,8 +44,9 @@ class AlumnosController extends BaseController {
 		$listaPracticoP = $practicoP -> getExamenesPracticosPista();
 		//----------------------------------------------------------------
 
-		// Procesar los datos---------------------------------------------
-		// Resultado es un map
+		// Procesar los datos, resultado en un map
+		
+		//----------------------------------------------------------------
 		$resultado = array();
 
 		foreach ($listaTeorico as $num => $teo) {
@@ -79,9 +81,8 @@ class AlumnosController extends BaseController {
 				array_push($resultado[$nombreApellidos], $pP);
 			}
 		}
-
-		// __________________________________________________________________________________
-		// Los ultimos examenes______________________________________________________________________________________
+		
+		// Los ultimos examenes
 
 		$resultado2 = $resultado;
 		foreach ($resultado2 as $alumno => $examenes) {
@@ -96,16 +97,19 @@ class AlumnosController extends BaseController {
 			$nombreApellidos = $actual -> NOMBRE . " " . $actual -> APELLIDOS;
 			$resultado2[$nombreApellidos] = $actual;
 		}
-
+		//----------------------------------------------------------------
+		
 		$this -> view("/alumnos/ListaCalificaciones", array("resultado" => $resultado, "resultado2" => $resultado2));
 	}
 
-// PARTE DE  ADMINISTRADOR
-	// CALIFICACIONES
+	//	ADMINISTRADOR
+
 	public function listaCalificacionesAdmin() {
-		// _______________________________________________________________________________________________________
-		// Parte de ALUMNOS_______________________________________________________________________________________
-		// Los tres tipos de examen---------------------------------------
+
+		// ALUMNOS
+		
+		// Los tres tipos de examen
+		//----------------------------------------------------------------
 		$teorico = new AlumnosAdminModel($this -> adapter);
 		$listaTeorico = $teorico -> getExamenesTeoricos();
 
@@ -116,9 +120,8 @@ class AlumnosController extends BaseController {
 		$listaPracticoP = $practicoP -> getExamenesPracticosPista();
 		//----------------------------------------------------------------
 
-		// __________________________________________________________________________________
-		// Examenes separados por aprobado o no aprobado_____________________________________
-
+		// Examenes separados por aprobado o no aprobado
+		//----------------------------------------------------------------
 		$listaTeoricoApto = array();
 		$listaTeoricoNoApto = array();
 		$listaPracticoCApto = array();
@@ -138,12 +141,12 @@ class AlumnosController extends BaseController {
 			if($examen -> CALIFICACION == "Apto") array_push($listaPracticoPApto, $examen);
 			else array_push($listaPracticoPNoApto, $examen);
 		}
-
+		//----------------------------------------------------------------
+		
 		$this -> view("/alumnos/ListaCalificacionesAdmin", array("teoricoA" => $listaTeoricoApto, "teoricoN" => $listaTeoricoNoApto,
 		 "circulacionA" => $listaPracticoCApto, "circulacionN" => $listaPracticoCNoApto, "pistaA" => $listaPracticoPApto, "pistaN" => $listaPracticoPNoApto));
 	}
 
-	// LISTA ALUMNOS
 	public function listaAdministrador() {
 		$alumnos = new AlumnosAdminModel($this -> adapter);
 		if (isset($_POST["permiso"]))

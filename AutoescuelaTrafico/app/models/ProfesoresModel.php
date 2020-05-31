@@ -8,7 +8,7 @@ class ProfesoresModel extends BaseModel {
 		parent::__construct($this -> table, $adapter);
 	}
 
-	//ADMINISTRADOR Lista de profesores con su info.
+	//	ADMINISTRADOR
 
 	public function getInformacionProfesores() {
 		$query = "SELECT * FROM PROFESORES";
