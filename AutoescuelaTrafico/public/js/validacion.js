@@ -2,7 +2,6 @@ var exprDNI = /[0-9]{8}[A-Z]/;
 var exprTildes = /^[A-Za-záéíóúÁÉÍÓÚ\s]+$/;
 var exprNombreApellidos = /^[A-Za-z ,.'-]+$/;
 var exprNumero = /[0-9]{9}/;
-var exprMatricula = /[0-9]{4} [A-Z]{4}/;
 
 function validateUsos(){
 	var filtro = document.getElementById("filtroUsos");
@@ -51,7 +50,7 @@ function validateFormListAlumnosView(){
 	}
 
 	var nombreApellidosCheck = true;
-	if(!exprTildes.test(filtroValue) || !exprNombreApellidos.test(filtroValue)){
+	if(!exprNombreApellidos.test(filtroValue)){
 		nombreApellidosCheck = false;
 	}
 

@@ -4,7 +4,6 @@
 		<title> Lista Alumnos </title>
 		<link rel="stylesheet" href="./css/tables.css">
 		<link rel="stylesheet" type="text/css" href="./css/listAlumnosProfView.css">
-		<script src="./js/validacionListAlumnosView.js" type="text/javascript"></script>
 	</head>
 	<body>
 		<div class = "contenido" id = "contenido">
