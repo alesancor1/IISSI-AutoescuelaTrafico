@@ -156,7 +156,7 @@ class Validator{
 
 		if(!strlen($dni)==9 || !preg_match("/[0-9]{8}[A-Z]/", $dni)){
 			$error[] = "<p>Introduzca un DNI válido</p>";
-		} else if($letra != letraDNI($numeroDNI)){
+		} else if($letra != Validator::letraDNI($numeroDNI)){
 			$error[] = "<p>El DNI debe contener la letra adecuada</p>";
 		} else if($dni == ''){
 			$error[] = "<p>Introduzca su DNI</p>";
