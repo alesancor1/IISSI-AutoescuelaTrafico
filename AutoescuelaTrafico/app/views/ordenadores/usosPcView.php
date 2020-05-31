@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Usos del PC</title>
+	<title>Usos del PC<?php if($verUsos!=null) echo $verUsos[0]->OID_PC; ?></title>
 	<link rel="stylesheet" href="./css/tables.css">
 	<link rel="stylesheet" type="text/css" href="./css/indexOrdenadoresAdminView.css">
 </head>
@@ -59,6 +59,16 @@
 					?>
 				</table>
 			</form>
+			
+			<!-- imprime errores de validacion en servidor -->
+			<?php if(isset($_SESSION["errores"])){ ?>
+			<div class = "errorMessage">
+			<?php foreach($_SESSION["errores"] as $error){
+				   echo $error;			  
+			}
+			unset($_SESSION["errores"]); ?>	
+			</div> <?php
+			} ?>
 		</div>
 	</div>
 	

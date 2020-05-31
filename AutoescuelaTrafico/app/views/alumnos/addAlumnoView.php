@@ -17,26 +17,26 @@
                         <input id="dni" type="text" placeholder="DNI" name="dni" pattern="[0-9]{8}[A-Z]{1}"  required oninput="validateDNI();">
                         <!-- Para validaciones -->
                         <p class="validateDni" id ="validateDni"></p>
-                    </div>
+                    </div><br>
 
                     <div class = "inputText">
                         <label for="nombre"><b>NOMBRE</b></label>
                         <input id="nom" type="text" placeholder="Nombre del alumno" name="nombre" maxlength="20" required oninput="nombreValidation();">
                         <!-- Para validaciones -->
                         <p class="validateNombre"></p>
-                    </div>
+                    </div><br>
                     
                     <div class = "inputText">
                         <label for="apellidos"><b>APELLIDOS</b></label>
                         <input id="apell" type="text" placeholder="Apellidos del alumno" name="apellidos" maxlength="30" required oninput="apellidosValidation();">
                         <!-- Para validaciones -->
                         <p class="validateApellidos"></p>
-                    </div>
+                    </div><br>
                     
                     <div class = "inputDate">
                         <label for="fechaNacimiento"><b>Fecha de Nacimiento</b></label>
                         <input type="date" name="fechaNacimiento">
-                    </div>
+                    </div><br>
                     
                     <div class = "select">
                         <label for="permiso"><b>Permiso</b></label>
@@ -45,7 +45,7 @@
                         	<option value="Permiso A2">Permiso A2</option>
                         	<option value="Permiso B">Permiso B</option>
                         </select>
-                    </div>
+                    </div><br>
 
                     <div class = "botones">
                         <button type="button" class="volver" id='closePopup'> < Volver</button>

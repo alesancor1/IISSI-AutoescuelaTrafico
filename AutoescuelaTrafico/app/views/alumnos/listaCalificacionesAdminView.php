@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-	<title>Lista Calificaciones</title>
+	<title>Lista calificaciones</title>
 
 	<head>
 		<link rel="stylesheet" href="./css/tables.css">
@@ -13,20 +13,20 @@
 			<ul class="tabs">
 
 				<li>
-					<a href="#tab1"><span class="tab-text">Teoricas</span></a>
+					<a href="#tab1"><span class="tab-text">Teóricas</span></a>
 				</li>
 				<li>
-					<a href="#tab2"><span class="tab-text">Practicas circulacion</span></a>
+					<a href="#tab2"><span class="tab-text">Prácticas circulación</span></a>
 				</li>
 				<li>
-					<a href="#tab3"><span class="tab-text">Practicas pista</span></a>
+					<a href="#tab3"><span class="tab-text">Prácticas pista</span></a>
 				</li>
 			</ul>
 
 			<div class="secciones">
 			<!-- TAB DE TEORIA -->
 				<article id="tab1">
-					<h1>Calificaciones teoricas</h1>
+					<h1>Calificaciones teóricas</h1>
 					<?php
 					if(!empty($teoricoA)){
 					?>
@@ -77,7 +77,7 @@
 				</article>
 				<!-- TAB DE CIRCULACION -->
 				<article id="tab2">
-					<h1>Calificaciones practicas circulacion</h1>
+					<h1>Calificaciones prácticas circulación</h1>
 					<?php
 					if(!empty($circulacionA)){
 					?>
@@ -128,7 +128,7 @@
 				</article>
 				<!-- TAB DE PISTA -->
 				<article id="tab3">
-					<h1>Calificaciones practicas pista</h1>
+					<h1>Calificaciones prácticas pista</h1>
 					<?php
 					if(!empty($pistaA)){
 					?>

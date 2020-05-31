@@ -74,6 +74,16 @@
 				}
 			?>
 			</table>
+			
+			<!-- imprime errores de validacion en servidor -->
+			<?php if(isset($_SESSION["errores"])){ ?>
+				<div class = "errorMessage">
+			<?php foreach($_SESSION["errores"] as $error){
+				   echo $error;			  
+				}
+				unset($_SESSION["errores"]); ?>	
+			</div> <?php
+			} ?>
 		</div>
 	</div>
 	
