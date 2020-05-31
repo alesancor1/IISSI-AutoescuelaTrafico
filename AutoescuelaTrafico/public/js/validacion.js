@@ -2,6 +2,7 @@ var exprDNI = /[0-9]{8}[A-Z]/;
 var exprTildes = /^[A-Za-záéíóúÁÉÍÓÚ\s]+$/;
 var exprNombreApellidos = /^[A-Za-z ,.'-]+$/;
 var exprNumero = /[0-9]{9}/;
+var exprMatricula = /[0-9]{4} [A-Z]{3}/;
 
 function validateUsos(){
 	var filtro = document.getElementById("filtroUsos");
@@ -12,23 +13,21 @@ function validateUsos(){
 	var apellidosCheck = true;
 	if(!exprNombreApellidos.test(filtroValue)){
 		apellidosCheck = false;
-		error = "Introduzca un nombre o apellidos válidos.";
 	}
 
 	var modeloCheck = filtroValue.length<=20;
-	if(!modeloCheck){
-		error = "La búsqueda ha de ser menor a 20 caracteres.";
-	}
 	
 	var matriculaCheck = true;
 	if(!exprMatricula.test(filtroValue)){
 		matriculasCheck = false;
-		error = "Introduzca un formato de matrícula válido.";
 	}
 	
 	var resCheck = (apellidosCheck || matriculaCheck) && modeloCheck;
 	
-	filtro.setCustomValidity(error);
+	if(!resCheck){
+		error = 'Búsqueda no válida. Ha de ser menor a 20 caracteres y con un formato de matrícula o nombre válido.';
+		filtro.setCustomValidity(error);
+	}
 	return error;
 }
 
@@ -59,7 +58,7 @@ function validateFormListAlumnosView(){
 	var resCheck = (dniCheck || nombreApellidosCheck) && lengthCheck;
 
 	if(!resCheck) {
-		error = "Búsqueda no válida. Compruebe la válidez del DNI o del nombre o apellidos introducidos.";
+		error = "Búsqueda no válida. Compruebe la validez del DNI o del nombre o apellidos introducidos.";
 		filtro.setCustomValidity(error);
 	}
 
@@ -183,6 +182,27 @@ function validateTelefono(){
 	}
 	telefono.setCustomValidity(error);
 	return resultado;
+}
+
+function soloNumeros(){
+	var num = document.getElementById("anyo");
+	var numero = num.value;
+	document.getElementById('anyo').style.cssText = "background-color: #DBF1FF;";
+	
+	if(numero.length >= 6){
+		error = 'Año demasiado largo.';
+		document.getElementById('anyo').style.cssText = "background-color: #FF8989;";
+	}
+	else if(!/[0-9]*/.test(numero)){
+		error = 'Usa números.';
+		document.getElementById('anyo').style.cssText = "background-color: #FF8989;";
+	}
+	else {
+		error = "";
+		document.getElementById('anyo').style.cssText = "background-color: #DBF1FF;";
+	}
+	num.setCustomValidity(error);
+	return (error.length == 0);
 }
 
 function letraDNI(numeroDNI) {

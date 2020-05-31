@@ -14,7 +14,7 @@ class VehiculosModel extends BaseModel{
 	//	ADMINISTRADOR
 	
 	public function getUsosPorAlumno(){
-		$filtro = isset($_POST["filtro"]) ? $_POST["filtro"] : "";
+		$filtro = isset($_POST["filtroUsos"]) ? $_POST["filtroUsos"] : "";
 
 		$query = "SELECT NOMBRE,APELLIDOS,MODELO,MATRICULA,ESTADO FROM ALUMNOCONDUCETURISMOS LEFT JOIN TURISMOS ON TURISMO = MATRICULA LEFT JOIN ALUMNOS ON DNI = ALUMNO
 			UNION

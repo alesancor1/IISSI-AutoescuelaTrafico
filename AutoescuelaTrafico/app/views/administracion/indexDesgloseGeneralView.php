@@ -34,7 +34,7 @@
 					</select>
 					
 					<label for="anyo"><b>Año</b></label>
-					<input type="text" name="anyo" id="anyo">
+					<input type="text" name="anyo" id="anyo" oninput="soloNumeros();">
 
 					<button type="submit"><i class = "fa fa-arrow-right"></i></button>
 					<!-- para el ValidatorPHP -->
