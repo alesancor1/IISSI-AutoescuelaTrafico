@@ -28,13 +28,8 @@ function validateAnyo(){
 		$("#anyo").css("border", '1px solid red');
 		$("#anyo").css("background", '#ffeeee');
 		resultado = false;
-	} else if(numero.length >= 6){
-		error = 'Año demasiado largo.';
-		$("#anyo").css("border", '1px solid red');
-		$("#anyo").css("background", '#ffeeee');
-		resultado = false;
 	} else if(!/[0-9]{4}/.test(numero)){
-		error = 'Usa números.';
+		error = 'Utilice un formato adecuado para el año introducido.';
 		$("#anyo").css("border", '1px solid red');
 		$("#anyo").css("background", '#ffeeee');
 		resultado = false;
