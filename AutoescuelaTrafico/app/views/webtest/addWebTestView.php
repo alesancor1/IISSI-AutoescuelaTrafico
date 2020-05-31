@@ -7,16 +7,18 @@
 
     	<div class="overlay" id="overlay">
             <div class = "popup" id = "popup">
-                <h1 class = nuevo>NUEVO ACCESOWEB</h1>
-                
-                <p>Introducir DNI del alumno al que se quiera asignar el nuevo accesoWeb.</p>
-                <p>¡Para alumnos a los que les haya caducado el acceso o bien nunca se les fuese asignado!</p>
-                
                 <form action="?controller=Validator&action=validate" class="form-container" method = "post">
+
+                    <h1 class = nuevo>NUEVO ACCESOWEB</h1>
+
+                    <div class = "infoText">
+                        <p>Introducir DNI del alumno al que se quiera asignar el nuevo accesoWeb.</p><br>
+                        <p>¡Para alumnos a los que les haya caducado el acceso o bien nunca se les fuese asignado!</p>
+                    </div>
 
                     <div class = "inputText">
                         <label for="titulo"><b>DNI</b></label>
-                        <input type="text" placeholder="DNI" name="dni" id="dni" pattern="[0-9]{7}[A-Z]{1}" oninput="validateDNI2();" required>
+                        <input type="text" placeholder="DNI" name="dni" id="dni" pattern="[0-9]{8}[A-Z]{1}" oninput="validateDNI2();" required>
                     </div>
 
                     <div class = "botones">

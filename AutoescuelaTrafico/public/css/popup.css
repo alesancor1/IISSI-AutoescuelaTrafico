@@ -68,6 +68,7 @@
   margin-left: 10px;
   background: #f1f1f1;
   border: none;
+  padding-left: 10px;
 }
 .inputText label{
   width: 300px;
@@ -120,6 +121,7 @@
   margin-left: 10px;
   background: #f1f1f1;
   border: none;
+  padding-left: 10px;
 }
 .select label{
   width: 250px;
@@ -147,6 +149,7 @@
   background: #f1f1f1;
   border: none;
   resize: none;
+  padding-left: 10px;
 }
 .textarea label{
   width: 150px;
@@ -154,6 +157,24 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;  
+}
+/*ventana de informacion (webTests)*/
+.infoText{
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  margin-left: -25%;
+  width: 50%;
+  height: 200px;
+  border: 2px solid red;
+  padding: 20px;
+  background-color: #ffeeee;
+}
+.infoText p{
+  width: 100%;
+  text-align: justify;
+  margin-top: 10px;
+  font-size: 17px;
 }
 /*botones*/
 .botones{
