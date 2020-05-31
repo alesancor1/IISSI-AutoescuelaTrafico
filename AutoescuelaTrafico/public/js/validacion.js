@@ -1,4 +1,5 @@
 var exprDNI = /[0-9]{8}[A-Z]/;
+var exprCaracterRaro = /[!@#$%^&*(),.?":{}|'<>]/;
 var exprTildes = /^[A-Za-záéíóúÁÉÍÓÚ\s]+$/;
 var exprNombreApellidos = /^[A-Za-z ,.'-]+$/;
 var exprNumero = /[0-9]{9}/;
@@ -373,4 +374,117 @@ function letraDNI(numeroDNI) {
 			break;
 	}
 	return letra;
+}
+
+// NUEVO PC
+function validationModeloPc(){
+	document.getElementById('modelo').style.cssText = "background-color: #f1f1f1;";
+	var model = document.getElementById("modelo");
+	var modelo = model.value;
+	
+	var error;
+	if(!(modelo.length <= 25)){
+		error = "+25 carácteres no permitido.";
+		document.getElementById('modelo').style.cssText = "background-color: #ffeeee;";
+	}
+	else if(exprCaracterRaro.test(modelo)){
+		error = "Se han usado carácteres no permitidos.";
+		document.getElementById('modelo').style.cssText = "background-color: #ffeeee;";
+	} else if(modelo.length == 0) {
+		error = "No puede ser vacio.";
+		document.getElementById('modelo').style.cssText = "background-color: #ffeeee;";
+	} else {
+		error = "";
+		document.getElementById('modelo').style.cssText = "background-color: #f1f1f1;";
+	}
+	
+	model.setCustomValidity(error);
+	return (error==0);
+}
+
+function validationSO(){
+	document.getElementById('so').style.cssText = "background-color: #f1f1f1;";
+	var sistema = document.getElementById("so");
+	var so = sistema.value;
+	
+	var error;
+	if(!(so.length <= 25)){
+		error = "+25 carácteres no permitido.";
+		document.getElementById('so').style.cssText = "background-color: #ffeeee;";
+	}
+	else if(exprCaracterRaro.test(so)){
+		error = "Se han usado carácteres no permitidos.";
+		document.getElementById('so').style.cssText = "background-color: #ffeeee;";
+	} else if(so.length == 0) {
+		error = "No puede ser vacio.";
+		document.getElementById('so').style.cssText = "background-color: #ffeeee;";
+	} else {
+		error = "";
+		document.getElementById('so').style.cssText = "background-color: #f1f1f1;";
+	}
+	
+	sistema.setCustomValidity(error);
+	return (error==0);
+}
+
+
+// VALIDACION LOGIN 
+function userValidation() {
+	document.getElementById('uname').style.cssText = "background-color: #f1f1f1;";
+	var name = document.getElementById("uname");
+	var nombre = name.value;
+
+	var error;
+	var valid = true;
+
+	valid = valid && (nombre.length <= 20);
+
+	// Caracteres excesivos
+	if (valid) {
+
+		// No hay error de caracteres no permitidos
+		if (/"/.test(nombre) || /'/.test(nombre)) {
+			error = "No uses carácteres inválidos, las comillas.";
+			document.getElementById('uname').style.cssText = "background-color: #ffeeee;";
+		}
+		// No hay errores
+		else {
+			error = "";
+			document.getElementById('uname').style.cssText = "background-color: #f1f1f1;";
+		}
+		// Hay error de exceso de caracteres
+	} else {
+		error = "El usuario no puede tener más de 20 carácteres.";
+		document.getElementById('uname').style.cssText = "background-color: #ffeeee;";
+	}
+	
+	name.setCustomValidity(error);
+	
+	return error;
+}
+
+function passwordValidation() {
+	var password = document.getElementById("psw");
+
+	var pwd = password.value;
+	var valid = true;
+	var noSpecialChars = true;
+
+	// Comprobamos la longitud de la contraseña
+	valid = valid && (pwd.length > 0);
+
+	//comprobamos que no contenga caracteres especiales
+	noSpecialChars = !pwd.match('[!@#$%^&*(),.?":{}|<>]') && !pwd.match("[']");
+
+	// Si no cumple las restricciones, devolvemos un error
+	if (!valid) {
+		var error = 'Por favor, introduzca una contraseña. El campo no puede estar vacio';		
+	} else if (!noSpecialChars) {
+		var error = 'La contraseña no puede contener caracteres especiales';
+	}
+	else {
+		var error = "";
+	}
+	password.setCustomValidity(error);
+	return error;
 }

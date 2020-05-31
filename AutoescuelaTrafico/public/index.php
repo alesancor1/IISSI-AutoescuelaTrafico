@@ -13,8 +13,6 @@ header('Content-Type: text/html; charset=utf-8');
     	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
     	<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
     	<script src="./js/validacion.js" type="text/javascript"></script>
-		<script src="./js/validationLogin.js" type="text/javascript"></script>
-		<script src="./js/validationAddOrdenador.js" type="text/javascript"></script>
 		
 	</head>
 </html>

@@ -2,7 +2,7 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="./css/popup.css">
-    <script src="./js/validationAddAlumno.js" type="text/javascript"></script>
+    
 </head>
     <body>
 
