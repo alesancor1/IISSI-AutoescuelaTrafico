@@ -54,6 +54,7 @@
                     <!-- para el ValidatorPHP -->
                     <input type="hidden" name = "validateForm" value = "profesorForm">
                     <input type="hidden" name = "callbackUri" value = "?controller=Profesores&action=addProfesor">
+                    <input type="hidden" name = "callbackError" value = "?controller=Profesores&action=indexProfesoradoInformacion">
 
                 </form>
 

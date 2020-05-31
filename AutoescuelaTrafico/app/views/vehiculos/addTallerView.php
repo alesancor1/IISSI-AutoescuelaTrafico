@@ -34,6 +34,7 @@
                     <!-- para el ValidatorPHP -->
                     <input type="hidden" name = "validateForm" value = "talleresForm">
                     <input type="hidden" name = "callbackUri" value = "?controller=Vehiculos&action=addTaller">
+                    <input type="hidden" name = "callbackError" value = "?controller=Vehiculos&action=getUsosYTalleres">
 
                 </form>
 

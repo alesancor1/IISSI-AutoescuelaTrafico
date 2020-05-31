@@ -82,6 +82,7 @@
 				<!-- para el ValidatorPHP -->
 				<input type="hidden" name = "validateForm" value = "loginForm">
 				<input type="hidden" name = "callbackUri" value = "?controller=Login&action=login">
+				<input type="hidden" name = "callbackError" value = "?controller=Login&action=login">
 			</form>
 		</div>
 	</body>

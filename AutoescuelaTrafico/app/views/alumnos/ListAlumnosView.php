@@ -18,6 +18,7 @@
 					<!-- para el ValidatorPHP -->
                     <input type="hidden" name = "validateForm" value = "alumnosFilterProf">
                     <input type="hidden" name = "callbackUri" value = "?controller=Alumnos&action=listaProfesor">
+                    <input type="hidden" name = "callbackError" value = "?controller=Alumnos&action=listaProfesor">
 				</form>
 			</div>
 			

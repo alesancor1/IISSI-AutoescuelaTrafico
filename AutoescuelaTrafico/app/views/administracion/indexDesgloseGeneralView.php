@@ -40,6 +40,7 @@
 					<!-- para el ValidatorPHP -->
                    	<input type="hidden" name = "validateForm" value = "desgloseFilter">
                     <input type="hidden" name = "callbackUri" value = "?controller=Administracion&action=getDesglose">
+                    <input type="hidden" name = "callbackError" value = "?controller=Administracion&action=getDesglose">
 				</form>
 			</div>
 			

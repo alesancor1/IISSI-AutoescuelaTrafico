@@ -44,6 +44,7 @@
 					<!-- para el ValidatorPHP -->
                     <input type="hidden" name = "validateForm" value = "ordenadoresForm">
                     <input type="hidden" name = "callbackUri" value = "?controller=Ordenadores&action=addPc">
+                    <input type="hidden" name = "callbackError" value = "?controller=Ordenadores&action=index">
 
 				</form>
 
