@@ -521,7 +521,7 @@ function validateDNI() {
 		dni.css("background-color", "#ffeeee");
 		$(".validateDni").text('Entrada requerida.');
 	}
-
+	entrada.setCustomValidity(error);
 	return (error.length==0);
 }
 
@@ -555,7 +555,8 @@ function nombreValidation() {
 	else {
 		error = "";
 	}
-	return (error.length==0);
+	return error;
+	nombre.setCustomValidity(error);
 }
 
 function apellidosValidation() {
@@ -587,5 +588,6 @@ function apellidosValidation() {
 	else {
 		error = "";
 	}
-	return (error.length==0);
+	apellidos.setCustomValidity(error);
+	return error;
 }
