@@ -1,3 +1,5 @@
+var exprTildes = /[!@#$%^&*(),.?":{}|'<>]/;
+
 function validateFormAddAlumno() {
 
 	var error1 = validateDNI();
@@ -66,17 +68,14 @@ function nombreValidation() {
 		campo.css("border", '1px solid red');
 		campo.css("background-color", "#ffeeee");
 		ensenya.text('+20 carácteres no permitido');
-	}else if (!exprTildes.test(valueCheck)) {
+	}
+	else if (exprTildes.test(valueCheck)) {
 		error = "Carácteres inválidos.";
 		campo.css("border", '1px solid red');
 		campo.css("background-color", "#ffeeee");
 		ensenya.text('Carácteres inválidos.');
-	} else if (!exprNombreApellidos.test(valueCheck)) {
-		error = "Carácteres inválidos.";
-		campo.css("border", '1px solid red');
-		campo.css("background-color", "#ffeeee");
-		ensenya.text('Carácteres inválidos.');
-	} else {
+	} 
+	else {
 		error = "";
 	}
 	return resultado;
@@ -102,17 +101,13 @@ function apellidosValidation() {
 		campo.css("border", '1px solid red');
 		campo.css("background-color", "#ffeeee");
 		ensenya.text('+30 carácteres no permitido.');
-	} else if (!exprTildes.test(valueCheck)) {
+	} else if (exprTildes.test(valueCheck)) {
 		error = "Carácteres inválidos.";
 		campo.css("border", '1px solid red');
 		campo.css("background-color", "#ffeeee");
 		ensenya.text('Carácteres inválidos.');
-	} else if (!exprNombreApellidos.test(valueCheck)) {
-		error = "Carácteres inválidos.";
-		campo.css("border", '1px solid red');
-		campo.css("background-color", "#ffeeee");
-		ensenya.text('Carácteres inválidos.');
-	} else {
+	} 
+	else {
 		error = "";
 	}
 	return resultado;
