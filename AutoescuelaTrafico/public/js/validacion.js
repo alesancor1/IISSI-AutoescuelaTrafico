@@ -61,6 +61,13 @@ function validateUsos(){
 	
 	var resCheck = (apellidosCheck || matriculaCheck) && modeloCheck;
 	
+	var exprCheck = true;
+	if(exprCaracterRaro.test(filtroValue)){
+		exprCheck = false;
+	}
+	
+	resCheck = resCheck && exprCheck;
+	
 	if(!resCheck){
 		error = 'Búsqueda no válida. Ha de ser menor a 20 caracteres y con un formato de matrícula o nombre válido.';
 		filtro.setCustomValidity(error);
