@@ -1,0 +1,654 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	    <link rel="icon" href="./favicon.ico"/>
+	    <link rel="stylesheet" href="./css/apiStyle.css">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
+	</head>
+<body>
+	<!-- Interfaz para probar los endpoints -->
+	<div class=header>
+		<h1>AUTOESCUELA TRAFICO - API REST</h1>
+		<h3> endpoints </h3>
+		<img src='./img/autoescuela.png' alt="logo">
+	</div>
+
+	
+	<div class="group">
+		<!-----------------------------------------------------------------------------
+		 Alumnos
+		------------------------------------------------------------------------------->
+		<div class="endpoint">
+			<h4> /alumnos </h4>
+
+			<!---------------
+			 LISTA DE ALUMNOS
+			 ---------------->
+			<div class="get">		
+				<span class="label">GET</span>
+				<span class="endpointName"><p>/api/alumnos</p></span>
+				<span class="description"><p>Lista de todos los alumnos</p></span>
+				<div class="button" onclick="toggleEndpoint(this)"></div>
+
+				<div class="accordion">
+
+					<div class=parameters>
+						<h5>Parametros</h5>
+						<button class="try" value="0" onclick="toggleParams(this)">Probar Endpoint</button>
+						<div class = "textboxs">
+							<p>Este endpoint no toma parámetros</p>
+							<input type="hidden" class="endpoint" value="/AutoescuelaTrafico/api/alumnos">
+							<button class="exec" value="1" onclick="HTTPRequest(this.parentElement, 'GET')">Ejecutar</button>
+						</div>
+					</div>
+
+					<div class="JSONcode">
+						<h5> Respuesta del servidor</h5>
+
+						<label for="url">URL de la request: </label>
+						<input class="url" type="text" readonly style="width: 100%;"><br>
+
+						<label for="code">Código de respuesta</label><br>
+						<input class="code" type="text" readonly><br>
+
+						<label for="JSONbody">Cuerpo de la respuesta</label>
+						<textarea class="JSONbody" readonly></textarea>
+
+						<label for="headers">Cabeceras de la respuesta</label>
+						<textarea class="headers" readonly style="height: 60px"></textarea>
+					</div>
+
+					<div class=responses>
+						<h5> Respuestas posibles</h5>
+						<table>
+							<tr>
+								<th>Codigo</th>
+								<th>Descripcion</th>
+							</tr>
+							<tr>
+								<td>200</td>
+								<td>Request correcta<br><img src="./img/ejemploAPI1.png" alt="ejemplo"></td>
+							</tr>
+							<tr>
+								<td>404</td>
+								<td>No se ha podido acceder al endpoint</td>
+							</tr>
+						</table>
+					</div>
+
+				</div>
+			</div>
+
+			<!---------------
+			 ALUMNOS POR DNI
+			---------------->
+			<div class="get">
+				<span class="label">GET</span>
+				<span class="endpointName"><p>/api/alumnos/{DNI}</p></span>
+				<span class="description"><p>Obtiene los datos de un alumno concreto</p></span>
+				<div class="button" onclick="toggleEndpoint(this)"></div>
+
+				<div class="accordion">
+
+					<div class=parameters>
+						<h5>Parametros</h5>
+						<button class="try" value="0" onclick="toggleParams(this)">Probar Endpoint</button>
+						<div class = "textboxs">
+							<label for="dni">DNI: </label><br>
+							<input type="text" class="paramPath" name="dni" placeholder="12345678A" disabled>
+							<input type="hidden" class="endpoint" value="/AutoescuelaTrafico/api/alumnos">
+							<button class="exec" value="1" onclick="HTTPRequest(this.parentElement, 'GET')">Ejecutar</button>
+						</div>
+					</div>
+
+					<div class="JSONcode">
+						<h5> Respuesta del servidor</h5>
+
+						<label for="url">URL de la request: </label>
+						<input class="url" type="text" readonly style="width: 100%;"><br>
+
+						<label for="code">Código de respuesta</label><br>
+						<input class="code" type="text" readonly><br>
+
+						<label for="JSONbody">Cuerpo de la respuesta</label>
+						<textarea class="JSONbody" readonly></textarea>
+
+						<label for="headers">Cabeceras de la respuesta</label>
+						<textarea class="headers" readonly style="height: 60px"></textarea>
+					</div>
+
+					<div class=responses>
+						<h5> Respuestas posibles</h5>
+						<table>
+							<tr>
+								<th>Codigo</th>
+								<th>Descripcion</th>
+							</tr>
+							<tr>
+								<td>200</td>
+								<td>Request correcta<br><img src="./img/ejemploAPI1.png" alt="ejemplo"></td>
+							</tr>
+							<tr>
+								<td>404</td>
+								<td>No existe el alumno solicitado</td>
+							</tr>
+						</table>
+					</div>
+
+				</div>
+			</div>
+
+			<!-----------------
+			 MATRICULAR ALUMNO
+			------------------>
+			<div class="post">
+				<span class="label">POST</span>
+				<span class="endpointName"><p>/api/alumnos</p></span>
+				<span class="description"><p>Matricula a un nuevo alumno</p></span>
+				<div class="button" onclick="toggleEndpoint(this)"></div>
+
+				<div class="accordion">
+
+					<div class=parameters>
+						<h5>Parametros</h5>
+						<button class="try" value="0" onclick="toggleParams(this)">Probar Endpoint</button>
+						<div class = "textboxs">
+
+							<label for="dni">DNI: </label><br>
+							<input type="text" class="paramQuery" name="dni" placeholder="12345678A" disabled><br>
+
+							<label for="nombre">Nombre: </label><br>
+							<input type="text" class="paramQuery" name="nombre" placeholder="Ejemplo" disabled><br>
+
+							<label for="apellidos">Apellidos: </label><br>
+							<input type="text" class="paramQuery" name="apellidos" placeholder="Ejemplo Ejemplo" disabled><br>
+
+							<label for="fNacimiento">Fecha de nacimiento: </label><br>
+							<input type="date" class="paramQuery" name="fNacimiento" disabled><br>
+
+							<label for="permiso">Permiso: </label><br>
+							<select class="paramQuery" name="permiso" disabled>
+								<option disabled selected>Permiso</option>
+								<option value="Permiso A2">Permiso A2</option>
+								<option value="Permiso B">Permiso B</option>
+							</select><br>
+
+							<input type="hidden" class="endpoint" value="/AutoescuelaTrafico/api/alumnos">
+							<button class="exec" value="1" onclick="HTTPRequest(this.parentElement, 'POST')">Ejecutar</button>
+						</div>
+					</div>
+
+					<div class="JSONcode">
+						<h5> Respuesta del servidor</h5>
+
+						<label for="url">URL de la request: </label>
+						<input class="url" type="text" readonly style="width: 100%;"><br>
+
+						<label for="code">Código de respuesta</label><br>
+						<input class="code" type="text" readonly><br>
+
+						<label for="JSONbody">Cuerpo de la respuesta</label>
+						<textarea class="JSONbody" readonly></textarea>
+
+						<label for="headers">Cabeceras de la respuesta</label>
+						<textarea class="headers" readonly style="height: 60px"></textarea>
+					</div>
+
+					<div class=responses>
+						<h5> Respuestas posibles</h5>
+						<table>
+							<tr>
+								<th>Codigo</th>
+								<th>Descripcion</th>
+							</tr>
+							<tr>
+								<td>200</td>
+								<td>Alumno matriculado correctamente</td>
+							</tr>
+							<tr>
+								<td>400</td>
+								<td>Parametro invalido introducido</td>
+							</tr>
+						</table>
+					</div>
+
+				</div>
+			</div>
+
+			<!-----------------
+			 BORRAR ALUMNO
+			------------------>
+			<div class="delete">
+				<span class="label">DELETE</span>
+				<span class="endpointName"><p>/api/alumnos</p></span>
+				<span class="description"><p>Elimina un alumno</p></span>
+				<div class="button" onclick="toggleEndpoint(this)"></div>
+
+				<div class="accordion">
+
+					<div class=parameters>
+						<h5>Parametros</h5>
+						<button class="try" value="0" onclick="toggleParams(this)">Probar Endpoint</button>
+						<div class = "textboxs">
+
+							<label for="dni">DNI: </label><br>
+							<input type="text" class="paramQuery" name="dni" placeholder="12345678A" disabled><br>
+
+							<input type="hidden" class="endpoint" value="/AutoescuelaTrafico/api/alumnos">
+							<button class="exec" value="1" onclick="HTTPRequest(this.parentElement, 'DELETE')">Ejecutar</button>
+						</div>
+					</div>
+
+					<div class="JSONcode">
+						<h5> Respuesta del servidor</h5>
+
+						<label for="url">URL de la request: </label>
+						<input class="url" type="text" readonly style="width: 100%;"><br>
+
+						<label for="code">Código de respuesta</label><br>
+						<input class="code" type="text" readonly><br>
+
+						<label for="JSONbody">Cuerpo de la respuesta</label>
+						<textarea class="JSONbody" readonly></textarea>
+
+						<label for="headers">Cabeceras de la respuesta</label>
+						<textarea class="headers" readonly style="height: 60px"></textarea>
+					</div>
+
+					<div class=responses>
+						<h5> Respuestas posibles</h5>
+						<table>
+							<tr>
+								<th>Codigo</th>
+								<th>Descripcion</th>
+							</tr>
+							<tr>
+								<td>200</td>
+								<td>Alumno eliminado correctamente</td>
+							</tr>
+							<tr>
+								<td>400</td>
+								<td>Parametro invalido introducido</td>
+							</tr>
+						</table>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<!-----------------------------------------------------------------------------
+		 Profesores
+		------------------------------------------------------------------------------->
+
+		<div class="endpoint">
+			<h4> /profesores </h4>
+
+			<!-----------------
+			 LISTA DE PROFESORES
+			------------------>
+			<div class="get">
+				<span class="label">GET</span>
+				<span class="endpointName"><p>/api/profesores</p></span>
+				<span class="description"><p>Lista de todos los profesores</p></span>
+				<div class="button" onclick="toggleEndpoint(this)"></div>
+
+				<div class="accordion">
+
+					<div class=parameters>
+						<h5>Parametros</h5>
+						<button class="try" value="0" onclick="toggleParams(this)">Probar Endpoint</button>
+						<div class = "textboxs">
+							<p>Este endpoint no toma parámetros</p>
+							<input type="hidden" class="endpoint" value="/AutoescuelaTrafico/api/profesores">
+							<button class="exec" value="1" onclick="HTTPRequest(this.parentElement, 'GET')">Ejecutar</button>
+						</div>
+					</div>
+
+					<div class="JSONcode">
+						<h5> Respuesta del servidor</h5>
+
+						<label for="url">URL de la request: </label>
+						<input class="url" type="text" readonly style="width: 100%;"><br>
+
+						<label for="code">Código de respuesta</label><br>
+						<input class="code" type="text" readonly><br>
+
+						<label for="JSONbody">Cuerpo de la respuesta</label>
+						<textarea class="JSONbody" readonly></textarea>
+
+						<label for="headers">Cabeceras de la respuesta</label>
+						<textarea class="headers" readonly style="height: 60px"></textarea>
+					</div>
+
+					<div class=responses>
+						<h5> Respuestas posibles</h5>
+						<table>
+							<tr>
+								<th>Codigo</th>
+								<th>Descripcion</th>
+							</tr>
+							<tr>
+								<td>200</td>
+								<td>Request correcta<br><img src="./img/ejemploAPI2.png" alt="ejemplo"></td>
+							</tr>
+							<tr>
+								<td>404</td>
+								<td>No se ha podido acceder al endpoint</td>
+							</tr>
+						</table>
+					</div>
+
+				</div>
+			</div>
+
+			<!-----------------
+			 PROFESORES POR DNI
+			------------------>
+			<div class="get">
+				<span class="label">GET</span>
+				<span class="endpointName"><p>/api/profesores/{DNI}</p></span>
+				<span class="description"><p>Obtiene los datos de un profesor concreto</p></span>
+				<div class="button" onclick="toggleEndpoint(this)"></div>
+
+				<div class="accordion">
+
+					<div class=parameters>
+						<h5>Parametros</h5>
+						<button class="try" value="0" onclick="toggleParams(this)">Probar Endpoint</button>
+						<div class = "textboxs">
+							<label for="dni">DNI: </label><br>
+							<input type="text" class="paramPath" name="dni" placeholder="12345678A" disabled>
+							<input type="hidden" class="endpoint" value="/AutoescuelaTrafico/api/profesores">
+							<button class="exec" value="1" onclick="HTTPRequest(this.parentElement, 'GET')">Ejecutar</button>
+						</div>
+					</div>
+
+					<div class="JSONcode">
+						<h5> Respuesta del servidor</h5>
+
+						<label for="url">URL de la request: </label>
+						<input class="url" type="text" readonly style="width: 100%;"><br>
+
+						<label for="code">Código de respuesta</label><br>
+						<input class="code" type="text" readonly><br>
+
+						<label for="JSONbody">Cuerpo de la respuesta</label>
+						<textarea class="JSONbody" readonly></textarea>
+
+						<label for="headers">Cabeceras de la respuesta</label>
+						<textarea class="headers" readonly style="height: 60px"></textarea>
+					</div>
+
+					<div class=responses>
+						<h5> Respuestas posibles</h5>
+						<table>
+							<tr>
+								<th>Codigo</th>
+								<th>Descripcion</th>
+							</tr>
+							<tr>
+								<td>200</td>
+								<td>Request correcta<br><img src="./img/ejemploAPI2.png" alt="ejemplo"></td>
+							</tr>
+							<tr>
+								<td>404</td>
+								<td>No existe el profesor solicitado</td>
+							</tr>
+						</table>
+					</div>
+
+				</div>
+			</div>
+
+			<!-----------------
+			 AÑADIR PROFESOR
+			------------------>
+			<div class="post">
+				<span class="label">POST</span>
+				<span class="endpointName"><p>/api/profesores</p></span>
+				<span class="description"><p>Añade un nuevo profesor</p></span>
+				<div class="button" onclick="toggleEndpoint(this)"></div>
+
+				<div class="accordion">
+
+					<div class=parameters>
+						<h5>Parametros</h5>
+						<button class="try" value="0" onclick="toggleParams(this)">Probar Endpoint</button>
+						<div class = "textboxs">
+
+							<label for="dni">DNI: </label><br>
+							<input type="text" class="paramQuery" name="dni" placeholder="12345678A" disabled><br>
+
+							<label for="nombre">Nombre: </label><br>
+							<input type="text" class="paramQuery" name="nombre" placeholder="Ejemplo" disabled><br>
+
+							<label for="apellidos">Apellidos: </label><br>
+							<input type="text" class="paramQuery" name="apellidos" placeholder="Ejemplo Ejemplo" disabled><br>
+
+							<label for="fechaContrato">Fecha de contrato: </label><br>
+							<input type="date" class="paramQuery" name="fechaContrato" disabled><br>
+
+							<label for="telefono">Telefono: </label><br>
+							<input type="text" class="paramQuery" name="telefono" placeholder="123456789" disabled><br>
+
+							<label for="salario">Salario: </label><br>
+							<input type="text" class="paramQuery" name="salario" placeholder="2000" disabled><br>
+
+							<label for="nss">N Seguridad Social: </label><br>
+							<input type="text" class="paramQuery" name="nss" placeholder="41 1234567890" disabled><br>
+
+							<input type="hidden" class="endpoint" value="/AutoescuelaTrafico/api/profesores">
+							<button class="exec" value="1" onclick="HTTPRequest(this.parentElement, 'POST')">Ejecutar</button>
+						</div>
+					</div>
+
+					<div class="JSONcode">
+						<h5> Respuesta del servidor</h5>
+
+						<label for="url">URL de la request: </label>
+						<input class="url" type="text" readonly style="width: 100%;"><br>
+
+						<label for="code">Código de respuesta</label><br>
+						<input class="code" type="text" readonly><br>
+
+						<label for="JSONbody">Cuerpo de la respuesta</label>
+						<textarea class="JSONbody" readonly></textarea>
+
+						<label for="headers">Cabeceras de la respuesta</label>
+						<textarea class="headers" readonly style="height: 60px"></textarea>
+					</div>
+
+					<div class=responses>
+						<h5> Respuestas posibles</h5>
+						<table>
+							<tr>
+								<th>Codigo</th>
+								<th>Descripcion</th>
+							</tr>
+							<tr>
+								<td>200</td>
+								<td>Profesor añadido correctamente</td>
+							</tr>
+							<tr>
+								<td>400</td>
+								<td>Parametro invalido introducido</td>
+							</tr>
+						</table>
+					</div>
+
+				</div>
+			</div>
+
+			<!-----------------
+			 BORRAR PROFESOR
+			------------------>
+			<div class="delete">
+				<span class="label">DELETE</span>
+				<span class="endpointName"><p>/api/profesores</p></span>
+				<span class="description"><p>Elimina un profesor</p></span>
+				<div class="button" onclick="toggleEndpoint(this)"></div>
+
+				<div class="accordion">
+
+					<div class=parameters>
+						<h5>Parametros</h5>
+						<button class="try" value="0" onclick="toggleParams(this)">Probar Endpoint</button>
+						<div class = "textboxs">
+
+							<label for="dni">DNI: </label><br>
+							<input type="text" class="paramQuery" name="dni" placeholder="12345678A" disabled><br>
+
+							<input type="hidden" class="endpoint" value="/AutoescuelaTrafico/api/profesores">
+							<button class="exec" value="1" onclick="HTTPRequest(this.parentElement, 'DELETE')">Ejecutar</button>
+						</div>
+					</div>
+
+					<div class="JSONcode">
+						<h5> Respuesta del servidor</h5>
+
+						<label for="url">URL de la request: </label>
+						<input class="url" type="text" readonly style="width: 100%;"><br>
+
+						<label for="code">Código de respuesta</label><br>
+						<input class="code" type="text" readonly><br>
+
+						<label for="JSONbody">Cuerpo de la respuesta</label>
+						<textarea class="JSONbody" readonly></textarea>
+
+						<label for="headers">Cabeceras de la respuesta</label>
+						<textarea class="headers" readonly style="height: 60px"></textarea>
+					</div>
+
+					<div class=responses>
+						<h5> Respuestas posibles</h5>
+						<table>
+							<tr>
+								<th>Codigo</th>
+								<th>Descripcion</th>
+							</tr>
+							<tr>
+								<td>200</td>
+								<td>Profesor eliminado correctamente</td>
+							</tr>
+							<tr>
+								<td>400</td>
+								<td>Parametro invalido introducido</td>
+							</tr>
+						</table>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+<!--------------------------------------------------------------------------------------------------------
+		FUNCIONES DE JAVASCRIPT
+---------------------------------------------------------------------------------------------------------->
+
+<script type="text/javascript">
+	//despliega el acordeon del endpoint
+	function toggleEndpoint(element){
+		var accordion = element.nextElementSibling;
+		if(accordion.style.display == "" || accordion.style.display == "none"){
+			accordion.style.display = "block";
+		}
+		else{
+			accordion.style.display = "none";
+		}
+	}
+	// activa/desactiva los campos de texto al pulsar el boton de probar
+	function toggleParams(element){
+		var container = element.nextElementSibling;					// div con los inputs
+		var submit = container.getElementsByTagName('button')[0];	// boton de submit (ejecutar/limpiar)
+		var inputs = container.getElementsByTagName('input');		// lista de inputs del div
+		var selects = container.getElementsByTagName('select');		// lista de selects
+		
+		if(element.value == "0"){
+			element.value = "1";
+			element.firstChild.data = "Cancelar";
+			submit.style.display="block";
+			for (var i = 0; i < inputs.length; i++){
+				inputs[i].disabled = false;
+			}
+			for (var i = 0; i < selects.length; i++){
+				selects[i].disabled = false;
+			}
+		} else{
+			element.value = "0";
+			element.firstChild.data = "Probar Endpoint";
+			submit.style.display="none";
+			for (var i = 0; i < inputs.length; i++){
+				inputs[i].disabled = true;
+				inputs[i].value = "";
+			}
+			for (var i = 0; i < selects.length; i++){
+				selects[i].disabled = true;
+			}
+		}
+	}
+
+	//Muestra los campos de texto JSON, 
+	//cambia el boton de ejecutar y llama al metodo que hace la request
+	function HTTPRequest(form, metodo){
+		var submit = form.getElementsByTagName('button')[0];		// boton de submit (ejecutar/limpiar)
+		var JSONcodebox = form.parentElement.nextElementSibling;	// contenedor de los campos de texto JSON
+
+		if(submit.value == '1'){
+			submit.value = '0';
+			submit.firstChild.data = "Limpiar";
+			HTTPRequestAux(form, metodo);
+			JSONcodebox.style.display = "block";
+		}
+		else{
+			submit.value = '1';
+			submit.firstChild.data = "Ejecutar";
+			JSONcodebox.style.display = "none";
+		}
+	}
+	//Hace la peticion HTTP y escribe en los campos de texto correspondientes
+	function HTTPRequestAux(form, metodo){
+		//inicializa las variables
+		var inputQuery = form.getElementsByClassName('paramQuery');				// parametros de la query
+		var inputPath = form.getElementsByClassName('paramPath');   			// parametros del path
+		var JSONcodebox = form.parentElement.nextElementSibling;				// contenedor de los campos de texto
+		var urlField = JSONcodebox.getElementsByClassName('url')[0];			// campo de la url
+		var codeField = JSONcodebox.getElementsByClassName('code')[0];			// campo del codigo de estado
+		var JSONbodyField = JSONcodebox.getElementsByClassName('JSONbody')[0];	// campo de la respuesta JSON
+		var headersField = JSONcodebox.getElementsByClassName('headers')[0];	// campo de los headers
+
+		//formatea la url para hacer la peticion
+		var endpoint = form.getElementsByClassName('endpoint')[0].value;
+		var url = "http://" + location.hostname + endpoint;
+		url += inputQuery.length==0 ? "" : "?";
+
+		for(var i = 0; i<inputPath.length; i++){
+			url += "/" + inputPath[i].value;
+		}
+
+		for(var i = 0; i<inputQuery.length; i++){
+			url += inputQuery[i].name + "=" + inputQuery[i].value;
+			if(i != inputQuery.length-1)
+				url += "&";
+		}
+		url.replace(/ /g, "+"); //sustituye los espacios por +
+
+		//peticion HTTP
+		var xmlHttp = new XMLHttpRequest();
+	    xmlHttp.open(metodo, url);
+	    xmlHttp.send();
+
+	    //rellena los campos
+	    xmlHttp.onreadystatechange = (e) => {
+		  	console.log(xmlHttp.responseText)
+		 	urlField.value = url;
+			codeField.value = xmlHttp.status;
+			JSONbodyField.value = xmlHttp.responseText;
+			headersField.value = xmlHttp.getAllResponseHeaders();
+		}
+	}	
+</script>
+</html>
