@@ -1,0 +1,213 @@
+*{
+	font-family: sans-serif;
+}
+.header img{
+	width: 150px;
+	height: 100px;
+	right: 0;
+	top: 0;
+	position: absolute;
+}
+.header h1, .header h3{
+	margin-left: 50px;
+}
+.group{
+	background-color: #F5F5F5;
+	width: 100%;
+	border-top: 1px solid gray;
+	padding-bottom: 30px;
+}
+.endpoint{
+	padding: 30px 50px 0 50px;
+
+}
+.endpoint h4{
+	color: #A5A5A5;
+	font-size: 25px;
+	width: 100%;
+	border-bottom: 1px solid gray;
+	margin: 0 0 15px 0;
+}
+.endpoint .get, .post, .delete, .put{
+	position: relative;
+	margin-bottom: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	border-radius: 10px;
+	align-items: center;
+	padding: 5px 20px 5px 20px;
+	box-shadow: 1.5px 1.5px 1.5px 1.5px lightgray;
+}
+.endpoint .get:hover, .post:hover, .delete:hover, .put:hover{
+	box-shadow: 2.5px 2.5px 2.5px 2.5px lightgray;
+}
+.endpoint .label{
+	height: 30px;
+	width: 90px;
+	border-radius: 5px;
+	color: white;
+	margin-right: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.endpoint .endpointName{
+	font-size: 14px;
+	font-weight: 800;
+	letter-spacing: 1.5px;
+	height: 30px;
+	margin-right: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.endpoint .description{
+	font-size: 14px;
+	height: 30px;
+	display: flex;
+	align-items: center;
+}
+.endpoint .get .label{
+	background-color: royalblue;
+}
+.endpoint .post .label{
+	background-color: #54B047;
+}
+.endpoint .delete .label{
+	background-color: #F94F4F;
+}
+.endpoint .get{
+	background-color: #CAE4FF;	
+	border: 1px solid blue;
+}
+.endpoint .post{
+	background-color: #A7F3B5;	
+	border: 1px solid green;
+}
+.endpoint .delete{
+	background-color: #F3B0A7;
+	border: 1px solid red;
+}
+.endpoint .button{
+	position:absolute; 
+	width: 100%; 
+	height: 40px; 
+	cursor: pointer;
+	top: 0;
+	margin-left: -20px;
+}
+
+/*acordeones*/
+.accordion{
+	box-shadow: none;
+	position: relative;
+	width: 100%;
+	display: none;
+}
+.accordion .parameters .try{
+	position: absolute;
+	top: 15px;
+	right: 0;
+	height: 35px;
+	border: 2px solid gray;
+	border-radius: 10px;
+	color: gray;
+	font-weight: 600;
+	background-color: transparent;
+	cursor: pointer;
+}
+.accordion .parameters .try:hover{
+	color: lightgray;
+	border: 2px solid lightgray;
+}
+.accordion .parameters .exec{
+	background-color: royalblue;
+	width: 100%;
+	color: white;
+	height: 35px;
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
+	font-weight: 500;
+	margin-bottom: 15px;
+	cursor: pointer;
+	display: none;
+}
+.accordion .parameters .exec:hover{
+	background-color: #184999;
+}
+.accordion .parameters input[type="text"], input[type="date"], .parameters select{
+	height: 25px;
+	margin-bottom: 20px;
+	margin-top: 5px;
+	border-radius: 5px;
+	border: 1px solid gray;
+}
+.accordion .parameters input[type="text"]:disabled, input[type="date"]:disabled, .parameters select:disabled{
+	cursor: not-allowed;
+}
+
+.accordion .JSONcode{
+	display: none;
+}
+.accordion .JSONcode input{
+	height: 30px;
+	margin-bottom: 20px;
+	margin-top: 5px;
+	background-color: transparent;
+	border:none;
+}
+.accordion .JSONcode textarea{
+	resize: none;
+	width: 100%;
+	height: 400px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	border-radius: 10px;
+	border: 1px solid gray;
+	margin-bottom: 20px;
+	margin-top: 5px;
+}
+.accordion .JSONcode label, .accordion .parameters label{
+	margin-left: 5px;
+	font-size: 14px;
+	font-weight: 600;
+
+}
+
+
+/*responses*/
+.accordion h5{
+	margin-left: -20px;
+	margin-right: -20px;
+	padding: 10px 0 10px 20px;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	border-top: 1px solid royalblue;
+	border-bottom: 2px solid lightgray;
+	margin-top: 5px;
+	font-size: 15px;
+	background-color: #F2F7FF;
+}
+.accordion .responses h5, .JSONcode h5{
+	border-top: none;
+}
+.accordion .responses table{
+	width: 100%;
+	text-align: left;
+	border-collapse: collapse;
+	margin-bottom: 20px;
+}
+.accordion .responses th{
+	border-bottom: 1px solid gray;
+}
+.accordion .responses td{
+	padding-top: 10px;
+}
+.accordion .responses img{
+	margin-top: 5px;
+	width: 100%;
+	height: 350px;
+	opacity: 80%;
+}

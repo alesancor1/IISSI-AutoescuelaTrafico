@@ -1,0 +1,12 @@
+.errorMessage{
+	border: 2px solid red; 
+	position: absolute;
+	top: 0;
+	background-color: #ffeeee;
+	padding: 10px; 
+	margin-top: 10px;
+	left: 50%;
+	width: 50%;
+	margin-left: -25%;
+	text-align: center;
+}

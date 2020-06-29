@@ -1,0 +1,225 @@
+/*Overlay*/
+.overlay{
+  background: rgba(0,0,0,.3);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  visibility: hidden;
+  z-index: 2;
+}
+.overlay.active{
+  visibility: visible;
+}
+/*ventana del popup*/
+.popup {
+  position: relative;
+  width: 75%;
+  height: 80%;
+  min-height: 626px;
+  background: white;
+  font-family: sans-serif;
+
+  transform: scale(0.7);
+  opacity: 0;
+  transition: .3s ease all;
+}
+/*titulo*/
+.nuevo{
+  width: 100%;
+  font-size: 30px;
+  position: absolute;
+  top: 0;
+  margin-top: 20px;
+  text-align: center;
+  z-index: 1;
+}
+/*formulario*/
+.form-container {
+  position: relative;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  border-radius: 30px;
+
+  opacity: 0;
+}
+/*input text*/
+.inputText{
+  position: relative;
+  top: 5%;
+  transform: translateY(100%);
+  width: 100%;
+  height: 50px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+.inputText input[type=text]{
+  position: absolute;
+  bottom: 0;
+  width: 50%;
+  height: 30px;
+  margin-left: 10px;
+  background: #f1f1f1;
+  border: none;
+  padding-left: 10px;
+}
+.inputText label{
+  width: 300px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;  
+}
+/*input DateTime*/
+.inputDate, .inputTime{
+  position: relative;
+  top: 5%;
+  transform: translateY(100%);
+  width: 100%;
+  height: 50px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+.inputDate input[type=date], .inputTime input[type=time]{
+  position: absolute;
+  bottom: 0;
+  height: 30px;
+  margin-left: 10px;
+  background: #f1f1f1;
+  border: none;
+}
+.inputDate label, .inputTime label{
+  width: 200px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;  
+}
+/*Select*/
+.select{
+  position: relative;
+  top: 5%;
+  transform: translateY(100%);
+  width: 100%;
+  height: 50px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+.select select{
+  position: absolute;
+  bottom: 0;
+  height: 30px;
+  margin-left: 10px;
+  background: #f1f1f1;
+  border: none;
+  padding-left: 10px;
+}
+.select label{
+  width: 250px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;  
+}
+/*textarea*/
+.textarea{
+  position: relative;
+  top: 15%;
+  width: 100%;
+  height: 270px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+.textarea textarea{
+  position: absolute;
+  bottom: 0;
+  height: 250px;
+  width: 50%;
+  margin-left: 10px;
+  background: #f1f1f1;
+  border: none;
+  resize: none;
+  padding-left: 10px;
+}
+.textarea label{
+  width: 150px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;  
+}
+/*ventana de informacion (webTests)*/
+.infoText{
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  margin-left: -25%;
+  width: 50%;
+  height: 200px;
+  border: 2px solid yellow;
+  padding: 20px;
+  background-color: #FDFFC5;
+}
+.infoText p{
+  width: 100%;
+  text-align: justify;
+  margin-top: 10px;
+  font-size: 17px;
+}
+/*botones*/
+.botones{
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 20%;
+}
+.volver{
+  border:none;
+  background-color: white;
+  position: absolute;
+  left: 30px;
+  bottom: 10px;
+  margin-left: -20px;
+  cursor: pointer;
+}
+.volver:hover{
+  color:#84C1FD;
+}
+.enviar{
+  margin-top: 15px;
+  height: 30%;
+  width: 20%;
+  background-color: #84C1FD;
+  border: 2px solid #0A559F;
+  cursor: pointer;
+  border-radius: 20px;
+}
+.enviar:hover{
+  color:white;
+  border:none;
+}
+
+/* ------------------------- */
+/* ANIMACIONES */
+/* ------------------------- */
+.popup.active{
+  transform: scale(1);
+  opacity: 1;
+  border: 3px solid #f1f1f1;
+  border-radius: 30px;
+}
+.popup.active .form-container{
+  opacity: 1;
+}
